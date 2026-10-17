@@ -20,47 +20,52 @@ export function DecisionMetrics() {
   const meta = outcomes[0]?.meta;
 
   return (
-    <div className="flex flex-col gap-2 text-body-sm text-fg-muted">
-      <p className="tabular-nums">
-        <span className="text-fg-strong">
-          {Math.round(avg((outcome) => outcome.meta.latencyMs))} ms
-        </span>{' '}
-        average Jev decision ·{' '}
-        <span className="text-fg-strong">
-          {formatUsd(avg((outcome) => outcome.meta.costUsd) * 1000)}
-        </span>{' '}
-        per 1,000 sign-ups · one call answers eight typed questions
-        {meta && !meta.calibrated ? ` · provider ${meta.provider}, probabilities emulated` : ''}
-      </p>
-      <div className="flex flex-wrap items-center gap-3">
-        {data ? (
-          <p className="tabular-nums">
-            Measured on {data.total} annotated profiles:{' '}
-            <span className="text-fg-strong">{formatPercent(data.segmentAccuracy)}</span> segment ·{' '}
-            <span className="text-fg-strong">{formatPercent(data.lightAccuracy)}</span> traffic
-            light
-          </p>
-        ) : (
-          <p>Accuracy not measured yet.</p>
-        )}
-        <Button variant="ghost" onClick={() => mutate()} disabled={isPending}>
-          {isPending ? 'Measuring…' : 'Measure accuracy'}
-        </Button>
-        {isError ? (
-          <span role="alert" className="text-danger">
-            Could not run the evaluation.
-          </span>
+    <details className="group flex flex-col gap-2 text-body-sm text-fg-muted">
+      <summary className="min-h-11 cursor-pointer content-center rounded-sm text-label-md text-fg-strong desktop:min-h-9.5">
+        How Jev is performing
+      </summary>
+      <div className="flex flex-col gap-2 pt-1">
+        <p className="tabular-nums">
+          <span className="text-fg-strong">
+            {Math.round(avg((outcome) => outcome.meta.latencyMs))} ms
+          </span>{' '}
+          average Jev decision ·{' '}
+          <span className="text-fg-strong">
+            {formatUsd(avg((outcome) => outcome.meta.costUsd) * 1000)}
+          </span>{' '}
+          per 1,000 sign-ups · one call answers eight questions
+          {meta && !meta.calibrated ? ' · simulated answers, not real Jev' : ''}
+        </p>
+        <div className="flex flex-wrap items-center gap-3">
+          {data ? (
+            <p className="tabular-nums">
+              Checked against {data.total} people with known answers: right group{' '}
+              <span className="text-fg-strong">{formatPercent(data.segmentAccuracy)}</span> of the
+              time, right next step{' '}
+              <span className="text-fg-strong">{formatPercent(data.lightAccuracy)}</span>
+            </p>
+          ) : (
+            <p>Accuracy not checked yet.</p>
+          )}
+          <Button variant="ghost" onClick={() => mutate()} disabled={isPending}>
+            {isPending ? 'Checking…' : 'Check accuracy'}
+          </Button>
+          {isError ? (
+            <span role="alert" className="text-danger">
+              The accuracy check didn’t finish. Try again in a moment.
+            </span>
+          ) : null}
+        </div>
+        {data?.misses.length ? (
+          <ul className="flex flex-col gap-1 text-caption">
+            {data.misses.map((miss) => (
+              <li key={miss.alias}>
+                {miss.alias}: should be {miss.expected}, Jev said {miss.got}
+              </li>
+            ))}
+          </ul>
         ) : null}
       </div>
-      {data?.misses.length ? (
-        <ul className="flex flex-col gap-1 text-caption">
-          {data.misses.map((miss) => (
-            <li key={miss.alias}>
-              {miss.alias}: expected {miss.expected}, got {miss.got}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
+    </details>
   );
 }
