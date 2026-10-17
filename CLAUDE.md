@@ -83,6 +83,9 @@ boundary when the first protected route exists.
 - Luma is simulated end to end: signed webhooks hit `/api/luma/webhook` (HMAC check, replay guard, server-memory feed
   read by `/api/luma/feed`). `pnpm luma:simulate` sends them; sign-ups replay 30X leads with fictional guest names.
 - Decisions include latency, cost and per-question actions. Overall action follows program confidence (auto >= 0.8, review >= 0.55, otherwise escalate); the role is taken from CRM when known.
+  Profiles 30X marks as "Sin información" never act alone (`reviewReason: 'low_info'`); everything that is not `auto`
+  goes to the review queue. Reasons and recommendations are codes (`config/labels.ts` turns them into text), never prose.
+- `POST /api/segment/batch` decides up to 50 profiles in one request; the UI uses it for "decide all".
 - `POST /api/segment/recalculate` accepts { profile, previous } and returns both outcomes plus changes to role, program, affinity, light and action.
 - `pnpm jev:states` checks all three actions with 30X profiles; `pnpm jev:raw` captures a direct TypeSafe call without keys.
 - The playbook for the challenge is `docs/playbook.md`.

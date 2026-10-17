@@ -10,6 +10,12 @@ export interface GroundTruth {
   infoLevel: 'Alta' | 'Media' | 'Baja';
 }
 
+export interface ThresholdRow {
+  threshold: number;
+  decidedAloneShare: number;
+  accuracyWhenAlone: number | null;
+}
+
 export type EvaluationMode = 'single' | 'consensus';
 
 export interface SegmentationEvaluation {
@@ -19,6 +25,12 @@ export interface SegmentationEvaluation {
   total: number;
   jevCalls: number;
   programAccuracy: number;
+  baselineProgram: ProgramKey;
+  baselineAccuracy: number;
+  reviewCount: { lowConfidence: number; lowInfo: number };
+  lowInfoLowAffinity: { lowInfo: number; alsoLowAffinity: number };
+  thresholds: ThresholdRow[];
+  currentThreshold: number;
   affinityAccuracy: number;
   affinityWithinOneBand: number;
   roleAccuracyKnown: number;
@@ -29,6 +41,7 @@ export interface SegmentationEvaluation {
   programConfusion: Record<ProgramKey, Record<ProgramKey, number>>;
   lightShare: Record<TrafficLight, number>;
   avgLatencyMs: number;
+  medianLatencyMs: number;
   p95LatencyMs: number;
   costPerThousandUsd: number;
   misses: { alias: string; expected: string; got: string; note: string }[];

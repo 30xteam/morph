@@ -1,6 +1,12 @@
 'use client';
 
-import { AFFINITY_LABELS, PROGRAM_LABELS, SEGMENT_LABELS } from '../../config/labels';
+import {
+  AFFINITY_LABELS,
+  describeReason,
+  PROGRAM_LABELS,
+  recommendationTitle,
+  SEGMENT_LABELS,
+} from '../../config/labels';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import type { ProgramKey, SegmentationOutcome } from '../../types/segmentation.types';
 import { ConfidenceBar } from '../confidence-bar';
@@ -59,11 +65,14 @@ export function ProfileDecision({ outcome }: { outcome: SegmentationOutcome }) {
     <section aria-label="Jev decision" className="flex flex-col gap-4">
       <div className="flex flex-col gap-2 rounded-md bg-surface-subtle px-4 py-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-label-md text-fg-strong">{outcome.recommendation.title}</h3>
+          <h3 className="text-label-md text-fg-strong">
+            {recommendationTitle(outcome.recommendation)}
+          </h3>
           <LightBadge light={outcome.light} />
         </div>
-        <p className="text-body-sm text-fg-soft">{outcome.recommendation.detail}</p>
-        <p className="text-caption text-fg-muted">{outcome.reasons.join(' · ')}</p>
+        <p className="text-caption text-fg-muted">
+          {outcome.reasons.map(describeReason).join(' · ')}
+        </p>
       </div>
 
       <dl className="flex flex-col">

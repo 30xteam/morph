@@ -1,4 +1,4 @@
-import type { Profile, Signals } from '../types/segmentation.types';
+import type { Profile, SignalKey, Signals } from '../types/segmentation.types';
 
 const STAGE_HINT_TEXT: Record<NonNullable<Profile['stageHint']>, string> = {
   idea: 'Idea or side project, no product yet',
@@ -27,6 +27,27 @@ export function describeActivity({ signals }: Profile) {
   if (signals.companyRaisedRound) parts.push('company just raised a round and is hiring');
   if (signals.daysSinceLastActivity > 30) parts.push('inactive for over a month');
   return parts.join('; ');
+}
+
+const IS_MISSING: Record<SignalKey, (profile: Profile) => boolean> = {
+  relation: () => false,
+  crmStage: (profile) => profile.crm.stage === 'Sin etapa',
+  role: (profile) => profile.role === 'Sin dato de rol',
+  pain: (profile) => profile.pain === 'No declaró ningún dolor',
+  goal: () => false,
+  topics: (profile) => profile.topics.length === 0,
+  country: (profile) => profile.country === 'Sin dato',
+  currentProgram: (profile) => profile.crm.program === 'Sin programa',
+};
+
+export const SIGNAL_KEYS = Object.keys(IS_MISSING) as SignalKey[];
+
+export function missingSignals(profile: Profile) {
+  return SIGNAL_KEYS.filter((key) => IS_MISSING[key](profile));
+}
+
+export function hasLowInfo(profile: Profile) {
+  return profile.infoAvailable === 'Sin información';
 }
 
 export function relationLabel(profile: Profile) {

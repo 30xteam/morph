@@ -4,6 +4,7 @@ import type {
   Decision,
   DecisionAction,
   ProgramKey,
+  ReviewReason,
   SegmentKey,
 } from '../types/segmentation.types';
 import { THRESHOLDS } from './thresholds';
@@ -14,6 +15,7 @@ interface ActionInput {
   affinity: Decision<AffinityBand>;
   salesReady: number;
   wantsLearning: number;
+  lowInfo: boolean;
 }
 
 export function yesNoConfidence(probability: number) {
@@ -34,5 +36,9 @@ export function decideAction(input: ActionInput) {
     salesReady: actionFor(yesNoConfidence(input.salesReady)),
     wantsLearning: actionFor(yesNoConfidence(input.wantsLearning)),
   };
-  return { action: questionActions.program, questionActions };
+  const byConfidence = questionActions.program;
+  const action: DecisionAction = input.lowInfo && byConfidence === 'auto' ? 'review' : byConfidence;
+  let reviewReason: ReviewReason | null = null;
+  if (action !== 'auto') reviewReason = input.lowInfo ? 'low_info' : 'low_confidence';
+  return { action, questionActions, reviewReason };
 }

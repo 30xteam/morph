@@ -3,6 +3,7 @@ import { createHttpClient } from '@/core/http';
 import type { EvaluationMode, SegmentationEvaluation } from '../types/evaluation.types';
 import type { LumaFeed } from '../types/luma-feed.types';
 import type {
+  BatchItem,
   Profile,
   RecalculateResult,
   SegmentationOutcome,
@@ -15,6 +16,13 @@ export const SegmentationService = {
   async segment(profile: Profile, trigger: Trigger) {
     const { data } = await api.post<SegmentationOutcome>('/api/segment', { profile, trigger });
     return data;
+  },
+  async segmentBatch(profiles: Profile[], trigger: Trigger) {
+    const { data } = await api.post<{ items: BatchItem[] }>('/api/segment/batch', {
+      profiles,
+      trigger,
+    });
+    return data.items;
   },
   async recalculate(profile: Profile, previous: SegmentationOutcome) {
     const { data } = await api.post<RecalculateResult>('/api/segment/recalculate', {

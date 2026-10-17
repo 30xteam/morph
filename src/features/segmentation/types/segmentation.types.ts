@@ -38,6 +38,33 @@ export type Trigger =
 
 export type RecommendationKind = 'sales_conversation' | 'nurture' | 'event' | 'human_review';
 
+export type ReviewReason = 'low_confidence' | 'low_info';
+
+export type SignalKey =
+  | 'relation'
+  | 'crmStage'
+  | 'role'
+  | 'pain'
+  | 'goal'
+  | 'topics'
+  | 'country'
+  | 'currentProgram';
+
+export type ReasonCode =
+  | 'no_program'
+  | 'low_affinity'
+  | 'program_unsure'
+  | 'medium_affinity'
+  | 'not_ready'
+  | 'may_not_decide'
+  | 'program_check'
+  | 'strong_fit';
+
+export interface Reason {
+  code: ReasonCode;
+  probability?: number;
+}
+
 export interface Decision<T> {
   value: T;
   probability: number;
@@ -46,8 +73,7 @@ export interface Decision<T> {
 
 export interface Recommendation {
   kind: RecommendationKind;
-  title: string;
-  detail: string;
+  program: ProgramKey;
 }
 
 export interface DecisionMeta {
@@ -73,7 +99,9 @@ export interface SegmentationOutcome {
   action: DecisionAction;
   questionActions: Record<ActionQuestion, DecisionAction>;
   needsReview: boolean;
-  reasons: string[];
+  reviewReason: ReviewReason | null;
+  missingSignals: SignalKey[];
+  reasons: Reason[];
   recommendation: Recommendation;
   meta: DecisionMeta;
 }
@@ -91,3 +119,5 @@ export interface RecalculateResult {
     action: boolean;
   };
 }
+
+export type BatchItem = { outcome: SegmentationOutcome } | { profileId: string; error: string };
