@@ -37,6 +37,7 @@ export function segmentationMetrics(
   let priorityChanges = 0;
   let reevaluations = 0;
   let leads = 0;
+  const activity = { events: 0, opens: 0, clicks: 0, visits: 0 };
   for (const profile of scoped) {
     const decisions = history[profile.id] ?? [];
     const latest = decisions.at(-1);
@@ -48,6 +49,10 @@ export function segmentationMetrics(
     }
     if (profile.relation === 'lead') leads += 1;
     const signals = profile.signals;
+    if (signals.eventsAttended > 0) activity.events += 1;
+    if (signals.emailsOpened > 0) activity.opens += 1;
+    if (signals.emailsClicked > 0) activity.clicks += 1;
+    if (signals.programPageVisits > 0) activity.visits += 1;
     if (
       signals.eventsAttended +
         signals.emailsOpened +
@@ -64,6 +69,19 @@ export function segmentationMetrics(
   }
   const evaluated = scoped.length - priorities.pending;
   const latency = runs.map((run) => run.meta.latencyMs);
+  const timestamps = new Map<string, number>();
+  for (const run of runs) {
+    const timestamp = run.meta.decidedAt;
+    if (Number.isFinite(Date.parse(timestamp)))
+      timestamps.set(timestamp, (timestamps.get(timestamp) ?? 0) + 1);
+  }
+  let cumulative = 0;
+  const timeline = [...timestamps.entries()]
+    .toSorted(([a], [b]) => Date.parse(a) - Date.parse(b))
+    .map(([at, count]) => {
+      cumulative += count;
+      return { at, count: cumulative };
+    });
   return {
     total: scoped.length,
     leads,
@@ -76,6 +94,8 @@ export function segmentationMetrics(
     reviewed,
     openReviews: reviewRequired - reviewed,
     engaged,
+    activity,
+    timeline,
     priorityChanges,
     reevaluations,
     runs: runs.length,

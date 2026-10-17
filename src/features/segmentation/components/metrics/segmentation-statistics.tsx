@@ -7,8 +7,11 @@ import { segmentationMetrics } from '../../services/segmentation-metrics';
 import type { MetricsSource } from '../../services/segmentation-metrics';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import type { ProgramKey } from '../../types/segmentation.types';
+import { ActivityChart } from './activity-chart';
+import { DecisionTimeline } from './decision-timeline';
 import { MetricBreakdown } from './metric-breakdown';
 import { MetricsRuntime } from './metrics-runtime';
+import { PriorityDonut } from './priority-donut';
 
 export function SegmentationStatistics() {
   const profiles = useSegmentationStore((state) => state.profiles);
@@ -43,17 +46,6 @@ export function SegmentationStatistics() {
       label: 'Profiles with activity',
       value: metrics.engaged,
       detail: 'At least one event, email open/click or program-page visit',
-    },
-  ];
-  const priorityRows = [
-    { key: 'high', label: 'P1 · High', count: metrics.priorities.high, color: 'bg-success' },
-    { key: 'medium', label: 'P2 · Medium', count: metrics.priorities.medium, color: 'bg-warning' },
-    { key: 'low', label: 'P3 · Low', count: metrics.priorities.low, color: 'bg-danger' },
-    {
-      key: 'pending',
-      label: 'Not evaluated',
-      count: metrics.priorities.pending,
-      color: 'bg-fg-muted',
     },
   ];
   const programRows = (Object.keys(PROGRAM_LABELS) as ProgramKey[]).map((key) => ({
@@ -109,18 +101,17 @@ export function SegmentationStatistics() {
         </p>
       ) : null}
       <div className="grid gap-4 desktop:grid-cols-2">
-        <MetricBreakdown
-          title="Commercial priorities"
-          description={`Latest decision per person; denominator: all ${metrics.total} loaded profiles in this scope.`}
-          denominator={metrics.total}
-          rows={priorityRows}
-        />
+        <PriorityDonut metrics={metrics} />
         <MetricBreakdown
           title="Recommended programs"
           description={`Latest Jev recommendation; denominator: ${metrics.evaluated} evaluated profiles. CRM program assignments are excluded.`}
           denominator={metrics.evaluated}
           rows={programRows}
         />
+      </div>
+      <div className="grid gap-4 desktop:grid-cols-2">
+        <ActivityChart metrics={metrics} />
+        <DecisionTimeline metrics={metrics} />
       </div>
       <MetricsRuntime metrics={metrics} />
       <p className="text-caption text-fg-muted">
