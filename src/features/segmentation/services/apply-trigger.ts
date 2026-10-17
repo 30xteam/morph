@@ -1,26 +1,16 @@
-import { COMPANY_SIZES } from '../types/profile.schema';
 import type { Profile, Trigger } from '../types/segmentation.types';
 
-const ROLE_LADDER: { match: RegExp; next: string }[] = [
-  { match: /student|graduate|intern|bootcamp/i, next: 'Junior Data Analyst' },
-  { match: /investor|venture|fund|angel/i, next: 'Partner at a venture fund' },
-  { match: /founder|ceo|owner|managing/i, next: 'Founder & CEO' },
-  { match: /director|head|chief/i, next: 'Chief Operating Officer' },
-  { match: /lead|manager/i, next: 'Director of Operations' },
-];
-
-function promote(role: string) {
-  return ROLE_LADDER.find(({ match }) => match.test(role))?.next ?? 'Team Lead';
-}
-
-function growCompany(size: Profile['companySize']) {
-  const index = COMPANY_SIZES.indexOf(size);
-  return COMPANY_SIZES[Math.min(index + 1, COMPANY_SIZES.length - 1)] ?? size;
-}
+const ROLE_LADDER: Record<string, string> = {
+  'Sin dato de rol': 'Gerente o jefe de área',
+  'Perfil técnico (ingeniería, datos, producto)': 'Gerente o jefe de área',
+  'Gerente o jefe de área': 'Director, VP o C-level (no dueño)',
+  'Líder comercial o de ventas': 'Director, VP o C-level (no dueño)',
+  'Director, VP o C-level (no dueño)': 'Fundador, socio o CEO',
+  'Fundador, socio o CEO': 'Fundador, socio o CEO',
+};
 
 export type ActivityTrigger = Extract<Trigger, 'attended_event' | 'role_change' | 'funding_round'>;
 
-/** Simulates the activity that, in production, would arrive from Luma, the CRM or LinkedIn. */
 export function applyTrigger(profile: Profile, trigger: ActivityTrigger): Profile {
   const signals = { ...profile.signals, daysSinceLastActivity: 0 };
 
@@ -40,14 +30,10 @@ export function applyTrigger(profile: Profile, trigger: ActivityTrigger): Profil
   if (trigger === 'role_change') {
     return {
       ...profile,
-      role: promote(profile.role),
+      role: ROLE_LADDER[profile.role] ?? 'Gerente o jefe de área',
       signals: { ...signals, roleChangedRecently: true },
     };
   }
 
-  return {
-    ...profile,
-    companySize: growCompany(profile.companySize),
-    signals: { ...signals, companyRaisedRound: true },
-  };
+  return { ...profile, signals: { ...signals, companyRaisedRound: true } };
 }

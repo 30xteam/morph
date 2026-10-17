@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { PROFILES_MOCK } from '../mocks/profiles.mock';
+import { CRM_SAMPLE } from '../data/crm-sample';
 import type { Profile, ReviewVerdict, SegmentationOutcome } from '../types/segmentation.types';
 
 interface SegmentationState {
@@ -16,7 +16,7 @@ interface SegmentationState {
 }
 
 export const useSegmentationStore = create<SegmentationState>()((set) => ({
-  profiles: PROFILES_MOCK,
+  profiles: CRM_SAMPLE,
   history: {},
   reviews: {},
   pendingIds: [],

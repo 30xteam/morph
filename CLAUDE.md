@@ -66,29 +66,22 @@ boundary when the first protected route exists.
 - **Impeccable:** `impeccable` (design quality + detector hook). Check pages with
   `.claude/skills/impeccable/scripts/impeccable detect http://localhost:3000`.
 
-## Temporary: dashboard preview (delete when the real product exists)
-
-`/preview` is a throwaway dashboard with synthetic data. To remove it completely:
-
-1. Delete `src/app/preview/` and `src/features/dashboard-preview/`.
-2. Remove the `<Button asChild>` link to `/preview` in `src/features/coming-soon/components/coming-soon.tsx` and `previewCta` in `src/core/config/site.ts`.
-   Keep `src/ui/button/`; it's the shared button primitive (`<Button asChild variant="primary"><Link …/></Button>`).
-
 ## Jev (30X challenge prototype)
 
+- The app is one product at `/`: "Live segments" (`src/features/segmentation/`). `/preview` and `/segmentation` redirect
+  to `/` (`next.config.ts`). Its shell (`components/shell/`) keeps the look of the original preview dashboard.
 - `src/core/jev/` is the server-only Jev client: `decide({ state, questions })` routes to the adapter picked by
   `JEV_PROVIDER` (`mock` default, `typesafe` real Jev at `/v1/systemone`, `openrouter` LLM emulation, not calibrated).
-- `src/features/segmentation/` is the whole product: "Live segments" at `/segmentation` (`POST /api/segment`,
-  `/api/segment/evaluate`, `/api/luma/webhook`). Questions, traffic-light thresholds and recommendations live in
-  its `config/`. Data is simulated only; never add real personal data.
-- Evaluation set: `src/features/segmentation/evaluation/profiles.json` + `answers.json` (ground truth, server-only,
-  never sent to Jev). Run `pnpm jev:smoke | jev:eval [--consensus] | jev:simulate` with the dev server up;
-  reports go to `docs/evaluation/`.
-- Its UI copies the `/preview` dashboard shell into `components/shell/` (no cross-feature imports). Keep it visually
-  identical to `/preview` and never edit `dashboard-preview`, the home page or `src/ui` for this feature.
+- Data: 30X's anonymized sample (697 profiles, categories only) in `data/profiles-30x.json`; the dashboard starts
+  with `data/crm-sample.json`. 30X's own labels (suggested program, affinity) live in `data/labels-30x.json`,
+  are server-only and are never sent to Jev. Recommendations name real programs: AI Sales, Inmersión Ejecutiva,
+  Sales Machine, Hardcore AI, Achievers.
+- If the CRM already has a fact (the role), use it in code; ask Jev only what is unknown. Jev cannot count or
+  compare dates either: turn counters into categories first (`services/profile-state.ts`).
+- Evaluation: `pnpm jev:smoke | jev:eval [--consensus] [--limit N] | jev:simulate` with the dev server up; reports go
+  to `docs/evaluation/`.
 - Luma is simulated end to end: signed webhooks hit `/api/luma/webhook` (HMAC check, replay guard, server-memory feed
-  read by `/api/luma/feed`). `pnpm luma:simulate` sends them from the terminal. Guests are fictional (`@example.com`).
-- Jev cannot count or compare dates: turn counters into categories in code first (`services/profile-state.ts`).
+  read by `/api/luma/feed`). `pnpm luma:simulate` sends them; sign-ups replay 30X leads with fictional guest names.
 - The playbook for the challenge is `docs/playbook.md`.
 
 ## No comments

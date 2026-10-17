@@ -1,68 +1,61 @@
 import type {
-  Level,
+  AffinityBand,
+  Profile,
+  ProgramKey,
   Recommendation,
   SegmentKey,
-  StageKey,
   TrafficLight,
 } from '../types/segmentation.types';
-import { MATURITY_LABELS, SEGMENT_LABELS, STAGE_LABELS, URGENCY_LABELS } from './labels';
+import { AFFINITY_LABELS, PROGRAM_LABELS, SEGMENT_LABELS } from './labels';
 import { THRESHOLDS } from './thresholds';
 
 interface RecommendationInput {
   light: TrafficLight;
   segment: SegmentKey;
-  stage: StageKey;
-  maturity: Level;
-  urgency: Level;
+  program: ProgramKey;
+  affinity: AffinityBand;
   wantsLearning: number;
-  activity: string;
+  profile: Profile;
 }
 
-const TRACK_BY_MATURITY: Record<Level, string> = {
-  0: 'AI foundations',
-  1: 'Applied AI for teams',
-  2: 'Advanced AI in production',
-};
+function context(profile: Profile) {
+  const parts = [`goal: ${profile.goal}`];
+  if (profile.pain !== 'No declaró ningún dolor') parts.push(`pain: ${profile.pain}`);
+  if (profile.topics.length) parts.push(`topics: ${profile.topics.join(', ')}`);
+  return parts.join(' · ');
+}
 
 export function recommend(input: RecommendationInput): Recommendation {
-  const { light, segment, stage, maturity, urgency, wantsLearning, activity } = input;
-  const track = TRACK_BY_MATURITY[maturity];
+  const { light, segment, program, affinity, wantsLearning, profile } = input;
+  const name = PROGRAM_LABELS[program];
 
   if (light === 'red') {
     return {
       kind: 'human_review',
-      title: 'A person reviews this sign-up',
-      detail: 'Jev is not confident enough, or the person does not fit. No automatic outreach.',
+      title: 'A person reviews this profile',
+      detail: `No confident program match yet. ${context(profile)}.`,
     };
   }
 
   if (light === 'green') {
     return {
       kind: 'sales_conversation',
-      title: 'Hand to a seller today',
-      detail: `${SEGMENT_LABELS[segment]} at a ${STAGE_LABELS[stage].toLowerCase()} company · ${MATURITY_LABELS[maturity].toLowerCase()} AI maturity · ${URGENCY_LABELS[urgency].toLowerCase()} urgency. Why now: ${activity}. Open with the ${track} track for their team.`,
-    };
-  }
-
-  if (segment === 'investor') {
-    return {
-      kind: 'event',
-      title: 'Invite to the next founders & investors session',
-      detail: 'Networking value comes first; no sales outreach.',
+      title: `Hand to a seller today: offer ${name}`,
+      detail: `${SEGMENT_LABELS[segment]} · ${AFFINITY_LABELS[affinity].toLowerCase()} affinity with ${name}. ${context(profile)}.`,
     };
   }
 
   if (wantsLearning >= THRESHOLDS.wantsLearning) {
     return {
-      kind: 'program',
-      title: `Educational sequence: ${track} program`,
-      detail: 'Send the syllabus and next cohort date; re-decide when their activity changes.',
+      kind: 'event',
+      title: `Invite to a free session related to ${name}`,
+      detail: `Learning intent first: free session and content, then re-decide when activity changes. ${context(profile)}.`,
     };
   }
 
   return {
-    kind: 'content',
-    title: `Educational sequence: ${track} content`,
-    detail: 'Nurture with content matched to their AI maturity until intent changes.',
+    kind: 'nurture',
+    title: `Nurture toward ${name}`,
+    detail: `Send ${name} content and case studies until intent grows. ${context(profile)}.`,
   };
 }

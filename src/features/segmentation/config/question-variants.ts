@@ -7,76 +7,59 @@ const SECOND_PHRASING = {
     type: 'choice',
     instructions: 'What is this person’s position in their organization?',
     criteria: {
-      founder: 'Runs or owns the business: founder, co-founder, CEO, owner, managing partner',
-      team_lead: 'Manages people inside a company: head of an area, director, manager, team lead',
-      individual_contributor:
-        'Hands-on professional without direct reports: engineer, analyst, designer, specialist, sales rep',
-      student:
-        'Still studying or starting a career: student, intern, bootcamp learner, new graduate',
-      investor: 'Invests money in companies: angel, venture capital partner, fund associate',
-      other: null,
+      founder: 'Owns or runs the business: founder, partner, CEO',
+      executive: 'Senior executive who is not the owner: director, VP, C-level',
+      sales_leader: 'Leads the commercial or sales team',
+      manager: 'Manages an area or department',
+      technical: 'Hands-on technical profile: engineering, data or product',
+      unknown: 'The role is not known',
     },
   },
-  companyStage: {
+  program: {
     type: 'choice',
-    instructions: 'How far along is this person’s company?',
+    instructions: 'Which program should 30X offer this person?',
     criteria: {
-      idea: 'Only an idea or side project, no customers, one person',
-      early_stage:
-        'Young or small business with its first customers, fewer than 50 people, seed money',
-      scale_up: 'Growing quickly with funding (series A or later), 50 to 200 people, hiring',
-      corporate: 'Large and established organization, hundreds or thousands of employees',
-      other: null,
+      ai_sales: 'Wants to sell more using AI and automate the sales process',
+      inmersion_ejecutiva:
+        'Leader who wants strategy, leadership, international expansion, capital or a peer network',
+      sales_machine: 'Needs a structured sales process instead of referrals and manual prospecting',
+      hardcore_ai: 'Technical person who wants to build and automate with AI',
+      achievers: 'Owner with a concrete business pain who wants to transform the company',
+      none: 'Not enough information or need to recommend any program',
     },
   },
-  aiMaturity: {
+  affinity: {
     type: 'score',
-    instructions: 'How much does this person’s company already use AI?',
+    instructions: 'How strong is the match between this person and that program?',
     criteria: [
-      'Not at all yet, does things by hand, just starting to look at AI',
-      'A few tools or pilots used by some people',
-      'AI runs in production as part of how the company works every day',
-    ],
-  },
-  urgency: {
-    type: 'score',
-    instructions: 'When does this person need a solution?',
-    criteria: [
-      'No timeline, maybe someday, just curious',
-      'Within the next months or next year, still comparing',
-      'Right now or this quarter, with a deadline or approved budget',
+      'Weak or unknown',
+      'Partial',
+      'Clear',
+      'Excellent, with pain, goal and decision power',
     ],
   },
   salesReady: {
     type: 'noul',
     instructions: 'Would a sales call with this person today be welcome and productive?',
     criteria: {
-      true: 'Approved budget, a concrete project and a deadline, asks for training for the team',
-      false: 'No budget or project, only learning alone, networking or browsing',
-    },
-  },
-  wantsLearning: {
-    type: 'noul',
-    instructions: 'Is learning or training the main reason this person signed up?',
-    criteria: {
-      true: 'Wants a course, a program, a certification or to train skills',
-      false: 'Came to network, find deals, find clients or meet founders',
+      true: 'Active opportunity, clear need and recent engagement',
+      false: 'Cold lead, no stated need or no recent engagement',
     },
   },
   decisionPower: {
     type: 'noul',
-    instructions: 'Does this person control a budget to buy training for others?',
+    instructions: 'Does this person control the budget to buy the program?',
     criteria: {
-      true: 'Owner, founder, executive or manager with a team and budget',
-      false: 'Works without a team, studies, invests or sells to others',
+      true: 'Owner, executive or team leader',
+      false: 'Role unknown or individual contributor',
     },
   },
-  fitsOffer: {
+  wantsLearning: {
     type: 'noul',
-    instructions: 'Is this person a good match for AI events, programs and content?',
+    instructions: 'Is learning the main reason this person came to 30X?',
     criteria: {
-      true: 'Wants to use, learn or adopt AI personally or with a team',
-      false: 'Only wants to sell to attendees, or gave no real reason to attend',
+      true: 'Wants to train, study or learn AI',
+      false: 'Wants business results: sales, capital, expansion',
     },
   },
 } satisfies JevQuestions;
@@ -84,53 +67,36 @@ const SECOND_PHRASING = {
 const THIRD_PHRASING = {
   segment: {
     type: 'choice',
-    instructions: 'Classify the sign-up by role.',
+    instructions: 'Classify the person by role.',
     criteria: {
-      founder: 'Top decision maker of the business (founder, CEO, owner)',
-      team_lead: 'Middle management that leads a team or department',
-      individual_contributor: 'Individual professional who does the work directly',
-      student: 'Learner at the start of their career',
-      investor: 'Capital provider looking at startups',
-      other: null,
+      founder: 'Founder or CEO',
+      executive: 'Executive',
+      sales_leader: 'Sales leader',
+      manager: 'Manager',
+      technical: 'Technical',
+      unknown: 'Unknown',
     },
   },
-  companyStage: {
+  program: {
     type: 'choice',
-    instructions: 'Classify the company by maturity.',
+    instructions: 'Pick the 30X program.',
     criteria: {
-      idea: 'Not a company yet',
-      early_stage: 'Small company with its first clients',
-      scale_up: 'Funded company growing fast',
-      corporate: 'Large established company',
-      other: null,
+      ai_sales: 'AI Sales',
+      inmersion_ejecutiva: 'Inmersión Ejecutiva',
+      sales_machine: 'Sales Machine',
+      hardcore_ai: 'Hardcore AI',
+      achievers: 'Achievers',
+      none: 'None',
     },
   },
-  aiMaturity: {
+  affinity: {
     type: 'score',
-    instructions: 'Rate the company’s AI adoption.',
-    criteria: ['None', 'Pilots', 'Production'],
+    instructions: 'Rate the fit.',
+    criteria: ['0-3', '4-6', '7-8', '9-10'],
   },
-  urgency: {
-    type: 'score',
-    instructions: 'Rate how soon they need help.',
-    criteria: ['Someday', 'This year', 'Now'],
-  },
-  salesReady: {
-    type: 'noul',
-    instructions: 'Is this a qualified sales lead right now?',
-  },
-  wantsLearning: {
-    type: 'noul',
-    instructions: 'Is the person mainly here to learn?',
-  },
-  decisionPower: {
-    type: 'noul',
-    instructions: 'Can this person sign off on a purchase?',
-  },
-  fitsOffer: {
-    type: 'noul',
-    instructions: 'Does this person want AI learning or AI adoption at work?',
-  },
+  salesReady: { type: 'noul', instructions: 'Is this a qualified sales lead right now?' },
+  decisionPower: { type: 'noul', instructions: 'Can this person sign off on the purchase?' },
+  wantsLearning: { type: 'noul', instructions: 'Is the person mainly here to learn?' },
 } satisfies JevQuestions;
 
 export const QUESTION_VARIANTS: JevQuestions[] = [

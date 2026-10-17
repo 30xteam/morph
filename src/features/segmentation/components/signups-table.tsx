@@ -4,7 +4,7 @@ import { show } from '@ebay/nice-modal-react';
 
 import { cx } from '@/core/cx';
 
-import { RECOMMENDATION_LABELS, SEGMENT_LABELS } from '../config/labels';
+import { PROGRAM_LABELS, RECOMMENDATION_LABELS } from '../config/labels';
 import { latestOutcome, useSegmentationStore } from '../store/segmentation-store';
 import type { SegmentationOutcome } from '../types/segmentation.types';
 import { ConfidenceBar } from './confidence-bar';
@@ -14,9 +14,9 @@ import { ProfileDialog } from './profile/profile-dialog';
 const HEAD = 'px-3 py-2 text-left text-caption text-fg-muted';
 const CELL = 'px-3 py-3 align-middle';
 
-function segmentText(pending: boolean, outcome: SegmentationOutcome | undefined) {
+function programText(pending: boolean, outcome: SegmentationOutcome | undefined) {
   if (pending) return 'Deciding…';
-  return outcome ? SEGMENT_LABELS[outcome.segment.value] : '—';
+  return outcome ? PROGRAM_LABELS[outcome.program.value] : '—';
 }
 
 export function SignupsTable() {
@@ -41,7 +41,7 @@ export function SignupsTable() {
                 Person
               </th>
               <th scope="col" className={HEAD}>
-                Segment
+                Suggested program
               </th>
               <th scope="col" className={HEAD}>
                 Traffic light
@@ -70,22 +70,22 @@ export function SignupsTable() {
                       className="flex min-h-11 flex-col items-start rounded-sm text-left focus-visible:outline-2 focus-visible:outline-primary"
                     >
                       <span className="text-label-sm whitespace-nowrap text-fg-strong">
-                        {profile.role}
+                        {profile.alias}
                       </span>
                       <span className="text-caption whitespace-nowrap text-fg-muted">
-                        {profile.company} · {profile.alias}
+                        {profile.role} · {profile.source === 'luma' ? 'Luma' : profile.crm.status}
                       </span>
                     </button>
                   </th>
                   <td className={cx(CELL, 'whitespace-nowrap text-fg-soft')}>
-                    {segmentText(pendingIds.includes(profile.id), outcome)}
+                    {programText(pendingIds.includes(profile.id), outcome)}
                   </td>
                   <td className={CELL}>{outcome ? <LightBadge light={outcome.light} /> : null}</td>
                   <td className={CELL}>
                     {outcome ? (
                       <ConfidenceBar
-                        value={outcome.segment.probability}
-                        label={`${profile.alias} segment confidence`}
+                        value={outcome.program.probability}
+                        label={`${profile.alias} program confidence`}
                       />
                     ) : null}
                   </td>

@@ -31,14 +31,6 @@ export function SegmentationSidebar() {
           </Link>
         ))}
       </nav>
-
-      <Link
-        href="/"
-        className="mt-auto flex h-8 items-center gap-2.5 rounded-sm px-2 text-body-sm text-fg-muted transition-colors duration-150 hover:bg-state-hover hover:text-fg-strong"
-      >
-        <Icon name="arrowLeft" />
-        Back to coming soon
-      </Link>
     </aside>
   );
 }

@@ -29,19 +29,22 @@ export function DecisionMetrics() {
         <span className="text-fg-strong">
           {formatUsd(avg((outcome) => outcome.meta.costUsd) * 1000)}
         </span>{' '}
-        per 1,000 sign-ups · one call answers eight typed questions
+        per 1,000 sign-ups · one call answers six typed questions
         {meta && !meta.calibrated ? ` · provider ${meta.provider}, probabilities emulated` : ''}
       </p>
       <div className="flex flex-wrap items-center gap-3">
         {data ? (
           <p className="tabular-nums">
-            Measured on {data.total} annotated profiles:{' '}
-            <span className="text-fg-strong">{formatPercent(data.segmentAccuracy)}</span> segment ·{' '}
-            <span className="text-fg-strong">{formatPercent(data.lightAccuracy)}</span> traffic
-            light
+            Against 30X’s own labels on {data.total} profiles:{' '}
+            <span className="text-fg-strong">{formatPercent(data.programAccuracy)}</span> same
+            program ·{' '}
+            <span className="text-fg-strong">{formatPercent(data.affinityWithinOneBand)}</span>{' '}
+            affinity within one band ·{' '}
+            <span className="text-fg-strong">{formatPercent(data.decidedAloneShare)}</span> decided
+            without a person
           </p>
         ) : (
-          <p>Accuracy not measured yet.</p>
+          <p>Accuracy against 30X’s labels not measured yet.</p>
         )}
         <Button variant="ghost" onClick={() => mutate()} disabled={isPending}>
           {isPending ? 'Measuring…' : 'Measure accuracy'}
@@ -54,7 +57,7 @@ export function DecisionMetrics() {
       </div>
       {data?.misses.length ? (
         <ul className="flex flex-col gap-1 text-caption">
-          {data.misses.map((miss) => (
+          {data.misses.slice(0, 8).map((miss) => (
             <li key={miss.alias}>
               {miss.alias}: expected {miss.expected}, got {miss.got}
             </li>

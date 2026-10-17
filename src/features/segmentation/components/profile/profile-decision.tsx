@@ -1,12 +1,12 @@
 'use client';
 
-import { MATURITY_LABELS, SEGMENT_LABELS, STAGE_LABELS, URGENCY_LABELS } from '../../config/labels';
+import { AFFINITY_LABELS, PROGRAM_LABELS, SEGMENT_LABELS } from '../../config/labels';
 import { useSegmentationStore } from '../../store/segmentation-store';
-import type { SegmentationOutcome, SegmentKey } from '../../types/segmentation.types';
+import type { ProgramKey, SegmentationOutcome } from '../../types/segmentation.types';
 import { ConfidenceBar } from '../confidence-bar';
 import { LightBadge } from '../light-badge';
 
-const SEGMENT_KEYS = Object.keys(SEGMENT_LABELS) as SegmentKey[];
+const PROGRAM_KEYS = Object.keys(PROGRAM_LABELS) as ProgramKey[];
 
 function yesNo(probability: number) {
   return probability >= 0.5 ? 'Yes' : 'No';
@@ -18,28 +18,22 @@ export function ProfileDecision({ outcome }: { outcome: SegmentationOutcome }) {
 
   const answers = [
     {
-      question: 'Segment',
+      question: 'Program',
+      type: 'choice',
+      answer: PROGRAM_LABELS[outcome.program.value],
+      p: outcome.program.probability,
+    },
+    {
+      question: 'Affinity',
+      type: 'score',
+      answer: AFFINITY_LABELS[outcome.affinity.value],
+      p: outcome.affinity.probability,
+    },
+    {
+      question: 'Role',
       type: 'choice',
       answer: SEGMENT_LABELS[outcome.segment.value],
       p: outcome.segment.probability,
-    },
-    {
-      question: 'Company stage',
-      type: 'choice',
-      answer: STAGE_LABELS[outcome.companyStage.value],
-      p: outcome.companyStage.probability,
-    },
-    {
-      question: 'AI maturity',
-      type: 'score',
-      answer: MATURITY_LABELS[outcome.aiMaturity.value],
-      p: outcome.aiMaturity.probability,
-    },
-    {
-      question: 'Urgency',
-      type: 'score',
-      answer: URGENCY_LABELS[outcome.urgency.value],
-      p: outcome.urgency.probability,
     },
     {
       question: 'Ready to buy',
@@ -48,16 +42,10 @@ export function ProfileDecision({ outcome }: { outcome: SegmentationOutcome }) {
       p: outcome.salesReady,
     },
     {
-      question: 'Can decide a purchase',
+      question: 'Can decide the purchase',
       type: 'noul',
       answer: yesNo(outcome.decisionPower),
       p: outcome.decisionPower,
-    },
-    {
-      question: 'Fits what 30X offers',
-      type: 'noul',
-      answer: yesNo(outcome.fitsOffer),
-      p: outcome.fitsOffer,
     },
     {
       question: 'Wants to learn',
@@ -98,24 +86,24 @@ export function ProfileDecision({ outcome }: { outcome: SegmentationOutcome }) {
       {outcome.needsReview ? (
         <label className="flex flex-col gap-1 text-caption text-fg-muted">
           {verdict?.verdict === 'corrected'
-            ? `Corrected to ${SEGMENT_LABELS[verdict.segment]}`
-            : 'Correct the segment if Jev got it wrong'}
+            ? `Corrected to ${PROGRAM_LABELS[verdict.program]}`
+            : 'Correct the program if Jev got it wrong'}
           <select
             defaultValue=""
             onChange={(event) =>
               review(outcome.profileId, {
                 verdict: 'corrected',
-                segment: event.target.value as SegmentKey,
+                program: event.target.value as ProgramKey,
               })
             }
             className="h-11 w-full max-w-xs rounded-input border border-border-input bg-surface px-2 text-body-sm text-fg desktop:h-9.5"
           >
             <option value="" disabled>
-              Choose a segment…
+              Choose a program…
             </option>
-            {SEGMENT_KEYS.map((key) => (
+            {PROGRAM_KEYS.map((key) => (
               <option key={key} value={key}>
-                {SEGMENT_LABELS[key]}
+                {PROGRAM_LABELS[key]}
               </option>
             ))}
           </select>

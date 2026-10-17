@@ -5,17 +5,18 @@ The visual design is driven entirely by [`DESIGN.md`](./DESIGN.md).
 
 ## 30X challenge: Live segments
 
-A working prototype for the 30X Jev challenge (Commercial area). Every Luma sign-up is sent to
-[Jev](https://typesafe.ai), TypeSafe's typed decision model, with eight typed questions in one call
-(segment, company stage, AI maturity, urgency, ready to buy, decision power, fit with 30X,
-learning intent). Code turns the answers into a traffic light: **green** goes to a seller with a
-summary, **yellow** enters an educational sequence, **red** is reviewed by a person. The segment
-is re-decided whenever the person attends another event, changes role or their company raises a
-round.
+A working prototype for the 30X Jev challenge (Commercial area), served at `/`. It runs on 30X's
+anonymized sample of 697 real profiles (categories only). For each one, [Jev](https://typesafe.ai),
+TypeSafe's typed decision model, answers six typed questions in one call: which 30X program fits
+(AI Sales, Inmersión Ejecutiva, Sales Machine, Hardcore AI, Achievers or none), affinity, role when
+the CRM does not have it, ready to buy, decision power and learning intent. Code turns the answers
+into a traffic light: **green** goes to a seller with the program to offer, **yellow** gets a
+nurture sequence, **red** is reviewed by a person. Decisions are re-made when the person checks in
+at an event, changes role or their company raises a round.
 
-- Demo: `/segmentation` · Playbook: [`docs/playbook.md`](./docs/playbook.md)
+- App: `/` (`/preview` and `/segmentation` redirect there) · Playbook: [`docs/playbook.md`](./docs/playbook.md)
 - APIs: `POST /api/segment` (`{ profile, trigger }`), `POST /api/segment/evaluate` (`{ mode:
-  'single' | 'consensus' }`, 60 annotated profiles), `POST /api/segment/simulate` (`{ days }`).
+  'single' | 'consensus', limit? }`, 697 profiles vs 30X's own labels), `POST /api/segment/simulate` (`{ days }`).
 - **Luma, simulated end to end (no Luma account needed):** `POST /api/luma/webhook` behaves like a
   production Luma webhook. It verifies the HMAC `webhook-signature` (`t=…,v1=…` over
   `timestamp.body`, secret `LUMA_WEBHOOK_SECRET`), rejects forged or stale requests (401), ignores
@@ -28,7 +29,7 @@ round.
 - Evaluation from the terminal (dev server running): `pnpm jev:smoke`, `pnpm jev:eval [--consensus]`,
   `pnpm jev:simulate [--days 30]`. Reports and the 12:00 cut-off rule live in
   [`docs/evaluation/`](./docs/evaluation/README.md).
-- All profiles are simulated. No real personal data is used or stored.
+- No personal data: the sample has no names or emails; Luma guest names are fictional and never reach Jev.
 
 | `JEV_PROVIDER`   | What it does                                                                   |
 | ---------------- | ------------------------------------------------------------------------------ |

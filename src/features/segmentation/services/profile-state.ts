@@ -12,10 +12,6 @@ function describeEmail({ emailsOpened, emailsClicked }: Signals) {
   return 'no email engagement';
 }
 
-/**
- * Jev cannot count or compare dates, so raw counters become categories in code before the
- * state reaches it.
- */
 export function describeActivity({ signals }: Profile) {
   const parts = [describeEvents(signals), describeEmail(signals)];
   if (signals.programPageVisits >= 3) parts.push('keeps visiting the program page');
@@ -26,15 +22,19 @@ export function describeActivity({ signals }: Profile) {
   return parts.join('; ');
 }
 
+export function relationLabel(profile: Profile) {
+  return profile.relation === 'deal' ? 'Deal en el CRM' : 'Lead sin oportunidad';
+}
+
 export function toJevState(profile: Profile) {
   return {
+    topics: profile.topics.join(', ') || 'sin temas declarados',
+    goal: profile.goal,
+    pain: profile.pain,
     role: profile.role,
-    company: profile.company,
-    industry: profile.industry,
-    companySize: profile.companySize,
+    relation: relationLabel(profile),
     country: profile.country,
-    event: profile.event,
-    signupAnswer: profile.signupAnswer,
+    information: profile.infoAvailable,
     recentActivity: describeActivity(profile),
   };
 }

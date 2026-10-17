@@ -6,15 +6,21 @@ export type { Profile, Signals };
 
 export type SegmentKey =
   | 'founder'
-  | 'team_lead'
-  | 'individual_contributor'
-  | 'student'
-  | 'investor'
-  | 'other';
+  | 'executive'
+  | 'sales_leader'
+  | 'manager'
+  | 'technical'
+  | 'unknown';
 
-export type StageKey = 'idea' | 'early_stage' | 'scale_up' | 'corporate' | 'other';
+export type ProgramKey =
+  | 'ai_sales'
+  | 'inmersion_ejecutiva'
+  | 'sales_machine'
+  | 'hardcore_ai'
+  | 'achievers'
+  | 'none';
 
-export type Level = 0 | 1 | 2;
+export type AffinityBand = 'low' | 'medium' | 'high' | 'very_high';
 
 export type TrafficLight = 'green' | 'yellow' | 'red';
 
@@ -26,12 +32,7 @@ export type Trigger =
   | 'funding_round'
   | 're_run';
 
-export type RecommendationKind =
-  | 'sales_conversation'
-  | 'program'
-  | 'event'
-  | 'content'
-  | 'human_review';
+export type RecommendationKind = 'sales_conversation' | 'nurture' | 'event' | 'human_review';
 
 export interface Decision<T> {
   value: T;
@@ -59,13 +60,11 @@ export interface SegmentationOutcome {
   profileId: string;
   trigger: Trigger;
   segment: Decision<SegmentKey>;
-  companyStage: Decision<StageKey>;
-  aiMaturity: Decision<Level>;
-  urgency: Decision<Level>;
+  program: Decision<ProgramKey>;
+  affinity: Decision<AffinityBand>;
   salesReady: number;
-  wantsLearning: number;
   decisionPower: number;
-  fitsOffer: number;
+  wantsLearning: number;
   light: TrafficLight;
   needsReview: boolean;
   reasons: string[];
@@ -73,4 +72,4 @@ export interface SegmentationOutcome {
   meta: DecisionMeta;
 }
 
-export type ReviewVerdict = { verdict: 'approved' } | { verdict: 'corrected'; segment: SegmentKey };
+export type ReviewVerdict = { verdict: 'approved' } | { verdict: 'corrected'; program: ProgramKey };

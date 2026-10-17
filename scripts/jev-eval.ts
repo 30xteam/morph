@@ -40,17 +40,29 @@ function save(name: string, markdown: string, data: Json) {
 
 async function smoke() {
   const profiles = JSON.parse(
-    readFileSync(join(ROOT, 'src/features/segmentation/evaluation/profiles.json'), 'utf8'),
+    readFileSync(join(ROOT, 'src/features/segmentation/data/crm-sample.json'), 'utf8'),
   ) as Json[];
-  const outcome = await post('/api/segment', { profile: profiles[0], trigger: 're_run' });
+  const profile = {
+    ...profiles[0],
+    signals: {
+      eventsAttended: 0,
+      emailsOpened: 0,
+      emailsClicked: 0,
+      programPageVisits: 0,
+      roleChangedRecently: false,
+      companyRaisedRound: false,
+      daysSinceLastActivity: 3,
+    },
+  };
+  const outcome = await post('/api/segment', { profile, trigger: 're_run' });
   const { provider, model, calibrated, latencyMs, inputTokens } = outcome.meta;
   const lines = [
     `# Jev smoke test · ${new Date().toISOString()}`,
     '',
     `- Provider: **${provider}** · model \`${model}\` · calibrated: **${calibrated}**`,
     `- Latency: **${latencyMs} ms** · input tokens: ${inputTokens}`,
-    `- Segment: ${outcome.segment.value} (${pct(outcome.segment.probability)}) · light: ${outcome.light}`,
-    `- salesReady ${pct(outcome.salesReady)} · decisionPower ${pct(outcome.decisionPower)} · fitsOffer ${pct(outcome.fitsOffer)} · wantsLearning ${pct(outcome.wantsLearning)}`,
+    `- Program: ${outcome.program.value} (${pct(outcome.program.probability)}) · affinity: ${outcome.affinity.value} · light: ${outcome.light}`,
+    `- salesReady ${pct(outcome.salesReady)} · decisionPower ${pct(outcome.decisionPower)} · wantsLearning ${pct(outcome.wantsLearning)}`,
     '',
     'No API keys are included in this report.',
   ];
@@ -68,41 +80,51 @@ async function smoke() {
 
 async function evaluate() {
   const mode = flag('consensus') ? 'consensus' : 'single';
-  const r = await post('/api/segment/evaluate', { mode });
-  const fields = Object.entries(r.fieldAccuracy as Record<string, number>)
-    .map(([field, value]) => `| ${field} | ${pct(value)} |`)
-    .join('\n');
-  const confusion = (['green', 'yellow', 'red'] as const)
+  const limitArg = option('limit', '');
+  const r = await post(
+    '/api/segment/evaluate',
+    limitArg ? { mode, limit: Number(limitArg) } : { mode },
+  );
+  const NEWLINE = String.fromCharCode(10);
+  const programs = Object.keys(r.programConfusion as Record<string, unknown>);
+  const confusion = programs
     .map(
       (expected) =>
-        `| ${expected} | ${r.lightConfusion[expected].green} | ${r.lightConfusion[expected].yellow} | ${r.lightConfusion[expected].red} |`,
+        `| ${expected} | ${programs.map((got) => r.programConfusion[expected][got]).join(' | ')} |`,
     )
-    .join('\n');
+    .join(NEWLINE);
+  const byInfo = Object.entries(r.programAccuracyByInfo as Record<string, Json>)
+    .map(([level, row]) => `| ${level} | ${row.total} | ${pct(row.accuracy)} |`)
+    .join(NEWLINE);
   const misses = (r.misses as Json[])
+    .slice(0, 25)
     .map(
-      (miss) =>
-        `- ${miss.alias}: expected ${miss.expected}, got ${miss.got} (${miss.fields.join(', ')})`,
+      (miss) => `- ${miss.alias}: 30X said ${miss.expected}, Jev said ${miss.got} (${miss.note})`,
     )
-    .join('\n');
+    .join(NEWLINE);
 
-  const markdown = `# Jev evaluation · ${mode} · ${new Date().toISOString()}
+  const markdown = `# Jev vs 30X labels · ${mode} · ${new Date().toISOString()}
 
-- Provider: **${r.provider}** (calibrated: ${r.calibrated}) · ${r.total} annotated profiles · ${r.jevCalls} Jev calls
-- **Segment accuracy ${pct(r.segmentAccuracy)}** · **traffic light accuracy ${pct(r.lightAccuracy)}**
-- **Decided alone (no person): ${pct(r.decidedAloneShare)}** · accuracy when deciding alone: ${pct(r.accuracyWhenAlone)}
+- Provider: **${r.provider}** (calibrated: ${r.calibrated}) · ${r.total} profiles from 30X's anonymized sample · ${r.jevCalls} Jev calls
+- **Same program as 30X: ${pct(r.programAccuracy)}** · affinity band exact ${pct(r.affinityAccuracy)} · **within one band ${pct(r.affinityWithinOneBand)}**
+- Role: taken from the CRM for the ${r.knownRoles} profiles that have it (not asked to Jev); Jev only infers it for the rest
+- **Decided without a person: ${pct(r.decidedAloneShare)}** · program accuracy when deciding alone: ${pct(r.programAccuracyWhenAlone)}
 - Light mix: green ${pct(r.lightShare.green)} · yellow ${pct(r.lightShare.yellow)} · red ${pct(r.lightShare.red)}
-- Latency: avg ${r.avgLatencyMs} ms · p95 ${r.p95LatencyMs} ms
-- **Cost per 1,000 profiles: ${usd(r.costPerThousandUsd)}**
+- Latency: avg ${r.avgLatencyMs} ms · p95 ${r.p95LatencyMs} ms · **cost per 1,000 profiles: ${usd(r.costPerThousandUsd)}**
 
-| Question | Accuracy |
-| --- | --- |
-${fields}
+## Program accuracy by how much 30X knows about the person
 
-| Expected \\ got | green | yellow | red |
-| --- | --- | --- | --- |
+| Info level | Profiles | Same program |
+| --- | --- | --- |
+${byInfo}
+
+## Program confusion (rows: 30X label, columns: Jev)
+
+| 30X / Jev | ${programs.join(' | ')} |
+| --- | ${programs.map(() => '---').join(' | ')} |
 ${confusion}
 
-## Misses (segment or light)
+## First misses
 
 ${misses || 'None.'}
 `;
@@ -155,7 +177,7 @@ if (commands[command]) {
 } else {
   console.log(`Usage (dev server running):
   pnpm jev:smoke                     one real call + 12:00 cut-off check
-  pnpm jev:eval [--consensus]        60 annotated profiles
+  pnpm jev:eval [--consensus] [--limit N]  697 profiles vs 30X labels
   pnpm jev:simulate [--days 30]      re-decide on simulated activity
 Options: --base http://localhost:3000`);
 }

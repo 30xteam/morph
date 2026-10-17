@@ -1,6 +1,6 @@
 import 'server-only';
+import { PROFILES_30X } from '../data/dataset';
 import { fictionalPerson, SIMULATED_EVENTS } from '../mocks/fictional-guests';
-import { generateSignUp } from '../mocks/generate-sign-up';
 import type { LumaWebhook } from '../types/luma.schema';
 import { LumaFeedStore } from './luma-feed-store';
 import { registrationAnswers } from './luma-mapping';
@@ -8,6 +8,7 @@ import { registrationAnswers } from './luma-mapping';
 export type SimulationKind = 'registration' | 'check_in' | 'auto';
 
 const CHECK_IN_SHARE = 0.3;
+const LEADS = PROFILES_30X.filter((profile) => profile.relation === 'lead');
 
 const counter = globalThis as typeof globalThis & { lumaDemoSeed?: number };
 
@@ -18,7 +19,8 @@ function nextSeed() {
 
 function registration(): LumaWebhook {
   const seed = nextSeed();
-  const signUp = generateSignUp(seed);
+  const lead = LEADS[(seed * 37) % LEADS.length];
+  if (!lead) throw new Error('No 30X leads to sample');
   const event = SIMULATED_EVENTS[seed % SIMULATED_EVENTS.length] ?? SIMULATED_EVENTS[0];
   if (!event) throw new Error('No simulated events');
   const person = fictionalPerson(seed);
@@ -35,7 +37,7 @@ function registration(): LumaWebhook {
         approval_status: 'approved',
         registered_at: new Date().toISOString(),
         checked_in_at: null,
-        registration_answers: registrationAnswers({ ...signUp, event: event.name }),
+        registration_answers: registrationAnswers(lead),
       },
     },
   };

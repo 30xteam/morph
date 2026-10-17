@@ -1,39 +1,35 @@
 import type {
-  Level,
+  AffinityBand,
+  ProgramKey,
   RecommendationKind,
   SegmentKey,
-  StageKey,
   TrafficLight,
   Trigger,
 } from '../types/segmentation.types';
 
 export const SEGMENT_LABELS: Record<SegmentKey, string> = {
   founder: 'Founder / CEO',
-  team_lead: 'Team lead',
-  individual_contributor: 'Individual contributor',
-  student: 'Student / early career',
-  investor: 'Investor',
-  other: 'Other',
+  executive: 'Executive',
+  sales_leader: 'Sales leader',
+  manager: 'Manager',
+  technical: 'Technical',
+  unknown: 'Unknown role',
 };
 
-export const STAGE_LABELS: Record<StageKey, string> = {
-  idea: 'Idea',
-  early_stage: 'Early stage',
-  scale_up: 'Scale-up',
-  corporate: 'Corporate',
-  other: 'Other',
+export const PROGRAM_LABELS: Record<ProgramKey, string> = {
+  ai_sales: 'AI Sales',
+  inmersion_ejecutiva: 'Inmersión Ejecutiva',
+  sales_machine: 'Sales Machine',
+  hardcore_ai: 'Hardcore AI',
+  achievers: 'Achievers',
+  none: 'No program yet',
 };
 
-export const MATURITY_LABELS: Record<Level, string> = {
-  0: 'Low',
-  1: 'Medium',
-  2: 'High',
-};
-
-export const URGENCY_LABELS: Record<Level, string> = {
-  0: 'Low',
-  1: 'Medium',
-  2: 'High',
+export const AFFINITY_LABELS: Record<AffinityBand, string> = {
+  low: 'Low (0-3)',
+  medium: 'Medium (4-6)',
+  high: 'High (7-8)',
+  very_high: 'Very high (9-10)',
 };
 
 export const LIGHT_LABELS: Record<TrafficLight, string> = {
@@ -44,9 +40,8 @@ export const LIGHT_LABELS: Record<TrafficLight, string> = {
 
 export const RECOMMENDATION_LABELS: Record<RecommendationKind, string> = {
   sales_conversation: 'Seller today',
-  program: 'Program sequence',
+  nurture: 'Nurture sequence',
   event: 'Event invite',
-  content: 'Content sequence',
   human_review: 'Human review',
 };
 
@@ -56,5 +51,5 @@ export const TRIGGER_LABELS: Record<Trigger, string> = {
   attended_event: 'checked in at an event',
   role_change: 'changed role',
   funding_round: 'company raised a round',
-  re_run: 're-run',
+  re_run: 'was decided',
 };

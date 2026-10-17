@@ -1,0 +1,410 @@
+[
+  {
+    "id": "P-294",
+    "alias": "P-294",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Colombia",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["sales", "ai", "gtm", "pricing"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "Cliente (pagó)",
+      "stage": "Ganado Pagado Completo",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-269",
+    "alias": "P-269",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Vender más",
+    "topics": ["leadership", "gtm", "ops", "finance"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "Oportunidad perdida",
+      "stage": "Cierre perdido",
+      "program": "30X Executive Program"
+    }
+  },
+  {
+    "id": "P-290",
+    "alias": "P-290",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Gerente o jefe de área",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales", "leadership"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-287",
+    "alias": "P-287",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Entrar a una red de pares",
+    "topics": ["sales", "ai"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-241",
+    "alias": "P-241",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Formarse (sobre todo en IA)",
+    "topics": [],
+    "infoAvailable": "Sin información",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "30X Executive Program"
+    }
+  },
+  {
+    "id": "P-228",
+    "alias": "P-228",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-193",
+    "alias": "P-193",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Colombia",
+    "pain": "No declaró ningún dolor",
+    "goal": "Formarse (sobre todo en IA)",
+    "topics": [],
+    "infoAvailable": "Sin información",
+    "crm": {
+      "status": "En proceso",
+      "stage": "Calificado",
+      "program": "Next Fellowship"
+    }
+  },
+  {
+    "id": "P-218",
+    "alias": "P-218",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["leadership", "ai"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI for Executives"
+    }
+  },
+  {
+    "id": "P-215",
+    "alias": "P-215",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Perfil técnico (ingeniería, datos, producto)",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "Oportunidad perdida",
+      "stage": "Cierre perdido",
+      "program": "AI for devs"
+    }
+  },
+  {
+    "id": "P-186",
+    "alias": "P-186",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Director, VP o C-level (no dueño)",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "ops", "leadership"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI for Executives"
+    }
+  },
+  {
+    "id": "P-188",
+    "alias": "P-188",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Vender más",
+    "topics": ["sales", "ai"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "Oportunidad perdida",
+      "stage": "Cierre perdido",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-153",
+    "alias": "P-153",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Vender más",
+    "topics": ["sales", "gtm", "ops"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "Sales Machine"
+    }
+  },
+  {
+    "id": "P-160",
+    "alias": "P-160",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Formarse (sobre todo en IA)",
+    "topics": ["sales", "ai"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "En proceso",
+      "stage": "Potencial",
+      "program": "Free Sales Training"
+    }
+  },
+  {
+    "id": "P-136",
+    "alias": "P-136",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Gerente o jefe de área",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-150",
+    "alias": "P-150",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Expandirse a otros países",
+    "topics": ["gtm"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "30X Executive Program"
+    }
+  },
+  {
+    "id": "P-122",
+    "alias": "P-122",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "Registrado",
+      "program": "Negociacion"
+    }
+  },
+  {
+    "id": "P-108",
+    "alias": "P-108",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Formarse (sobre todo en IA)",
+    "topics": [],
+    "infoAvailable": "Sin información",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "30X Executive Program"
+    }
+  },
+  {
+    "id": "P-101",
+    "alias": "P-101",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-056",
+    "alias": "P-056",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-058",
+    "alias": "P-058",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Gerente o jefe de área",
+    "country": "Sin dato",
+    "pain": "Procesos manuales y rezago tecnológico",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "ops"],
+    "infoAvailable": "Perfil con contexto (dolor u objetivo)",
+    "crm": {
+      "status": "En proceso",
+      "stage": "Calificado",
+      "program": "AI Second Brain"
+    }
+  },
+  {
+    "id": "P-045",
+    "alias": "P-045",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Automatizar con IA",
+    "topics": ["ai", "sales", "ops"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI for devs"
+    }
+  },
+  {
+    "id": "P-061",
+    "alias": "P-061",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Sin dato de rol",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Vender más",
+    "topics": ["sales", "ai"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  },
+  {
+    "id": "P-001",
+    "alias": "P-001",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Fundador, socio o CEO",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Levantar capital",
+    "topics": ["ai", "ops", "negotiation"],
+    "infoAvailable": "Solo interés declarado",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "30X Executive Program"
+    }
+  },
+  {
+    "id": "P-003",
+    "alias": "P-003",
+    "source": "crm",
+    "relation": "deal",
+    "role": "Líder comercial o de ventas",
+    "country": "Sin dato",
+    "pain": "No declaró ningún dolor",
+    "goal": "Formarse (sobre todo en IA)",
+    "topics": [],
+    "infoAvailable": "Sin información",
+    "crm": {
+      "status": "En proceso",
+      "stage": "En gestión",
+      "program": "AI Sales"
+    }
+  }
+]

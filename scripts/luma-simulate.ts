@@ -36,14 +36,14 @@ function describe(body: Record<string, unknown>) {
   const entry = body.entry as
     | {
         type: string;
-        profile: { alias: string; role: string; company: string };
-        outcome: { segment: { value: string }; light: string; meta: { latencyMs: number } };
+        profile: { alias: string; role: string; goal: string };
+        outcome: { program: { value: string }; light: string; meta: { latencyMs: number } };
       }
     | undefined;
   if (body.duplicate) return 'duplicate ignored (same webhook-id)';
   if (!entry) return body.ok ? 'accepted, nothing to re-decide' : String(body.error);
   const { profile, outcome } = entry;
-  return `${entry.type} · ${profile.alias} · ${profile.role} at ${profile.company} → ${outcome.segment.value} · ${outcome.light} (${outcome.meta.latencyMs} ms)`;
+  return `${entry.type} · ${profile.alias} · ${profile.goal} → ${outcome.program.value} · ${outcome.light} (${outcome.meta.latencyMs} ms)`;
 }
 
 async function sendOne(index: number) {

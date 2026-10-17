@@ -21,8 +21,8 @@ export function SegmentationDashboard() {
           <div className="flex flex-col gap-1">
             <h1 className="text-headline-sm text-fg-strong">Live segments</h1>
             <p className="text-body-sm text-fg-muted">
-              Every Luma sign-up gets a segment and a traffic light in milliseconds, and both change
-              when the person does.
+              Every CRM profile and Luma sign-up gets a 30X program, an affinity and a traffic light
+              in milliseconds, and all three change when the person does.
             </p>
           </div>
           <HeaderActions />

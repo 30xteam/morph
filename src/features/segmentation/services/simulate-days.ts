@@ -1,7 +1,7 @@
 import 'server-only';
 import { jevEnv } from '@/core/jev/jev-env';
 
-import { EVALUATION_PROFILES } from '../evaluation/dataset';
+import { PROFILES_30X } from '../data/dataset';
 import type {
   Profile,
   SegmentationOutcome,
@@ -20,6 +20,7 @@ const DAILY_PROBABILITY: Record<ActivityTrigger, number> = {
 };
 const INACTIVE_AFTER_DAYS = 30;
 const CONCURRENCY = 8;
+const SAMPLE_EVERY = 5;
 
 function mulberry32(seed: number) {
   let state = seed;
@@ -56,7 +57,7 @@ export async function simulateDays(
   consensus: boolean,
 ): Promise<SimulationResult> {
   const random = mulberry32(seed);
-  let profiles: Profile[] = [...EVALUATION_PROFILES];
+  let profiles: Profile[] = PROFILES_30X.filter((_, index) => index % SAMPLE_EVERY === 0);
   const outcomes = await mapWithLimit(profiles, CONCURRENCY, (profile) =>
     segmentProfile(profile, 'sign_up', { consensus }),
   );
@@ -84,13 +85,13 @@ export async function simulateDays(
     fresh.forEach((outcome, position) => {
       const { index, trigger } = changed[position] as { index: number; trigger: Trigger };
       const before = outcomes[index] as SegmentationOutcome;
-      if (before.light !== outcome.light || before.segment.value !== outcome.segment.value) {
+      if (before.light !== outcome.light || before.program.value !== outcome.program.value) {
         transitions.push({
           day,
           alias: `${profiles[index]?.alias} · ${profiles[index]?.role}`,
           trigger,
-          from: `${before.segment.value} · ${before.light}`,
-          to: `${outcome.segment.value} · ${outcome.light}`,
+          from: `${before.program.value} · ${before.light}`,
+          to: `${outcome.program.value} · ${outcome.light}`,
         });
       }
       outcomes[index] = outcome;
