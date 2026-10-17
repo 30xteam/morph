@@ -21,10 +21,3 @@ export interface ProfileGraph {
   nodes: GraphNode[];
   edges: GraphEdge[];
 }
-
-export interface PositionedNode extends GraphNode {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-}
