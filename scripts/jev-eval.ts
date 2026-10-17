@@ -97,6 +97,12 @@ async function evaluate() {
   const byInfo = Object.entries(r.programAccuracyByInfo as Record<string, Json>)
     .map(([level, row]) => `| ${level} | ${row.total} | ${pct(row.accuracy)} |`)
     .join(NEWLINE);
+  const thresholds = (r.thresholds as Json[])
+    .map(
+      (row) =>
+        `| ${row.threshold.toFixed(2)}${row.threshold === r.currentThreshold ? ' (current)' : ''} | ${pct(row.decidedAloneShare)} | ${row.accuracyWhenAlone === null ? '—' : pct(row.accuracyWhenAlone)} |`,
+    )
+    .join(NEWLINE);
   const misses = (r.misses as Json[])
     .slice(0, 25)
     .map(
@@ -107,11 +113,17 @@ async function evaluate() {
   const markdown = `# Jev vs 30X labels · ${mode} · ${new Date().toISOString()}
 
 - Provider: **${r.provider}** (calibrated: ${r.calibrated}) · ${r.total} profiles from 30X's anonymized sample · ${r.jevCalls} Jev calls
-- **Same program as 30X: ${pct(r.programAccuracy)}** · affinity band exact ${pct(r.affinityAccuracy)} · **within one band ${pct(r.affinityWithinOneBand)}**
+- **Same program as 30X: ${pct(r.programAccuracy)}** (baseline: always ${r.baselineProgram}, ${pct(r.baselineAccuracy)}) · affinity band exact ${pct(r.affinityAccuracy)} · **within one band ${pct(r.affinityWithinOneBand)}**
 - Role: taken from the CRM for the ${r.knownRoles} profiles that have it (not asked to Jev); Jev only infers it for the rest
-- **Decided without a person: ${pct(r.decidedAloneShare)}** · program accuracy when deciding alone: ${pct(r.programAccuracyWhenAlone)}
+- **Decided without a person: ${pct(r.decidedAloneShare)}** · program accuracy when deciding alone: ${pct(r.programAccuracyWhenAlone)} · sent to a person: ${r.reviewCount.lowConfidence} low confidence, ${r.reviewCount.lowInfo} low info (${r.lowInfoLowAffinity.alsoLowAffinity} of them low affinity for 30X)
 - Light mix: green ${pct(r.lightShare.green)} · yellow ${pct(r.lightShare.yellow)} · red ${pct(r.lightShare.red)}
-- Latency: avg ${r.avgLatencyMs} ms · p95 ${r.p95LatencyMs} ms · **cost per 1,000 profiles: ${usd(r.costPerThousandUsd)}**
+- Latency: median ${r.medianLatencyMs} ms · avg ${r.avgLatencyMs} ms · p95 ${r.p95LatencyMs} ms · **cost per 1,000 profiles: ${usd(r.costPerThousandUsd)}**
+
+## When Jev decides alone (program confidence threshold)
+
+| Threshold | Decides alone | Accuracy when alone |
+| --- | --- | --- |
+${thresholds}
 
 ## Program accuracy by how much 30X knows about the person
 
