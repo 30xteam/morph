@@ -3,12 +3,37 @@
 Next.js 16 (App Router, Cache Components) + React 19 + TypeScript 7 + Tailwind CSS 4.
 The visual design is driven entirely by [`DESIGN.md`](./DESIGN.md).
 
+## 30X challenge: Live segments
+
+A working prototype for the 30X Jev challenge (Commercial area). Every Luma sign-up is sent to
+[Jev](https://typesafe.ai), TypeSafe's typed decision model, with eight typed questions in one call
+(segment, company stage, AI maturity, urgency, ready to buy, decision power, fit with 30X,
+learning intent). Code turns the answers into a traffic light: **green** goes to a seller with a
+summary, **yellow** enters an educational sequence, **red** is reviewed by a person. The segment
+is re-decided whenever the person attends another event, changes role or their company raises a
+round.
+
+- Demo: `/segmentation` · Playbook: [`docs/playbook.md`](./docs/playbook.md)
+- APIs: `POST /api/segment` (`{ profile, trigger }`), `POST /api/luma/webhook` (simulated Luma
+  registration; name and email are dropped), `POST /api/segment/evaluate` (`{ mode: 'single' |
+  'consensus' }`, 60 annotated profiles), `POST /api/segment/simulate` (`{ days }`).
+- Evaluation from the terminal (dev server running): `pnpm jev:smoke`, `pnpm jev:eval [--consensus]`,
+  `pnpm jev:simulate [--days 30]`. Reports and the 12:00 cut-off rule live in
+  [`docs/evaluation/`](./docs/evaluation/README.md).
+- All profiles are simulated. No real personal data is used or stored.
+
+| `JEV_PROVIDER`   | What it does                                                                   |
+| ---------------- | ------------------------------------------------------------------------------ |
+| `mock` (default) | Keyword heuristic, runs offline with no key, so anyone can run the demo        |
+| `typesafe`       | Real Jev via `https://api.typesafe.ai/v1/systemone` (needs `TYPESAFE_API_KEY`) |
+| `openrouter`     | A chat model emulates the answers (needs `OPENROUTER_API_KEY`); not calibrated |
+
 ## Getting started
 
 ```bash
 pnpm install
-cp .env.example .env.local
-pnpm dev            # http://localhost:3000
+cp .env.example .env.local   # set JEV_PROVIDER and a key to use real Jev
+pnpm dev                     # http://localhost:3000/segmentation
 ```
 
 ## Scripts
