@@ -9,21 +9,22 @@ const twMerge = extendTailwindMerge({
   extend: {
     theme: {
       text: [
-        'display-xl',
-        'display-lg',
-        'headline-lg',
-        'headline-md',
-        'headline-sm',
+        'logo',
         'title-lg',
         'title-md',
-        'body-md',
+        'title-sm',
+        'label-lg',
+        'body-lg',
         'label-md',
-        'body-sm',
+        'body-md',
         'label-sm',
+        'body-sm',
+        'label-xs',
         'caption',
+        'badge',
       ],
-      radius: ['sm', 'md', 'input', 'input-lg'],
-      shadow: ['nav', 'dropdown', 'modal', 'elevated', 'search'],
+      radius: ['xs', 'sm', 'nav', 'md', 'lg', 'full'],
+      shadow: ['raised', 'modal'],
     },
     classGroups: {
       z: [

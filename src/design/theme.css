@@ -1,88 +1,107 @@
 /*
  * Design contract — the ONLY place that knows DESIGN.md token names.
  *
- * Components use the semantic utilities registered here (bg-primary, text-fg-muted,
- * rounded-md, shadow-dropdown, text-display-xl, z-modal, …). When DESIGN.md changes:
- *   1. pnpm design:sync        → regenerates tokens.generated.css (--ds-* values)
- *   2. if it reports a missing --ds-* name, remap that role below. Nothing else changes.
+ * Every color role exists twice in DESIGN.md: `name` (light) and `name-dark`. Dark is the default theme;
+ * `<html data-theme="light">` switches the roles below. Components only use the semantic utilities
+ * (bg-canvas, text-ink-muted, border-line, text-label-sm, rounded-lg, shadow-raised, z-modal…).
  */
 
+:root {
+  color-scheme: dark;
+  --role-canvas: var(--ds-color-canvas-dark);
+  --role-card: var(--ds-color-card-dark);
+  --role-raised: var(--ds-color-raised-dark);
+  --role-selected: var(--ds-color-selected-dark);
+  --role-line: var(--ds-color-line-dark);
+  --role-line-strong: var(--ds-color-line-strong-dark);
+  --role-ink: var(--ds-color-ink-dark);
+  --role-ink-soft: var(--ds-color-ink-soft-dark);
+  --role-ink-muted: var(--ds-color-ink-muted-dark);
+  --role-icon: var(--ds-color-icon-dark);
+  --role-accent: var(--ds-color-accent-dark);
+  --role-primary: var(--ds-color-primary-dark);
+  --role-primary-hover: var(--ds-color-primary-hover-dark);
+  --role-bar-strong: var(--ds-color-bar-strong-dark);
+  --role-bar-weak: var(--ds-color-bar-weak-dark);
+  --role-green-bg: var(--ds-color-green-bg-dark);
+  --role-green-fg: var(--ds-color-green-fg-dark);
+  --role-yellow-bg: var(--ds-color-yellow-bg-dark);
+  --role-yellow-fg: var(--ds-color-yellow-fg-dark);
+  --role-red-bg: var(--ds-color-red-bg-dark);
+  --role-red-fg: var(--ds-color-red-fg-dark);
+  --role-review-bg: var(--ds-color-review-bg-dark);
+  --role-review-fg: var(--ds-color-review-fg-dark);
+  --role-danger: var(--ds-color-danger-dark);
+  --role-shadow-raised: var(--ds-shadow-raised-dark);
+  --role-shadow-modal: var(--ds-shadow-modal-dark);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --role-canvas: var(--ds-color-canvas);
+  --role-card: var(--ds-color-card);
+  --role-raised: var(--ds-color-raised);
+  --role-selected: var(--ds-color-selected);
+  --role-line: var(--ds-color-line);
+  --role-line-strong: var(--ds-color-line-strong);
+  --role-ink: var(--ds-color-ink);
+  --role-ink-soft: var(--ds-color-ink-soft);
+  --role-ink-muted: var(--ds-color-ink-muted);
+  --role-icon: var(--ds-color-icon);
+  --role-accent: var(--ds-color-accent);
+  --role-primary: var(--ds-color-primary);
+  --role-primary-hover: var(--ds-color-primary-hover);
+  --role-bar-strong: var(--ds-color-bar-strong);
+  --role-bar-weak: var(--ds-color-bar-weak);
+  --role-green-bg: var(--ds-color-green-bg);
+  --role-green-fg: var(--ds-color-green-fg);
+  --role-yellow-bg: var(--ds-color-yellow-bg);
+  --role-yellow-fg: var(--ds-color-yellow-fg);
+  --role-red-bg: var(--ds-color-red-bg);
+  --role-red-fg: var(--ds-color-red-fg);
+  --role-review-bg: var(--ds-color-review-bg);
+  --role-review-fg: var(--ds-color-review-fg);
+  --role-danger: var(--ds-color-danger);
+  --role-shadow-raised: var(--ds-shadow-raised);
+  --role-shadow-modal: var(--ds-shadow-modal);
+}
+
 @theme inline {
-  /* Brand / action */
-  --color-primary: var(--ds-color-primary);
-  --color-primary-hover: var(--ds-color-primary-hover);
-  --color-primary-active: var(--ds-color-primary-active);
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-white: #fff;
   --color-on-primary: var(--ds-color-on-primary);
-  --color-secondary: var(--ds-color-secondary);
-  --color-secondary-hover: var(--ds-color-secondary-hover);
-  --color-secondary-active: var(--ds-color-secondary-active);
-  --color-on-secondary: var(--ds-color-on-secondary);
-  --color-on-secondary-active: var(--ds-color-on-secondary-active);
-  --color-link: var(--ds-color-link);
-  --color-link-hover: var(--ds-color-link-hover);
-  --color-link-visited: var(--ds-color-link-visited);
+  --color-canvas: var(--role-canvas);
+  --color-card: var(--role-card);
+  --color-raised: var(--role-raised);
+  --color-selected: var(--role-selected);
+  --color-line: var(--role-line);
+  --color-line-strong: var(--role-line-strong);
+  --color-ink: var(--role-ink);
+  --color-ink-soft: var(--role-ink-soft);
+  --color-ink-muted: var(--role-ink-muted);
+  --color-icon: var(--role-icon);
+  --color-accent: var(--role-accent);
+  --color-primary: var(--role-primary);
+  --color-primary-hover: var(--role-primary-hover);
+  --color-bar-strong: var(--role-bar-strong);
+  --color-bar-weak: var(--role-bar-weak);
+  --color-green-bg: var(--role-green-bg);
+  --color-green-fg: var(--role-green-fg);
+  --color-yellow-bg: var(--role-yellow-bg);
+  --color-yellow-fg: var(--role-yellow-fg);
+  --color-red-bg: var(--role-red-bg);
+  --color-red-fg: var(--role-red-fg);
+  --color-review-bg: var(--role-review-bg);
+  --color-review-fg: var(--role-review-fg);
+  --color-danger: var(--role-danger);
 
-  /* Accents — badges, status and feature callouts only */
-  --color-accent-1: var(--ds-color-accent-teal);
-  --color-accent-2: var(--ds-color-accent-purple);
-  --color-accent-3: var(--ds-color-accent-orange);
-  --color-accent-4: var(--ds-color-accent-sky);
-  --color-accent-5: var(--ds-color-accent-deep-blue);
-  --color-accent-6: var(--ds-color-accent-dark-blue);
-
-  /* Surfaces */
-  --color-surface: var(--ds-color-surface);
-  --color-surface-subtle: var(--ds-color-surface-subtle);
-  --color-surface-muted: var(--ds-color-surface-muted);
-  --color-surface-accent: var(--ds-color-surface-accent);
-
-  /* Foreground (text & icons) */
-  --color-fg: var(--ds-color-on-surface-default);
-  --color-fg-strong: var(--ds-color-on-surface);
-  --color-fg-soft: var(--ds-color-on-surface-soft);
-  --color-fg-muted: var(--ds-color-on-surface-variant);
-  --color-fg-subtle: var(--ds-color-on-surface-muted);
-  --color-fg-icon: var(--ds-color-on-surface-icon);
-
-  /* Lines, states, overlays */
-  --color-border: var(--ds-color-outline);
-  --color-border-input: var(--ds-color-outline-input);
-  --color-state-hover: var(--ds-color-state-hover);
-  --color-state-pressed: var(--ds-color-state-pressed);
-  --color-disabled: var(--ds-color-disabled);
-  --color-on-disabled: var(--ds-color-on-disabled);
-  --color-scrim: var(--ds-color-scrim);
-
-  /* Status */
-  --color-danger: var(--ds-color-error);
-  --color-warning: var(--ds-color-warning);
-  --color-success: var(--ds-color-success);
-
-  /* Font families */
   --font-sans: var(--ds-typo-body-md-family);
-  --font-display: var(--ds-typo-display-xl-family);
 
-  /* Type scale → text-<name> sets size, line-height, weight and tracking together */
-  --text-display-xl: var(--ds-typo-display-xl-size);
-  --text-display-xl--line-height: var(--ds-typo-display-xl-line-height);
-  --text-display-xl--font-weight: var(--ds-typo-display-xl-weight);
-  --text-display-xl--letter-spacing: var(--ds-typo-display-xl-tracking);
-  --text-display-lg: var(--ds-typo-display-lg-size);
-  --text-display-lg--line-height: var(--ds-typo-display-lg-line-height);
-  --text-display-lg--font-weight: var(--ds-typo-display-lg-weight);
-  --text-display-lg--letter-spacing: var(--ds-typo-display-lg-tracking);
-  --text-headline-lg: var(--ds-typo-headline-lg-size);
-  --text-headline-lg--line-height: var(--ds-typo-headline-lg-line-height);
-  --text-headline-lg--font-weight: var(--ds-typo-headline-lg-weight);
-  --text-headline-lg--letter-spacing: var(--ds-typo-headline-lg-tracking);
-  --text-headline-md: var(--ds-typo-headline-md-size);
-  --text-headline-md--line-height: var(--ds-typo-headline-md-line-height);
-  --text-headline-md--font-weight: var(--ds-typo-headline-md-weight);
-  --text-headline-md--letter-spacing: var(--ds-typo-headline-md-tracking);
-  --text-headline-sm: var(--ds-typo-headline-sm-size);
-  --text-headline-sm--line-height: var(--ds-typo-headline-sm-line-height);
-  --text-headline-sm--font-weight: var(--ds-typo-headline-sm-weight);
-  --text-headline-sm--letter-spacing: var(--ds-typo-headline-sm-tracking);
+  --text-logo: var(--ds-typo-logo-size);
+  --text-logo--line-height: var(--ds-typo-logo-line-height);
+  --text-logo--font-weight: var(--ds-typo-logo-weight);
+  --text-logo--letter-spacing: var(--ds-typo-logo-tracking);
   --text-title-lg: var(--ds-typo-title-lg-size);
   --text-title-lg--line-height: var(--ds-typo-title-lg-line-height);
   --text-title-lg--font-weight: var(--ds-typo-title-lg-weight);
@@ -91,51 +110,65 @@
   --text-title-md--line-height: var(--ds-typo-title-md-line-height);
   --text-title-md--font-weight: var(--ds-typo-title-md-weight);
   --text-title-md--letter-spacing: var(--ds-typo-title-md-tracking);
-  --text-body-md: var(--ds-typo-body-md-size);
-  --text-body-md--line-height: var(--ds-typo-body-md-line-height);
-  --text-body-md--font-weight: var(--ds-typo-body-md-weight);
-  --text-body-md--letter-spacing: var(--ds-typo-body-md-tracking);
+  --text-title-sm: var(--ds-typo-title-sm-size);
+  --text-title-sm--line-height: var(--ds-typo-title-sm-line-height);
+  --text-title-sm--font-weight: var(--ds-typo-title-sm-weight);
+  --text-title-sm--letter-spacing: var(--ds-typo-title-sm-tracking);
+  --text-label-lg: var(--ds-typo-label-lg-size);
+  --text-label-lg--line-height: var(--ds-typo-label-lg-line-height);
+  --text-label-lg--font-weight: var(--ds-typo-label-lg-weight);
+  --text-label-lg--letter-spacing: var(--ds-typo-label-lg-tracking);
+  --text-body-lg: var(--ds-typo-body-lg-size);
+  --text-body-lg--line-height: var(--ds-typo-body-lg-line-height);
+  --text-body-lg--font-weight: var(--ds-typo-body-lg-weight);
+  --text-body-lg--letter-spacing: var(--ds-typo-body-lg-tracking);
   --text-label-md: var(--ds-typo-label-md-size);
   --text-label-md--line-height: var(--ds-typo-label-md-line-height);
   --text-label-md--font-weight: var(--ds-typo-label-md-weight);
   --text-label-md--letter-spacing: var(--ds-typo-label-md-tracking);
-  --text-body-sm: var(--ds-typo-body-sm-size);
-  --text-body-sm--line-height: var(--ds-typo-body-sm-line-height);
-  --text-body-sm--font-weight: var(--ds-typo-body-sm-weight);
-  --text-body-sm--letter-spacing: var(--ds-typo-body-sm-tracking);
+  --text-body-md: var(--ds-typo-body-md-size);
+  --text-body-md--line-height: var(--ds-typo-body-md-line-height);
+  --text-body-md--font-weight: var(--ds-typo-body-md-weight);
+  --text-body-md--letter-spacing: var(--ds-typo-body-md-tracking);
   --text-label-sm: var(--ds-typo-label-sm-size);
   --text-label-sm--line-height: var(--ds-typo-label-sm-line-height);
   --text-label-sm--font-weight: var(--ds-typo-label-sm-weight);
   --text-label-sm--letter-spacing: var(--ds-typo-label-sm-tracking);
+  --text-body-sm: var(--ds-typo-body-sm-size);
+  --text-body-sm--line-height: var(--ds-typo-body-sm-line-height);
+  --text-body-sm--font-weight: var(--ds-typo-body-sm-weight);
+  --text-body-sm--letter-spacing: var(--ds-typo-body-sm-tracking);
+  --text-label-xs: var(--ds-typo-label-xs-size);
+  --text-label-xs--line-height: var(--ds-typo-label-xs-line-height);
+  --text-label-xs--font-weight: var(--ds-typo-label-xs-weight);
+  --text-label-xs--letter-spacing: var(--ds-typo-label-xs-tracking);
   --text-caption: var(--ds-typo-caption-size);
   --text-caption--line-height: var(--ds-typo-caption-line-height);
   --text-caption--font-weight: var(--ds-typo-caption-weight);
   --text-caption--letter-spacing: var(--ds-typo-caption-tracking);
+  --text-badge: var(--ds-typo-badge-size);
+  --text-badge--line-height: var(--ds-typo-badge-line-height);
+  --text-badge--font-weight: var(--ds-typo-badge-weight);
+  --text-badge--letter-spacing: var(--ds-typo-badge-tracking);
 
-  /* Radii — Tailwind defaults removed so only design radii exist */
   --radius-*: initial;
+  --radius-xs: var(--ds-radius-xs);
   --radius-sm: var(--ds-radius-sm);
+  --radius-nav: var(--ds-radius-nav);
   --radius-md: var(--ds-radius-md);
-  --radius-input: var(--ds-radius-input);
-  --radius-input-lg: var(--ds-radius-input-lg);
+  --radius-lg: var(--ds-radius-lg);
+  --radius-full: var(--ds-radius-full);
 
-  /* Spacing — the scale multiplier is the design's base unit */
   --spacing: var(--ds-spacing-1);
-  --spacing-gutter: var(--ds-spacing-gutter);
-  --spacing-margin: var(--ds-spacing-margin);
-  --spacing-hero: var(--ds-spacing-31);
   --container-page: var(--ds-spacing-container);
+  --container-sidebar: var(--ds-spacing-sidebar);
+  --container-list: var(--ds-spacing-list);
 
-  /* Elevation — Tailwind defaults removed so only design shadows exist */
   --shadow-*: initial;
-  --shadow-nav: var(--ds-shadow-nav);
-  --shadow-dropdown: var(--ds-shadow-dropdown);
-  --shadow-modal: var(--ds-shadow-modal);
-  --shadow-elevated: var(--ds-shadow-elevated);
-  --shadow-search: var(--ds-shadow-search);
+  --shadow-raised: var(--role-shadow-raised);
+  --shadow-modal: var(--role-shadow-modal);
 }
 
-/* Z-index ladder (Tailwind v4 has no z-index theme namespace) */
 @utility z-base {
   z-index: var(--ds-z-base);
 }
@@ -160,12 +193,3 @@
 @utility z-modal {
   z-index: var(--ds-z-modal);
 }
-
-/*
- * Dark mode slot: DESIGN.md has no dark palette yet. When it does, add the dark tokens to
- * DESIGN.md (e.g. `surface-dark`) and remap the semantic roles here:
- *
- * @variant dark {
- *   :root { --ds-color-surface: var(--ds-color-surface-dark); … }
- * }
- */

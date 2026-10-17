@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { SITE } from '@/core/config/site';
+import { DEFAULT_THEME, PreferencesScript } from '@/core/preferences';
 import { AppProviders } from '@/core/providers/app-providers';
 import { fontVariables } from '@/design/fonts';
 
@@ -13,7 +14,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang={SITE.locale} className={fontVariables}>
+    <html
+      lang={SITE.locale}
+      data-theme={DEFAULT_THEME}
+      className={fontVariables}
+      suppressHydrationWarning
+    >
+      <head>
+        <PreferencesScript />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <AppProviders>{children}</AppProviders>
       </body>
