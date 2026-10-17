@@ -1,6 +1,7 @@
 import { ActivityFeed } from './activity-feed';
 import { DecisionMetrics } from './decision-metrics';
 import { HeaderActions } from './header-actions';
+import { SegmentationStatistics } from './metrics/segmentation-statistics';
 import { ProfileViews } from './profile-views';
 import { ReviewQueue } from './review-queue';
 import { SampleDataNotice } from './sample-data-notice';
@@ -34,6 +35,8 @@ export function SegmentationDashboard() {
         </div>
 
         <ProfileViews />
+
+        <SegmentationStatistics />
 
         <div className="grid gap-10 desktop:grid-cols-[3fr_2fr] desktop:gap-12">
           <ReviewQueue />

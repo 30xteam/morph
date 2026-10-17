@@ -17,20 +17,25 @@ export function DecisionMetrics() {
     outcomes.length
       ? outcomes.reduce((total, outcome) => total + pick(outcome), 0) / outcomes.length
       : 0;
-  const meta = outcomes[0]?.meta;
+  const providers = [...new Set(outcomes.map((outcome) => outcome.meta.provider))]
+    .toSorted()
+    .join(', ');
+  const uncalibrated = outcomes.filter((outcome) => !outcome.meta.calibrated).length;
 
   return (
     <div className="flex flex-col gap-2 text-body-sm text-fg-muted">
       <p className="tabular-nums">
         <span className="text-fg-strong">
-          {Math.round(avg((outcome) => outcome.meta.latencyMs))} ms
+          {outcomes.length ? `${Math.round(avg((outcome) => outcome.meta.latencyMs))} ms` : '—'}
         </span>{' '}
         average Jev decision ·{' '}
         <span className="text-fg-strong">
-          {formatUsd(avg((outcome) => outcome.meta.costUsd) * 1000)}
+          {outcomes.length ? formatUsd(avg((outcome) => outcome.meta.costUsd) * 1000) : '—'}
         </span>{' '}
-        per 1,000 sign-ups · one call answers six typed questions
-        {meta && !meta.calibrated ? ` · provider ${meta.provider}, probabilities emulated` : ''}
+        estimated per 1,000 decisions · latest decision per profile
+        {outcomes.length
+          ? ` · providers ${providers} · ${uncalibrated}/${outcomes.length} decisions have uncalibrated probabilities`
+          : ''}
       </p>
       <div className="flex flex-wrap items-center gap-3">
         {data ? (
