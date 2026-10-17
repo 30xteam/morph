@@ -1,4 +1,6 @@
-# Webapp
+# Morph
+
+Morph sorts every 30X profile into the right program and re-sorts it the moment the person changes.
 
 Next.js 16 (App Router, Cache Components) + React 19 + TypeScript 7 + Tailwind CSS 4.
 The visual design is driven entirely by [`DESIGN.md`](./DESIGN.md).

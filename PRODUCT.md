@@ -27,7 +27,7 @@ Undecided. No differentiating mechanism or claim has been stated, so future work
 
 ## Brand Commitments
 
-- **Name:** none yet. "Webapp" in `src/core/config/site.ts` is a placeholder and must not be treated as a brand.
+- **Name:** **Morph**, set in `src/core/config/site.ts`. The logo is `MorphLogo` / `MorphMark` in `src/ui/logo/`: three shapes in a row, a circle, a rounded square and a square, getting more solid from left to right, in the accent color. Use the components; never redraw the mark.
 - **Aesthetic:** the dark-first operator console from the Figma file "30x 2" (frame 10:29), recorded in `DESIGN.md`, is binding: zinc neutrals, hairline panes and one emerald for selection and action, with a light theme that mirrors it.
 - **Typography:** a single sans family, Inter.
 

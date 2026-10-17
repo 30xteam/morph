@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { cx } from '@/core/cx';
+import { MorphLogo } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { PreferenceToggles } from '../preference-toggles';
@@ -22,7 +23,7 @@ export function ConsoleTopbar() {
   return (
     <header className="flex flex-col gap-2 border-b border-line px-4 pt-4 desktop:hidden">
       <div className="flex items-center justify-between gap-3">
-        <p className="text-logo text-ink">30X</p>
+        <MorphLogo />
         <PreferenceToggles />
       </div>
       <nav aria-label={m.nav.label} className="-mx-4 flex gap-1 overflow-x-auto px-4">

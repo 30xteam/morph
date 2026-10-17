@@ -227,6 +227,8 @@ Flat by tone and hairline. The only shadow is `raised` on the selected row (see 
 
 ## Components
 
+- **Logo:** `MorphMark` (24px, `accent`) beside the wordmark "Morph" in `logo` type. The favicon is the mark on `canvas-dark`.
+
 - **Status badge:** uppercase micro label on its tinted fill, 3px × 8px padding, 4px radius.
 - **Row:** 12px × 18px padding, title / id · country / program · affinity; status and relative time on the right. Selected: `selected` fill, `raised` shadow, 3px emerald edge.
 - **Tabs:** 12px labels with counts; the active tab is ink and semibold with a 2px emerald underline.
