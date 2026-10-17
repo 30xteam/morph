@@ -4,20 +4,16 @@
 @import '../design/motion.css';
 
 @layer base {
-  html {
-    color-scheme: light;
-  }
-
   body {
-    @apply bg-surface font-sans text-body-md text-fg antialiased;
-    caret-color: var(--color-primary);
+    @apply bg-canvas font-sans text-body-md text-ink antialiased;
+    caret-color: var(--color-accent);
   }
 
   ::selection {
-    @apply bg-secondary-active text-fg-strong;
+    @apply bg-primary text-on-primary;
   }
 
   :focus-visible {
-    @apply rounded-sm outline-2 outline-offset-2 outline-primary;
+    @apply rounded-sm outline-2 outline-offset-2 outline-accent;
   }
 }

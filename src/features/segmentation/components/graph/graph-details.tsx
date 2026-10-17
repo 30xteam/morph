@@ -1,13 +1,13 @@
 'use client';
 
-import { show } from '@ebay/nice-modal-react';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/ui';
 
 import { graphNeighborhood } from '../../services/build-profile-graph';
+import { useSegmentationStore } from '../../store/segmentation-store';
 import type { GraphNode, ProfileGraph } from '../../types/graph.types';
 import { PriorityBadge } from '../priority-badge';
-import { ProfileDialog } from '../profile/profile-dialog';
 
 interface GraphDetailsProps {
   graph: ProfileGraph;
@@ -16,6 +16,8 @@ interface GraphDetailsProps {
 }
 
 export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
+  const router = useRouter();
+  const select = useSegmentationStore((state) => state.select);
   const profileId = selected?.profileId;
   const neighbors = selected ? graphNeighborhood(graph, selected.id) : new Set<string>();
   const connections = graph.nodes.filter(
@@ -25,14 +27,14 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
   return (
     <aside
       aria-label="Graph details"
-      className="flex min-w-0 flex-col gap-4 border-t border-border bg-surface-subtle p-4 desktop:border-t-0 desktop:border-l"
+      className="flex min-w-0 flex-col gap-4 border-t border-line bg-card p-4 desktop:border-t-0 desktop:border-l"
     >
       <div className="flex flex-col gap-1" aria-live="polite">
-        <p className="text-caption text-fg-muted">{selected?.kind ?? 'Explore the network'}</p>
-        <h3 className="text-title-md break-words text-fg-strong">
+        <p className="text-body-sm text-ink-muted">{selected?.kind ?? 'Explore the network'}</p>
+        <h2 className="text-title-md break-words text-ink">
           {selected?.label ?? 'Connected profiles'}
-        </h3>
-        <p className="text-body-sm text-fg-muted">
+        </h2>
+        <p className="text-body-sm text-ink-muted">
           {selected
             ? `${connections.length} connected nodes`
             : 'Select a person, program or interest to explore its connections.'}
@@ -41,14 +43,20 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
       {selected?.priority ? (
         <div className="flex flex-col gap-2">
           <PriorityBadge priority={selected.priority} />
-          <p className="text-body-sm text-fg-soft">{selected.priority.reason}</p>
+          <p className="text-body-sm text-ink-soft">{selected.priority.reason}</p>
           {selected.priority.needsReview ? (
-            <p className="text-caption text-fg-muted">Review required before outreach.</p>
+            <p className="text-body-sm text-ink-muted">Review required before outreach.</p>
           ) : null}
         </div>
       ) : null}
       {profileId ? (
-        <Button variant="secondary" onClick={() => show(ProfileDialog, { profileId })}>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            select(profileId);
+            router.push('/');
+          }}
+        >
           Open profile
         </Button>
       ) : null}
@@ -59,18 +67,18 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
               <button
                 type="button"
                 onClick={() => onSelect(node.id)}
-                className="flex min-h-11 w-full flex-col items-start rounded-sm px-2 py-2 text-left hover:bg-state-hover focus-visible:outline-2 focus-visible:outline-primary"
+                className="flex min-h-11 w-full flex-col items-start rounded-sm px-2 py-2 text-left hover:bg-raised focus-visible:outline-2 focus-visible:outline-accent"
               >
-                <span className="text-body-sm break-words text-fg">{node.label}</span>
-                <span className="text-caption text-fg-muted">{node.kind}</span>
+                <span className="text-body-sm break-words text-ink">{node.label}</span>
+                <span className="text-body-sm text-ink-muted">{node.kind}</span>
                 {node.priority ? <PriorityBadge priority={node.priority} /> : null}
               </button>
             </li>
           ))}
         </ul>
       ) : null}
-      <dl className="mt-auto flex flex-col gap-2 border-t border-border pt-4 text-caption text-fg-muted">
-        <dt className="text-label-sm text-fg-strong">Connections</dt>
+      <dl className="mt-auto flex flex-col gap-2 border-t border-line pt-4 text-body-sm text-ink-muted">
+        <dt className="text-label-sm text-ink">Connections</dt>
         <dd>Solid: declared interest or program recorded in the CRM.</dd>
         <dd>Dashed: latest Jev program recommendation.</dd>
         <dd>Shared interests do not imply people know each other.</dd>
