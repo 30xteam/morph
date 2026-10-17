@@ -8,16 +8,31 @@ import { SEGMENTATION_QUESTIONS } from '../config/questions';
 import { recommend } from '../config/recommendations';
 import { decideLight } from '../config/traffic-light';
 import type {
+  AffinityBand,
   Decision,
-  Level,
   Profile,
+  ProgramKey,
   SegmentationOutcome,
   SegmentKey,
-  StageKey,
   Trigger,
 } from '../types/segmentation.types';
 import { mergeResults } from './merge-answers';
-import { describeActivity, toJevState } from './profile-state';
+import { toJevState } from './profile-state';
+
+const AFFINITY_BY_LEVEL: AffinityBand[] = ['low', 'medium', 'high', 'very_high'];
+
+const KNOWN_ROLES: Record<string, SegmentKey> = {
+  'Fundador, socio o CEO': 'founder',
+  'Director, VP o C-level (no dueño)': 'executive',
+  'Líder comercial o de ventas': 'sales_leader',
+  'Gerente o jefe de área': 'manager',
+  'Perfil técnico (ingeniería, datos, producto)': 'technical',
+};
+
+function resolveSegment(profile: Profile, inferred: Decision<SegmentKey>): Decision<SegmentKey> {
+  const known = KNOWN_ROLES[profile.role];
+  return known ? { value: known, probability: 1, alternatives: [] } : inferred;
+}
 
 function toDecision<T>(answer: JevAnswer | undefined, parse: (key: string) => T): Decision<T> {
   if (!answer || answer.type === 'noul') throw new Error('Expected a choice or score answer');
@@ -34,9 +49,8 @@ function toProbability(answer: JevAnswer | undefined) {
   return answer.noul;
 }
 
-function toLevel(key: string): Level {
-  const level = Number(key);
-  return level === 1 || level === 2 ? level : 0;
+function toAffinity(key: string): AffinityBand {
+  return AFFINITY_BY_LEVEL[Number(key)] ?? 'low';
 }
 
 async function askJev(profile: Profile, consensus: boolean): Promise<JevResult> {
@@ -56,28 +70,22 @@ export async function segmentProfile(
   const result = await askJev(profile, consensus);
   const { answers } = result;
 
-  const segment = toDecision(answers.segment, (key) => key as SegmentKey);
-  const companyStage = toDecision(answers.companyStage, (key) => key as StageKey);
-  const aiMaturity = toDecision(answers.aiMaturity, toLevel);
-  const urgency = toDecision(answers.urgency, toLevel);
+  const segment = resolveSegment(
+    profile,
+    toDecision(answers.segment, (key) => key as SegmentKey),
+  );
+  const program = toDecision(answers.program, (key) => key as ProgramKey);
+  const affinity = toDecision(answers.affinity, toAffinity);
   const salesReady = toProbability(answers.salesReady);
-  const wantsLearning = toProbability(answers.wantsLearning);
   const decisionPower = toProbability(answers.decisionPower);
-  const fitsOffer = toProbability(answers.fitsOffer);
+  const wantsLearning = toProbability(answers.wantsLearning);
 
-  const { light, reasons } = decideLight({
-    segment,
-    companyStage,
-    urgency,
-    salesReady,
-    decisionPower,
-    fitsOffer,
-  });
+  const { light, reasons } = decideLight({ program, affinity, salesReady, decisionPower });
 
   const { action, questionActions } = decideAction({
     segment,
-    companyStage,
-    aiMaturity,
+    program,
+    affinity,
     salesReady,
     wantsLearning,
   });
@@ -86,13 +94,11 @@ export async function segmentProfile(
     profileId: profile.id,
     trigger,
     segment,
-    companyStage,
-    aiMaturity,
-    urgency,
+    program,
+    affinity,
     salesReady,
-    wantsLearning,
     decisionPower,
-    fitsOffer,
+    wantsLearning,
     light,
     action,
     questionActions,
@@ -101,11 +107,10 @@ export async function segmentProfile(
     recommendation: recommend({
       light,
       segment: segment.value,
-      stage: companyStage.value,
-      maturity: aiMaturity.value,
-      urgency: urgency.value,
+      program: program.value,
+      affinity: affinity.value,
       wantsLearning,
-      activity: describeActivity(profile),
+      profile,
     }),
     meta: {
       provider: result.provider,

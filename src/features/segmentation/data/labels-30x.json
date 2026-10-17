@@ -1,0 +1,4881 @@
+{
+  "P-294": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-297": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-298": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-300": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-296": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-286": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "executive",
+    "infoLevel": "Alta"
+  },
+  "P-293": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "executive",
+    "infoLevel": "Alta"
+  },
+  "P-259": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-265": {
+    "program": "hardcore_ai",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-266": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-267": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-268": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-269": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-271": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-274": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-275": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-277": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-278": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-279": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-280": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-282": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-284": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-285": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-288": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-290": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "manager",
+    "infoLevel": "Media"
+  },
+  "P-260": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "sales_leader",
+    "infoLevel": "Alta"
+  },
+  "P-261": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-262": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-270": {
+    "program": "hardcore_ai",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-263": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-264": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-272": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-273": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-276": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-281": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-283": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-287": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-289": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-291": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-292": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-231": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "executive",
+    "infoLevel": "Media"
+  },
+  "P-234": {
+    "program": "hardcore_ai",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "executive",
+    "infoLevel": "Media"
+  },
+  "P-246": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "executive",
+    "infoLevel": "Media"
+  },
+  "P-251": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "executive",
+    "infoLevel": "Alta"
+  },
+  "P-229": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-232": {
+    "program": "hardcore_ai",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-235": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-236": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-241": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-242": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-243": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-244": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-245": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-250": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-255": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-254": {
+    "program": "hardcore_ai",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "manager",
+    "infoLevel": "Media"
+  },
+  "P-239": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Media"
+  },
+  "P-252": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-253": {
+    "program": "hardcore_ai",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-256": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-228": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-230": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-233": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-237": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-238": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-240": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-247": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-248": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-249": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-257": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-258": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-192": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-193": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-196": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-200": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-201": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-203": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-205": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-207": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-209": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-210": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-212": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-213": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-217": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-218": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Alta"
+  },
+  "P-220": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-223": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-224": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-227": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-195": {
+    "program": "achievers",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "manager",
+    "infoLevel": "Media"
+  },
+  "P-199": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Media"
+  },
+  "P-208": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-219": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Media"
+  },
+  "P-222": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Media"
+  },
+  "P-225": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-202": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "technical",
+    "infoLevel": "Media"
+  },
+  "P-215": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-216": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "technical",
+    "infoLevel": "Media"
+  },
+  "P-194": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-197": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-198": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-204": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-206": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-211": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-214": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-221": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-226": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-176": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "executive",
+    "infoLevel": "Media"
+  },
+  "P-186": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-169": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-170": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-171": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-172": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-173": {
+    "program": "hardcore_ai",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-175": {
+    "program": "hardcore_ai",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-179": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-180": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-182": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-184": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-187": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-188": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-190": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-168": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-189": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-174": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-177": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-178": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-181": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-183": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-185": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-191": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-152": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-153": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-157": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-162": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-167": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-154": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-158": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-159": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-163": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-166": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-155": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-156": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-151": {
+    "program": "achievers",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-160": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-161": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-164": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-165": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-137": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-138": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-141": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-130": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-133": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-140": {
+    "program": "hardcore_ai",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-144": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-145": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-136": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-132": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-134": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-143": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-131": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-135": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-139": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-142": {
+    "program": "hardcore_ai",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-146": {
+    "program": "achievers",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-147": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-148": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-149": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-150": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-119": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-117": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-118": {
+    "program": "sales_machine",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-127": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-116": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-121": {
+    "program": "hardcore_ai",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-120": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-128": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-129": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-114": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-115": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-122": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-123": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-124": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-125": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-126": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-094": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-097": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Media"
+  },
+  "P-098": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-099": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-103": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-105": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-107": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-108": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-110": {
+    "program": "ai_sales",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-113": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-093": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-095": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Media"
+  },
+  "P-096": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Media"
+  },
+  "P-100": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-104": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-089": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-090": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-091": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-092": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-101": {
+    "program": "ai_sales",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-102": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-106": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-109": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-111": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-112": {
+    "program": "ai_sales",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-076": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-082": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-036": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-040": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-044": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-046": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-056": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-064": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-066": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-071": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-072": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-077": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-078": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-079": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-087": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-037": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-039": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-053": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-058": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-062": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-075": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-085": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-088": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-042": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-086": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-041": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-063": {
+    "program": "hardcore_ai",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-067": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-038": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-043": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-045": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-047": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-048": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-049": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-050": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-051": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-052": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-054": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-055": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-057": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-059": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-060": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-061": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-065": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-068": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-069": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-070": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-073": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-074": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-080": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-081": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-083": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-084": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-026": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "executive",
+    "infoLevel": "Baja"
+  },
+  "P-001": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-004": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-010": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-016": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-018": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-023": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-024": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-033": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "founder",
+    "infoLevel": "Baja"
+  },
+  "P-014": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-022": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-025": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-028": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "manager",
+    "infoLevel": "Baja"
+  },
+  "P-003": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-007": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-011": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-013": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-031": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "sales_leader",
+    "infoLevel": "Baja"
+  },
+  "P-032": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-034": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "technical",
+    "infoLevel": "Baja"
+  },
+  "P-002": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-005": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-006": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-008": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-009": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-012": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-015": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-017": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-019": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-020": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-021": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-027": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-029": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-030": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-035": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-663": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-664": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-665": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-666": {
+    "program": "hardcore_ai",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-667": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-668": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-669": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-670": {
+    "program": "hardcore_ai",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-671": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-672": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-673": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-674": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-675": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-676": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-677": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-678": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-679": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-680": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-681": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-682": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-683": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-684": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-685": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-686": {
+    "program": "hardcore_ai",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-687": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-688": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-689": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-690": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-691": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-692": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-693": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-694": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-695": {
+    "program": "ai_sales",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-696": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-697": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-698": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-699": {
+    "program": "sales_machine",
+    "affinity": 10,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-590": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-591": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-592": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-593": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-594": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-595": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-596": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-597": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-598": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-599": {
+    "program": "hardcore_ai",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-600": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-601": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-602": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-603": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-604": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-605": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-606": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-607": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-608": {
+    "program": "hardcore_ai",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-609": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-610": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-611": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-612": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-613": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-614": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-615": {
+    "program": "hardcore_ai",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-616": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-617": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-618": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-619": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-620": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-621": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-622": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-623": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-624": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-625": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-626": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-627": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-628": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-629": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-630": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-631": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-632": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-633": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-634": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-635": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-636": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-637": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-638": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-639": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-640": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-641": {
+    "program": "hardcore_ai",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-642": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-643": {
+    "program": "achievers",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-644": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-645": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-646": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-647": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-648": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-649": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-650": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-651": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-652": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-653": {
+    "program": "sales_machine",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-654": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-655": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-656": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-657": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-658": {
+    "program": "ai_sales",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-659": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-660": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-661": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-662": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 9,
+    "affinityBand": "very_high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-540": {
+    "program": "achievers",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-541": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-542": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-543": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-544": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-545": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-546": {
+    "program": "achievers",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-547": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-548": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-549": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-550": {
+    "program": "achievers",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-551": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-552": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-553": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-554": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-555": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-556": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-557": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-558": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-559": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-560": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-561": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-562": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-563": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-564": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-565": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-566": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-567": {
+    "program": "achievers",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-568": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-569": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-570": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-571": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-572": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-573": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-574": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-575": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-576": {
+    "program": "achievers",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-577": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-578": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-579": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-580": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-581": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-582": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-583": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-584": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-585": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-586": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-587": {
+    "program": "sales_machine",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-588": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-589": {
+    "program": "ai_sales",
+    "affinity": 8,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-485": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-486": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-487": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-488": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-489": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-490": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-491": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-492": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-493": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-494": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-495": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-496": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-497": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-498": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-499": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-500": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-501": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-502": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-503": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-504": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-505": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-506": {
+    "program": "achievers",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-507": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-508": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-509": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-510": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-511": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-512": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-513": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-514": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-515": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-516": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-517": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-518": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-519": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-520": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-521": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-522": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-523": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-524": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-525": {
+    "program": "achievers",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-526": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-527": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-528": {
+    "program": "ai_sales",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-529": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-530": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-531": {
+    "program": "hardcore_ai",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-532": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-533": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-534": {
+    "program": "achievers",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-535": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-536": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-537": {
+    "program": "achievers",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-538": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-539": {
+    "program": "sales_machine",
+    "affinity": 7,
+    "affinityBand": "high",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-453": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-454": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-455": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-456": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-457": {
+    "program": "hardcore_ai",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-458": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-459": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-460": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-461": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-462": {
+    "program": "hardcore_ai",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-463": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-464": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-465": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-466": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-467": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-468": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-469": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-470": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-471": {
+    "program": "sales_machine",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-472": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-473": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-474": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-475": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-476": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-477": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-478": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-479": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-480": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-481": {
+    "program": "achievers",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-482": {
+    "program": "ai_sales",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-483": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-484": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 6,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-433": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-434": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-435": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-436": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-437": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-438": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-439": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-440": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-441": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-442": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-443": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-444": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-445": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-446": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-447": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-448": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-449": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-450": {
+    "program": "achievers",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-451": {
+    "program": "ai_sales",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-452": {
+    "program": "sales_machine",
+    "affinity": 5,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-409": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-410": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-411": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-412": {
+    "program": "hardcore_ai",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-413": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-414": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-415": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-416": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-417": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-418": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-419": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-420": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-421": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-422": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-423": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-424": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-425": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-426": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-427": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-428": {
+    "program": "sales_machine",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-429": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-430": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-431": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-432": {
+    "program": "ai_sales",
+    "affinity": 4,
+    "affinityBand": "medium",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-394": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-395": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-396": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-397": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-398": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-399": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-400": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-401": {
+    "program": "hardcore_ai",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-402": {
+    "program": "hardcore_ai",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-403": {
+    "program": "hardcore_ai",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-404": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-405": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-406": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-407": {
+    "program": "inmersion_ejecutiva",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-408": {
+    "program": "ai_sales",
+    "affinity": 3,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-372": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-373": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-374": {
+    "program": "hardcore_ai",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-375": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-376": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-377": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-378": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-379": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-380": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-381": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-382": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-383": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-384": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-385": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-386": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-387": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-388": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-389": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-390": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-391": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-392": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-393": {
+    "program": "none",
+    "affinity": 2,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-328": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-329": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-330": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-331": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-332": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-333": {
+    "program": "ai_sales",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-334": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-335": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-336": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-337": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-338": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-339": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-340": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-341": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-342": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-343": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-344": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-345": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-346": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-347": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-348": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-349": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-350": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-351": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-352": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-353": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-354": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-355": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-356": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-357": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-358": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-359": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-360": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-361": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-362": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-363": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-364": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-365": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-366": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-367": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-368": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-369": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-370": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-371": {
+    "program": "none",
+    "affinity": 1,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-301": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-302": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-303": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Media"
+  },
+  "P-304": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-305": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-306": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-307": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-308": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-309": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-310": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-311": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-312": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-313": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-314": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-315": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-316": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-317": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-318": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-319": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-320": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-321": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-322": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-323": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-324": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Alta"
+  },
+  "P-325": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-326": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  },
+  "P-327": {
+    "program": "none",
+    "affinity": 0,
+    "affinityBand": "low",
+    "role": "unknown",
+    "infoLevel": "Baja"
+  }
+}

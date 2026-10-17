@@ -1,6 +1,13 @@
 import { z } from 'zod';
 
-export const COMPANY_SIZES = ['1', '2-10', '11-50', '51-200', '201-1000', '1000+'] as const;
+export const ROLE_OPTIONS = [
+  'Fundador, socio o CEO',
+  'Director, VP o C-level (no dueño)',
+  'Líder comercial o de ventas',
+  'Gerente o jefe de área',
+  'Perfil técnico (ingeniería, datos, producto)',
+  'Sin dato de rol',
+] as const;
 
 export const STAGE_HINTS = ['idea', 'early_stage', 'scale_up', 'corporate'] as const;
 
@@ -19,16 +26,20 @@ export const signalsSchema = z.object({
 export const profileSchema = z.object({
   id: z.string().min(1),
   alias: z.string().min(1),
-  role: z.string().trim().min(2, 'Add a role'),
-  company: z.string().trim().min(2, 'Add a company'),
-  industry: z.string().trim().min(2, 'Add an industry'),
-  companySize: z.enum(COMPANY_SIZES),
-  country: z.string().trim().min(2),
-  event: z.string().trim().min(2),
-  signupAnswer: z.string().trim().min(10, 'Write at least 10 characters'),
+  source: z.enum(['crm', 'luma']),
+  relation: z.enum(['lead', 'deal']),
+  role: z.string().min(1),
   stageHint: z.enum(STAGE_HINTS).optional(),
+  country: z.string().min(1),
+  pain: z.string().min(1),
+  goal: z.string().min(1),
+  topics: z.array(z.string()),
+  infoAvailable: z.string().min(1),
+  crm: z.object({ status: z.string(), stage: z.string(), program: z.string() }),
   signals: signalsSchema,
 });
+
+export const storedProfileSchema = profileSchema.omit({ signals: true });
 
 export type Profile = z.infer<typeof profileSchema>;
 export type Signals = z.infer<typeof signalsSchema>;

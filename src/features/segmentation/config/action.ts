@@ -1,17 +1,17 @@
 import type {
   ActionQuestion,
+  AffinityBand,
   Decision,
   DecisionAction,
-  Level,
+  ProgramKey,
   SegmentKey,
-  StageKey,
 } from '../types/segmentation.types';
 import { THRESHOLDS } from './thresholds';
 
 interface ActionInput {
   segment: Decision<SegmentKey>;
-  companyStage: Decision<StageKey>;
-  aiMaturity: Decision<Level>;
+  program: Decision<ProgramKey>;
+  affinity: Decision<AffinityBand>;
   salesReady: number;
   wantsLearning: number;
 }
@@ -28,11 +28,11 @@ export function actionFor(confidence: number): DecisionAction {
 
 export function decideAction(input: ActionInput) {
   const questionActions: Record<ActionQuestion, DecisionAction> = {
-    segment: input.segment.value === 'other' ? 'escalate' : actionFor(input.segment.probability),
-    companyStage: actionFor(input.companyStage.probability),
-    aiMaturity: actionFor(input.aiMaturity.probability),
+    segment: input.segment.value === 'unknown' ? 'escalate' : actionFor(input.segment.probability),
+    program: actionFor(input.program.probability),
+    affinity: actionFor(input.affinity.probability),
     salesReady: actionFor(yesNoConfidence(input.salesReady)),
     wantsLearning: actionFor(yesNoConfidence(input.wantsLearning)),
   };
-  return { action: questionActions.segment, questionActions };
+  return { action: questionActions.program, questionActions };
 }

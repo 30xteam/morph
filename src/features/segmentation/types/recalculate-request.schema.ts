@@ -5,6 +5,8 @@ import { profileSchema } from './profile.schema';
 export const previousOutcomeSchema = z.looseObject({
   profileId: z.string(),
   segment: z.looseObject({ value: z.string(), probability: z.number() }),
+  program: z.looseObject({ value: z.string(), probability: z.number() }),
+  affinity: z.looseObject({ value: z.string(), probability: z.number() }),
   light: z.enum(['green', 'yellow', 'red']),
   action: z.enum(['auto', 'review', 'escalate']),
 });

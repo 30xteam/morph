@@ -1,0 +1,328 @@
+{
+  "provider": "mock",
+  "calibrated": false,
+  "mode": "consensus",
+  "total": 697,
+  "jevCalls": 2091,
+  "programAccuracy": 0.49928263988522237,
+  "affinityAccuracy": 0.3170731707317073,
+  "affinityWithinOneBand": 0.7718794835007173,
+  "roleAccuracyKnown": 1,
+  "knownRoles": 188,
+  "decidedAloneShare": 0.38737446197991393,
+  "programAccuracyWhenAlone": 0.662962962962963,
+  "programAccuracyByInfo": {
+    "Alta": {
+      "total": 145,
+      "accuracy": 0.47586206896551725
+    },
+    "Media": {
+      "total": 189,
+      "accuracy": 0.5978835978835979
+    },
+    "Baja": {
+      "total": 363,
+      "accuracy": 0.4573002754820937
+    }
+  },
+  "programConfusion": {
+    "ai_sales": {
+      "ai_sales": 208,
+      "inmersion_ejecutiva": 0,
+      "sales_machine": 3,
+      "hardcore_ai": 0,
+      "achievers": 0,
+      "none": 0
+    },
+    "inmersion_ejecutiva": {
+      "ai_sales": 65,
+      "inmersion_ejecutiva": 34,
+      "sales_machine": 6,
+      "hardcore_ai": 1,
+      "achievers": 6,
+      "none": 21
+    },
+    "sales_machine": {
+      "ai_sales": 51,
+      "inmersion_ejecutiva": 0,
+      "sales_machine": 48,
+      "hardcore_ai": 0,
+      "achievers": 1,
+      "none": 0
+    },
+    "hardcore_ai": {
+      "ai_sales": 25,
+      "inmersion_ejecutiva": 0,
+      "sales_machine": 0,
+      "hardcore_ai": 10,
+      "achievers": 0,
+      "none": 0
+    },
+    "achievers": {
+      "ai_sales": 12,
+      "inmersion_ejecutiva": 2,
+      "sales_machine": 4,
+      "hardcore_ai": 1,
+      "achievers": 2,
+      "none": 0
+    },
+    "none": {
+      "ai_sales": 133,
+      "inmersion_ejecutiva": 2,
+      "sales_machine": 7,
+      "hardcore_ai": 8,
+      "achievers": 1,
+      "none": 46
+    }
+  },
+  "lightShare": {
+    "green": 0,
+    "yellow": 0.6872309899569584,
+    "red": 0.3127690100430416
+  },
+  "avgLatencyMs": 2,
+  "p95LatencyMs": 5,
+  "costPerThousandUsd": 0.06929777044476348,
+  "misses": [
+    {
+      "alias": "P-297 · Desarrollar liderazgo y equipo",
+      "expected": "Inmersión Ejecutiva (affinity 10)",
+      "got": "Achievers (32%)",
+      "note": "info Alta · topics leadership, ops, sales, marketing, pricing, gtm"
+    },
+    {
+      "alias": "P-300 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 10)",
+      "got": "AI Sales (56%)",
+      "note": "info Alta · topics ai, leadership, ops"
+    },
+    {
+      "alias": "P-259 · Vender más",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "AI Sales (36%)",
+      "note": "info Alta · topics leadership, gtm, sales"
+    },
+    {
+      "alias": "P-266 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "AI Sales (94%)",
+      "note": "info Alta · topics sales, gtm, ai, product, leadership, ops, finance, pricing"
+    },
+    {
+      "alias": "P-274 · Formarse (sobre todo en IA)",
+      "expected": "Sales Machine (affinity 9)",
+      "got": "AI Sales (95%)",
+      "note": "info Alta · topics sales, gtm, ai"
+    },
+    {
+      "alias": "P-275 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "AI Sales (60%)",
+      "note": "info Alta · topics ai, leadership, gtm"
+    },
+    {
+      "alias": "P-277 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "AI Sales (99%)",
+      "note": "info Alta · topics leadership, ai, sales, ops, gtm, product"
+    },
+    {
+      "alias": "P-278 · Delegar y pasar a un rol estratégico",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "Sales Machine (39%)",
+      "note": "info Alta · topics leadership, hiring, ops, fundraising, gtm, sales"
+    },
+    {
+      "alias": "P-280 · Transformar el modelo de negocio",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "Achievers (33%)",
+      "note": "info Alta · topics gtm, ops, leadership, sales, product"
+    },
+    {
+      "alias": "P-263 · Vender más",
+      "expected": "Sales Machine (affinity 9)",
+      "got": "AI Sales (43%)",
+      "note": "info Media · topics sales, ops, leadership"
+    },
+    {
+      "alias": "P-264 · Entrar a una red de pares",
+      "expected": "Inmersión Ejecutiva (affinity 9)",
+      "got": "AI Sales (82%)",
+      "note": "info Alta · topics sales, gtm, leadership, ai, marketing"
+    },
+    {
+      "alias": "P-289 · Automatizar con IA",
+      "expected": "Sales Machine (affinity 9)",
+      "got": "AI Sales (67%)",
+      "note": "info Alta · topics sales, ops, ai, gtm"
+    },
+    {
+      "alias": "P-291 · Vender más",
+      "expected": "Sales Machine (affinity 9)",
+      "got": "AI Sales (67%)",
+      "note": "info Alta · topics sales, marketing, gtm, ops, ai"
+    },
+    {
+      "alias": "P-231 · Vender más",
+      "expected": "Inmersión Ejecutiva (affinity 8)",
+      "got": "AI Sales (61%)",
+      "note": "info Media · topics ai, leadership"
+    },
+    {
+      "alias": "P-234 · Formarse (sobre todo en IA)",
+      "expected": "Hardcore AI (affinity 8)",
+      "got": "AI Sales (100%)",
+      "note": "info Media · topics ai, sales, leadership, gtm"
+    },
+    {
+      "alias": "P-229 · Vender más",
+      "expected": "Inmersión Ejecutiva (affinity 8)",
+      "got": "Sales Machine (49%)",
+      "note": "info Media · topics leadership, gtm, sales, ops"
+    },
+    {
+      "alias": "P-232 · Automatizar con IA",
+      "expected": "Hardcore AI (affinity 8)",
+      "got": "AI Sales (65%)",
+      "note": "info Media · topics ai, leadership"
+    },
+    {
+      "alias": "P-241 · Formarse (sobre todo en IA)",
+      "expected": "Inmersión Ejecutiva (affinity 8)",
+      "got": "No program yet (56%)",
+      "note": "info Media · topics —"
+    },
+    {
+      "alias": "P-242 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 8)",
+      "got": "AI Sales (65%)",
+      "note": "info Alta · topics ai, leadership"
+    },
+    {
+      "alias": "P-245 · Vender más",
+      "expected": "Inmersión Ejecutiva (affinity 8)",
+      "got": "AI Sales (54%)",
+      "note": "info Baja · topics sales, leadership"
+    },
+    {
+      "alias": "P-254 · Automatizar con IA",
+      "expected": "Hardcore AI (affinity 8)",
+      "got": "AI Sales (100%)",
+      "note": "info Media · topics ai, sales"
+    },
+    {
+      "alias": "P-193 · Formarse (sobre todo en IA)",
+      "expected": "Inmersión Ejecutiva (affinity 7)",
+      "got": "No program yet (56%)",
+      "note": "info Baja · topics —"
+    },
+    {
+      "alias": "P-209 · Vender más",
+      "expected": "Sales Machine (affinity 7)",
+      "got": "AI Sales (50%)",
+      "note": "info Baja · topics sales"
+    },
+    {
+      "alias": "P-210 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 7)",
+      "got": "AI Sales (100%)",
+      "note": "info Baja · topics gtm, sales, ai, leadership"
+    },
+    {
+      "alias": "P-213 · Vender más",
+      "expected": "Sales Machine (affinity 7)",
+      "got": "AI Sales (61%)",
+      "note": "info Media · topics sales, marketing, leadership"
+    },
+    {
+      "alias": "P-217 · Automatizar con IA",
+      "expected": "Sales Machine (affinity 7)",
+      "got": "AI Sales (67%)",
+      "note": "info Media · topics sales, ops, ai, gtm"
+    },
+    {
+      "alias": "P-218 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 7)",
+      "got": "AI Sales (61%)",
+      "note": "info Alta · topics leadership, ai"
+    },
+    {
+      "alias": "P-220 · Automatizar con IA",
+      "expected": "Hardcore AI (affinity 7)",
+      "got": "AI Sales (44%)",
+      "note": "info Baja · topics ai"
+    },
+    {
+      "alias": "P-195 · Transformar el modelo de negocio",
+      "expected": "Achievers (affinity 7)",
+      "got": "Sales Machine (62%)",
+      "note": "info Media · topics sales, marketing, gtm, ops"
+    },
+    {
+      "alias": "P-216 · Automatizar con IA",
+      "expected": "Hardcore AI (affinity 7)",
+      "got": "AI Sales (83%)",
+      "note": "info Media · topics ai, sales"
+    },
+    {
+      "alias": "P-204 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 7)",
+      "got": "AI Sales (65%)",
+      "note": "info Media · topics ai, leadership"
+    },
+    {
+      "alias": "P-211 · Formarse (sobre todo en IA)",
+      "expected": "Sales Machine (affinity 7)",
+      "got": "AI Sales (100%)",
+      "note": "info Media · topics sales, ai"
+    },
+    {
+      "alias": "P-214 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 7)",
+      "got": "AI Sales (61%)",
+      "note": "info Media · topics ai, leadership, ops"
+    },
+    {
+      "alias": "P-221 · Expandirse a otros países",
+      "expected": "Inmersión Ejecutiva (affinity 7)",
+      "got": "AI Sales (70%)",
+      "note": "info Alta · topics ai, sales, gtm, ops, leadership"
+    },
+    {
+      "alias": "P-176 · Expandirse a otros países",
+      "expected": "Inmersión Ejecutiva (affinity 6)",
+      "got": "AI Sales (70%)",
+      "note": "info Media · topics ai, gtm, ops, sales, leadership"
+    },
+    {
+      "alias": "P-186 · Automatizar con IA",
+      "expected": "Inmersión Ejecutiva (affinity 6)",
+      "got": "AI Sales (56%)",
+      "note": "info Baja · topics ai, ops, leadership"
+    },
+    {
+      "alias": "P-169 · Automatizar con IA",
+      "expected": "Sales Machine (affinity 6)",
+      "got": "AI Sales (99%)",
+      "note": "info Media · topics ai, ops, sales"
+    },
+    {
+      "alias": "P-170 · Vender más",
+      "expected": "Achievers (affinity 6)",
+      "got": "Inmersión Ejecutiva (43%)",
+      "note": "info Media · topics leadership, gtm"
+    },
+    {
+      "alias": "P-171 · Automatizar con IA",
+      "expected": "Sales Machine (affinity 6)",
+      "got": "AI Sales (99%)",
+      "note": "info Baja · topics ops, sales, ai, marketing, hiring"
+    },
+    {
+      "alias": "P-173 · Automatizar con IA",
+      "expected": "Hardcore AI (affinity 6)",
+      "got": "AI Sales (100%)",
+      "note": "info Media · topics ai, sales"
+    }
+  ]
+}

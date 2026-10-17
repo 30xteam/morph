@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    return Response.json(await evaluateSegmentation(parsed.data.mode));
+    return Response.json(await evaluateSegmentation(parsed.data.mode, parsed.data.limit));
   } catch (error) {
     console.error(error);
     const message = error instanceof Error ? error.message : 'Unknown error';

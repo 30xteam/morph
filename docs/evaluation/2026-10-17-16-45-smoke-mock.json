@@ -1,0 +1,57 @@
+{
+  "profileId": "P-294",
+  "trigger": "re_run",
+  "segment": {
+    "value": "founder",
+    "probability": 1,
+    "alternatives": []
+  },
+  "program": {
+    "value": "ai_sales",
+    "probability": 0.971854412635342,
+    "alternatives": [
+      {
+        "value": "sales_machine",
+        "probability": 0.026554680230024632
+      },
+      {
+        "value": "hardcore_ai",
+        "probability": 0.0007255727122818002
+      }
+    ]
+  },
+  "affinity": {
+    "value": "very_high",
+    "probability": 0.8581188909633332,
+    "alternatives": [
+      {
+        "value": "high",
+        "probability": 0.14184609863817996
+      },
+      {
+        "value": "low",
+        "probability": 0.00001750519924339761
+      }
+    ]
+  },
+  "salesReady": 0.8347951298093854,
+  "decisionPower": 0.6726070170677605,
+  "wantsLearning": 0.5,
+  "light": "yellow",
+  "needsReview": false,
+  "reasons": ["may not decide the purchase (67%)"],
+  "recommendation": {
+    "kind": "nurture",
+    "title": "Nurture toward AI Sales",
+    "detail": "Send AI Sales content and case studies until intent grows. goal: Automatizar con IA · topics: sales, ai, gtm, pricing."
+  },
+  "meta": {
+    "provider": "mock",
+    "model": "mock-keyword-heuristic",
+    "calibrated": false,
+    "latencyMs": 0,
+    "inputTokens": 866,
+    "costUsd": 0.000036372000000000003,
+    "decidedAt": "2026-10-17T16:45:08.307Z"
+  }
+}

@@ -13,6 +13,8 @@ export async function recalculateProfile(
     current,
     changed: {
       segment: previous.segment.value !== current.segment.value,
+      program: previous.program.value !== current.program.value,
+      affinity: previous.affinity.value !== current.affinity.value,
       light: previous.light !== current.light,
       action: previous.action !== current.action,
     },

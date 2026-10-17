@@ -2,7 +2,7 @@
 
 import { cx } from '@/core/cx';
 
-import { LIGHT_LABELS, SEGMENT_LABELS } from '../config/labels';
+import { LIGHT_LABELS, PROGRAM_LABELS } from '../config/labels';
 import { latestOutcome, useSegmentationStore } from '../store/segmentation-store';
 
 export function ReviewQueue() {
@@ -55,11 +55,11 @@ export function ReviewQueue() {
                         done ? 'text-fg-muted line-through' : 'text-fg-strong',
                       )}
                     >
-                      {profile.role} at {profile.company} · {SEGMENT_LABELS[outcome.segment.value]}
+                      {profile.alias} · {profile.role} · {PROGRAM_LABELS[outcome.program.value]}
                     </span>
                     <span className="text-caption text-fg-muted">
                       {verdict?.verdict === 'corrected'
-                        ? `Corrected to ${SEGMENT_LABELS[verdict.segment]}`
+                        ? `Corrected to ${PROGRAM_LABELS[verdict.program]}`
                         : `${LIGHT_LABELS[outcome.light]} · ${outcome.reasons[0] ?? ''}`}
                     </span>
                   </span>

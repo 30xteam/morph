@@ -2,20 +2,16 @@ import 'server-only';
 import { estimateTokens, softmax, toRankedAnswer } from '../jev-math';
 import type { JevAdapter, JevAnswer, JevQuestion } from '../jev.types';
 
-const STOP_WORDS = new Set([
-  'the',
-  'and',
-  'for',
-  'with',
-  'from',
-  'that',
-  'this',
-  'are',
-  'its',
-  'their',
-  'who',
-  'has',
-]);
+const STOP_WORDS = new Set(
+  [
+    'the and for with from that this are its their who has was not but',
+    'an as at be by in is it of on or so to no do',
+    'de la el en y o a con sin por para los las un una del al se su es lo le u',
+    'dato rol',
+  ]
+    .join(' ')
+    .split(' '),
+);
 
 const LEAD_FIELD_WEIGHT = 4;
 
@@ -24,9 +20,11 @@ type WeightedWords = Map<string, number>;
 function tokenize(text: string) {
   return new Set(
     text
+      .normalize('NFD')
+      .replace(/\p{M}/gu, '')
       .toLowerCase()
-      .split(/[^a-z0-9+]+/)
-      .filter((word) => word.length > 2 && !STOP_WORDS.has(word))
+      .split(/[^\p{L}\p{N}+]+/u)
+      .filter((word) => word.length > 1 && !STOP_WORDS.has(word))
       .map((word) => word.slice(0, 5)),
   );
 }
@@ -66,7 +64,7 @@ function answer(question: JevQuestion, state: WeightedWords): JevAnswer {
   const descriptions =
     question.type === 'choice' ? Object.values(question.criteria) : question.criteria;
   const logits = descriptions.map((description, index) =>
-    description === null ? 0.6 : overlap(state, `${keys[index]} ${description}`) * 1.4,
+    description === null ? 0.6 : overlap(state, `${keys[index]} ${description}`) * 1.8,
   );
   return toRankedAnswer(question.type, keys, softmax(logits));
 }

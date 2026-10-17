@@ -25,9 +25,23 @@ async function main() {
   }
 
   const profiles = JSON.parse(
-    readFileSync(join(ROOT, 'src/features/segmentation/evaluation/profiles.json'), 'utf8'),
+    readFileSync(join(ROOT, 'src/features/segmentation/data/crm-sample.json'), 'utf8'),
   ) as Profile[];
-  const [profile] = profiles;
+  const [stored] = profiles;
+  const profile = stored
+    ? {
+        ...stored,
+        signals: {
+          eventsAttended: 0,
+          emailsOpened: 0,
+          emailsClicked: 0,
+          programPageVisits: 0,
+          roleChangedRecently: false,
+          companyRaisedRound: false,
+          daysSinceLastActivity: 3,
+        },
+      }
+    : undefined;
   if (!profile) throw new Error('profiles.json is empty');
 
   const request = { model, state: toJevState(profile), questions: SEGMENTATION_QUESTIONS };

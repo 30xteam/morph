@@ -1,6 +1,6 @@
 'use client';
 
-import { LIGHT_LABELS, SEGMENT_LABELS, TRIGGER_LABELS } from '../config/labels';
+import { LIGHT_LABELS, PROGRAM_LABELS, TRIGGER_LABELS } from '../config/labels';
 import { useSegmentationStore } from '../store/segmentation-store';
 import { timeAgo } from '../utils/format';
 
@@ -45,7 +45,7 @@ export function ActivityFeed() {
           {items.map(({ profile, outcome, previous }) => {
             const changed =
               previous &&
-              (previous.segment.value !== outcome.segment.value ||
+              (previous.program.value !== outcome.program.value ||
                 previous.light !== outcome.light);
             return (
               <li
@@ -65,14 +65,14 @@ export function ActivityFeed() {
                     {changed ? (
                       <>
                         {' '}
-                        and moved from {SEGMENT_LABELS[previous.segment.value]} ·{' '}
+                        and moved from {PROGRAM_LABELS[previous.program.value]} ·{' '}
                         {LIGHT_LABELS[previous.light]} to{' '}
                       </>
                     ) : (
                       ' → '
                     )}
                     <span className="text-fg-strong">
-                      {SEGMENT_LABELS[outcome.segment.value]} · {LIGHT_LABELS[outcome.light]}
+                      {PROGRAM_LABELS[outcome.program.value]} · {LIGHT_LABELS[outcome.light]}
                     </span>
                   </span>
                   <span className="text-caption text-fg-muted">

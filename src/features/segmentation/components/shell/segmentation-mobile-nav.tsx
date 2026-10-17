@@ -10,13 +10,6 @@ export function SegmentationMobileNav() {
     <header className="sticky top-0 z-sticky bg-surface-subtle desktop:hidden">
       <div className="flex h-14 items-center justify-between px-4">
         <span className="truncate text-label-sm text-fg-strong">{WORKSPACE_NAME}</span>
-        <Link
-          href="/"
-          aria-label="Back to coming soon"
-          className="grid size-11 place-items-center rounded-sm text-fg-icon hover:bg-state-hover hover:text-fg"
-        >
-          <Icon name="arrowLeft" />
-        </Link>
       </div>
       <nav aria-label="Workspace" className="flex gap-1 overflow-x-auto px-3 pb-2">
         {NAV_ITEMS.map(({ label, icon, href, active }) => (

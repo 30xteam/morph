@@ -1,11 +1,7 @@
 /** Brand copy lives here so renaming the product never touches components. */
 export const SITE = {
-  name: 'Webapp',
+  name: '30X · Live segments',
   locale: 'en',
-  description: 'Something new is on the way.',
-  comingSoon: {
-    title: 'Coming soon',
-    body: 'We’re putting the finishing touches on something new. Check back shortly.',
-    previewCta: 'View dashboard preview',
-  },
+  description:
+    'Jev decides the right 30X program, affinity and traffic light for every profile, and re-decides when the person changes.',
 } as const;

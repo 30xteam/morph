@@ -1,11 +1,12 @@
 import { ActivityFeed } from './activity-feed';
 import { DecisionMetrics } from './decision-metrics';
 import { HeaderActions } from './header-actions';
+import { SegmentationStatistics } from './metrics/segmentation-statistics';
+import { ProfileViews } from './profile-views';
 import { ReviewQueue } from './review-queue';
 import { SampleDataNotice } from './sample-data-notice';
 import { SegmentationMobileNav } from './shell/segmentation-mobile-nav';
 import { SegmentationSidebar } from './shell/segmentation-sidebar';
-import { SignupsTable } from './signups-table';
 import { TrafficLightChart } from './traffic-light-chart';
 
 export function SegmentationDashboard() {
@@ -21,8 +22,8 @@ export function SegmentationDashboard() {
           <div className="flex flex-col gap-1">
             <h1 className="text-headline-sm text-fg-strong">Live segments</h1>
             <p className="text-body-sm text-fg-muted">
-              Every Luma sign-up gets a segment and a traffic light in milliseconds, and both change
-              when the person does.
+              Every CRM profile and Luma sign-up gets a 30X program, an affinity and a traffic light
+              in milliseconds, and all three change when the person does.
             </p>
           </div>
           <HeaderActions />
@@ -33,7 +34,9 @@ export function SegmentationDashboard() {
           <DecisionMetrics />
         </div>
 
-        <SignupsTable />
+        <ProfileViews />
+
+        <SegmentationStatistics />
 
         <div className="grid gap-10 desktop:grid-cols-[3fr_2fr] desktop:gap-12">
           <ReviewQueue />

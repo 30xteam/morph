@@ -1,33 +1,14 @@
 import type { JevProvider } from '@/core/jev/jev.types';
 
-import type { SegmentKey, StageKey, TrafficLight } from './segmentation.types';
-
-export type LevelLabel = 'low' | 'medium' | 'high';
+import type { AffinityBand, ProgramKey, SegmentKey, TrafficLight } from './segmentation.types';
 
 export interface GroundTruth {
-  archetype: string;
-  segment: SegmentKey;
-  companyStage: StageKey;
-  aiMaturity: LevelLabel;
-  urgency: LevelLabel;
-  salesReady: boolean;
-  decisionPower: boolean;
-  fitsOffer: boolean;
-  wantsLearning: boolean;
-  light: TrafficLight;
-  note: string;
+  program: ProgramKey;
+  affinity: number;
+  affinityBand: AffinityBand;
+  role: SegmentKey;
+  infoLevel: 'Alta' | 'Media' | 'Baja';
 }
-
-export type EvaluatedField =
-  | 'segment'
-  | 'companyStage'
-  | 'aiMaturity'
-  | 'urgency'
-  | 'salesReady'
-  | 'decisionPower'
-  | 'fitsOffer'
-  | 'wantsLearning'
-  | 'light';
 
 export type EvaluationMode = 'single' | 'consensus';
 
@@ -37,21 +18,18 @@ export interface SegmentationEvaluation {
   mode: EvaluationMode;
   total: number;
   jevCalls: number;
-  segmentAccuracy: number;
-  lightAccuracy: number;
-  fieldAccuracy: Record<EvaluatedField, number>;
-  lightConfusion: Record<TrafficLight, Record<TrafficLight, number>>;
+  programAccuracy: number;
+  affinityAccuracy: number;
+  affinityWithinOneBand: number;
+  roleAccuracyKnown: number;
+  knownRoles: number;
   decidedAloneShare: number;
-  accuracyWhenAlone: number;
+  programAccuracyWhenAlone: number;
+  programAccuracyByInfo: Record<string, { total: number; accuracy: number }>;
+  programConfusion: Record<ProgramKey, Record<ProgramKey, number>>;
   lightShare: Record<TrafficLight, number>;
   avgLatencyMs: number;
   p95LatencyMs: number;
   costPerThousandUsd: number;
-  misses: {
-    alias: string;
-    expected: string;
-    got: string;
-    note: string;
-    fields: EvaluatedField[];
-  }[];
+  misses: { alias: string; expected: string; got: string; note: string }[];
 }
