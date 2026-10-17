@@ -2,7 +2,11 @@ import type {
   AffinityBand,
   DecisionAction,
   ProgramKey,
+  Reason,
+  ReasonCode,
+  Recommendation,
   RecommendationKind,
+  ReviewReason,
   SegmentKey,
   TrafficLight,
   Trigger,
@@ -60,3 +64,34 @@ export const TRIGGER_LABELS: Record<Trigger, string> = {
   funding_round: 'company raised a round',
   re_run: 'was decided',
 };
+
+export const REVIEW_REASON_LABELS: Record<ReviewReason, string> = {
+  low_confidence: 'Low confidence',
+  low_info: 'Low info',
+};
+
+const REASON_LABELS: Record<ReasonCode, string> = {
+  no_program: 'No 30X program fits yet',
+  low_affinity: 'Affinity is low (0-3)',
+  program_unsure: 'Program confidence {p} is too low to act',
+  medium_affinity: 'Affinity is only medium (4-6)',
+  not_ready: 'Not ready to buy yet ({p})',
+  may_not_decide: 'May not decide the purchase ({p})',
+  program_check: 'Program confidence {p}',
+  strong_fit: 'Strong fit: program {p}, ready to buy and decides',
+};
+
+export function describeReason({ code, probability }: Reason) {
+  return REASON_LABELS[code].replace('{p}', `${Math.round((probability ?? 0) * 100)}%`);
+}
+
+const RECOMMENDATION_TITLES: Record<RecommendationKind, string> = {
+  sales_conversation: 'Hand to a seller today: offer {program}',
+  nurture: 'Nurture toward {program}',
+  event: 'Invite to a free session related to {program}',
+  human_review: 'A person reviews this profile',
+};
+
+export function recommendationTitle({ kind, program }: Recommendation) {
+  return RECOMMENDATION_TITLES[kind].replace('{program}', PROGRAM_LABELS[program]);
+}

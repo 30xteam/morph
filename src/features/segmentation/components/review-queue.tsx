@@ -2,7 +2,7 @@
 
 import { cx } from '@/core/cx';
 
-import { LIGHT_LABELS, PROGRAM_LABELS } from '../config/labels';
+import { describeReason, LIGHT_LABELS, PROGRAM_LABELS } from '../config/labels';
 import { latestOutcome, useSegmentationStore } from '../store/segmentation-store';
 
 export function ReviewQueue() {
@@ -60,7 +60,7 @@ export function ReviewQueue() {
                     <span className="text-caption text-fg-muted">
                       {verdict?.verdict === 'corrected'
                         ? `Corrected to ${PROGRAM_LABELS[verdict.program]}`
-                        : `${LIGHT_LABELS[outcome.light]} · ${outcome.reasons[0] ?? ''}`}
+                        : `${LIGHT_LABELS[outcome.light]} · ${outcome.reasons[0] ? describeReason(outcome.reasons[0]) : ''}`}
                     </span>
                   </span>
                 </label>
