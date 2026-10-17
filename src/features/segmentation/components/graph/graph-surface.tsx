@@ -16,9 +16,9 @@ import { PRIORITY_COLOR } from '../priority-badge';
 const PRIORITY_RADIUS = { high: 12, medium: 9, low: 6, pending: 7 };
 
 const NODE_COLOR: Record<GraphNodeKind, string> = {
-  profile: 'text-fg-muted',
-  program: 'text-primary',
-  interest: 'text-accent-1',
+  profile: 'text-ink-muted',
+  program: 'text-accent',
+  interest: 'text-yellow-fg',
 };
 const RADIUS: Record<GraphNodeKind, number> = { profile: 7, program: 13, interest: 10 };
 
@@ -43,13 +43,13 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
   const neighbors = visibleActive ? graphNeighborhood(graph, visibleActive) : undefined;
 
   return (
-    <div className="flex min-w-0 flex-col bg-surface">
-      <div className="flex flex-wrap items-center gap-1 border-b border-border p-2">
+    <div className="flex min-w-0 flex-col bg-canvas">
+      <div className="flex flex-wrap items-center gap-1 border-b border-line p-2">
         <Button variant="ghost" aria-label="Zoom out" onClick={() => zoom(1 / 1.25)}>
           −
         </Button>
         <span
-          className="min-w-12 text-center text-caption text-fg-muted tabular-nums"
+          className="min-w-12 text-center text-body-sm text-ink-muted tabular-nums"
           aria-live="polite"
         >
           {Math.round(camera.scale * 100)}%
@@ -99,7 +99,7 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
                 y2={b.y}
                 className={cx(
                   'pointer-events-none stroke-current',
-                  highlighted ? 'text-primary' : 'text-border',
+                  highlighted ? 'text-accent' : 'text-line',
                 )}
                 opacity={visibleActive && !highlighted ? 0.2 : 1}
                 strokeWidth={highlighted ? 2 : 1}
@@ -143,14 +143,14 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
                   (node.priority ? PRIORITY_RADIUS[node.priority.level] : RADIUS[node.kind]) +
                   (selectedId === node.id ? 4 : 0)
                 }
-                className="fill-current group-focus-visible:stroke-primary group-focus-visible:stroke-4"
+                className="fill-current group-focus-visible:stroke-accent group-focus-visible:stroke-4"
                 stroke="currentColor"
                 strokeWidth={2}
               />
               <text
                 x={(node.priority ? PRIORITY_RADIUS[node.priority.level] : RADIUS[node.kind]) + 7}
                 y={5}
-                className={cx('text-body-sm', node.priority ? 'fill-fg' : 'fill-current')}
+                className={cx('text-body-sm', node.priority ? 'fill-ink' : 'fill-current')}
               >
                 {node.label}
                 {node.priority ? ` · ${node.priority.short}` : ''}
@@ -160,13 +160,13 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
         </g>
       </svg>
       {!graph.nodes.length ? (
-        <output className="px-4 pb-4 text-body-sm text-fg-muted">
+        <output className="px-4 pb-4 text-body-sm text-ink-muted">
           No matching nodes. Try another search.
         </output>
       ) : null}
       <p
         id="graph-instructions"
-        className="border-t border-border px-3 py-3 text-caption text-fg-muted"
+        className="border-t border-line px-3 py-3 text-body-sm text-ink-muted"
       >
         Drag nodes or the background. Scroll to zoom. Tab to a node and press Enter to select it.
       </p>

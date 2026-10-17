@@ -39,8 +39,11 @@ export const SegmentationService = {
     const { data } = await api.get<LumaFeed>('/api/luma/feed', { params: { after: afterSeq } });
     return data;
   },
-  async evaluate(mode: EvaluationMode = 'single') {
-    const { data } = await api.post<SegmentationEvaluation>('/api/segment/evaluate', { mode });
+  async evaluate(mode: EvaluationMode = 'single', limit?: number) {
+    const { data } = await api.post<SegmentationEvaluation>('/api/segment/evaluate', {
+      mode,
+      limit,
+    });
     return data;
   },
 };

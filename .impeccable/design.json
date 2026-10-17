@@ -1,108 +1,30 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-10-16T00:00:00Z",
-  "title": "Design System: Quiet Workspace",
+  "title": "Live Console",
   "extensions": {
-    "colorMeta": {
-      "primary": {
-        "role": "primary",
-        "displayName": "Signal Blue",
-        "canonical": "#0075DE",
-        "tonalRamp": [
-          "#00203f",
-          "#003566",
-          "#004a8c",
-          "#0060b3",
-          "#0075de",
-          "#4d9ee8",
-          "#a6ccf3",
-          "#e6f3fe"
-        ]
-      },
-      "primary-hover": {
-        "role": "primary",
-        "displayName": "Bright Signal Blue",
-        "canonical": "#097FE8"
-      },
-      "primary-active": {
-        "role": "primary",
-        "displayName": "Deep Harbor Blue",
-        "canonical": "#005BAB"
-      },
-      "secondary": { "role": "secondary", "displayName": "Mist Blue", "canonical": "#E6F3FE" },
-      "accent-teal": { "role": "tertiary", "displayName": "Lagoon Teal", "canonical": "#27918D" },
-      "accent-purple": { "role": "tertiary", "displayName": "Iris", "canonical": "#9849E8" },
-      "accent-orange": { "role": "tertiary", "displayName": "Ember", "canonical": "#FF6D00" },
-      "accent-sky": { "role": "tertiary", "displayName": "Sky", "canonical": "#62AEF0" },
-      "accent-deep-blue": { "role": "tertiary", "displayName": "Cobalt", "canonical": "#1313BA" },
-      "accent-dark-blue": { "role": "tertiary", "displayName": "Harbor", "canonical": "#005BAB" },
-      "surface": { "role": "neutral", "displayName": "Paper White", "canonical": "#FFFFFF" },
-      "surface-subtle": { "role": "neutral", "displayName": "Warm Paper", "canonical": "#F9F9F8" },
-      "surface-muted": { "role": "neutral", "displayName": "Linen", "canonical": "#F6F5F4" },
-      "surface-accent": { "role": "neutral", "displayName": "Morning Sky", "canonical": "#F2F9FF" },
-      "on-surface": {
-        "role": "neutral",
-        "displayName": "Ink",
-        "canonical": "#000000",
-        "tonalRamp": [
-          "#000000",
-          "#1a1918",
-          "#31302e",
-          "#4a4744",
-          "#615d59",
-          "#827d77",
-          "#a39e98",
-          "#f6f5f4"
-        ]
-      },
-      "on-surface-soft": {
-        "role": "neutral",
-        "displayName": "Warm Charcoal",
-        "canonical": "#31302E"
-      },
-      "on-surface-variant": {
-        "role": "neutral",
-        "displayName": "Graphite Taupe",
-        "canonical": "#615D59"
-      },
-      "on-surface-muted": { "role": "neutral", "displayName": "Pebble", "canonical": "#A39E98" },
-      "error": { "role": "status", "displayName": "Alert Coral", "canonical": "#F64932" },
-      "warning": { "role": "status", "displayName": "Marigold", "canonical": "#FFB110" },
-      "success": { "role": "status", "displayName": "Lagoon Teal", "canonical": "#27918D" }
-    },
-    "typographyMeta": {
-      "display-xl": { "displayName": "Display XL", "purpose": "One hero statement per page." },
-      "headline-lg": { "displayName": "Headline", "purpose": "Section headings." },
-      "title-lg": { "displayName": "Title", "purpose": "Feature titles." },
-      "body-md": { "displayName": "Body", "purpose": "Paragraphs, 65–75ch measure." },
-      "label-md": { "displayName": "Label", "purpose": "Buttons and form labels." },
-      "caption": { "displayName": "Caption", "purpose": "Metadata and helper text." }
-    },
+    "colorMeta": [],
+    "typographyMeta": [],
     "shadows": [
       {
-        "name": "nav",
-        "value": "rgba(0, 0, 0, 0) 0px 1px 0px 0px",
-        "purpose": "Nav bar at rest; becomes a hairline under scrolled content."
+        "name": "raised",
+        "value": "0px 4px 16px 0px rgba(9, 9, 11, 0.08)",
+        "purpose": "Selected row in the light theme."
       },
       {
-        "name": "dropdown",
-        "value": "rgba(0, 0, 0, 0.01) 0px 0.175px 1.041px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.847px 0px, rgba(0, 0, 0, 0.04) 0px 4px 18px 0px",
-        "purpose": "Menus, popovers, floating panels."
+        "name": "raised-dark",
+        "value": "0px 4px 16px 0px rgba(0, 0, 0, 0.4)",
+        "purpose": "Selected row in the dark theme (Figma 10:87)."
       },
       {
         "name": "modal",
-        "value": "rgba(0, 0, 0, 0.2) 0px 2px 7px 0px",
-        "purpose": "Dialogs over a scrim."
+        "value": "0px 16px 48px 0px rgba(9, 9, 11, 0.16)",
+        "purpose": "Dialogs over a scrim, light."
       },
       {
-        "name": "elevated",
-        "value": "rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.84688px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.01) 0px 0.175px 1.04062px 0px, rgba(255, 255, 255, 0.6) 0px 0px 1px 0px",
-        "purpose": "Custom floating surfaces needing a soft edge glow."
-      },
-      {
-        "name": "search",
-        "value": "rgba(0, 0, 0, 0.016) 0px 0.7px 1.462px 0px, rgba(0, 0, 0, 0.03) 0px 3px 9px 0px",
-        "purpose": "Prominent search field."
+        "name": "modal-dark",
+        "value": "0px 16px 48px 0px rgba(0, 0, 0, 0.6)",
+        "purpose": "Dialogs over a scrim, dark."
       }
     ],
     "motion": [
@@ -113,19 +35,52 @@
       }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "640px" },
-      { "name": "desktop", "value": "1024px" },
-      { "name": "wide", "value": "1440px" }
+      {
+        "name": "tablet",
+        "value": "640px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "wide",
+        "value": "1440px"
+      }
     ],
     "zIndex": [
-      { "name": "base", "value": 1 },
-      { "name": "raised", "value": 2 },
-      { "name": "floating", "value": 3 },
-      { "name": "popover", "value": 4 },
-      { "name": "dropdown", "value": 10 },
-      { "name": "sticky", "value": 100 },
-      { "name": "sticky-high", "value": 500 },
-      { "name": "modal", "value": 1000 }
+      {
+        "name": "base",
+        "value": 1
+      },
+      {
+        "name": "raised",
+        "value": 2
+      },
+      {
+        "name": "floating",
+        "value": 3
+      },
+      {
+        "name": "popover",
+        "value": 4
+      },
+      {
+        "name": "dropdown",
+        "value": 10
+      },
+      {
+        "name": "sticky",
+        "value": 100
+      },
+      {
+        "name": "sticky-high",
+        "value": 500
+      },
+      {
+        "name": "modal",
+        "value": 1000
+      }
     ]
   },
   "components": [
