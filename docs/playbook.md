@@ -76,7 +76,7 @@ Cada decisión queda en el historial y se ve en "Recent activity", por ejemplo: 
 
 ## 6. Cómo se mide
 
-**Acierto medido sobre 60 perfiles simulados** (12 arquetipos × 5), con las 8 respuestas y el color anotados en un archivo aparte que nunca se envía a JEV. Se corre con `pnpm jev:eval` o con "Measure accuracy" en el prototipo. El detalle está en [`docs/evaluation/README.md`](./evaluation/README.md).
+**Acierto medido sobre 60 perfiles simulados** (12 arquetipos × 5), con las 8 respuestas y el color anotados en un archivo aparte que nunca se envía a JEV. Se corre con `pnpm jev:eval` o con "Check accuracy" (sección "How Jev is performing") en el prototipo. El detalle está en [`docs/evaluation/README.md`](./evaluation/README.md).
 
 | Métrica (60 perfiles)           | `mock`, una llamada | `mock`, consenso ×3 | JEV real, una llamada | JEV real, consenso ×3 |
 | ------------------------------- | ------------------- | ------------------- | --------------------- | --------------------- |

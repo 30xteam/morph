@@ -6,11 +6,13 @@ import { timeAgo } from '../utils/format';
 
 const MAX_ITEMS = 12;
 
-function initials(alias: string) {
-  return alias
-    .replace(/[^A-Z0-9]/gi, '')
-    .slice(-2)
-    .toUpperCase();
+function initials(role: string) {
+  return role
+    .split(/\s+/)
+    .filter((word) => /^[a-z]/i.test(word))
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase())
+    .join('');
 }
 
 export function ActivityFeed() {
@@ -39,7 +41,9 @@ export function ActivityFeed() {
         Recent activity
       </h2>
       {items.length === 0 ? (
-        <p className="text-body-sm text-fg-muted">Run Jev or simulate a sign-up to start.</p>
+        <p className="text-body-sm text-fg-muted">
+          Nothing yet. Sort the sign-ups or add a test sign-up to start.
+        </p>
       ) : (
         <ol className="flex flex-col gap-4">
           {items.map(({ profile, outcome, previous }) => {
@@ -56,24 +60,25 @@ export function ActivityFeed() {
                   aria-hidden="true"
                   className="grid size-6 shrink-0 place-items-center rounded-full bg-surface-muted text-caption text-fg-soft"
                 >
-                  {initials(profile.alias)}
+                  {initials(profile.role)}
                 </span>
                 <p className="flex min-w-0 flex-col gap-0.5 text-body-sm">
                   <span className="text-fg-soft">
-                    <span className="text-label-sm text-fg-strong">{profile.alias}</span>{' '}
+                    <span className="text-label-sm text-fg-strong">{profile.role}</span>{' '}
                     {TRIGGER_LABELS[outcome.trigger]}
                     {changed ? (
                       <>
                         {' '}
-                        and moved from {SEGMENT_LABELS[previous.segment.value]} ·{' '}
-                        {LIGHT_LABELS[previous.light]} to{' '}
+                        and moved from {LIGHT_LABELS[previous.light]} to{' '}
+                        <span className="text-fg-strong">{LIGHT_LABELS[outcome.light]}</span>
                       </>
                     ) : (
-                      ' → '
+                      <>
+                        {'. Jev suggests: '}
+                        <span className="text-fg-strong">{LIGHT_LABELS[outcome.light]}</span>
+                      </>
                     )}
-                    <span className="text-fg-strong">
-                      {SEGMENT_LABELS[outcome.segment.value]} · {LIGHT_LABELS[outcome.light]}
-                    </span>
+                    {` (${SEGMENT_LABELS[outcome.segment.value]})`}
                   </span>
                   <span className="text-caption text-fg-muted">
                     {timeAgo(outcome.meta.decidedAt)}
