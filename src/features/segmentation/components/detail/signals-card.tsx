@@ -10,7 +10,12 @@ import { DETAIL_SIGNALS, SIGNAL_LABELS, signalValue } from '../../utils/signal-v
 import { Panel } from '../ui/panel';
 import { SignalIcon } from '../ui/signal-icon';
 
-export function SignalsCard({ profile }: { profile: Profile }) {
+interface SignalsCardProps {
+  profile: Profile;
+  flagMissing?: boolean;
+}
+
+export function SignalsCard({ profile, flagMissing = false }: SignalsCardProps) {
   const m = useMessages();
   const { locale } = usePreferences();
   const missing = missingSignals(profile);
@@ -19,7 +24,8 @@ export function SignalsCard({ profile }: { profile: Profile }) {
     <Panel title={m.detail.signals}>
       <dl className="flex flex-col">
         {DETAIL_SIGNALS.map((key) => {
-          const value = signalValue(profile, key, missing.includes(key), locale, m);
+          const asked = missing.includes(key);
+          const value = signalValue(profile, key, asked, locale, m);
           return (
             <div
               key={key}
@@ -31,6 +37,7 @@ export function SignalsCard({ profile }: { profile: Profile }) {
                 className={cx(
                   'ml-auto text-right text-label-sm',
                   value.missing ? 'text-ink-muted' : 'text-ink',
+                  flagMissing && asked && 'text-yellow-fg',
                 )}
               >
                 {value.text}

@@ -23,7 +23,7 @@ export function MetricsOverview() {
   const empty = '—';
 
   return (
-    <main className="flex min-w-0 flex-1 flex-col gap-4 px-4 py-6 tablet:px-8 desktop:py-7">
+    <main className="flex min-w-0 flex-1 flex-col gap-4.5 px-4 py-6 tablet:px-8 desktop:py-7">
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex flex-col gap-1">
           <h1 className="text-title-lg text-ink">{m.metrics.title}</h1>
@@ -71,18 +71,15 @@ export function MetricsOverview() {
                 )
               : ''
           }
-          highlight
         />
         <StatTile
-          label={m.metrics.needsReview}
-          value={String(counts.review)}
-          hint={m.metrics.needsReviewHint}
+          label={m.metrics.profiles}
+          value={String(counts.total)}
+          hint={evaluation ? m.metrics.tested(evaluation.total) : m.metrics.notTested}
         />
       </dl>
-      <div className="grid gap-4 desktop:grid-cols-[3fr_2fr]">
-        <ThresholdTable evaluation={evaluation} />
-        {evaluation ? <HonestReading evaluation={evaluation} /> : null}
-      </div>
+      <ThresholdTable evaluation={evaluation} />
+      {evaluation ? <HonestReading evaluation={evaluation} /> : null}
     </main>
   );
 }

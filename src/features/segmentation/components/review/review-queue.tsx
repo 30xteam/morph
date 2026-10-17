@@ -54,7 +54,7 @@ export function ReviewQueue() {
           <p className="text-body-sm text-ink-soft">{m.review.subtitle(total)}</p>
         </header>
         <ListTabs label={m.review.title} value={tab} tabs={tabs} onChange={setTab} />
-        <ul className="flex flex-col gap-2 overflow-y-auto px-3 pb-6">
+        <ul className="flex flex-col gap-0.5 overflow-y-auto px-3 pb-6">
           {items.map((item) => (
             <ReviewRow
               key={item.profile.id}

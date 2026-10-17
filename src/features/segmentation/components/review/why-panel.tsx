@@ -5,11 +5,11 @@ import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
 import { Panel } from '../ui/panel';
 import { ProbabilityBars } from '../ui/probability-bars';
-import { TagBadge } from '../ui/tag-badge';
 
 export function WhyPanel({ item }: { item: ReviewItem }) {
   const m = useMessages();
-  const { program } = item.outcome;
+  const { program, meta } = item.outcome;
+  const reason = item.reason === 'low_info' ? m.review.lowInfo : m.review.lowConfidence;
   const bars = [program, ...program.alternatives].map((choice) => ({
     key: choice.value,
     label: m.programs[choice.value],
@@ -17,16 +17,22 @@ export function WhyPanel({ item }: { item: ReviewItem }) {
   }));
 
   return (
-    <Panel title={m.review.why}>
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-yellow-bg px-3.5 py-2.5">
-        <p className="text-label-sm text-yellow-fg">
-          {item.reason === 'low_info'
-            ? m.review.lowInfoLine
-            : m.review.confidenceLine(program.probability, THRESHOLDS.act)}
+    <Panel title={m.detail.decision}>
+      <div className="flex flex-col gap-0.75">
+        <p className="flex items-center gap-2 text-label-lg text-ink">
+          <span aria-hidden="true" className="size-1.75 shrink-0 rounded-full bg-yellow-fg" />
+          {m.detail.matchLine(reason, program.probability)}
         </p>
-        <TagBadge tone="warning">{m.review.needsHuman}</TagBadge>
+        <p className="text-body-sm text-ink-soft">
+          {item.reason === 'low_info'
+            ? m.review.lowInfoNote
+            : m.review.confidenceNote(program.probability, THRESHOLDS.act)}
+        </p>
       </div>
       <ProbabilityBars bars={bars} label={m.detail.decision} />
+      <p className="text-caption text-ink-muted tabular-nums">
+        {m.detail.meta(meta.model, meta.latencyMs)}
+      </p>
     </Panel>
   );
 }

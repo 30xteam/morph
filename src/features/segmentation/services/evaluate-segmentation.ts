@@ -2,7 +2,7 @@ import 'server-only';
 import { jevEnv } from '@/core/jev/jev-env';
 
 import { PROGRAM_LABELS } from '../config/labels';
-import { THRESHOLDS } from '../config/thresholds';
+import { THRESHOLD_STEPS, THRESHOLDS } from '../config/thresholds';
 import { LABELS_30X, PROFILES_30X } from '../data/dataset';
 import type { EvaluationMode, SegmentationEvaluation } from '../types/evaluation.types';
 import type { AffinityBand, ProgramKey, TrafficLight } from '../types/segmentation.types';
@@ -21,7 +21,6 @@ const BANDS: AffinityBand[] = ['low', 'medium', 'high', 'very_high'];
 const LIGHTS: TrafficLight[] = ['green', 'yellow', 'red'];
 const CONCURRENCY = 8;
 const MAX_MISSES = 40;
-const THRESHOLD_STEPS = [0.5, 0.6, 0.7, 0.8, 0.9];
 
 function share<T>(items: T[], test: (item: T) => boolean) {
   return items.length ? items.filter(test).length / items.length : 0;

@@ -38,11 +38,11 @@ export function ReviewDetail({ item, className, onBack, onNext }: ReviewDetailPr
       </Button>
       <header className="flex items-start justify-between gap-4">
         <div className="flex min-w-0 flex-col gap-1">
-          <h2 className="text-title-lg text-ink">{profile?.alias ?? ''}</h2>
+          <h2 className="text-title-lg text-ink">{profile ? m.roles[roleKey(profile)] : ''}</h2>
           <p className="text-body-md text-ink-soft">
             {profile
               ? [
-                  m.roles[roleKey(profile)],
+                  profile.alias,
                   countryName(profile.country, locale),
                   profile.relation === 'deal' ? m.detail.deal : m.detail.lead,
                 ]
@@ -58,7 +58,7 @@ export function ReviewDetail({ item, className, onBack, onNext }: ReviewDetailPr
       {item ? (
         <>
           <WhyPanel item={item} />
-          <SignalsCard profile={item.profile} />
+          <SignalsCard profile={item.profile} flagMissing />
           <DecisionPanel key={item.profile.id} item={item} onDone={onNext} />
         </>
       ) : (
