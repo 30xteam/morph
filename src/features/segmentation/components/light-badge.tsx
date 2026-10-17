@@ -11,7 +11,7 @@ const DOT: Record<TrafficLight, string> = {
 
 export function LightBadge({ light }: { light: TrafficLight }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-muted px-2 py-0.5 text-caption whitespace-nowrap text-fg-soft">
+    <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-surface-muted px-2 py-0.5 text-caption whitespace-nowrap text-fg-soft">
       <span aria-hidden="true" className={cx('size-1.5 rounded-full', DOT[light])} />
       {LIGHT_LABELS[light]}
     </span>
