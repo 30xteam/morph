@@ -11,6 +11,11 @@ Read the relevant guide in `node_modules/next/dist/docs/` before using a Next AP
 - `pnpm design:sync`: run after any change to `DESIGN.md`, `src/design/theme.css` or `src/design/fonts.ts`.
 - `pnpm build`: required for changes touching routing, caching or layouts.
 
+## Product & design context
+
+- `PRODUCT.md`: product truth. Purpose, users and name are still undecided, so never invent them. UI language is English; the Notion-style aesthetic and WCAG 2.2 AA are binding.
+- `DESIGN.md`: "The Quiet Workspace" design system (tokens + rules). `.impeccable/design.json` is its sidecar: shadows, motion, z-index and breakpoints (spec-incompatible groups) are read from there by `pnpm design:sync`.
+
 ## Design rules (DESIGN.md is the source of truth)
 
 - Never hardcode colors, font sizes, radii, shadows or z-index in components. Use the semantic
@@ -60,3 +65,68 @@ boundary when the first protected route exists.
   `apple-design`, `break-ui`, `pick-ui-library`, `prototype`.
 - **Impeccable:** `impeccable` (design quality + detector hook). Check pages with
   `.claude/skills/impeccable/scripts/impeccable detect http://localhost:3000`.
+
+## Temporary: dashboard preview (delete when the real product exists)
+
+`/preview` is a throwaway dashboard with synthetic data. To remove it completely:
+
+1. Delete `src/app/preview/` and `src/features/dashboard-preview/`.
+2. Remove the `<Button asChild>` link to `/preview` in `src/features/coming-soon/components/coming-soon.tsx` and `previewCta` in `src/core/config/site.ts`.
+   Keep `src/ui/button/`; it's the shared button primitive (`<Button asChild variant="primary"><Link …/></Button>`).
+
+## No comments
+
+Do not write comments in code by default. This applies to every file in this repo (`src/`, `scripts/`).
+
+- No explanatory comments describing what the code does — a well-named function, variable, or type already does that.
+- No comments narrating a fix, a task, or a caller ("fixes the reset bug", "used by the settings page") — that belongs in the commit message or PR description, not the code.
+- If a comment feels necessary to explain why something non-obvious is done, that is a signal to make the code itself clearer (rename, extract a function, simplify), not to add a comment.
+
+Allowed exceptions:
+
+- JSDoc on shared public APIs (`src/ui`, `src/core`) that genuinely needs documented parameters or return values.
+- `// SAFETY:` — why an assertion or unsafe operation is sound.
+- `// NOTE:` — a non-obvious business or platform constraint the code cannot express.
+- Lint and tool directives with a reason, for example `// oxlint-disable-next-line rule -- reason`.
+
+When editing a file, remove any comment that is not one of those exceptions.
+A comment in Spanish or any language other than English is a separate violation of No mixed languages.
+
+## Long lists use Combobox
+
+Any selection field with a long list of options must use Combobox, never Select.
+
+- "Long" means 8 or more options, or any list whose length is data-driven and can grow — categories, breeds, roles, services, users.
+- If a list is populated from the API, use Combobox from the start even when it looks short today. It will grow.
+- Select is only for short, fixed lists that will never grow — a handful of statuses, yes/no, a size or sex choice.
+- The point of Combobox is type-to-filter. Forcing someone to eye-scan a long dropdown is the failure mode this rule exists to prevent.
+- Default to filtering an existing list only. Do not enable `allowCustomValue` unless the field genuinely accepts free text.
+
+## Hook filenames
+
+Every file whose primary export is a hook must be named `use-*.ts` — e.g. `use-provider-query.ts`, `use-schedule-day-actions.ts`. This applies everywhere: `features/*/hooks/`, hooks colocated next to components, and shared folders.
+
+Exception: zustand stores (`*-store.ts`, e.g. `auth-store.ts`) keep their name even though they export a hook.
+
+## Commits and pull requests
+
+Create commits and PRs through the `git-publisher` subagent (`.claude/agents/git-publisher.md`), which runs on the cheapest Claude model (Haiku). Do not write commits or PRs with the main model. Other agents follow the commit and PR format in this section.
+
+### Commits
+
+- Follow Conventional Commits: `<type>(<scope>): <description>` (e.g. `feat(settings): add archive button`, `fix(drawer): close on Escape`). Types: feat, fix, docs, chore, refactor, test, style, perf, ci, build.
+- The title must be short — one line, no filler.
+- The commit message is the title only. Do not add a body/description under the title.
+
+### Pull requests
+
+Titles must follow one of these forms, in priority order:
+
+1. `[TICKET] Description` when there's a ticket, e.g. `[LUNA-29] Fix settings drawer`.
+2. `[Feature/Change Part] Description` when there's no ticket but the feature or area the change touches is identifiable, e.g. `[Settings] Add archive button`.
+3. `[VERB] Description` only when there's no ticket and the feature/area can't be pinned down, e.g. `[Fix] Settings drawer closes on Escape`.
+
+Keep the description short and specific — no filler. Titles are at most 72 characters and match `^\[[^][]+\] .+$`.
+
+- Keep the body short and clear: a couple of bullet points on what changed, nothing more.
+- Do not include a "Test Plan" section in the body.
