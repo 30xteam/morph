@@ -1,11 +1,11 @@
 import 'server-only';
-import { decide, JEV_USD_PER_MILLION_INPUT_TOKENS } from '@/core/jev';
+import { decide } from '@/core/jev';
 import type { JevAnswer, JevResult } from '@/core/jev';
 
+import { decideAction } from '../config/action';
 import { QUESTION_VARIANTS } from '../config/question-variants';
 import { SEGMENTATION_QUESTIONS } from '../config/questions';
 import { recommend } from '../config/recommendations';
-import { THRESHOLDS } from '../config/thresholds';
 import { decideLight } from '../config/traffic-light';
 import type {
   Decision,
@@ -74,6 +74,14 @@ export async function segmentProfile(
     fitsOffer,
   });
 
+  const { action, questionActions } = decideAction({
+    segment,
+    companyStage,
+    aiMaturity,
+    salesReady,
+    wantsLearning,
+  });
+
   return {
     profileId: profile.id,
     trigger,
@@ -86,7 +94,9 @@ export async function segmentProfile(
     decisionPower,
     fitsOffer,
     light,
-    needsReview: light === 'red' || segment.probability < THRESHOLDS.act,
+    action,
+    questionActions,
+    needsReview: action !== 'auto' || light === 'red',
     reasons,
     recommendation: recommend({
       light,
@@ -103,7 +113,7 @@ export async function segmentProfile(
       calibrated: result.calibrated,
       latencyMs: result.latencyMs,
       inputTokens: result.inputTokens,
-      costUsd: (result.inputTokens / 1_000_000) * JEV_USD_PER_MILLION_INPUT_TOKENS,
+      costUsd: result.costUsd,
       decidedAt: new Date().toISOString(),
     },
   };

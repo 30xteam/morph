@@ -2,6 +2,8 @@ import { z } from 'zod';
 
 export const COMPANY_SIZES = ['1', '2-10', '11-50', '51-200', '201-1000', '1000+'] as const;
 
+export const STAGE_HINTS = ['idea', 'early_stage', 'scale_up', 'corporate'] as const;
+
 const count = z.number().int().min(0);
 
 export const signalsSchema = z.object({
@@ -24,6 +26,7 @@ export const profileSchema = z.object({
   country: z.string().trim().min(2),
   event: z.string().trim().min(2),
   signupAnswer: z.string().trim().min(10, 'Write at least 10 characters'),
+  stageHint: z.enum(STAGE_HINTS).optional(),
   signals: signalsSchema,
 });
 
