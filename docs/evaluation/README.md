@@ -28,20 +28,23 @@ Cada comando imprime el resultado y guarda un `.md` y un `.json` en esta carpeta
 
 ## Resultados
 
-> ⚠️ Estos números son del proveedor **`mock`** (una heurística de palabras clave), porque la clave de TypeSafe todavía no está en `.env.local`. Sirven para probar el pipeline, **no** para el pitch. Cuando esté la clave: `pnpm jev:smoke && pnpm jev:eval && pnpm jev:eval --consensus && pnpm jev:simulate`, y se reemplaza esta tabla.
+> Los números de `mock` (una heurística de palabras clave) prueban el pipeline. Los de **JEV real** (`jev-1.13.0`, 17-10-2026) son los del pitch. Para repetirlos: `pnpm jev:smoke && pnpm jev:eval && pnpm jev:eval --consensus && pnpm jev:simulate`.
 
-| Métrica (60 perfiles)           | `mock`, una llamada | `mock`, consenso ×3 | JEV real  |
-| ------------------------------- | ------------------- | ------------------- | --------- |
-| Acierto de segmento             | 80,0 %              | 85,0 %              | pendiente |
-| Acierto del semáforo            | 83,3 %              | 38,3 %              | pendiente |
-| % que decide solo (sin persona) | 70,0 %              | 35,0 %              | pendiente |
-| Acierto cuando decide solo      | 88,1 %              | 23,8 %              | pendiente |
-| Latencia media / p95            | 1 / 5 ms            | 4 / 12 ms           | pendiente |
-| Costo por 1.000 perfiles        | $0,04               | $0,08               | pendiente |
+| Métrica (60 perfiles)           | `mock`, una llamada | `mock`, consenso ×3 | JEV real, una llamada | JEV real, consenso ×3 |
+| ------------------------------- | ------------------- | ------------------- | --------------------- | --------------------- |
+| Acierto de segmento             | 80,0 %              | 85,0 %              | 96,7 %                | 93,3 %                |
+| Acierto del semáforo            | 83,3 %              | 38,3 %              | 85,0 %                | 93,3 %                |
+| % que decide solo (sin persona) | 70,0 %              | 35,0 %              | 71,7 %                | 80,0 %                |
+| Acierto cuando decide solo      | 88,1 %              | 23,8 %              | 95,3 %                | 95,8 %                |
+| Latencia media / p95            | 0 / 1 ms            | 1 / 2 ms            | 188 / 357 ms          | 221 / 367 ms          |
+| Costo por 1.000 perfiles        | $0,04               | $0,08               | $0,05                 | $0,13                 |
 
+- **Por pregunta (JEV real, una llamada):** segmento 96,7 %, etapa 75 %, madurez 76,7 %, urgencia 73,3 %, listo para comprar 100 %, puede decidir 91,7 %, encaja 85 %, quiere aprender 95 %.
+- **Llamada cruda:** `2026-10-17-16-30-raw-typesafe.json` guarda la petición y la respuesta tal cual llegan, sin claves (`pnpm jev:raw`). La forma coincide con el schema de `typesafe-adapter.ts`; los `score` traen además un `legend` y `usage` trae `output_tokens`.
+- **Estados por confianza** (`pnpm jev:states`): en modo `mock`, `e-01` actúa solo, `e-13` va a revisión y `e-35` escala a una persona. Los umbrales están en `config/thresholds.ts` y la regla en `config/action.ts`.
 - **Por pregunta (mock, una llamada):** segmento 80 %, etapa 53 %, madurez 70 %, urgencia 78 %, listo para comprar 75 %, puede decidir 85 %, encaja 80 %, quiere aprender 78 %. **La etapa de la empresa es la más débil.** Depende del tamaño y de la ronda, que son datos numéricos, así que conviene categorizarlos en código antes de mandarlos (igual que la actividad).
 - **Consenso (tres formas de preguntar):** el segmento mejora 5 puntos, pero el semáforo se cae. Promediar tres probabilidades las acerca a 0,5, y los umbrales de verde (≥ 0,70) están calibrados para una sola llamada. Además, la tercera redacción es corta y sin descripciones, y el mock la responde peor. **Conclusión a validar con JEV real:** usar el consenso solo para el segmento, o recalibrar los umbrales cuando se use consenso. Cuesta el triple de llamadas.
-- **Costo:** sale de los tokens de entrada que reporta cada llamada × 0,042 USD por millón. Con JEV real se usa el `usage` que devuelve TypeSafe.
+- **Costo:** sale de los tokens de entrada que reporta cada llamada × 0,042 USD por millón (`decide.ts`). Si el proveedor devuelve su propio costo, se usa ese.
 
 ## Simulación de 30 días (mock, semilla 30)
 

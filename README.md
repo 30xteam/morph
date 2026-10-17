@@ -16,9 +16,11 @@ round.
 - Demo: `/segmentation` · Playbook: [`docs/playbook.md`](./docs/playbook.md)
 - APIs: `POST /api/segment` (`{ profile, trigger }`), `POST /api/luma/webhook` (simulated Luma
   registration; name and email are dropped), `POST /api/segment/evaluate` (`{ mode: 'single' |
-  'consensus' }`, 60 annotated profiles), `POST /api/segment/simulate` (`{ days }`).
+  'consensus' }`, 60 annotated profiles), `POST /api/segment/simulate` (`{ days }`),
+  `POST /api/segment/recalculate` (`{ profile, previous }` → `{ previous, current, changed }`).
 - Evaluation from the terminal (dev server running): `pnpm jev:smoke`, `pnpm jev:eval [--consensus]`,
-  `pnpm jev:simulate [--days 30]`. Reports and the 12:00 cut-off rule live in
+  `pnpm jev:simulate [--days 30]`, `pnpm jev:states` (auto / review / escalate in mock mode) and
+  `pnpm jev:raw` (one direct TypeSafe call saved without keys). Reports and the 12:00 cut-off rule live in
   [`docs/evaluation/`](./docs/evaluation/README.md).
 - All profiles are simulated. No real personal data is used or stored.
 

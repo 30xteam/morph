@@ -1,0 +1,126 @@
+{
+  "provider": "typesafe",
+  "calibrated": true,
+  "mode": "single",
+  "total": 60,
+  "jevCalls": 60,
+  "segmentAccuracy": 0.9666666666666667,
+  "lightAccuracy": 0.85,
+  "fieldAccuracy": {
+    "segment": 0.9666666666666667,
+    "companyStage": 0.75,
+    "aiMaturity": 0.7666666666666667,
+    "urgency": 0.7333333333333333,
+    "salesReady": 1,
+    "decisionPower": 0.9166666666666666,
+    "fitsOffer": 0.85,
+    "wantsLearning": 0.95,
+    "light": 0.85
+  },
+  "lightConfusion": {
+    "green": {
+      "green": 18,
+      "yellow": 2,
+      "red": 0
+    },
+    "yellow": {
+      "green": 0,
+      "yellow": 23,
+      "red": 7
+    },
+    "red": {
+      "green": 0,
+      "yellow": 0,
+      "red": 10
+    }
+  },
+  "decidedAloneShare": 0.7166666666666667,
+  "accuracyWhenAlone": 0.9534883720930233,
+  "lightShare": {
+    "green": 0.3,
+    "yellow": 0.4166666666666667,
+    "red": 0.2833333333333333
+  },
+  "avgLatencyMs": 188,
+  "p95LatencyMs": 357,
+  "costPerThousandUsd": 0.05174680000000003,
+  "misses": [
+    {
+      "alias": "Eval #17 · Business owner",
+      "expected": "Founder / CEO · Green · seller",
+      "got": "Founder / CEO · Yellow · nurture",
+      "note": "Small business owner, low maturity but ready now",
+      "fields": ["light"]
+    },
+    {
+      "alias": "Eval #20 · Managing partner",
+      "expected": "Founder / CEO · Green · seller",
+      "got": "Founder / CEO · Yellow · nurture",
+      "note": "Small business owner, low maturity but ready now",
+      "fields": ["light"]
+    },
+    {
+      "alias": "Eval #21 · Founder",
+      "expected": "Founder / CEO · Yellow · nurture",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "Founder only exploring, no budget or timeline",
+      "fields": ["fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #22 · Co-founder",
+      "expected": "Founder / CEO · Yellow · nurture",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "Founder only exploring, no budget or timeline",
+      "fields": ["fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #23 · Solo founder",
+      "expected": "Founder / CEO · Yellow · nurture",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "Founder only exploring, no budget or timeline",
+      "fields": ["fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #25 · Founder (side project)",
+      "expected": "Founder / CEO · Yellow · nurture",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "Founder only exploring, no budget or timeline",
+      "fields": ["fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #41 · Computer Science Student",
+      "expected": "Student / early career · Yellow · nurture",
+      "got": "Student / early career · Red · person reviews",
+      "note": "Student learning the basics",
+      "fields": ["companyStage", "urgency", "fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #43 · Intern",
+      "expected": "Student / early career · Yellow · nurture",
+      "got": "Student / early career · Red · person reviews",
+      "note": "Student learning the basics",
+      "fields": ["companyStage", "fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #44 · Bootcamp student",
+      "expected": "Student / early career · Yellow · nurture",
+      "got": "Student / early career · Red · person reviews",
+      "note": "Student learning the basics",
+      "fields": ["companyStage", "urgency", "fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #54 · Partnerships Manager",
+      "expected": "Individual contributor · Red · person reviews",
+      "got": "Team lead · Red · person reviews",
+      "note": "Attends only to sell something: no fit",
+      "fields": ["segment", "urgency", "decisionPower"]
+    },
+    {
+      "alias": "Eval #57 · Visitor",
+      "expected": "Other · Red · person reviews",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "No useful information: a person decides",
+      "fields": ["segment", "companyStage", "wantsLearning"]
+    }
+  ]
+}
