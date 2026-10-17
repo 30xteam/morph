@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
+import { MorphLogo } from '@/ui';
+
 import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useMessages } from '../../hooks/use-messages';
 import { type ProgramFilter, useSegmentationStore } from '../../store/segmentation-store';
@@ -39,7 +41,7 @@ export function ConsoleSidebar() {
 
   return (
     <aside className="sticky top-0 hidden h-dvh w-sidebar shrink-0 flex-col gap-0.5 overflow-y-auto border-r border-line px-3 py-6 desktop:flex">
-      <p className="px-2.5 pb-5 text-logo text-ink">30X</p>
+      <MorphLogo className="px-2.5 pb-5" />
       <nav aria-label={m.nav.label} className="flex flex-1 flex-col gap-0.5">
         <h2 className="px-2.5 pb-1.5 text-caption font-medium text-ink-muted">{m.nav.segments}</h2>
         {segments.map(({ value, label, count }) => (
