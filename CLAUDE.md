@@ -13,7 +13,7 @@ Read the relevant guide in `node_modules/next/dist/docs/` before using a Next AP
 
 ## Product & design context
 
-- `PRODUCT.md`: product truth. Purpose, users and name are still undecided, so never invent them. The UI ships in English and Spanish; the Figma "30x 2" console look and WCAG 2.2 AA are binding.
+- `PRODUCT.md`: product truth. The product is **Morph** (logo in `src/ui/logo/`); users and positioning are still undecided, so never invent them. The UI ships in English and Spanish; the Figma "30x 2" console look and WCAG 2.2 AA are binding.
 - `DESIGN.md`: "Live Console" design system from Figma `30x 2` (node 10:29), dark by default with a light inversion. `.impeccable/design.json` is its sidecar: shadows, motion, z-index and breakpoints (spec-incompatible groups) are read from there by `pnpm design:sync`.
 
 ## Design rules (DESIGN.md is the source of truth)
