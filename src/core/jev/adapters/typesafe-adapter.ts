@@ -1,12 +1,34 @@
 import 'server-only';
-import { jevEnv } from '../jev-env';
-import type { JevAdapter, JevAnswer } from '../jev.types';
+import { z } from 'zod';
 
-interface SystemOneResponse {
-  model: string;
-  answers: Record<string, JevAnswer>;
-  usage?: { input_tokens?: number };
-}
+import { jevEnv } from '../jev-env';
+import type { JevAdapter } from '../jev.types';
+
+const probabilitiesSchema = z.record(z.string(), z.number());
+
+const answerSchema = z.discriminatedUnion('type', [
+  z.looseObject({
+    type: z.literal('choice'),
+    choice: z.string(),
+    probabilities: probabilitiesSchema,
+    confidence: z.number(),
+  }),
+  z.looseObject({
+    type: z.literal('score'),
+    score: z.number(),
+    probabilities: probabilitiesSchema,
+    confidence: z.number(),
+  }),
+  z.looseObject({ type: z.literal('noul'), noul: z.number() }),
+]);
+
+const systemOneResponseSchema = z.looseObject({
+  model: z.string(),
+  answers: z.record(z.string(), answerSchema),
+  usage: z.looseObject({ input_tokens: z.number().optional() }).optional(),
+  latency_ms: z.number().optional(),
+  cost_usd: z.number().optional(),
+});
 
 export const typesafeAdapter: JevAdapter = async ({ state, questions }) => {
   if (!jevEnv.TYPESAFE_API_KEY) throw new Error('TYPESAFE_API_KEY is not set');
@@ -22,7 +44,13 @@ export const typesafeAdapter: JevAdapter = async ({ state, questions }) => {
   });
 
   if (!res.ok) throw new Error(`TypeSafe ${res.status}: ${await res.text()}`);
-  const data = (await res.json()) as SystemOneResponse;
+  const parsed = systemOneResponseSchema.safeParse(await res.json());
+  if (!parsed.success) {
+    throw new Error(
+      `TypeSafe response has an unexpected shape. Run pnpm jev:raw and update the schema: ${z.prettifyError(parsed.error)}`,
+    );
+  }
+  const data = parsed.data;
 
   return {
     provider: 'typesafe',
@@ -30,5 +58,7 @@ export const typesafeAdapter: JevAdapter = async ({ state, questions }) => {
     calibrated: true,
     answers: data.answers,
     inputTokens: data.usage?.input_tokens ?? 0,
+    latencyMs: data.latency_ms,
+    costUsd: data.cost_usd,
   };
 };
