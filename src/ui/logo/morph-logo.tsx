@@ -1,11 +1,11 @@
 import { cx } from '@/core/cx';
 
-const MARK_PATH = 'M12 3h6a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-6a9 9 0 0 1 0-18z';
-
 export function MorphMark({ className }: { className?: string }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className={cx('size-6 shrink-0', className)}>
-      <path d={MARK_PATH} fill="currentColor" />
+      <circle cx="4.5" cy="12" r="3.5" fill="currentColor" opacity="0.45" />
+      <rect x="9" y="8.5" width="7" height="7" rx="2.4" fill="currentColor" opacity="0.72" />
+      <rect x="17.5" y="8.5" width="6.5" height="7" rx="0.8" fill="currentColor" />
     </svg>
   );
 }
