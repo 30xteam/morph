@@ -22,14 +22,14 @@ Undecided. No differentiating mechanism or claim has been stated, so future work
 
 - Next.js 16 App Router (Cache Components), React 19, TypeScript 7, Tailwind 4. See `CLAUDE.md` for the full stack.
 - `DESIGN.md` is the source of truth for visual tokens. It compiles to CSS through `pnpm design:sync`, and components only use semantic utilities from `src/design/theme.css`.
-- Interface language: **English**.
+- Interface languages: **English** (default) and **Spanish**, switched in the UI. CRM values arrive in Spanish and are translated for display.
 - Base infrastructure is in place but has no product features yet: data fetching, modals, the HTTP client and the auth skeleton. Auth has no provider or flows yet.
 
 ## Brand Commitments
 
 - **Name:** none yet. "Webapp" in `src/core/config/site.ts` is a placeholder and must not be treated as a brand.
-- **Aesthetic:** the Notion-inspired visual language in `DESIGN.md` is a binding brand commitment, not just a starting point. That means a clean, minimalist, content-first look with generous whitespace and a single confident blue action color.
-- **Typography:** a single sans family. The proprietary NotionInter is replaced by Inter.
+- **Aesthetic:** the dark-first operator console from the Figma file "30x 2" (frame 10:29), recorded in `DESIGN.md`, is binding: zinc neutrals, hairline panes and one emerald for selection and action, with a light theme that mirrors it.
+- **Typography:** a single sans family, Inter.
 
 ## Evidence on Hand
 

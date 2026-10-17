@@ -13,20 +13,25 @@ Read the relevant guide in `node_modules/next/dist/docs/` before using a Next AP
 
 ## Product & design context
 
-- `PRODUCT.md`: product truth. Purpose, users and name are still undecided, so never invent them. UI language is English; the Notion-style aesthetic and WCAG 2.2 AA are binding.
-- `DESIGN.md`: "The Quiet Workspace" design system (tokens + rules). `.impeccable/design.json` is its sidecar: shadows, motion, z-index and breakpoints (spec-incompatible groups) are read from there by `pnpm design:sync`.
+- `PRODUCT.md`: product truth. Purpose, users and name are still undecided, so never invent them. The UI ships in English and Spanish; the Figma "30x 2" console look and WCAG 2.2 AA are binding.
+- `DESIGN.md`: "Live Console" design system from Figma `30x 2` (node 10:29), dark by default with a light inversion. `.impeccable/design.json` is its sidecar: shadows, motion, z-index and breakpoints (spec-incompatible groups) are read from there by `pnpm design:sync`.
 
 ## Design rules (DESIGN.md is the source of truth)
 
 - Never hardcode colors, font sizes, radii, shadows or z-index in components. Use the semantic
-  utilities from `src/design/theme.css`: `bg-primary`, `text-fg`, `text-fg-muted`, `bg-surface-accent`,
-  `border-border`, `text-display-xl`…`text-caption`, `rounded-md`, `shadow-dropdown`, `z-modal`,
+  utilities from `src/design/theme.css`: `bg-canvas`, `bg-card`, `bg-raised`, `text-ink`, `text-ink-soft`,
+  `text-ink-muted`, `border-line`, `bg-primary`, `bg-accent`, status pairs (`bg-green-bg text-green-fg`…),
+  `text-title-lg`…`text-badge`, `rounded-sm`…`rounded-lg`, `shadow-raised`, `z-modal`,
   breakpoints `tablet:` / `desktop:` / `wide:`.
+- Every color role exists twice in DESIGN.md (`name` light, `name-dark` dark); `theme.css` switches them on
+  `<html data-theme>`. Add both when you add a role.
 - Need a new value? Add it to `DESIGN.md` front matter → `pnpm design:sync` → map a role in `theme.css`
   (and register custom text/radius/shadow names in `src/core/cx/index.ts`).
 - Never edit `src/design/tokens.generated.css`.
 - Compose classes with `cx()` from `@/core/cx`, with variants as `Record<Variant, string>` lookups.
-- Text contrast must pass WCAG AA: `text-fg-subtle` is for placeholders/hints only, not readable copy.
+- Text contrast must pass WCAG AA in both themes. `icon` grey is for 14px glyphs only, never text.
+- Theme and language live in cookies (`src/core/preferences/`); `PreferencesScript` applies them before paint.
+  UI copy comes from the feature's `i18n/en.ts` and `i18n/es.ts` (`useMessages()`); never hardcode visible text.
 
 ## Architecture (Noxen skills)
 
@@ -68,8 +73,9 @@ boundary when the first protected route exists.
 
 ## Jev (30X challenge prototype)
 
-- The app is one product at `/`: "Live segments" (`src/features/segmentation/`). `/preview` and `/segmentation` redirect
-  to `/` (`next.config.ts`). Its shell (`components/shell/`) keeps the look of the original preview dashboard.
+- The app is one product, the console in `src/app/(console)/`: Live segments at `/`, `/review`, `/metrics` and `/graph`
+  (`src/features/segmentation/`). `/preview` and `/segmentation` redirect to `/`. The layout is the Figma's three panes
+  (sidebar, list, detail); decisions persist in `localStorage` per browser.
 - `src/core/jev/` is the server-only Jev client: `decide({ state, questions })` routes to the adapter picked by
   `JEV_PROVIDER` (`mock` default, `typesafe` real Jev at `/v1/systemone`, `openrouter` LLM emulation, not calibrated).
 - Data: 30X's anonymized sample (697 profiles, categories only) in `data/profiles-30x.json`; the dashboard starts

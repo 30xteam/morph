@@ -80,7 +80,7 @@ DESIGN.md (front matter tokens)
 src/design/tokens.generated.css   --ds-* raw values (generated, never edit)
    │
    ▼
-src/design/theme.css              semantic roles → Tailwind utilities (bg-primary, text-fg-muted, …)
+src/design/theme.css              semantic roles → Tailwind utilities (bg-canvas, text-ink-muted, …), dark/light
    │
    ▼
 components                        only use semantic utilities
