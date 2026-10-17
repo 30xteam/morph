@@ -5,6 +5,8 @@ The visual design is driven entirely by [`DESIGN.md`](./DESIGN.md).
 
 ## 30X challenge: Live segments
 
+Switch **Table / Graph** above Sign-ups to explore the live CRM and Luma profiles as a force-directed network of people, programs and declared interests. Drag nodes or the background, scroll or use the zoom buttons, and select nodes with the pointer or keyboard. The side panel lists neighbors and opens the existing profile dialog; **Show local graph** isolates a node and its immediate connections. Search matches person aliases, programs and interests. Solid links represent declared interests or CRM programs; dashed links use the latest Jev recommendation. New Luma profiles and profile edits update both views. The layout settles automatically, can be paused, and respects reduced-motion preferences. This view uses the profiles currently loaded in the dashboard (24 CRM profiles initially), not all 697 evaluation profiles.
+
 A working prototype for the 30X Jev challenge (Commercial area), served at `/`. It runs on 30X's
 anonymized sample of 697 real profiles (categories only). For each one, [Jev](https://typesafe.ai),
 TypeSafe's typed decision model, answers six typed questions in one call: which 30X program fits

@@ -1,11 +1,11 @@
 import { ActivityFeed } from './activity-feed';
 import { DecisionMetrics } from './decision-metrics';
 import { HeaderActions } from './header-actions';
+import { ProfileViews } from './profile-views';
 import { ReviewQueue } from './review-queue';
 import { SampleDataNotice } from './sample-data-notice';
 import { SegmentationMobileNav } from './shell/segmentation-mobile-nav';
 import { SegmentationSidebar } from './shell/segmentation-sidebar';
-import { SignupsTable } from './signups-table';
 import { TrafficLightChart } from './traffic-light-chart';
 
 export function SegmentationDashboard() {
@@ -33,7 +33,7 @@ export function SegmentationDashboard() {
           <DecisionMetrics />
         </div>
 
-        <SignupsTable />
+        <ProfileViews />
 
         <div className="grid gap-10 desktop:grid-cols-[3fr_2fr] desktop:gap-12">
           <ReviewQueue />
