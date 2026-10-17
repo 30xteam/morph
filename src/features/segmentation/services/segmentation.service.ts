@@ -2,13 +2,25 @@ import { createHttpClient } from '@/core/http';
 
 import type { EvaluationMode, SegmentationEvaluation } from '../types/evaluation.types';
 import type { LumaFeed } from '../types/luma-feed.types';
-import type { Profile, SegmentationOutcome, Trigger } from '../types/segmentation.types';
+import type {
+  Profile,
+  RecalculateResult,
+  SegmentationOutcome,
+  Trigger,
+} from '../types/segmentation.types';
 
 const api = createHttpClient();
 
 export const SegmentationService = {
   async segment(profile: Profile, trigger: Trigger) {
     const { data } = await api.post<SegmentationOutcome>('/api/segment', { profile, trigger });
+    return data;
+  },
+  async recalculate(profile: Profile, previous: SegmentationOutcome) {
+    const { data } = await api.post<RecalculateResult>('/api/segment/recalculate', {
+      profile,
+      previous,
+    });
     return data;
   },
   async simulateLuma(kind: 'registration' | 'check_in' | 'auto' = 'auto') {

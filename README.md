@@ -26,8 +26,10 @@ at an event, changes role or their company raises a round.
   `pnpm luma:simulate --count 20 --every 2 [--kind registration|check_in|auto] [--replay] [--tamper]`.
   The dashboard polls `GET /api/luma/feed`. The feed lives in server memory, enough for a
   single-process demo; production would store it in a database.
+- Recalculate: `POST /api/segment/recalculate` (`{ profile, previous }`) returns the previous and current outcomes plus changes to role, program, affinity, light and action. Actions use program confidence: auto >= 0.8, review >= 0.55, otherwise escalate.
 - Evaluation from the terminal (dev server running): `pnpm jev:smoke`, `pnpm jev:eval [--consensus]`,
-  `pnpm jev:simulate [--days 30]`. Reports and the 12:00 cut-off rule live in
+  `pnpm jev:simulate [--days 30]`, `pnpm jev:states` (auto / review / escalate in mock mode) and
+  `pnpm jev:raw` (one direct TypeSafe call saved without keys). Reports and the 12:00 cut-off rule live in
   [`docs/evaluation/`](./docs/evaluation/README.md).
 - No personal data: the sample has no names or emails; Luma guest names are fictional and never reach Jev.
 

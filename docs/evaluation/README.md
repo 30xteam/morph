@@ -27,6 +27,8 @@ Cada comando imprime el resultado y guarda un `.md` y un `.json` en esta carpeta
 
 ## Resultados
 
+> Las capturas `2026-10-17-16-*typesafe*` conservadas desde main corresponden al experimento anterior de 60 perfiles sintéticos y ocho preguntas. No miden el programa ni la afinidad de estos 697 perfiles y no son comparables con esta evaluación. Tras integrar los estados de decisión, los porcentajes históricos de automatización requieren una nueva corrida.
+
 > ⚠️ Estos números son del proveedor **`mock`** (una heurística de palabras clave), porque la clave de TypeSafe todavía no está en `.env.local`. Prueban que el sistema funciona, no la calidad de JEV.
 
 | Métrica (697 perfiles)                        | `mock`, una llamada | `mock`, consenso ×3 | JEV real  |

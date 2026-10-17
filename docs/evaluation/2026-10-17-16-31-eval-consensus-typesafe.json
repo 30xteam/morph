@@ -1,0 +1,105 @@
+{
+  "provider": "typesafe",
+  "calibrated": true,
+  "mode": "consensus",
+  "total": 60,
+  "jevCalls": 180,
+  "segmentAccuracy": 0.9333333333333333,
+  "lightAccuracy": 0.9333333333333333,
+  "fieldAccuracy": {
+    "segment": 0.9333333333333333,
+    "companyStage": 0.75,
+    "aiMaturity": 0.7833333333333333,
+    "urgency": 0.7666666666666667,
+    "salesReady": 1,
+    "decisionPower": 0.9,
+    "fitsOffer": 0.8833333333333333,
+    "wantsLearning": 0.9333333333333333,
+    "light": 0.9333333333333333
+  },
+  "lightConfusion": {
+    "green": {
+      "green": 17,
+      "yellow": 3,
+      "red": 0
+    },
+    "yellow": {
+      "green": 0,
+      "yellow": 29,
+      "red": 1
+    },
+    "red": {
+      "green": 0,
+      "yellow": 0,
+      "red": 10
+    }
+  },
+  "decidedAloneShare": 0.8,
+  "accuracyWhenAlone": 0.9583333333333334,
+  "lightShare": {
+    "green": 0.2833333333333333,
+    "yellow": 0.5333333333333333,
+    "red": 0.18333333333333332
+  },
+  "avgLatencyMs": 221,
+  "p95LatencyMs": 367,
+  "costPerThousandUsd": 0.1290324,
+  "misses": [
+    {
+      "alias": "Eval #05 · Managing Director",
+      "expected": "Founder / CEO · Green · seller",
+      "got": "Founder / CEO · Yellow · nurture",
+      "note": "Founder with budget and deadline, repeated engagement",
+      "fields": ["aiMaturity", "light"]
+    },
+    {
+      "alias": "Eval #17 · Business owner",
+      "expected": "Founder / CEO · Green · seller",
+      "got": "Founder / CEO · Yellow · nurture",
+      "note": "Small business owner, low maturity but ready now",
+      "fields": ["light"]
+    },
+    {
+      "alias": "Eval #20 · Managing partner",
+      "expected": "Founder / CEO · Green · seller",
+      "got": "Founder / CEO · Yellow · nurture",
+      "note": "Small business owner, low maturity but ready now",
+      "fields": ["light"]
+    },
+    {
+      "alias": "Eval #23 · Solo founder",
+      "expected": "Founder / CEO · Yellow · nurture",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "Founder only exploring, no budget or timeline",
+      "fields": ["decisionPower", "fitsOffer", "light"]
+    },
+    {
+      "alias": "Eval #54 · Partnerships Manager",
+      "expected": "Individual contributor · Red · person reviews",
+      "got": "Team lead · Red · person reviews",
+      "note": "Attends only to sell something: no fit",
+      "fields": ["segment", "urgency"]
+    },
+    {
+      "alias": "Eval #57 · Visitor",
+      "expected": "Other · Red · person reviews",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "No useful information: a person decides",
+      "fields": ["segment", "companyStage", "wantsLearning"]
+    },
+    {
+      "alias": "Eval #58 · Guest",
+      "expected": "Other · Red · person reviews",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "No useful information: a person decides",
+      "fields": ["segment", "companyStage", "wantsLearning"]
+    },
+    {
+      "alias": "Eval #60 · Neighbor",
+      "expected": "Other · Red · person reviews",
+      "got": "Founder / CEO · Red · person reviews",
+      "note": "No useful information: a person decides",
+      "fields": ["segment", "companyStage"]
+    }
+  ]
+}

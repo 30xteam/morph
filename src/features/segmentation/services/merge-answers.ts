@@ -56,5 +56,6 @@ export function mergeResults(results: JevResult[]): JevResult {
     answers,
     inputTokens: results.reduce((total, result) => total + result.inputTokens, 0),
     latencyMs: Math.max(...results.map((result) => result.latencyMs)),
+    costUsd: results.reduce((total, result) => total + result.costUsd, 0),
   };
 }

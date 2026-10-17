@@ -60,6 +60,7 @@ async function smoke() {
     `# Jev smoke test · ${new Date().toISOString()}`,
     '',
     `- Provider: **${provider}** · model \`${model}\` · calibrated: **${calibrated}**`,
+    `- Action: ${outcome.action} · cost: ${usd(outcome.meta.costUsd)}`,
     `- Latency: **${latencyMs} ms** · input tokens: ${inputTokens}`,
     `- Program: ${outcome.program.value} (${pct(outcome.program.probability)}) · affinity: ${outcome.affinity.value} · light: ${outcome.light}`,
     `- salesReady ${pct(outcome.salesReady)} · decisionPower ${pct(outcome.decisionPower)} · wantsLearning ${pct(outcome.wantsLearning)}`,
@@ -167,7 +168,47 @@ ${transitions || 'None.'}
   save(`simulate-${days}d-${r.provider}`, markdown, r);
 }
 
-const commands: Record<string, () => Promise<void>> = { smoke, eval: evaluate, simulate };
+async function states() {
+  const profiles = JSON.parse(
+    readFileSync(join(ROOT, 'src/features/segmentation/data/profiles-30x.json'), 'utf8'),
+  ) as Json[];
+  const expected = new Set(['auto', 'review', 'escalate']);
+  for (const stored of profiles.slice(0, 100)) {
+    const profile = {
+      ...stored,
+      signals: {
+        eventsAttended: 0,
+        emailsOpened: 0,
+        emailsClicked: 0,
+        programPageVisits: 0,
+        roleChangedRecently: false,
+        companyRaisedRound: false,
+        daysSinceLastActivity: 3,
+      },
+    };
+    // oxlint-disable-next-line no-await-in-loop -- stop as soon as all three actions are observed
+    const outcome = await post('/api/segment', { profile, trigger: 're_run' });
+    if (expected.delete(outcome.action)) {
+      console.log(
+        stored.id,
+        outcome.program.value,
+        pct(outcome.program.probability),
+        outcome.action,
+      );
+    }
+    if (!expected.size) break;
+  }
+  if (expected.size)
+    throw new Error('Actions not observed in the first 100 profiles: ' + [...expected].join(', '));
+  console.log('All three states reproduced on 30X profiles.');
+}
+
+const commands: Record<string, () => Promise<void>> = {
+  smoke,
+  eval: evaluate,
+  simulate,
+  states,
+};
 
 if (commands[command]) {
   await commands[command]().catch((error: unknown) => {
@@ -179,5 +220,6 @@ if (commands[command]) {
   pnpm jev:smoke                     one real call + 12:00 cut-off check
   pnpm jev:eval [--consensus] [--limit N]  697 profiles vs 30X labels
   pnpm jev:simulate [--days 30]      re-decide on simulated activity
+  pnpm jev:states                    one profile per action: auto, review, escalate
 Options: --base http://localhost:3000`);
 }

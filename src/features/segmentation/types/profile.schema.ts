@@ -9,6 +9,8 @@ export const ROLE_OPTIONS = [
   'Sin dato de rol',
 ] as const;
 
+export const STAGE_HINTS = ['idea', 'early_stage', 'scale_up', 'corporate'] as const;
+
 const count = z.number().int().min(0);
 
 export const signalsSchema = z.object({
@@ -27,6 +29,7 @@ export const profileSchema = z.object({
   source: z.enum(['crm', 'luma']),
   relation: z.enum(['lead', 'deal']),
   role: z.string().min(1),
+  stageHint: z.enum(STAGE_HINTS).optional(),
   country: z.string().min(1),
   pain: z.string().min(1),
   goal: z.string().min(1),

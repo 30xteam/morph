@@ -1,5 +1,12 @@
 import type { Profile, Signals } from '../types/segmentation.types';
 
+const STAGE_HINT_TEXT: Record<NonNullable<Profile['stageHint']>, string> = {
+  idea: 'Idea or side project, no product yet',
+  early_stage: 'Early stage startup with first customers',
+  scale_up: 'Scale-up that raised a round and is growing fast',
+  corporate: 'Established corporate or large company',
+};
+
 function describeEvents({ eventsAttended }: Signals) {
   if (eventsAttended === 0) return 'no events attended yet';
   if (eventsAttended === 1) return 'attended one event';
@@ -36,5 +43,6 @@ export function toJevState(profile: Profile) {
     country: profile.country,
     information: profile.infoAvailable,
     recentActivity: describeActivity(profile),
+    ...(profile.stageHint ? { companyStageHint: STAGE_HINT_TEXT[profile.stageHint] } : {}),
   };
 }

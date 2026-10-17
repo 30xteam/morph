@@ -1,11 +1,11 @@
 import 'server-only';
-import { decide, JEV_USD_PER_MILLION_INPUT_TOKENS } from '@/core/jev';
+import { decide } from '@/core/jev';
 import type { JevAnswer, JevResult } from '@/core/jev';
 
+import { decideAction } from '../config/action';
 import { QUESTION_VARIANTS } from '../config/question-variants';
 import { SEGMENTATION_QUESTIONS } from '../config/questions';
 import { recommend } from '../config/recommendations';
-import { THRESHOLDS } from '../config/thresholds';
 import { decideLight } from '../config/traffic-light';
 import type {
   AffinityBand,
@@ -82,6 +82,14 @@ export async function segmentProfile(
 
   const { light, reasons } = decideLight({ program, affinity, salesReady, decisionPower });
 
+  const { action, questionActions } = decideAction({
+    segment,
+    program,
+    affinity,
+    salesReady,
+    wantsLearning,
+  });
+
   return {
     profileId: profile.id,
     trigger,
@@ -92,7 +100,9 @@ export async function segmentProfile(
     decisionPower,
     wantsLearning,
     light,
-    needsReview: light === 'red' || program.probability < THRESHOLDS.act,
+    action,
+    questionActions,
+    needsReview: action !== 'auto' || light === 'red',
     reasons,
     recommendation: recommend({
       light,
@@ -108,7 +118,7 @@ export async function segmentProfile(
       calibrated: result.calibrated,
       latencyMs: result.latencyMs,
       inputTokens: result.inputTokens,
-      costUsd: (result.inputTokens / 1_000_000) * JEV_USD_PER_MILLION_INPUT_TOKENS,
+      costUsd: result.costUsd,
       decidedAt: new Date().toISOString(),
     },
   };

@@ -69,6 +69,8 @@ Cada decisión queda en el historial y en "Recent activity".
 
 ## 6. Cómo se mide
 
+Los informes TypeSafe anteriores de 60 perfiles sintéticos se conservan como evidencia histórica del motor. No validan las recomendaciones de programas sobre los 697 perfiles de 30X. Los porcentajes de automatización siguientes son anteriores a la integración de estados por confianza y requieren una nueva corrida.
+
 **Contra las etiquetas que el propio 30X puso** en la muestra: programa sugerido y afinidad, en los 697 perfiles. Esas etiquetas están en un archivo aparte que nunca se envía a JEV. Se corre con `pnpm jev:eval` o con "Measure accuracy". El detalle está en [`docs/evaluation/README.md`](./evaluation/README.md).
 
 | Métrica (697 perfiles)            | `mock`, una llamada | `mock`, consenso ×3 | JEV real (`typesafe`) |
