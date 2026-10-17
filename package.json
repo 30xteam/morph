@@ -14,7 +14,10 @@
     "design:sync": "node --experimental-strip-types --no-warnings scripts/design-sync.ts",
     "design:lint": "designmd lint DESIGN.md",
     "check": "pnpm lint && pnpm format:check && pnpm typecheck",
-    "prepare": "husky"
+    "prepare": "husky",
+    "jev:smoke": "node --experimental-strip-types --no-warnings scripts/jev-eval.ts smoke",
+    "jev:eval": "node --experimental-strip-types --no-warnings scripts/jev-eval.ts eval",
+    "jev:simulate": "node --experimental-strip-types --no-warnings scripts/jev-eval.ts simulate"
   },
   "dependencies": {
     "@ebay/nice-modal-react": "^1.2.13",

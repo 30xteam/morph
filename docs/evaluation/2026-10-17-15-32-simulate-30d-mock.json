@@ -1,0 +1,288 @@
+{
+  "provider": "mock",
+  "calibrated": false,
+  "days": 30,
+  "profiles": 60,
+  "decisions": 180,
+  "jevCalls": 180,
+  "totalCostUsd": 0.006543515999999998,
+  "changedLight": 5,
+  "newGreens": 2,
+  "timeline": [
+    {
+      "day": 0,
+      "decisions": 60,
+      "green": 18,
+      "yellow": 28,
+      "red": 14
+    },
+    {
+      "day": 1,
+      "decisions": 5,
+      "green": 19,
+      "yellow": 27,
+      "red": 14
+    },
+    {
+      "day": 2,
+      "decisions": 2,
+      "green": 19,
+      "yellow": 28,
+      "red": 13
+    },
+    {
+      "day": 3,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 27,
+      "red": 13
+    },
+    {
+      "day": 4,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 27,
+      "red": 13
+    },
+    {
+      "day": 5,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 6,
+      "decisions": 8,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 7,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 8,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 9,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 10,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 11,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 12,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 13,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 14,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 15,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 16,
+      "decisions": 7,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 17,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 18,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 19,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 20,
+      "decisions": 1,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 21,
+      "decisions": 1,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 22,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 23,
+      "decisions": 6,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 24,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 25,
+      "decisions": 6,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 26,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 27,
+      "decisions": 1,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 28,
+      "decisions": 13,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 29,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    },
+    {
+      "day": 30,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 29,
+      "red": 11
+    }
+  ],
+  "transitions": [
+    {
+      "day": 1,
+      "alias": "Eval #54 · Partnerships Manager",
+      "trigger": "attended_event",
+      "from": "investor · yellow",
+      "to": "investor · green"
+    },
+    {
+      "day": 2,
+      "alias": "Eval #51 · Team Lead",
+      "trigger": "role_change",
+      "from": "student · red",
+      "to": "team_lead · yellow"
+    },
+    {
+      "day": 3,
+      "alias": "Eval #13 · Director of Operations",
+      "trigger": "role_change",
+      "from": "team_lead · yellow",
+      "to": "team_lead · green"
+    },
+    {
+      "day": 5,
+      "alias": "Eval #43 · Intern",
+      "trigger": "attended_event",
+      "from": "student · red",
+      "to": "student · yellow"
+    },
+    {
+      "day": 16,
+      "alias": "Eval #31 · Team Lead",
+      "trigger": "role_change",
+      "from": "individual_contributor · yellow",
+      "to": "team_lead · yellow"
+    },
+    {
+      "day": 22,
+      "alias": "Eval #55 · Team Lead",
+      "trigger": "role_change",
+      "from": "founder · red",
+      "to": "team_lead · yellow"
+    },
+    {
+      "day": 22,
+      "alias": "Eval #59 · Friend of a speaker",
+      "trigger": "funding_round",
+      "from": "other · red",
+      "to": "founder · red"
+    },
+    {
+      "day": 28,
+      "alias": "Eval #57 · Visitor",
+      "trigger": "funding_round",
+      "from": "other · red",
+      "to": "founder · red"
+    }
+  ]
+}

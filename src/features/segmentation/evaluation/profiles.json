@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "e-01",
+    "alias": "Eval #01",
+    "role": "Founder & CEO",
+    "company": "Nube Labs",
+    "industry": "Logistics",
+    "companySize": "11-50",
+    "country": "Colombia",
+    "event": "Applied AI Summit",
+    "signupAnswer": "We closed our seed round and have budget to implement AI agents in operations this quarter. I need to train my team now.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-02",
+    "alias": "Eval #02",
+    "role": "Co-founder",
+    "company": "Ruta Group",
+    "industry": "Fintech",
+    "companySize": "11-50",
+    "country": "Mexico",
+    "event": "AI in Operations",
+    "signupAnswer": "Budget is approved to automate customer support with AI before December. Looking for training for my whole team.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-03",
+    "alias": "Eval #03",
+    "role": "CEO",
+    "company": "Vela Partners",
+    "industry": "Retail",
+    "companySize": "11-50",
+    "country": "Peru",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "We have first customers and a deadline: AI must be in our workflows this quarter. I want my team trained.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-04",
+    "alias": "Eval #04",
+    "role": "Founder",
+    "company": "Austral Solutions",
+    "industry": "Healthcare",
+    "companySize": "11-50",
+    "country": "Chile",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "We closed our seed round and have budget to implement AI agents in operations this quarter. I need to train my team now.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-05",
+    "alias": "Eval #05",
+    "role": "Managing Director",
+    "company": "Kobra Studio",
+    "industry": "Media",
+    "companySize": "11-50",
+    "country": "Argentina",
+    "event": "AI Community Night",
+    "signupAnswer": "Budget is approved to automate customer support with AI before December. Looking for training for my whole team.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-06",
+    "alias": "Eval #06",
+    "role": "CEO",
+    "company": "Lumo Labs",
+    "industry": "Mobility",
+    "companySize": "51-200",
+    "country": "Mexico",
+    "event": "AI in Operations",
+    "signupAnswer": "We just raised our Series A and are hiring fast. We need to roll out AI across teams this quarter.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": true,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-07",
+    "alias": "Eval #07",
+    "role": "Co-founder & CEO",
+    "company": "Tinta Group",
+    "industry": "Software",
+    "companySize": "51-200",
+    "country": "Peru",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Series A closed last month. Budget assigned to train 40 people on AI tools now.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": true,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-08",
+    "alias": "Eval #08",
+    "role": "Founder",
+    "company": "Ferro Partners",
+    "industry": "E-commerce",
+    "companySize": "51-200",
+    "country": "Chile",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "Growing fast after product market fit. I want an AI program for all my managers this quarter.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": true,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-09",
+    "alias": "Eval #09",
+    "role": "Founder & CTO",
+    "company": "Semilla Solutions",
+    "industry": "Edtech",
+    "companySize": "51-200",
+    "country": "Argentina",
+    "event": "AI Community Night",
+    "signupAnswer": "We just raised our Series A and are hiring fast. We need to roll out AI across teams this quarter.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": true,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-10",
+    "alias": "Eval #10",
+    "role": "Co-founder",
+    "company": "Pampa Studio",
+    "industry": "Insurtech",
+    "companySize": "51-200",
+    "country": "Venezuela",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Series A closed last month. Budget assigned to train 40 people on AI tools now.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": true,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-11",
+    "alias": "Eval #11",
+    "role": "Head of Operations",
+    "company": "Brisa Labs",
+    "industry": "Banking",
+    "companySize": "1000+",
+    "country": "Peru",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Our corporate team runs some AI pilots. I lead 25 people and have budget to train them this quarter.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-12",
+    "alias": "Eval #12",
+    "role": "Director of Marketing",
+    "company": "Andes Group",
+    "industry": "Retail",
+    "companySize": "1000+",
+    "country": "Chile",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "I manage the data team at a large company. Budget assigned for AI upskilling before year end.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-13",
+    "alias": "Eval #13",
+    "role": "Engineering Manager",
+    "company": "Nube Partners",
+    "industry": "Telecom",
+    "companySize": "1000+",
+    "country": "Argentina",
+    "event": "AI Community Night",
+    "signupAnswer": "We have AI pilots in two areas. I lead the team and need a training plan now.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-14",
+    "alias": "Eval #14",
+    "role": "Head of Data",
+    "company": "Ruta Solutions",
+    "industry": "Manufacturing",
+    "companySize": "1000+",
+    "country": "Venezuela",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Our corporate team runs some AI pilots. I lead 25 people and have budget to train them this quarter.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-15",
+    "alias": "Eval #15",
+    "role": "HR Director",
+    "company": "Vela Studio",
+    "industry": "Energy",
+    "companySize": "1000+",
+    "country": "Ecuador",
+    "event": "AI in Operations",
+    "signupAnswer": "I manage the data team at a large company. Budget assigned for AI upskilling before year end.",
+    "signals": {
+      "eventsAttended": 3,
+      "emailsOpened": 5,
+      "emailsClicked": 3,
+      "programPageVisits": 4,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-16",
+    "alias": "Eval #16",
+    "role": "Owner",
+    "company": "Austral Labs",
+    "industry": "Food",
+    "companySize": "2-10",
+    "country": "Chile",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "Small family business, no AI in use yet. I have budget to start this month and want my team to learn.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-17",
+    "alias": "Eval #17",
+    "role": "Business owner",
+    "company": "Kobra Group",
+    "industry": "Construction",
+    "companySize": "2-10",
+    "country": "Argentina",
+    "event": "AI Community Night",
+    "signupAnswer": "We do everything by hand. I want to implement AI now and train my five employees.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-18",
+    "alias": "Eval #18",
+    "role": "General Manager and owner",
+    "company": "Lumo Partners",
+    "industry": "Tourism",
+    "companySize": "2-10",
+    "country": "Venezuela",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Traditional business, zero AI today. Ready to invest this month in training for my staff.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-19",
+    "alias": "Eval #19",
+    "role": "Owner and director",
+    "company": "Tinta Solutions",
+    "industry": "Legal services",
+    "companySize": "2-10",
+    "country": "Ecuador",
+    "event": "AI in Operations",
+    "signupAnswer": "Small family business, no AI in use yet. I have budget to start this month and want my team to learn.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-20",
+    "alias": "Eval #20",
+    "role": "Managing partner",
+    "company": "Ferro Studio",
+    "industry": "Accounting",
+    "companySize": "2-10",
+    "country": "Uruguay",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "We do everything by hand. I want to implement AI now and train my five employees.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-21",
+    "alias": "Eval #21",
+    "role": "Founder",
+    "company": "Semilla Labs",
+    "industry": "Agritech",
+    "companySize": "1",
+    "country": "Argentina",
+    "event": "AI Community Night",
+    "signupAnswer": "Side project idea, no product yet. Just curious and here to meet other founders.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-22",
+    "alias": "Eval #22",
+    "role": "Co-founder",
+    "company": "Pampa Group",
+    "industry": "Media",
+    "companySize": "1",
+    "country": "Venezuela",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Exploring an idea, no revenue. Mostly here for networking with other builders.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-23",
+    "alias": "Eval #23",
+    "role": "Solo founder",
+    "company": "Brisa Partners",
+    "industry": "Education",
+    "companySize": "1",
+    "country": "Ecuador",
+    "event": "AI in Operations",
+    "signupAnswer": "Pre-product, just browsing. I want to meet people in the AI community someday.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-24",
+    "alias": "Eval #24",
+    "role": "Indie maker and founder",
+    "company": "Andes Solutions",
+    "industry": "Fashion",
+    "companySize": "1",
+    "country": "Uruguay",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Side project idea, no product yet. Just curious and here to meet other founders.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-25",
+    "alias": "Eval #25",
+    "role": "Founder (side project)",
+    "company": "Nube Studio",
+    "industry": "Gaming",
+    "companySize": "1",
+    "country": "Colombia",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "Exploring an idea, no revenue. Mostly here for networking with other builders.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-26",
+    "alias": "Eval #26",
+    "role": "Marketing Manager",
+    "company": "Ruta Labs",
+    "industry": "Logistics",
+    "companySize": "201-1000",
+    "country": "Venezuela",
+    "event": "Applied AI Summit",
+    "signupAnswer": "We are planning AI adoption for next year and comparing options. No AI in use yet.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-27",
+    "alias": "Eval #27",
+    "role": "Operations Manager",
+    "company": "Vela Group",
+    "industry": "Healthcare",
+    "companySize": "201-1000",
+    "country": "Ecuador",
+    "event": "AI in Operations",
+    "signupAnswer": "Next year we want to train the team on AI. Right now I am gathering information.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-28",
+    "alias": "Eval #28",
+    "role": "Team Lead",
+    "company": "Austral Partners",
+    "industry": "Insurance",
+    "companySize": "201-1000",
+    "country": "Uruguay",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Some interest in AI for my team, probably in 2027. Comparing providers.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-29",
+    "alias": "Eval #29",
+    "role": "Product Director",
+    "company": "Kobra Solutions",
+    "industry": "Retail",
+    "companySize": "201-1000",
+    "country": "Colombia",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "We are planning AI adoption for next year and comparing options. No AI in use yet.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-30",
+    "alias": "Eval #30",
+    "role": "Head of Sales",
+    "company": "Lumo Studio",
+    "industry": "Media",
+    "companySize": "201-1000",
+    "country": "Mexico",
+    "event": "AI Community Night",
+    "signupAnswer": "Next year we want to train the team on AI. Right now I am gathering information.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 1,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-31",
+    "alias": "Eval #31",
+    "role": "Data Analyst",
+    "company": "Tinta Labs",
+    "industry": "Banking",
+    "companySize": "201-1000",
+    "country": "Ecuador",
+    "event": "AI in Operations",
+    "signupAnswer": "I use a few AI tools and want a course to upskill and learn new skills for my job.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 3,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-32",
+    "alias": "Eval #32",
+    "role": "Product Designer",
+    "company": "Ferro Group",
+    "industry": "Software",
+    "companySize": "201-1000",
+    "country": "Uruguay",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Some AI tools in my day to day. I want a certification to grow my skills.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 3,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-33",
+    "alias": "Eval #33",
+    "role": "Marketing Specialist",
+    "company": "Semilla Partners",
+    "industry": "Retail",
+    "companySize": "201-1000",
+    "country": "Colombia",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "I want to learn applied AI for my work. My company has a couple of pilots.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 3,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-34",
+    "alias": "Eval #34",
+    "role": "Business Analyst",
+    "company": "Pampa Solutions",
+    "industry": "Telecom",
+    "companySize": "201-1000",
+    "country": "Mexico",
+    "event": "AI Community Night",
+    "signupAnswer": "I use a few AI tools and want a course to upskill and learn new skills for my job.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 3,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-35",
+    "alias": "Eval #35",
+    "role": "Content Writer",
+    "company": "Brisa Studio",
+    "industry": "Consulting",
+    "companySize": "201-1000",
+    "country": "Peru",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Some AI tools in my day to day. I want a certification to grow my skills.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 2,
+      "emailsClicked": 1,
+      "programPageVisits": 3,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-36",
+    "alias": "Eval #36",
+    "role": "Backend Engineer",
+    "company": "Andes Labs",
+    "industry": "Software",
+    "companySize": "51-200",
+    "country": "Uruguay",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "We run AI agents in production and want to learn evaluation techniques. Curious about new tools.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-37",
+    "alias": "Eval #37",
+    "role": "Machine Learning Engineer",
+    "company": "Nube Group",
+    "industry": "Fintech",
+    "companySize": "51-200",
+    "country": "Colombia",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "Our models are in production. I want to go deeper on LLM evaluation and monitoring.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-38",
+    "alias": "Eval #38",
+    "role": "Software Engineer",
+    "company": "Ruta Partners",
+    "industry": "AI tooling",
+    "companySize": "51-200",
+    "country": "Mexico",
+    "event": "AI Community Night",
+    "signupAnswer": "AI automation is part of our core workflow. Here to learn advanced practices.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-39",
+    "alias": "Eval #39",
+    "role": "Data Scientist",
+    "company": "Vela Solutions",
+    "industry": "E-commerce",
+    "companySize": "51-200",
+    "country": "Peru",
+    "event": "Applied AI Summit",
+    "signupAnswer": "We run AI agents in production and want to learn evaluation techniques. Curious about new tools.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-40",
+    "alias": "Eval #40",
+    "role": "Platform Engineer",
+    "company": "Austral Studio",
+    "industry": "Data",
+    "companySize": "51-200",
+    "country": "Chile",
+    "event": "AI in Operations",
+    "signupAnswer": "Our models are in production. I want to go deeper on LLM evaluation and monitoring.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-41",
+    "alias": "Eval #41",
+    "role": "Computer Science Student",
+    "company": "Universidad Semilla",
+    "industry": "Education",
+    "companySize": "1",
+    "country": "Colombia",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "I am a student and want to learn AI basics and find my first job.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-42",
+    "alias": "Eval #42",
+    "role": "Recent graduate",
+    "company": "Universidad Pampa",
+    "industry": "Education",
+    "companySize": "1",
+    "country": "Mexico",
+    "event": "AI Community Night",
+    "signupAnswer": "Just graduated. Looking for an internship and want to take an AI course.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-43",
+    "alias": "Eval #43",
+    "role": "Intern",
+    "company": "Universidad Brisa",
+    "industry": "Education",
+    "companySize": "1",
+    "country": "Peru",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Student curious about AI agents. I want to learn the fundamentals.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-44",
+    "alias": "Eval #44",
+    "role": "Bootcamp student",
+    "company": "Universidad Andes",
+    "industry": "Education",
+    "companySize": "1",
+    "country": "Chile",
+    "event": "AI in Operations",
+    "signupAnswer": "I am a student and want to learn AI basics and find my first job.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-45",
+    "alias": "Eval #45",
+    "role": "Engineering Student",
+    "company": "Universidad Nube",
+    "industry": "Education",
+    "companySize": "1",
+    "country": "Argentina",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Just graduated. Looking for an internship and want to take an AI course.",
+    "signals": {
+      "eventsAttended": 1,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-46",
+    "alias": "Eval #46",
+    "role": "Partner at a venture fund",
+    "company": "Pampa Labs",
+    "industry": "Venture capital",
+    "companySize": "2-10",
+    "country": "Mexico",
+    "event": "AI Community Night",
+    "signupAnswer": "Investor looking for deal flow and to meet founders building AI startups.",
+    "signals": {
+      "eventsAttended": 2,
+      "emailsOpened": 2,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-47",
+    "alias": "Eval #47",
+    "role": "Angel investor",
+    "company": "Brisa Group",
+    "industry": "Venture capital",
+    "companySize": "2-10",
+    "country": "Peru",
+    "event": "Applied AI Summit",
+    "signupAnswer": "I invest in early stage startups. Here for networking with AI founders.",
+    "signals": {
+      "eventsAttended": 2,
+      "emailsOpened": 2,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-48",
+    "alias": "Eval #48",
+    "role": "Venture Partner",
+    "company": "Andes Partners",
+    "industry": "Investment",
+    "companySize": "2-10",
+    "country": "Chile",
+    "event": "AI in Operations",
+    "signupAnswer": "Fund looking at AI companies in the region. Want to meet founders at events.",
+    "signals": {
+      "eventsAttended": 2,
+      "emailsOpened": 2,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-49",
+    "alias": "Eval #49",
+    "role": "Investment Associate",
+    "company": "Nube Solutions",
+    "industry": "Investment",
+    "companySize": "2-10",
+    "country": "Argentina",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Investor looking for deal flow and to meet founders building AI startups.",
+    "signals": {
+      "eventsAttended": 2,
+      "emailsOpened": 2,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-50",
+    "alias": "Eval #50",
+    "role": "General Partner",
+    "company": "Ruta Studio",
+    "industry": "Venture capital",
+    "companySize": "2-10",
+    "country": "Venezuela",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "I invest in early stage startups. Here for networking with AI founders.",
+    "signals": {
+      "eventsAttended": 2,
+      "emailsOpened": 2,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-51",
+    "alias": "Eval #51",
+    "role": "Sales Executive",
+    "company": "Vela Labs",
+    "industry": "Software",
+    "companySize": "51-200",
+    "country": "Peru",
+    "event": "Applied AI Summit",
+    "signupAnswer": "We sell CRM software and I am looking for new clients among the attendees.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-52",
+    "alias": "Eval #52",
+    "role": "Business Development Rep",
+    "company": "Austral Group",
+    "industry": "Marketing services",
+    "companySize": "51-200",
+    "country": "Chile",
+    "event": "AI in Operations",
+    "signupAnswer": "I want to offer our agency services to the companies at the event.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-53",
+    "alias": "Eval #53",
+    "role": "Account Executive",
+    "company": "Kobra Partners",
+    "industry": "Consulting",
+    "companySize": "51-200",
+    "country": "Argentina",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Looking for leads for our consulting firm. Happy to pitch our product.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-54",
+    "alias": "Eval #54",
+    "role": "Partnerships Manager",
+    "company": "Lumo Solutions",
+    "industry": "Software",
+    "companySize": "51-200",
+    "country": "Venezuela",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "We sell CRM software and I am looking for new clients among the attendees.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-55",
+    "alias": "Eval #55",
+    "role": "Sales Representative",
+    "company": "Tinta Studio",
+    "industry": "Recruiting",
+    "companySize": "51-200",
+    "country": "Ecuador",
+    "event": "AI Community Night",
+    "signupAnswer": "I want to offer our agency services to the companies at the event.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 1,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 3
+    }
+  },
+  {
+    "id": "e-56",
+    "alias": "Eval #56",
+    "role": "Community volunteer",
+    "company": "Ferro Labs",
+    "industry": "Unknown",
+    "companySize": "1",
+    "country": "Chile",
+    "event": "AI in Operations",
+    "signupAnswer": "A friend told me about it.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 45
+    }
+  },
+  {
+    "id": "e-57",
+    "alias": "Eval #57",
+    "role": "Visitor",
+    "company": "Semilla Group",
+    "industry": "Unknown",
+    "companySize": "1",
+    "country": "Argentina",
+    "event": "Building with LLM APIs",
+    "signupAnswer": "Not sure yet.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 45
+    }
+  },
+  {
+    "id": "e-58",
+    "alias": "Eval #58",
+    "role": "Guest",
+    "company": "Pampa Partners",
+    "industry": "Nonprofit",
+    "companySize": "1",
+    "country": "Venezuela",
+    "event": "Generative AI for Marketing",
+    "signupAnswer": "I came with someone.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 45
+    }
+  },
+  {
+    "id": "e-59",
+    "alias": "Eval #59",
+    "role": "Friend of a speaker",
+    "company": "Brisa Solutions",
+    "industry": "Unknown",
+    "companySize": "1",
+    "country": "Ecuador",
+    "event": "AI Community Night",
+    "signupAnswer": "A friend told me about it.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 45
+    }
+  },
+  {
+    "id": "e-60",
+    "alias": "Eval #60",
+    "role": "Neighbor",
+    "company": "Andes Studio",
+    "industry": "Unknown",
+    "companySize": "1",
+    "country": "Uruguay",
+    "event": "Applied AI Summit",
+    "signupAnswer": "Not sure yet.",
+    "signals": {
+      "eventsAttended": 0,
+      "emailsOpened": 0,
+      "emailsClicked": 0,
+      "programPageVisits": 0,
+      "roleChangedRecently": false,
+      "companyRaisedRound": false,
+      "daysSinceLastActivity": 45
+    }
+  }
+]

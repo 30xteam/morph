@@ -74,6 +74,21 @@ boundary when the first protected route exists.
 2. Remove the `<Button asChild>` link to `/preview` in `src/features/coming-soon/components/coming-soon.tsx` and `previewCta` in `src/core/config/site.ts`.
    Keep `src/ui/button/`; it's the shared button primitive (`<Button asChild variant="primary"><Link …/></Button>`).
 
+## Jev (30X challenge prototype)
+
+- `src/core/jev/` is the server-only Jev client: `decide({ state, questions })` routes to the adapter picked by
+  `JEV_PROVIDER` (`mock` default, `typesafe` real Jev at `/v1/systemone`, `openrouter` LLM emulation, not calibrated).
+- `src/features/segmentation/` is the whole product: "Live segments" at `/segmentation` (`POST /api/segment`,
+  `/api/segment/evaluate`, `/api/luma/webhook`). Questions, traffic-light thresholds and recommendations live in
+  its `config/`. Data is simulated only; never add real personal data.
+- Evaluation set: `src/features/segmentation/evaluation/profiles.json` + `answers.json` (ground truth, server-only,
+  never sent to Jev). Run `pnpm jev:smoke | jev:eval [--consensus] | jev:simulate` with the dev server up;
+  reports go to `docs/evaluation/`.
+- Its UI copies the `/preview` dashboard shell into `components/shell/` (no cross-feature imports). Keep it visually
+  identical to `/preview` and never edit `dashboard-preview`, the home page or `src/ui` for this feature.
+- Jev cannot count or compare dates: turn counters into categories in code first (`services/profile-state.ts`).
+- The playbook for the challenge is `docs/playbook.md`.
+
 ## No comments
 
 Do not write comments in code by default. This applies to every file in this repo (`src/`, `scripts/`).

@@ -14,6 +14,8 @@ Undecided. The primary user, their situation and the job the product does for th
 
 Undecided. The only live surface is a Coming Soon page (`src/app/page.tsx`) holding the domain until the product is defined.
 
+A separate route, `/segmentation`, holds a prototype for the 30X Jev challenge: Jev places simulated event sign-ups into segments and hands low-confidence cases to a human review queue. See `docs/playbook.md`.
+
 ## Positioning
 
 Undecided. No differentiating mechanism or claim has been stated, so future work must not make one up.
