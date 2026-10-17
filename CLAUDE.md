@@ -78,11 +78,14 @@ boundary when the first protected route exists.
 
 - `src/core/jev/` is the server-only Jev client: `decide({ state, questions })` routes to the adapter picked by
   `JEV_PROVIDER` (`mock` default, `typesafe` real Jev at `/v1/systemone`, `openrouter` LLM emulation, not calibrated).
+  Every result carries `latencyMs` and `costUsd`. The TypeSafe response is validated with zod; if it fails, run
+  `pnpm jev:raw` and update the schema from the saved capture.
 - `src/features/segmentation/` is the whole product: "Live segments" at `/segmentation` (`POST /api/segment`,
-  `/api/segment/evaluate`, `/api/luma/webhook`). Questions, traffic-light thresholds and recommendations live in
-  its `config/`. Data is simulated only; never add real personal data.
+  `/api/segment/recalculate`, `/api/segment/evaluate`, `/api/luma/webhook`). Questions, thresholds, the
+  traffic light (commercial priority) and the action (`auto | review | escalate`, from segment confidence, in
+  `config/action.ts`) live in its `config/`. Recommendations stay generic categories; never name a 30X product. Data is simulated only; never add real personal data.
 - Evaluation set: `src/features/segmentation/evaluation/profiles.json` + `answers.json` (ground truth, server-only,
-  never sent to Jev). Run `pnpm jev:smoke | jev:eval [--consensus] | jev:simulate` with the dev server up;
+  never sent to Jev). Run `pnpm jev:smoke | jev:eval [--consensus] | jev:simulate | jev:states` with the dev server up;
   reports go to `docs/evaluation/`.
 - Its UI copies the `/preview` dashboard shell into `components/shell/` (no cross-feature imports). Keep it visually
   identical to `/preview` and never edit `dashboard-preview`, the home page or `src/ui` for this feature.

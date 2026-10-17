@@ -1,0 +1,337 @@
+{
+  "provider": "typesafe",
+  "calibrated": true,
+  "days": 30,
+  "profiles": 60,
+  "decisions": 180,
+  "jevCalls": 180,
+  "totalCostUsd": 0.009336558,
+  "changedLight": 10,
+  "newGreens": 2,
+  "timeline": [
+    {
+      "day": 0,
+      "decisions": 60,
+      "green": 18,
+      "yellow": 25,
+      "red": 17
+    },
+    {
+      "day": 1,
+      "decisions": 5,
+      "green": 19,
+      "yellow": 24,
+      "red": 17
+    },
+    {
+      "day": 2,
+      "decisions": 2,
+      "green": 19,
+      "yellow": 24,
+      "red": 17
+    },
+    {
+      "day": 3,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 23,
+      "red": 17
+    },
+    {
+      "day": 4,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 23,
+      "red": 17
+    },
+    {
+      "day": 5,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 24,
+      "red": 16
+    },
+    {
+      "day": 6,
+      "decisions": 8,
+      "green": 20,
+      "yellow": 24,
+      "red": 16
+    },
+    {
+      "day": 7,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 24,
+      "red": 16
+    },
+    {
+      "day": 8,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 9,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 10,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 11,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 12,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 13,
+      "decisions": 2,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 14,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 15,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 25,
+      "red": 15
+    },
+    {
+      "day": 16,
+      "decisions": 7,
+      "green": 20,
+      "yellow": 26,
+      "red": 14
+    },
+    {
+      "day": 17,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 26,
+      "red": 14
+    },
+    {
+      "day": 18,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 26,
+      "red": 14
+    },
+    {
+      "day": 19,
+      "decisions": 5,
+      "green": 20,
+      "yellow": 26,
+      "red": 14
+    },
+    {
+      "day": 20,
+      "decisions": 1,
+      "green": 20,
+      "yellow": 26,
+      "red": 14
+    },
+    {
+      "day": 21,
+      "decisions": 1,
+      "green": 20,
+      "yellow": 26,
+      "red": 14
+    },
+    {
+      "day": 22,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 27,
+      "red": 13
+    },
+    {
+      "day": 23,
+      "decisions": 6,
+      "green": 20,
+      "yellow": 27,
+      "red": 13
+    },
+    {
+      "day": 24,
+      "decisions": 4,
+      "green": 20,
+      "yellow": 27,
+      "red": 13
+    },
+    {
+      "day": 25,
+      "decisions": 6,
+      "green": 20,
+      "yellow": 27,
+      "red": 13
+    },
+    {
+      "day": 26,
+      "decisions": 3,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 27,
+      "decisions": 1,
+      "green": 20,
+      "yellow": 28,
+      "red": 12
+    },
+    {
+      "day": 28,
+      "decisions": 13,
+      "green": 19,
+      "yellow": 30,
+      "red": 11
+    },
+    {
+      "day": 29,
+      "decisions": 3,
+      "green": 19,
+      "yellow": 30,
+      "red": 11
+    },
+    {
+      "day": 30,
+      "decisions": 5,
+      "green": 19,
+      "yellow": 31,
+      "red": 10
+    }
+  ],
+  "transitions": [
+    {
+      "day": 1,
+      "alias": "Eval #17 · Business owner",
+      "trigger": "attended_event",
+      "from": "founder · yellow",
+      "to": "founder · green"
+    },
+    {
+      "day": 2,
+      "alias": "Eval #51 · Team Lead",
+      "trigger": "role_change",
+      "from": "individual_contributor · red",
+      "to": "team_lead · red"
+    },
+    {
+      "day": 3,
+      "alias": "Eval #20 · Managing partner",
+      "trigger": "attended_event",
+      "from": "founder · yellow",
+      "to": "founder · green"
+    },
+    {
+      "day": 5,
+      "alias": "Eval #43 · Intern",
+      "trigger": "attended_event",
+      "from": "student · red",
+      "to": "student · yellow"
+    },
+    {
+      "day": 5,
+      "alias": "Eval #60 · Neighbor",
+      "trigger": "attended_event",
+      "from": "other · red",
+      "to": "founder · red"
+    },
+    {
+      "day": 8,
+      "alias": "Eval #23 · Solo founder",
+      "trigger": "attended_event",
+      "from": "founder · red",
+      "to": "founder · yellow"
+    },
+    {
+      "day": 16,
+      "alias": "Eval #21 · Founder",
+      "trigger": "attended_event",
+      "from": "founder · red",
+      "to": "founder · yellow"
+    },
+    {
+      "day": 16,
+      "alias": "Eval #31 · Team Lead",
+      "trigger": "role_change",
+      "from": "individual_contributor · yellow",
+      "to": "team_lead · yellow"
+    },
+    {
+      "day": 22,
+      "alias": "Eval #41 · Computer Science Student",
+      "trigger": "attended_event",
+      "from": "student · red",
+      "to": "student · yellow"
+    },
+    {
+      "day": 22,
+      "alias": "Eval #55 · Team Lead",
+      "trigger": "role_change",
+      "from": "individual_contributor · red",
+      "to": "team_lead · red"
+    },
+    {
+      "day": 26,
+      "alias": "Eval #60 · Neighbor",
+      "trigger": "attended_event",
+      "from": "founder · red",
+      "to": "founder · yellow"
+    },
+    {
+      "day": 28,
+      "alias": "Eval #06 · CEO",
+      "trigger": "re_run",
+      "from": "founder · green",
+      "to": "founder · yellow"
+    },
+    {
+      "day": 28,
+      "alias": "Eval #25 · Founder (side project)",
+      "trigger": "attended_event",
+      "from": "founder · red",
+      "to": "founder · yellow"
+    },
+    {
+      "day": 28,
+      "alias": "Eval #57 · Visitor",
+      "trigger": "funding_round",
+      "from": "founder · red",
+      "to": "other · red"
+    },
+    {
+      "day": 30,
+      "alias": "Eval #44 · Bootcamp student",
+      "trigger": "attended_event",
+      "from": "student · red",
+      "to": "student · yellow"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "profileId": "e-01",
+  "trigger": "re_run",
+  "segment": {
+    "value": "founder",
+    "probability": 1,
+    "alternatives": [
+      {
+        "value": "team_lead",
+        "probability": 0
+      },
+      {
+        "value": "individual_contributor",
+        "probability": 0
+      }
+    ]
+  },
+  "companyStage": {
+    "value": "early_stage",
+    "probability": 1,
+    "alternatives": [
+      {
+        "value": "idea",
+        "probability": 0
+      },
+      {
+        "value": "scale_up",
+        "probability": 0
+      }
+    ]
+  },
+  "aiMaturity": {
+    "value": 0,
+    "probability": 0.9,
+    "alternatives": [
+      {
+        "value": 1,
+        "probability": 0.09
+      },
+      {
+        "value": 2,
+        "probability": 0.01
+      }
+    ]
+  },
+  "urgency": {
+    "value": 2,
+    "probability": 1,
+    "alternatives": [
+      {
+        "value": 0,
+        "probability": 0
+      },
+      {
+        "value": 1,
+        "probability": 0
+      }
+    ]
+  },
+  "salesReady": 0.92,
+  "wantsLearning": 0.85,
+  "decisionPower": 0.96,
+  "fitsOffer": 0.96,
+  "light": "green",
+  "action": "auto",
+  "questionActions": {
+    "segment": "auto",
+    "companyStage": "auto",
+    "aiMaturity": "auto",
+    "salesReady": "auto",
+    "wantsLearning": "auto"
+  },
+  "needsReview": false,
+  "reasons": ["Ready 92% · decides 96% · fit 96%"],
+  "recommendation": {
+    "kind": "sales_conversation",
+    "title": "Hand to a seller today",
+    "detail": "Founder / CEO at a early stage company · low AI maturity · high urgency. Why now: attended several events; clicked links we sent; keeps visiting the program page. Start a sales conversation about a program for their team."
+  },
+  "meta": {
+    "provider": "typesafe",
+    "model": "jev-1.13.0",
+    "calibrated": true,
+    "latencyMs": 343,
+    "inputTokens": 1244,
+    "costUsd": 0.000052248000000000005,
+    "decidedAt": "2026-10-17T16:30:50.926Z"
+  }
+}

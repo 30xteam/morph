@@ -1,4 +1,5 @@
 import type {
+  DecisionAction,
   Level,
   RecommendationKind,
   SegmentKey,
@@ -40,6 +41,12 @@ export const LIGHT_LABELS: Record<TrafficLight, string> = {
   green: 'Green · seller',
   yellow: 'Yellow · nurture',
   red: 'Red · person reviews',
+};
+
+export const ACTION_LABELS: Record<DecisionAction, string> = {
+  auto: 'Jev acts',
+  review: 'Needs review',
+  escalate: 'Escalated to a person',
 };
 
 export const RECOMMENDATION_LABELS: Record<RecommendationKind, string> = {

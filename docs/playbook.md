@@ -78,20 +78,23 @@ Cada decisión queda en el historial y se ve en "Recent activity", por ejemplo: 
 
 **Acierto medido sobre 60 perfiles simulados** (12 arquetipos × 5), con las 8 respuestas y el color anotados en un archivo aparte que nunca se envía a JEV. Se corre con `pnpm jev:eval` o con "Measure accuracy" en el prototipo. El detalle está en [`docs/evaluation/README.md`](./evaluation/README.md).
 
-| Métrica (60 perfiles)           | `mock`, una llamada | `mock`, consenso ×3 | JEV real (`typesafe`) |
-| ------------------------------- | ------------------- | ------------------- | --------------------- |
-| Acierto de segmento             | 80,0 %              | 85,0 %              | **pendiente**         |
-| Acierto del semáforo            | 83,3 %              | 38,3 %              | **pendiente**         |
-| % que decide solo (sin persona) | 70,0 %              | 35,0 %              | **pendiente**         |
-| Acierto cuando decide solo      | 88,1 %              | 23,8 %              | **pendiente**         |
-| Costo por 1.000 perfiles        | $0,04               | $0,08               | **pendiente**         |
+| Métrica (60 perfiles)           | `mock`, una llamada | `mock`, consenso ×3 | JEV real, una llamada | JEV real, consenso ×3 |
+| ------------------------------- | ------------------- | ------------------- | --------------------- | --------------------- |
+| Acierto de segmento             | 80,0 %              | 85,0 %              | **96,7 %**            | 93,3 %                |
+| Acierto del semáforo            | 83,3 %              | 38,3 %              | 85,0 %                | **93,3 %**            |
+| % que decide solo (sin persona) | 70,0 %              | 35,0 %              | 71,7 %                | 80,0 %                |
+| Acierto cuando decide solo      | 88,1 %              | 23,8 %              | 95,3 %                | 95,8 %                |
+| Latencia media / p95            | 0 / 1 ms            | 1 / 2 ms            | 188 / 357 ms          | 221 / 367 ms          |
+| Costo por 1.000 perfiles        | $0,04               | $0,08               | $0,05                 | $0,13                 |
 
-- **La pregunta más débil es la etapa de la empresa** (53 % en el mock), porque depende de datos numéricos (tamaño, ronda). Siguiente paso: categorizarlos en código, igual que la actividad.
-- **Consenso:** preguntar lo mismo de tres formas mejora el segmento, pero promediar las probabilidades las acerca a 0,5 y apaga los verdes. Hay que usarlo solo para el segmento o recalibrar los umbrales, y cuesta el triple.
-- **Segmento vivo en 30 días** (`pnpm jev:simulate`): 180 decisiones para 60 perfiles, 5 cambian de color y aparecen 2 verdes nuevos que un segmento estático no habría visto. Todo por menos de un centavo.
+JEV real (`jev-1.13.0`, 17-10-2026): primera llamada en 343 ms con probabilidades calibradas (`CUT-OFF CHECK: PASS`). La respuesta cruda, sin claves, está en `docs/evaluation/2026-10-17-16-30-raw-typesafe.json`.
+
+- **Las preguntas más débiles con JEV real son urgencia (73 %), etapa de la empresa (75 %) y madurez en IA (77 %).** Dependen de datos numéricos o implícitos (tamaño, ronda, herramientas). Siguiente paso: categorizarlos en código, igual que la actividad.
+- **Consenso:** con JEV real mejora el semáforo (85 % → 93 %) y no apaga los verdes como en el mock, pero cuesta casi el triple. Se puede reservar para los casos en revisión.
+- **Segmento vivo en 30 días** (`pnpm jev:simulate`, JEV real): 180 decisiones para 60 perfiles, 10 cambian de color y aparecen 2 verdes nuevos que un segmento estático no habría visto, por $0,009 en total.
 - **Sesgo por contexto:** con el evento "AI for Founders Meetup", la palabra "Founders" arrastraba el segmento hacia "Founder". Por eso el set de evaluación usa nombres de eventos variados, y hay que vigilarlo con datos reales.
 
-Los números del `mock` prueban el pipeline, no a JEV. Los de JEV real se corren cuando la clave esté en `.env.local`.
+Los números del `mock` prueban el pipeline, no a JEV. Las respuestas correctas son una anotación sintética: antes de presentar, que otra persona revise al menos 10 casos al azar.
 
 | Métrica en producción                                  | Meta inicial                                     |
 | ------------------------------------------------------ | ------------------------------------------------ |
@@ -112,7 +115,6 @@ En el prototipo se ven en vivo: el conteo por color, la latencia media, el costo
 
 ## 8. Siguientes pasos
 
-1. Correr `pnpm jev:smoke`, `jev:eval` (simple y con consenso) y `jev:simulate` con JEV real, y reemplazar los números del `mock`.
-2. Conectar el webhook real de Luma y escribir el segmento y el color en el CRM.
-3. Calibrar los umbrales con 2–4 semanas de revisiones reales.
-4. Reutilizar el mismo patrón (preguntas tipadas, umbrales y una persona en el ciclo) para calificar contenido o detectar alumnos en riesgo de abandono.
+1. Conectar el webhook real de Luma y escribir el segmento y el color en el CRM.
+2. Calibrar los umbrales con 2–4 semanas de revisiones reales.
+3. Reutilizar el mismo patrón (preguntas tipadas, umbrales y una persona en el ciclo) para calificar contenido o detectar alumnos en riesgo de abandono.

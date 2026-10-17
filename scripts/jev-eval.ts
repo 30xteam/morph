@@ -49,7 +49,8 @@ async function smoke() {
     '',
     `- Provider: **${provider}** · model \`${model}\` · calibrated: **${calibrated}**`,
     `- Latency: **${latencyMs} ms** · input tokens: ${inputTokens}`,
-    `- Segment: ${outcome.segment.value} (${pct(outcome.segment.probability)}) · light: ${outcome.light}`,
+    `- Segment: ${outcome.segment.value} (${pct(outcome.segment.probability)}) · light: ${outcome.light} · action: ${outcome.action}`,
+    `- Cost: ${usd(outcome.meta.costUsd)}`,
     `- salesReady ${pct(outcome.salesReady)} · decisionPower ${pct(outcome.decisionPower)} · fitsOffer ${pct(outcome.fitsOffer)} · wantsLearning ${pct(outcome.wantsLearning)}`,
     '',
     'No API keys are included in this report.',
@@ -145,7 +146,46 @@ ${transitions || 'None.'}
   save(`simulate-${days}d-${r.provider}`, markdown, r);
 }
 
-const commands: Record<string, () => Promise<void>> = { smoke, eval: evaluate, simulate };
+const STATE_FIXTURES = { auto: 'e-01', review: 'e-13', escalate: 'e-35' } as const;
+
+async function states() {
+  const profiles = JSON.parse(
+    readFileSync(join(ROOT, 'src/features/segmentation/evaluation/profiles.json'), 'utf8'),
+  ) as Json[];
+  const rows: string[] = [];
+  let failed = 0;
+  let provider = 'mock';
+  for (const [expected, id] of Object.entries(STATE_FIXTURES)) {
+    const profile = profiles.find((item) => item.id === id);
+    if (!profile) throw new Error(`Fixture ${id} is missing from profiles.json`);
+    // oxlint-disable-next-line no-await-in-loop -- three calls, printed in a fixed order
+    const outcome = await post('/api/segment', { profile, trigger: 're_run' });
+    provider = outcome.meta.provider;
+    const ok = outcome.action === expected;
+    if (!ok) failed += 1;
+    rows.push(
+      `| ${id} | ${profile.role} | ${outcome.segment.value} ${pct(outcome.segment.probability)} | ${expected} | ${outcome.action} | ${ok ? 'PASS' : 'FAIL'} |`,
+    );
+  }
+  console.log(`| Profile | Role | Segment | Expected | Got | Result |
+| --- | --- | --- | --- | --- | --- |
+${rows.join('\n')}`);
+  if (provider !== 'mock') {
+    console.log(
+      `\nFixtures are pinned to the mock provider; ${provider} may route them differently.`,
+    );
+    return;
+  }
+  console.log(failed ? `\n${failed} state check(s) failed.` : '\nAll three states reproduced.');
+  process.exitCode = failed ? 1 : 0;
+}
+
+const commands: Record<string, () => Promise<void>> = {
+  smoke,
+  eval: evaluate,
+  simulate,
+  states,
+};
 
 if (commands[command]) {
   await commands[command]().catch((error: unknown) => {
@@ -157,5 +197,6 @@ if (commands[command]) {
   pnpm jev:smoke                     one real call + 12:00 cut-off check
   pnpm jev:eval [--consensus]        60 annotated profiles
   pnpm jev:simulate [--days 30]      re-decide on simulated activity
+  pnpm jev:states                    one profile per action: auto, review, escalate
 Options: --base http://localhost:3000`);
 }

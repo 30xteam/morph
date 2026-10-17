@@ -56,6 +56,10 @@ export interface JevResult {
   answers: Record<string, JevAnswer>;
   inputTokens: number;
   latencyMs: number;
+  costUsd: number;
 }
 
-export type JevAdapter = (request: JevRequest) => Promise<Omit<JevResult, 'latencyMs'>>;
+export type JevAdapterResult = Omit<JevResult, 'latencyMs' | 'costUsd'> &
+  Partial<Pick<JevResult, 'latencyMs' | 'costUsd'>>;
+
+export type JevAdapter = (request: JevRequest) => Promise<JevAdapterResult>;

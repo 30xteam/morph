@@ -18,6 +18,15 @@ export type Level = 0 | 1 | 2;
 
 export type TrafficLight = 'green' | 'yellow' | 'red';
 
+export type DecisionAction = 'auto' | 'review' | 'escalate';
+
+export type ActionQuestion =
+  | 'segment'
+  | 'companyStage'
+  | 'aiMaturity'
+  | 'salesReady'
+  | 'wantsLearning';
+
 export type Trigger =
   | 'sign_up'
   | 'manual_edit'
@@ -67,6 +76,8 @@ export interface SegmentationOutcome {
   decisionPower: number;
   fitsOffer: number;
   light: TrafficLight;
+  action: DecisionAction;
+  questionActions: Record<ActionQuestion, DecisionAction>;
   needsReview: boolean;
   reasons: string[];
   recommendation: Recommendation;
@@ -74,3 +85,9 @@ export interface SegmentationOutcome {
 }
 
 export type ReviewVerdict = { verdict: 'approved' } | { verdict: 'corrected'; segment: SegmentKey };
+
+export interface RecalculateResult {
+  previous: SegmentationOutcome;
+  current: SegmentationOutcome;
+  changed: { segment: boolean; light: boolean; action: boolean };
+}
