@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-17T02:31:31.819Z",
+        "reason": "Brand commitment: open-source stand-in for proprietary NotionInter (see PRODUCT.md)"
+      }
+    ]
+  }
+}

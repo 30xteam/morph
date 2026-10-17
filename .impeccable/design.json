@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T00:00:00Z",
+  "title": "Design System: Quiet Workspace",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#0075DE",
+        "tonalRamp": [
+          "#00203f",
+          "#003566",
+          "#004a8c",
+          "#0060b3",
+          "#0075de",
+          "#4d9ee8",
+          "#a6ccf3",
+          "#e6f3fe"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Bright Signal Blue",
+        "canonical": "#097FE8"
+      },
+      "primary-active": {
+        "role": "primary",
+        "displayName": "Deep Harbor Blue",
+        "canonical": "#005BAB"
+      },
+      "secondary": { "role": "secondary", "displayName": "Mist Blue", "canonical": "#E6F3FE" },
+      "accent-teal": { "role": "tertiary", "displayName": "Lagoon Teal", "canonical": "#27918D" },
+      "accent-purple": { "role": "tertiary", "displayName": "Iris", "canonical": "#9849E8" },
+      "accent-orange": { "role": "tertiary", "displayName": "Ember", "canonical": "#FF6D00" },
+      "accent-sky": { "role": "tertiary", "displayName": "Sky", "canonical": "#62AEF0" },
+      "accent-deep-blue": { "role": "tertiary", "displayName": "Cobalt", "canonical": "#1313BA" },
+      "accent-dark-blue": { "role": "tertiary", "displayName": "Harbor", "canonical": "#005BAB" },
+      "surface": { "role": "neutral", "displayName": "Paper White", "canonical": "#FFFFFF" },
+      "surface-subtle": { "role": "neutral", "displayName": "Warm Paper", "canonical": "#F9F9F8" },
+      "surface-muted": { "role": "neutral", "displayName": "Linen", "canonical": "#F6F5F4" },
+      "surface-accent": { "role": "neutral", "displayName": "Morning Sky", "canonical": "#F2F9FF" },
+      "on-surface": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#000000",
+          "#1a1918",
+          "#31302e",
+          "#4a4744",
+          "#615d59",
+          "#827d77",
+          "#a39e98",
+          "#f6f5f4"
+        ]
+      },
+      "on-surface-soft": {
+        "role": "neutral",
+        "displayName": "Warm Charcoal",
+        "canonical": "#31302E"
+      },
+      "on-surface-variant": {
+        "role": "neutral",
+        "displayName": "Graphite Taupe",
+        "canonical": "#615D59"
+      },
+      "on-surface-muted": { "role": "neutral", "displayName": "Pebble", "canonical": "#A39E98" },
+      "error": { "role": "status", "displayName": "Alert Coral", "canonical": "#F64932" },
+      "warning": { "role": "status", "displayName": "Marigold", "canonical": "#FFB110" },
+      "success": { "role": "status", "displayName": "Lagoon Teal", "canonical": "#27918D" }
+    },
+    "typographyMeta": {
+      "display-xl": { "displayName": "Display XL", "purpose": "One hero statement per page." },
+      "headline-lg": { "displayName": "Headline", "purpose": "Section headings." },
+      "title-lg": { "displayName": "Title", "purpose": "Feature titles." },
+      "body-md": { "displayName": "Body", "purpose": "Paragraphs, 65–75ch measure." },
+      "label-md": { "displayName": "Label", "purpose": "Buttons and form labels." },
+      "caption": { "displayName": "Caption", "purpose": "Metadata and helper text." }
+    },
+    "shadows": [
+      {
+        "name": "nav",
+        "value": "rgba(0, 0, 0, 0) 0px 1px 0px 0px",
+        "purpose": "Nav bar at rest; becomes a hairline under scrolled content."
+      },
+      {
+        "name": "dropdown",
+        "value": "rgba(0, 0, 0, 0.01) 0px 0.175px 1.041px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.847px 0px, rgba(0, 0, 0, 0.04) 0px 4px 18px 0px",
+        "purpose": "Menus, popovers, floating panels."
+      },
+      {
+        "name": "modal",
+        "value": "rgba(0, 0, 0, 0.2) 0px 2px 7px 0px",
+        "purpose": "Dialogs over a scrim."
+      },
+      {
+        "name": "elevated",
+        "value": "rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.84688px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.01) 0px 0.175px 1.04062px 0px, rgba(255, 255, 255, 0.6) 0px 0px 1px 0px",
+        "purpose": "Custom floating surfaces needing a soft edge glow."
+      },
+      {
+        "name": "search",
+        "value": "rgba(0, 0, 0, 0.016) 0px 0.7px 1.462px 0px, rgba(0, 0, 0, 0.03) 0px 3px 9px 0px",
+        "purpose": "Prominent search field."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-strong",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Entrances and state changes: fast start, gentle settle."
+      }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "640px" },
+      { "name": "desktop", "value": "1024px" },
+      { "name": "wide", "value": "1440px" }
+    ],
+    "zIndex": [
+      { "name": "base", "value": 1 },
+      { "name": "raised", "value": 2 },
+      { "name": "floating", "value": 3 },
+      { "name": "popover", "value": 4 },
+      { "name": "dropdown", "value": 10 },
+      { "name": "sticky", "value": 100 },
+      { "name": "sticky-high", "value": 500 },
+      { "name": "modal", "value": 1000 }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action on a view.",
+      "html": "<button class=\"ds-btn-primary\">Save changes</button>",
+      "css": ".ds-btn-primary { background: var(--ds-color-primary, #0075DE); color: #fff; font: 500 16px/24px Inter, sans-serif; padding: 6px 15px; height: 38px; border: 0; border-radius: 8px; cursor: pointer; transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-primary:hover { background: #097FE8; } .ds-btn-primary:active { background: #005BAB; } .ds-btn-primary:focus-visible { outline: 2px solid #0075DE; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Supporting actions beside a primary.",
+      "html": "<button class=\"ds-btn-secondary\">Invite</button>",
+      "css": ".ds-btn-secondary { background: #E6F3FE; color: #005BAB; font: 500 16px/24px Inter, sans-serif; padding: 6px 15px; height: 38px; border: 0; border-radius: 8px; cursor: pointer; } .ds-btn-secondary:hover { background: #D6E8FD; } .ds-btn-secondary:active { background: #C0DFFB; color: #003F7F; } .ds-btn-secondary:focus-visible { outline: 2px solid #0075DE; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Low-emphasis actions in toolbars and menus.",
+      "html": "<button class=\"ds-btn-ghost\">Cancel</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: rgba(0,0,0,0.898); font: 400 16px/24px Inter, sans-serif; padding: 6px 15px; height: 36px; border: 0; border-radius: 8px; cursor: pointer; } .ds-btn-ghost:hover { background: rgba(0,0,0,0.05); } .ds-btn-ghost:active { background: rgba(0,0,0,0.1); } .ds-btn-ghost:focus-visible { outline: 2px solid #0075DE; outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Standard single-line field.",
+      "html": "<input class=\"ds-input\" placeholder=\"Email address\" />",
+      "css": ".ds-input { background: #fff; color: rgba(0,0,0,0.95); font: 400 16px/24px Inter, sans-serif; padding: 11px 12px; height: 44px; border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; width: 100%; } .ds-input::placeholder { color: #A39E98; } .ds-input:focus { outline: none; border-color: #0075DE; box-shadow: 0 0 0 3px rgba(0,117,222,0.15); }"
+    },
+    {
+      "name": "Accent Card",
+      "kind": "card",
+      "refersTo": "card-accent",
+      "description": "Highlighted content block, separated by tone rather than shadow.",
+      "html": "<div class=\"ds-card\"><strong>Morning Sky card</strong><p>Tone, not shadow, sets it apart.</p></div>",
+      "css": ".ds-card { background: #F2F9FF; color: rgba(0,0,0,0.898); font: 400 16px/24px Inter, sans-serif; padding: 16px; border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; } .ds-card p { margin: 4px 0 0; color: #615D59; }"
+    },
+    {
+      "name": "Top Navigation",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "64px Paper White bar; Signal Blue on hover.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Product</a><a href=\"#\">Docs</a><a href=\"#\">Pricing</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; align-items: center; height: 64px; padding: 0 32px; background: #fff; font: 400 16px/24px Inter, sans-serif; } .ds-nav a { color: rgba(0,0,0,0.898); text-decoration: none; } .ds-nav a:hover { color: #0075DE; } .ds-nav a:focus-visible { outline: 2px solid #0075DE; outline-offset: 4px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Workspace",
+    "overview": "A room where the furniture disappears so the work can be seen. The interface is paper and ink: warm whites, near-black text, and hairline structure that you notice only when you look for it. Color is not decoration here. One confident blue marks every place you can act, and almost nothing else is allowed to compete with it. Depth comes from tone, not from light.",
+    "keyCharacteristics": [
+      "Paper-and-ink neutrals with a warm undertone; pure white is the canvas.",
+      "A single action color (Signal Blue) that stays rare.",
+      "Depth through tonal layering; shadows reserved for floating layers.",
+      "One sans family, hierarchy carried by size and weight steps.",
+      "Generous whitespace; dense only where data demands it.",
+      "Quiet, tint-based interaction states."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Signal Blue appears only where there is an action, a link or focus. If something is blue and you can't click it, it shouldn't be blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Ladder Rule",
+        "body": "Text hierarchy steps down Ink → Warm Charcoal → Graphite Taupe. Pebble is for placeholders, never for words someone must read.",
+        "section": "colors"
+      },
+      {
+        "name": "The Accent Quarantine Rule",
+        "body": "Accents live inside badges, chips and small callouts. They never become backgrounds of whole sections or text colors.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Voice Rule",
+        "body": "One family, everywhere. A new mood comes from size and weight, not from a new font.",
+        "section": "typography"
+      },
+      {
+        "name": "The Step Down Rule",
+        "body": "On mobile, headings drop 20–30% (Display → Headline). Body stays at 16px on every screen.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tint Before Shadow Rule",
+        "body": "To separate two things, change the surface tone first. Reach for a shadow only if the element actually floats (menu, popover, dialog).",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Lift Rule",
+        "body": "Cards and buttons never lift or gain a shadow on hover. Hover is a tint.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do reserve Signal Blue for actions, links and focus (The One Blue Rule).",
+      "Do separate regions by surface tone before reaching for borders or shadows.",
+      "Do keep 16px padding inside cards and 32–64px between major sections.",
+      "Do step text down the Ink Ladder and keep readable copy at or above 4.5:1 contrast.",
+      "Do theme browser surfaces too: text selection, focus rings and caret from the palette.",
+      "Do honor prefers-reduced-motion with an instant, already-visible default."
+    ],
+    "donts": [
+      "Don't use Pebble (on-surface-muted) for any text someone must read.",
+      "Don't put shadows on cards or buttons at rest or on hover.",
+      "Don't use accents as section backgrounds or body text colors.",
+      "Don't add a second typeface.",
+      "Don't put an eyebrow or kicker label above a heading; the heading carries its own weight.",
+      "Don't use radii under 4px (except structural 0) or invent button heights beyond 38px and 36px.",
+      "Don't exceed z-index 1000; restructure the layering instead."
+    ]
+  }
+}

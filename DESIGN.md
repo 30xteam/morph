@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Notion
-description: Clean, minimalist, content-first workspace aesthetic with a confident blue action color.
+name: Quiet Workspace
+description: A Notion-inspired, content-first workspace where the interface steps back and blue appears only where there is an action.
 colors:
   # Brand / action
   primary: "#0075DE"
@@ -144,27 +144,6 @@ spacing:
   container: 1440px
   gutter: 20px
   margin: 32px
-# Extension groups (not in the DESIGN.md spec yet; accepted by the linter and compiled by design:sync)
-shadows:
-  none: none
-  nav: "rgba(0, 0, 0, 0) 0px 1px 0px 0px"
-  dropdown: "rgba(0, 0, 0, 0.01) 0px 0.175px 1.041px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.847px 0px, rgba(0, 0, 0, 0.04) 0px 4px 18px 0px"
-  modal: "rgba(0, 0, 0, 0.2) 0px 2px 7px 0px"
-  elevated: "rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.84688px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.01) 0px 0.175px 1.04062px 0px, rgba(255, 255, 255, 0.6) 0px 0px 1px 0px"
-  search: "rgba(0, 0, 0, 0.016) 0px 0.7px 1.462px 0px, rgba(0, 0, 0, 0.03) 0px 3px 9px 0px"
-z-index:
-  base: 1
-  raised: 2
-  floating: 3
-  popover: 4
-  dropdown: 10
-  sticky: 100
-  sticky-high: 500
-  modal: 1000
-breakpoints:
-  tablet: 640px
-  desktop: 1024px
-  wide: 1440px
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
@@ -217,223 +196,148 @@ components:
     height: 64px
 ---
 
-# Design System Inspired by Notion
+# Design System: Quiet Workspace
 
-> **Source of truth.** The YAML front matter above follows the
-> [DESIGN.md spec](https://github.com/google-labs-code/design.md) and is compiled into CSS by
-> `pnpm design:sync`. The prose below explains how to apply the tokens. `shadows`, `z-index` and
-> `breakpoints` are extension groups (the spec has no token group for them yet).
->
-> **Font note:** the original system uses the proprietary `NotionInter`. This project substitutes
-> **Inter** (its open-source base), loaded in `src/design/fonts.ts`.
+> Tokens in the front matter are normative and compile to CSS with `pnpm design:sync`. Shadows, motion,
+> z-index and breakpoints, which the DESIGN.md schema can't hold, live in `.impeccable/design.json`
+> under `extensions`. Inter stands in for the proprietary NotionInter.
 
 ## Overview
 
-Notion's design system embodies a modern, collaborative, and intelligent workspace aesthetic. The visual personality is clean and minimalist, with purposeful use of bright accent colors that convey action and possibility. The design prioritizes clarity and usability through generous whitespace, subtle micro-interactions, and a carefully balanced neutral foundation that allows content and data to take center stage. The system communicates professionalism and innovation through its precise typography, accessible color contrasts, and intuitive component hierarchy. Playful touches—such as the diverse character avatars and colorful status badges—inject personality while maintaining enterprise-grade polish.
+**Creative North Star: "The Quiet Workspace"**
 
-**Key Characteristics**
-- Clean, minimalist aesthetic with purposeful whitespace
-- Bright, confident primary blue as the dominant action color
-- Accessible, high-contrast neutral palette grounded in black and white
-- Modern, friendly typography using a single Inter family for consistency
-- Subtle, layered shadows for depth without visual noise
-- Data-forward design that prioritizes content legibility
-- Collaborative energy through diverse, inclusive iconography
-- Enterprise-ready with playful, human-centered details
+A room where the furniture disappears so the work can be seen. The interface is paper and ink: warm whites, near-black text, and hairline structure that you notice only when you look for it. Color is not decoration here. One confident blue marks every place you can act, and almost nothing else is allowed to compete with it.
+
+Depth comes from tone, not from light. Sections separate by stepping between Paper White, Warm Paper and Morning Sky rather than by casting shadows; only things that genuinely float above the page (menus, dialogs) earn a shadow, and even then it is a soft, layered whisper. Components are refined and restrained: generous breathing room, gentle 8px corners, hover expressed as a faint tint instead of a border or a lift.
+
+The personality is calm, competent and human: generous whitespace and a firm typographic ladder do the organizing, so the page never needs ornament to feel finished.
+
+**Key Characteristics:**
+- Paper-and-ink neutrals with a warm undertone; pure white is the canvas.
+- A single action color (Signal Blue) that stays rare.
+- Depth through tonal layering; shadows reserved for floating layers.
+- One sans family, hierarchy carried by size and weight steps.
+- Generous whitespace; dense only where data demands it.
+- Quiet, tint-based interaction states.
 
 ## Colors
 
+A warm paper-and-ink neutral world with one decisive blue and a small, disciplined set of accents.
+
 ### Primary
-- **Primary Blue** (`primary` · `#0075DE`): Dominant call-to-action color for primary buttons, links, and key interactive elements.
-- **Primary Blue Light** (`primary-hover` · `#097FE8`): Hover state for primary actions and links.
-- **Dark Blue** (`primary-active` · `#005BAB`): Pressed state, visited links, secondary button text.
+- **Signal Blue** (`primary`): every primary call to action, links, focus rings and the selected state. The one color that means "you can do something here".
+- **Bright Signal Blue** (`primary-hover`): the hover state of Signal Blue elements and links.
+- **Deep Harbor Blue** (`primary-active`): the pressed state, visited links and the text on Mist Blue buttons.
 
-### Accent Colors
-- **Teal** (`accent-teal` · `#27918D`): Status indicators, badges, complementary UI.
-- **Purple** (`accent-purple` · `#9849E8`): Secondary actions and special feature callouts.
-- **Orange** (`accent-orange` · `#FF6D00`): Highlighted status and attention-drawing elements.
-- **Sky Blue** (`accent-sky` · `#62AEF0`): Supporting hierarchy and background fills.
-- **Deep Blue** (`accent-deep-blue` · `#1313BA`): Premium or high-priority states.
-- **Dark Blue** (`accent-dark-blue` · `#005BAB`): Navigation and structural emphasis.
+### Secondary
+- **Mist Blue** (`secondary`): the soft secondary button and quiet selected backgrounds. It carries Deep Harbor Blue text (`on-secondary`).
 
-### Interactive
-- **Primary Button** (`primary` / `on-primary`): Filled primary buttons and high-priority CTAs.
-- **Secondary Button** (`secondary` · `#E6F3FE` / `on-secondary` · `#005BAB`): Soft secondary variant with a subtle blue tint.
+### Tertiary (accents)
+- **Lagoon Teal** (`accent-teal`), **Iris** (`accent-purple`), **Ember** (`accent-orange`), **Sky** (`accent-sky`), **Cobalt** (`accent-deep-blue`), **Harbor** (`accent-dark-blue`): badges, status chips, avatars and feature callouts only. Never body text, never large fills.
 
-### Neutral Scale
-- **Black** (`on-surface` · `#000000`): Primary text, icons, and foreground elements.
-- **Near Black** (`on-surface-soft` · `#31302E`): Warmed alternative to pure black for softer passages.
-- **Dark Gray** (`on-surface-variant` · `#615D59`): Tertiary text and disabled states.
-- **Medium Gray** (`on-surface-muted` · `#A39E98`): Placeholder text, hints, subtle UI.
-- **Off White** (`surface-subtle` · `#F9F9F8`): Minimal background fill with warm undertone.
-- **Light Gray** (`surface-muted` · `#F6F5F4`): Secondary background for subtle sections.
-- **White** (`surface` · `#FFFFFF`): Primary background for main content areas and cards.
+### Neutral
+- **Paper White** (`surface`): the canvas for content, cards and the nav bar.
+- **Warm Paper** (`surface-subtle`): the first tonal step for quiet sections.
+- **Linen** (`surface-muted`): the second tonal step for grouped or inset areas.
+- **Morning Sky** (`surface-accent`): an accent-tinted layer for highlighted cards and callouts.
+- **Ink** (`on-surface`, `on-surface-strong`, `on-surface-default`): headings and body copy. Default body text sits at 90% ink.
+- **Warm Charcoal** (`on-surface-soft`): softer long-form passages.
+- **Graphite Taupe** (`on-surface-variant`): secondary text and metadata (passes AA on Paper White).
+- **Pebble** (`on-surface-muted`): placeholders and disabled hints only (2.7:1, never readable copy).
+- **Hairline** (`outline`, `outline-input`): 5% and 8% ink strokes for containers and fields.
 
-### Surface & Borders
-- **Light Blue Surface** (`surface-accent` · `#F2F9FF`): Card and container background for airy sections.
-- **Border Stroke** (`outline` · `rgba(0, 0, 0, 0.05)`): Card and container edges.
-- **Input Border** (`outline-input` · `rgba(0, 0, 0, 0.08)`): Form inputs and interactive fields.
+### Status
+- **Alert Coral** (`error`), **Marigold** (`warning`), **Lagoon Teal** (`success`): semantic states only, always paired with an icon or a text label.
 
-### Semantic / Status
-- **Error / Danger** (`error` · `#F64932`): Errors, validation failures, destructive actions.
-- **Warning** (`warning` · `#FFB110`): Warnings and cautionary notifications.
-- **Success / Complete** (`success` · `#27918D`): Success confirmations and completed status.
+### Named Rules
+**The One Blue Rule.** Signal Blue appears only where there is an action, a link or focus. If something is blue and you can't click it, it shouldn't be blue.
+
+**The Ink Ladder Rule.** Text hierarchy steps down Ink → Warm Charcoal → Graphite Taupe. Pebble is for placeholders, never for words someone must read.
+
+**The Accent Quarantine Rule.** Accents live inside badges, chips and small callouts. They never become backgrounds of whole sections or text colors.
 
 ## Typography
 
-**Font stack:** `Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif`
+**Display Font:** Inter (with -apple-system, Segoe UI, Helvetica Neue, sans-serif)
+**Body Font:** Inter (same stack)
 
-| Token | Size | Weight | Line Height | Use |
-|------|------|--------|-------------|-----|
-| `display-xl` | 96px | 600 | 100px | Hero headings, page titles |
-| `display-lg` | 64px | 700 | 64px | Large hero headings |
-| `headline-lg` | 54px | 700 | 56px | Section headings, major CTAs |
-| `headline-md` | 42px | 700 | 48px | Subsection headings |
-| `headline-sm` | 32px | 700 | 40px | Card headings, secondary headings |
-| `title-lg` | 22px | 700 | 28px | Feature titles, h3 |
-| `title-md` | 18px | 700 | 28px | h5, small headings |
-| `body-md` | 16px | 400 | 24px | Body text, paragraphs |
-| `label-md` | 16px | 500 | 24px | Emphasis within body, button labels |
-| `body-sm` | 14px | 400 | 20px | Secondary text, labels |
-| `label-sm` | 14px | 500 | 20px | Small labels |
-| `caption` | 12px | 500 | 16px | List items, tiny labels, helper text |
+**Character:** a single neutral, highly legible sans. Hierarchy comes from decisive size and weight steps (400 body, 500 labels, 600–700 headings), never from a second family.
 
-### Principles
-- **Hierarchy through weight and size:** 600–700 for headings, 400 for body, 500 for emphasis and UI labels.
-- **Line height consistency:** 1.5× for body text (16px → 24px), proportional for display sizes.
-- **Single family:** one typeface across the system reduces cognitive load.
-- **Contrast and accessibility:** all text meets WCAG AA.
-- **Responsive scaling:** reduce heading sizes 10–20% on mobile, preserve weight distinctions.
+### Hierarchy
+- **Display** (`display-xl` 600, `display-lg` 700): hero statements, one per page.
+- **Headline** (`headline-lg`, `headline-md`, `headline-sm`, 700): section and card headings.
+- **Title** (`title-lg`, `title-md`, 700): feature titles and small headings.
+- **Body** (`body-md`, `body-sm`, 400): paragraphs, capped at 65–75ch.
+- **Label** (`label-md`, `label-sm`, 500; `caption` 500): buttons, form labels, metadata and helper text.
+
+### Named Rules
+**The Single Voice Rule.** One family, everywhere. A new mood comes from size and weight, not from a new font.
+
+**The Step Down Rule.** On mobile, headings drop 20–30% (Display → Headline). Body stays at 16px on every screen.
 
 ## Layout
 
-### Spacing System
-**Base unit:** `4px`. Scale: `4, 8, 12, 16, 20, 24, 28, 32, 36, 64, 80, 124px`.
+A centered, max-width canvas (`spacing.container`) on a strict 4px rhythm (`spacing.1`). Components breathe at 16px inside; sections separate at 32–64px; heroes take 80–124px of vertical air on desktop. The gutter between cards in a grid is `spacing.gutter`, and the desktop side margin is `spacing.margin`.
 
-- **Tight UI (forms, inputs):** `4px–12px`
-- **Standard components (buttons, cards):** `16px` padding
-- **Content sections:** `24px–32px`
-- **Hero and marketing:** `64px–124px`
+Responsive behavior (breakpoints live in the sidecar): one column under 640px, two columns from 640px (tablet), three from 1024px (desktop), up to four above 1440px (wide). Large vertical gaps contract by about half on mobile, and touch targets never fall below 44×44px.
 
-### Grid & Container
-- **Max width:** `1440px`.
-- **Columns:** 12-column grid on large layouts, fluid on small. Card grids 3–4 per row on desktop, 1 on mobile, `20px` gap.
-- **Hero sections:** full width, `124px` top/bottom padding, centered content.
-- **Content rows:** max-width container with `32px` side margin on desktop.
-
-### Whitespace Philosophy
-Generous whitespace is intentional and functional. Negative space reduces cognitive load and prioritizes content. Interior component padding is consistently `16px`; gaps between sections scale with hierarchy.
-
-### Breakpoints
-
-| Name | Width | Key Changes |
-|------|-------|---|
-| Mobile | < 640px | Single column, `12px` padding, headings −20%, stacked nav |
-| Tablet | 640–1024px | Two-column cards, `16px` padding, `20–24px` spacing, hamburger menu |
-| Desktop | 1024–1440px | Three-column grids, full spacing scale, full navigation |
-| Wide | > 1440px | Four-column grids possible, container capped at `1440px` |
-
-### Touch Targets
-- Minimum `44 × 44px`; primary buttons ≥ `44px` tall on mobile.
-- Inputs `44px` on mobile, `38px` on desktop; ≥ `8px` between clickable elements.
-
-### Collapsing Strategy
-- **Hero:** heading −15–20% on tablet, −25–30% on mobile (Display XL → Headline LG).
-- **Grids:** 4 → 2 → 1 columns, `20px` gap at every size.
-- **Spacing:** `64–80px` → `36–48px` tablet → `24–32px` mobile.
-- **Body text** stays `16px` everywhere.
+**The Breathing Room Rule.** When in doubt, add space rather than a divider. Whitespace is the primary grouping device.
 
 ## Elevation & Depth
 
-| Level | Treatment | Use |
-|-------|-----------|-----|
-| 1 | none | Flat backgrounds, neutral surfaces |
-| 2 | `rgba(0,0,0,0) 0 1px 0 0` | Navigation bars, subtle borders |
-| 3 | `rgba(0,0,0,0.01) 0 0.175px 1.041px, rgba(0,0,0,0.02) 0 0.8px 2.925px, rgba(0,0,0,0.027) 0 2.025px 7.847px, rgba(0,0,0,0.04) 0 4px 18px` | Dropdowns, floating panels |
-| 4 | `rgba(0,0,0,0.2) 0 2px 7px 0` | Modals, overlays |
-| 5 | Level 3 + `rgba(255,255,255,0.6) 0 0 1px 0` | Custom elevated surfaces, soft glow |
+This is a tonal system. At rest every surface is flat, and layers are told apart by stepping between Paper White, Warm Paper, Linen and Morning Sky, plus a 5% ink hairline where an edge must be explicit. Shadows exist only for layers that physically float over the page, and they are multi-layer, low-opacity and soft (see `extensions.shadows` in the sidecar: `dropdown`, `modal`, `elevated`, `search`).
 
-**Shadow philosophy:** subtle multi-layer shadows with low-opacity black mimic natural light. Navigation is nearly flat, dropdowns lift gently, modals cast pronounced shadows. Most cards are shadow-free.
+**The Tint Before Shadow Rule.** To separate two things, change the surface tone first. Reach for a shadow only if the element actually floats (menu, popover, dialog).
 
-### Opacity Levels
-`5%` hover tints · `10%` disabled backgrounds · `20%` modal scrim · `40%` disabled text · `50%` secondary icons · `80%` high-contrast secondary · `100%` primary text.
-
-### Z-index
-| Token | Value | Use |
-|---|---|---|
-| base | 1 | Content, cards |
-| raised | 2 | Overlays above base content |
-| floating | 3 | Tooltips |
-| popover | 4 | Popovers, expanded menus |
-| dropdown | 10 | Dropdowns, select popups |
-| sticky | 100 | Sticky headers |
-| sticky-high | 500 | Persistent overlays |
-| modal | 1000 | Modals, dialogs (never exceed) |
+**The No Lift Rule.** Cards and buttons never lift or gain a shadow on hover. Hover is a tint.
 
 ## Shapes
 
-| Token | Value | Use |
-|---|---|---|
-| `none` | 0px | Structural elements, navigation bars |
-| `sm` | 4px | Compact buttons, icon buttons |
-| `input` | 5px | Form inputs, search fields |
-| `input-lg` | 6px | Alternative input variant |
-| `md` | 8px | Cards, primary buttons, most components |
-| `full` | 9999px | Pills, badges, avatars |
-
-Rounded-top cards use `8px 8px 0 0`. Border widths: `1px` default, `2px` for emphasis/active.
+Gentle, consistent rounding. Most components use 8px (`rounded.md`); compact controls and icon buttons use 4px (`rounded.sm`); fields use 5–6px (`rounded.input`, `rounded.input-lg`); badges, pills and avatars are fully round. Media-topped cards round only their top corners. Strokes are 1px by default and 2px only to mark an active or emphasized state. Nothing goes below 4px except deliberate structural zero (nav bars, full-bleed bands).
 
 ## Components
 
 ### Buttons
-- **Primary:** `primary` bg, `on-primary` text, `label-md`, `6px 15px`, radius `md`, height `38px`. Hover → `primary-hover`; active → `primary-active`; disabled → `disabled` bg + `on-disabled` text, `cursor: not-allowed`.
-- **Secondary:** `secondary` bg, `on-secondary` text, same metrics. Hover → `secondary-hover`; active → `secondary-active` + `on-secondary-active`.
-- **Ghost:** transparent, `on-surface-default` text, `body-md`, height `36px` (or `30px` compact, `5px 10px`, radius `sm`). Hover → `state-hover`; active → `state-pressed`. Never bordered.
-- **Icon:** transparent, `on-surface-icon`, padding `11px`, radius `sm`. Hover → `state-hover` + `on-surface-default`.
+- **Shape:** gently curved (8px), 38px tall, `6px 15px` padding, `label-md`.
+- **Primary:** Signal Blue with white text. Hover → Bright Signal Blue; pressed → Deep Harbor Blue. No border, no shadow.
+- **Secondary:** Mist Blue with Deep Harbor Blue text, deepening one tint per state.
+- **Ghost:** transparent with 90% ink text; hover adds a 5% ink tint and pressed a 10% tint. Never bordered.
+- **Focus:** a visible Signal Blue focus ring on every variant.
+- **Disabled:** 10% ink fill with 40% ink text and `cursor: not-allowed`.
 
-### Cards & Containers
-- **Accent card:** `surface-accent` bg, `1px solid outline`, radius `md`, padding `16px`, no shadow.
-- **Neutral card:** no background, no border, no padding.
-- **Rounded-top card:** radius `8px 8px 0 0`, used for media headers.
+### Cards / Containers
+- **Corner Style:** 8px.
+- **Background:** Paper White, or Morning Sky for highlighted cards.
+- **Shadow Strategy:** none. Separation comes from tone (see Elevation & Depth).
+- **Border:** a 5% ink hairline only when the card sits on the same tone.
+- **Internal Padding:** 16px (12px on tablet, 8px on tight mobile layouts).
 
-### Inputs & Forms
-- **Text input:** `surface` (or transparent) bg, `on-surface-strong` text, `body-md`, `1px solid outline-input`, radius `input-lg`, height `44px`, padding `11px 12px` (`7px 10px 7px 30px` with leading icon).
-- **Focus:** border `primary` + soft blue ring. **Disabled:** `state-hover` bg, `on-disabled` text.
-- **Search variant:** adds shadow `rgba(0,0,0,0.016) 0 0.7px 1.462px, rgba(0,0,0,0.03) 0 3px 9px`.
+### Inputs / Fields
+- **Style:** Paper White fill, 8% ink hairline, 6px corners, 44px tall, `body-md` text.
+- **Focus:** the border turns Signal Blue and a soft blue ring appears.
+- **Error / Disabled:** Alert Coral border plus a helper message; disabled uses a 5% ink fill with 40% ink text.
 
 ### Navigation
-- **Top bar:** `surface` bg, `on-surface-default` text, height `64px`, elevation level 2. Nav item hover → `primary` text.
+- **Style:** a 64px Paper White bar with no shadow (a hairline only when content scrolls under it). Items are 90% ink and turn Signal Blue on hover. On tablet and mobile they collapse behind a menu button, and the primary CTA stays visible.
 
 ### Links
-- **Primary link:** `link` text, `body-md`; hover → `link-hover` + underline; visited → `link-visited`.
-- **Small link:** `caption` size, weight 500; hover → `link-hover` + underline.
+- Signal Blue at rest; Bright Signal Blue with an underline on hover; Deep Harbor Blue once visited.
 
 ## Do's and Don'ts
 
-### Do
-- Use `primary` for all primary CTAs.
-- Keep `16px` padding inside cards and containers.
-- Layer shadows intentionally: base elements flat, only floating UI elevated.
-- Pair display tokens with heroes, headline tokens with feature titles, `body-md` for paragraphs.
-- Use `32px–64px` between major sections.
-- Apply `8px` radius to most interactive components.
-- Check contrast: WCAG AA (4.5:1 normal, 3:1 large text).
-- Map status colors to their semantic meaning (error, warning, success).
+### Do:
+- **Do** reserve Signal Blue for actions, links and focus (The One Blue Rule).
+- **Do** separate regions by surface tone before reaching for borders or shadows.
+- **Do** keep 16px padding inside cards and 32–64px between major sections.
+- **Do** step text down the Ink Ladder and keep readable copy at or above 4.5:1 contrast.
+- **Do** theme browser surfaces too: text selection, focus rings and caret from the palette.
+- **Do** honor `prefers-reduced-motion` with an instant, already-visible default.
 
-### Don't
-- Don't put pure black text on colored backgrounds without checking contrast; prefer `on-surface-default` or white.
-- Don't overuse accent colors; reserve them for badges, status, secondary features.
-- Don't add shadows to flat UI that doesn't float.
-- Don't mix font families.
-- Don't compress hero whitespace (`64px–124px` is intentional).
-- Don't invent button sizes; use `38px` (primary/secondary) and `36px` (ghost).
-- Don't use radii below `4px` except structural `0`.
-- Don't exceed z-index `1000`.
-
-## Agent Prompt Guide
-
-1. Never hardcode a color, size, radius or shadow in a component — use the semantic Tailwind utilities defined in `src/design/theme.css` (e.g. `bg-primary`, `text-fg-muted`, `rounded-md`, `shadow-dropdown`, `text-body-md`).
-2. If a value you need does not exist, add it here (front matter) first, run `pnpm design:sync`, then map it in `theme.css`.
-3. Primary buttons: `primary` bg, white text, `label-md`, `6px 15px`, radius `md`, `38px` high.
-4. Section spacing: `32px` comfortable → `64px` emphatic → `80–124px` hero; ×0.5–0.75 on mobile.
-5. Z-index ladder: 1 → 10 → 100 → 500 → 1000. Restructure the DOM instead of going higher.
+### Don't:
+- **Don't** use Pebble (`on-surface-muted`) for any text someone must read.
+- **Don't** put shadows on cards or buttons at rest or on hover.
+- **Don't** use accents as section backgrounds or body text colors.
+- **Don't** add a second typeface.
+- **Don't** put an eyebrow or kicker label above a heading; the heading carries its own weight.
+- **Don't** use radii under 4px (except structural 0) or invent button heights beyond 38px and 36px.
+- **Don't** exceed z-index 1000; restructure the layering instead.

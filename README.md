@@ -49,8 +49,9 @@ components                        only use semantic utilities
   different token names, the command lists every role it can't resolve. Remap those lines in
   `src/design/theme.css` and you're done.
 
-`DESIGN.md` follows the [DESIGN.md spec](https://github.com/google-labs-code/design.md), plus three
-extension groups: `shadows`, `z-index` and `breakpoints`.
+`DESIGN.md` follows the [DESIGN.md spec](https://github.com/google-labs-code/design.md). Token groups the
+spec can't hold (`shadows`, `motion`, `zIndex`, `breakpoints`) live in the Impeccable sidecar
+`.impeccable/design.json` under `extensions`. A group defined directly in `DESIGN.md` takes precedence.
 
 ## Project structure
 

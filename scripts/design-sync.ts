@@ -3,9 +3,12 @@
  * `src/design/tokens.generated.css` as `--ds-*` custom properties, then verifies that every
  * `--ds-*` variable referenced by `src/design/theme.css` (the app-facing contract) exists.
  *
+ * Groups the spec can't hold (shadows, motion, z-index, breakpoints) come from the Impeccable
+ * sidecar `.impeccable/design.json` → `extensions`; a group defined in DESIGN.md itself wins.
+ *
  * Usage: pnpm design:sync [path/to/DESIGN.md]
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { parse } from 'yaml';
@@ -26,8 +29,22 @@ interface Typography {
 const ROOT = resolve(import.meta.dirname, '..');
 const DESIGN_PATH = resolve(ROOT, process.argv[2] ?? 'DESIGN.md');
 const OUTPUT_PATH = resolve(ROOT, 'src/design/tokens.generated.css');
-const THEME_PATH = resolve(ROOT, 'src/design/theme.css');
+const DESIGN_DIR = resolve(ROOT, 'src/design');
 const FONTS_PATH = resolve(ROOT, 'src/design/fonts.ts');
+const SIDECAR_PATH = resolve(ROOT, '.impeccable/design.json');
+
+/** Sidecar `extensions` key → token group name used below. */
+const SIDECAR_GROUPS = {
+  shadows: 'shadows',
+  motion: 'motion',
+  zIndex: 'z-index',
+  breakpoints: 'breakpoints',
+} as const;
+
+interface SidecarEntry {
+  name: string;
+  value: Scalar;
+}
 
 const FALLBACK_SANS =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
@@ -59,6 +76,21 @@ function extractTokens(markdown: string): TokenTree {
     }
   }
   return tree;
+}
+
+/** Fills groups DESIGN.md leaves out from the sidecar's `{ name, value }[]` lists. */
+function mergeSidecar(tree: TokenTree): TokenTree {
+  if (!existsSync(SIDECAR_PATH)) return tree;
+  const sidecar = JSON.parse(readFileSync(SIDECAR_PATH, 'utf8')) as {
+    extensions?: Record<string, SidecarEntry[] | undefined>;
+  };
+  const merged = { ...tree };
+  for (const [source, target] of Object.entries(SIDECAR_GROUPS)) {
+    const entries = sidecar.extensions?.[source];
+    if (target in merged || !Array.isArray(entries)) continue;
+    merged[target] = Object.fromEntries(entries.map(({ name, value }) => [name, value]));
+  }
+  return merged;
 }
 
 /** Resolves `{group.token}` references against the merged tree. */
@@ -109,6 +141,7 @@ function build(tree: TokenTree): { css: string; families: Set<string> } {
     push(`spacing-${name}`, value);
   for (const [name, value] of Object.entries(group(tree, 'shadows'))) push(`shadow-${name}`, value);
   for (const [name, value] of Object.entries(group(tree, 'z-index'))) push(`z-${name}`, value);
+  for (const [name, value] of Object.entries(group(tree, 'motion'))) push(`motion-${name}`, value);
 
   // Media queries cannot read custom properties, so breakpoints go straight into Tailwind's theme.
   const breakpoints = Object.entries(group(tree, 'breakpoints'));
@@ -136,11 +169,18 @@ function build(tree: TokenTree): { css: string; families: Set<string> } {
 function verifyContract(css: string, families: Set<string>): string[] {
   const problems: string[] = [];
   const defined = new Set([...css.matchAll(/--ds-([\w-]+):/g)].map((m) => m[1]));
-  const theme = readFileSync(THEME_PATH, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  // Every hand-written stylesheet in src/design is part of the contract (theme.css, motion.css…).
+  const theme = readdirSync(DESIGN_DIR)
+    .filter((file) => file.endsWith('.css') && file !== 'tokens.generated.css')
+    .map((file) => readFileSync(resolve(DESIGN_DIR, file), 'utf8'))
+    .join('\n')
+    .replace(/\/\*[\s\S]*?\*\//g, '');
   const referenced = new Set([...theme.matchAll(/var\(--ds-([\w-]+)/g)].map((m) => m[1]));
   for (const name of referenced) {
     if (!defined.has(name))
-      problems.push(`theme.css uses --ds-${name}, which DESIGN.md does not define`);
+      problems.push(
+        `src/design uses --ds-${name}, which DESIGN.md (or the sidecar) does not define`,
+      );
   }
 
   const fonts = readFileSync(FONTS_PATH, 'utf8');
@@ -154,7 +194,7 @@ function verifyContract(css: string, families: Set<string>): string[] {
   return problems;
 }
 
-const tree = extractTokens(readFileSync(DESIGN_PATH, 'utf8'));
+const tree = mergeSidecar(extractTokens(readFileSync(DESIGN_PATH, 'utf8')));
 const { css, families } = build(tree);
 writeFileSync(OUTPUT_PATH, css);
 console.log(

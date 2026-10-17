@@ -1,6 +1,6 @@
-/* Motion tokens (not part of DESIGN.md yet). Strong ease-out: fast start, gentle settle. */
+/* Motion. Easing comes from .impeccable/design.json → extensions.motion via design:sync. */
 @theme {
-  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-strong: var(--ds-motion-ease-out-strong);
   --animate-enter: enter 600ms var(--ease-out-strong) both;
 }
 
