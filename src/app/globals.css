@@ -10,5 +10,14 @@
 
   body {
     @apply bg-surface font-sans text-body-md text-fg antialiased;
+    caret-color: var(--color-primary);
+  }
+
+  ::selection {
+    @apply bg-secondary-active text-fg-strong;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline-2 outline-offset-2 outline-primary;
   }
 }
