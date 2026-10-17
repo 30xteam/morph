@@ -17,7 +17,7 @@ import type {
   Trigger,
 } from '../types/segmentation.types';
 import { mergeResults } from './merge-answers';
-import { toJevState } from './profile-state';
+import { hasLowInfo, missingSignals, toJevState } from './profile-state';
 
 const AFFINITY_BY_LEVEL: AffinityBand[] = ['low', 'medium', 'high', 'very_high'];
 
@@ -82,12 +82,13 @@ export async function segmentProfile(
 
   const { light, reasons } = decideLight({ program, affinity, salesReady, decisionPower });
 
-  const { action, questionActions } = decideAction({
+  const { action, questionActions, reviewReason } = decideAction({
     segment,
     program,
     affinity,
     salesReady,
     wantsLearning,
+    lowInfo: hasLowInfo(profile),
   });
 
   return {
@@ -102,16 +103,11 @@ export async function segmentProfile(
     light,
     action,
     questionActions,
-    needsReview: action !== 'auto' || light === 'red',
+    needsReview: action !== 'auto',
+    reviewReason,
+    missingSignals: missingSignals(profile),
     reasons,
-    recommendation: recommend({
-      light,
-      segment: segment.value,
-      program: program.value,
-      affinity: affinity.value,
-      wantsLearning,
-      profile,
-    }),
+    recommendation: recommend({ light, program: program.value, wantsLearning }),
     meta: {
       provider: result.provider,
       model: result.model,
