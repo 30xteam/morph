@@ -5,13 +5,21 @@ The visual design is driven entirely by [`DESIGN.md`](./DESIGN.md).
 
 ## 30X challenge: Live segments
 
-Metrics includes an interactive priority donut, ranked program bars on a shared 0–100% axis, activity columns counting people per channel, and a cumulative decision timeline built from observed timestamps. The timeline has a keyboard-accessible checkpoint slider and groups runs with identical timestamps. Charts follow the CRM/Luma filter, preserve empty states, and make no model requests. Activity channels overlap; the timeline is session history, not conversion or daily growth.
+The app is a three-pane console built from the Figma file "30x 2" (dark by default, light theme and
+English/Spanish switchable in the UI):
 
-**Metrics** (`/#metrics`) is a live snapshot of loaded profiles, filtered by CRM/Luma/all: evaluation coverage, unresolved human reviews, activity signals, priority distribution and latest recommended programs. Priority percentages use all scoped profiles (including not evaluated); program percentages use only evaluated profiles. Recorded decision runs/cost and median/p95 latency use every stored successful run in the source, including re-evaluations; percentiles use nearest rank. Review completion is operational workload, not model accuracy. Providers and calibrated-run coverage are explicit. No conversions, revenue, daily trends or billing reconciliation are inferred. Browser decision history resets on reload; the server-memory Luma demo feed may replay available entries.
+- **Live segments** (`/`): programs with live counts in the sidebar, the profile list (All / Review /
+  Low affinity) and a detail with the segment change (before and now), Jev's decision with
+  probability bars and the signals sent to Jev. **Decide all** uses `POST /api/segment/batch`;
+  **Try a change** simulates an event, a role change or a round, or edits the profile.
+- **Review queue** (`/review`): profiles Jev did not decide alone, split into low confidence and low
+  info. A person picks the program; each choice is saved as a label to measure Jev.
+- **Metrics** (`/metrics`): median latency, cost per 1,000 profiles, program accuracy against a
+  majority-class baseline, live review count and a 0.5–0.9 threshold sweep, measured on 150 profiles
+  against 30X's labels.
+- **Graph** (`/graph`): the force-directed network of people, programs and declared interests.
 
-Every loaded person has a commercial priority derived from their latest decision: **P1 High** (green: contact today), **P2 Medium** (yellow: follow up/nurture), **P3 Low** (red: qualify fit/information before outreach), or **Not evaluated** until Jev runs. Human review stays separate from commercial priority. The table defaults to priority order; Graph shows priority codes, colors and node sizes, with a priority filter. The graph side panel and profile dialog explain the level. No extra model call or numeric score is introduced.
-
-Switch **Table / Graph** above Sign-ups to explore the live CRM and Luma profiles as a force-directed network of people, programs and declared interests. Drag nodes or the background, scroll or use the zoom buttons, and select nodes with the pointer or keyboard. The side panel lists neighbors and opens the existing profile dialog; **Show local graph** isolates a node and its immediate connections. Search matches person aliases, programs and interests. Solid links represent declared interests or CRM programs; dashed links use the latest Jev recommendation. New Luma profiles and profile edits update both views. The layout settles automatically, can be paused, and respects reduced-motion preferences. This view uses the profiles currently loaded in the dashboard (24 CRM profiles initially), not all 697 evaluation profiles.
+Decisions are stored per browser (`localStorage`), so a reload keeps them.
 
 A working prototype for the 30X Jev challenge (Commercial area), served at `/`. It runs on 30X's
 anonymized sample of 697 real profiles (categories only). For each one, [Jev](https://typesafe.ai),
@@ -30,9 +38,9 @@ at an event, changes role or their company raises a round.
   `timestamp.body`, secret `LUMA_WEBHOOK_SECRET`), rejects forged or stale requests (401), ignores
   replays by `webhook-id`, handles `guest.registered` (new segment) and `guest.updated` with
   `checked_in_at` (re-decides as "attended event"), and drops name and email before Jev. Fictional
-  guests (`@example.com`) come from **Start Luma sign-ups** on the dashboard or from the terminal:
+  guests (`@example.com`) come from **Live sign-ups** in the console or from the terminal:
   `pnpm luma:simulate --count 20 --every 2 [--kind registration|check_in|auto] [--replay] [--tamper]`.
-  The dashboard polls `GET /api/luma/feed`. The feed lives in server memory, enough for a
+  The console polls `GET /api/luma/feed`. The feed lives in server memory, enough for a
   single-process demo; production would store it in a database.
 - Recalculate: `POST /api/segment/recalculate` (`{ profile, previous }`) returns the previous and current outcomes plus changes to role, program, affinity, light and action. Actions use program confidence: auto >= 0.8, review >= 0.55, otherwise escalate.
 - Evaluation from the terminal (dev server running): `pnpm jev:smoke`, `pnpm jev:eval [--consensus]`,
