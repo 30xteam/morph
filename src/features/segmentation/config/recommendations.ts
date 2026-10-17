@@ -25,38 +25,39 @@ export function recommend(input: RecommendationInput): Recommendation {
   if (light === 'red') {
     return {
       kind: 'human_review',
-      title: 'A person reviews this sign-up',
-      detail: 'Jev is not confident enough, or the person does not fit. No automatic outreach.',
+      title: 'Someone on the team should look at this person',
+      detail:
+        'Jev isn’t confident enough, or the person may not fit. Nobody is contacted automatically.',
     };
   }
 
   if (light === 'green') {
     return {
       kind: 'sales_conversation',
-      title: 'Hand to a seller today',
-      detail: `${SEGMENT_LABELS[segment]} at a ${STAGE_LABELS[stage].toLowerCase()} company · ${level} AI maturity · ${URGENCY_LABELS[urgency].toLowerCase()} urgency. Why now: ${activity}. Start a sales conversation about a program for their team.`,
+      title: 'A seller should reach out today',
+      detail: `${SEGMENT_LABELS[segment]}, company stage: ${STAGE_LABELS[stage].toLowerCase()}, ${level} use of AI, ${URGENCY_LABELS[urgency].toLowerCase()} urgency. Why now: ${activity}. Talk about a program for their team.`,
     };
   }
 
   if (segment === 'investor') {
     return {
       kind: 'event',
-      title: 'Invite to an upcoming event',
-      detail: 'Networking value comes first; no sales outreach.',
+      title: 'Invite them to an upcoming event',
+      detail: 'They come to meet people, so no sales outreach for now.',
     };
   }
 
   if (wantsLearning >= THRESHOLDS.wantsLearning) {
     return {
       kind: 'program',
-      title: 'Educational sequence: program',
-      detail: `Share a program that matches ${level} AI maturity; re-decide when their activity changes.`,
+      title: 'Send a program that matches their level',
+      detail: `They want to learn and use AI at a ${level} level. Jev checks again when their activity changes.`,
     };
   }
 
   return {
     kind: 'content',
-    title: 'Educational sequence: content',
-    detail: `Send content for ${level} AI maturity until their intent changes.`,
+    title: 'Send content that matches their level',
+    detail: `They use AI at a ${level} level. Keep sharing content until they show more interest.`,
   };
 }
