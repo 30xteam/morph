@@ -6,6 +6,7 @@ import { Button } from '@/ui';
 
 import { graphNeighborhood } from '../../services/build-profile-graph';
 import type { GraphNode, ProfileGraph } from '../../types/graph.types';
+import { PriorityBadge } from '../priority-badge';
 import { ProfileDialog } from '../profile/profile-dialog';
 
 interface GraphDetailsProps {
@@ -37,6 +38,15 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
             : 'Select a person, program or interest to explore its connections.'}
         </p>
       </div>
+      {selected?.priority ? (
+        <div className="flex flex-col gap-2">
+          <PriorityBadge priority={selected.priority} />
+          <p className="text-body-sm text-fg-soft">{selected.priority.reason}</p>
+          {selected.priority.needsReview ? (
+            <p className="text-caption text-fg-muted">Review required before outreach.</p>
+          ) : null}
+        </div>
+      ) : null}
       {profileId ? (
         <Button variant="secondary" onClick={() => show(ProfileDialog, { profileId })}>
           Open profile
@@ -53,6 +63,7 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
               >
                 <span className="text-body-sm break-words text-fg">{node.label}</span>
                 <span className="text-caption text-fg-muted">{node.kind}</span>
+                {node.priority ? <PriorityBadge priority={node.priority} /> : null}
               </button>
             </li>
           ))}

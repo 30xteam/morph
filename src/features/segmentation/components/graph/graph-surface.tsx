@@ -11,6 +11,9 @@ import { useGraphCamera } from '../../hooks/use-graph-camera';
 import { useGraphLayout } from '../../hooks/use-graph-layout';
 import { graphNeighborhood } from '../../services/build-profile-graph';
 import type { GraphNodeKind, ProfileGraph } from '../../types/graph.types';
+import { PRIORITY_COLOR } from '../priority-badge';
+
+const PRIORITY_RADIUS = { high: 12, medium: 9, low: 6, pending: 7 };
 
 const NODE_COLOR: Record<GraphNodeKind, string> = {
   profile: 'text-fg-muted',
@@ -109,12 +112,16 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
               key={node.id}
               data-node-id={node.id}
               data-node-kind={node.kind}
+              data-priority={node.priority?.level}
               transform={`translate(${node.x} ${node.y})`}
               role="button"
               tabIndex={0}
-              aria-label={`${node.kind}: ${node.label}`}
+              aria-label={`${node.kind}: ${node.label}${node.priority ? `, ${node.priority.label}` : ''}`}
               aria-pressed={selectedId === node.id}
-              className={cx('group cursor-grab outline-none', NODE_COLOR[node.kind])}
+              className={cx(
+                'group cursor-grab outline-none',
+                node.priority ? PRIORITY_COLOR[node.priority.level] : NODE_COLOR[node.kind],
+              )}
               opacity={neighbors && !neighbors.has(node.id) ? 0.25 : 1}
               onPointerEnter={() => setHoveredId(node.id)}
               onPointerLeave={() => setHoveredId(undefined)}
@@ -128,17 +135,25 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
               }}
             >
               <title>
-                {node.label} · {node.kind}
+                {node.label} · {node.priority?.label ?? node.kind}
               </title>
               <circle r={22} fill="transparent" />
               <circle
-                r={RADIUS[node.kind] + (selectedId === node.id ? 4 : 0)}
+                r={
+                  (node.priority ? PRIORITY_RADIUS[node.priority.level] : RADIUS[node.kind]) +
+                  (selectedId === node.id ? 4 : 0)
+                }
                 className="fill-current group-focus-visible:stroke-primary group-focus-visible:stroke-4"
                 stroke="currentColor"
                 strokeWidth={2}
               />
-              <text x={RADIUS[node.kind] + 7} y={5} className="fill-current text-body-sm">
+              <text
+                x={(node.priority ? PRIORITY_RADIUS[node.priority.level] : RADIUS[node.kind]) + 7}
+                y={5}
+                className={cx('text-body-sm', node.priority ? 'fill-fg' : 'fill-current')}
+              >
                 {node.label}
+                {node.priority ? ` · ${node.priority.short}` : ''}
               </text>
             </g>
           ))}

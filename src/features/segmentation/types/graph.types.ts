@@ -1,3 +1,5 @@
+import type { ProfilePriority } from '../services/profile-priority';
+
 export type GraphNodeKind = 'profile' | 'program' | 'interest';
 
 export interface GraphNode {
@@ -5,6 +7,7 @@ export interface GraphNode {
   label: string;
   kind: GraphNodeKind;
   profileId?: string;
+  priority?: ProfilePriority;
 }
 
 export interface GraphEdge {

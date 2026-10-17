@@ -3,8 +3,10 @@
 import { create, useModal } from '@ebay/nice-modal-react';
 import * as Dialog from '@radix-ui/react-dialog';
 
+import { profilePriority } from '../../services/profile-priority';
 import { describeActivity, relationLabel } from '../../services/profile-state';
 import { latestOutcome, useSegmentationStore } from '../../store/segmentation-store';
+import { PriorityBadge } from '../priority-badge';
 import { Icon } from '../shell/icon';
 import { ProfileActions } from './profile-actions';
 import { ProfileDecision } from './profile-decision';
@@ -17,6 +19,7 @@ export const ProfileDialog = create<{ profileId: string }>(({ profileId }) => {
   );
   const history = useSegmentationStore((state) => state.history[profileId]);
   const outcome = latestOutcome(history);
+  const priority = profilePriority(outcome);
 
   return (
     <Dialog.Root
@@ -54,6 +57,21 @@ export const ProfileDialog = create<{ profileId: string }>(({ profileId }) => {
                 </Dialog.Close>
               </header>
 
+              <section
+                aria-label="Commercial priority"
+                className="flex flex-col gap-2 rounded-md bg-surface-subtle p-3"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-label-sm text-fg-strong">Commercial priority</span>
+                  <PriorityBadge priority={priority} />
+                </div>
+                <p className="text-body-sm text-fg-soft">{priority.reason}</p>
+                {priority.needsReview ? (
+                  <p className="text-caption text-fg-muted">
+                    Human review required before acting on this recommendation.
+                  </p>
+                ) : null}
+              </section>
               <dl className="grid gap-x-4 gap-y-2 text-body-sm tablet:grid-cols-[auto_1fr]">
                 <dt className="text-caption text-fg-muted">Goal</dt>
                 <dd className="text-fg-soft">{profile.goal}</dd>

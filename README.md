@@ -5,6 +5,8 @@ The visual design is driven entirely by [`DESIGN.md`](./DESIGN.md).
 
 ## 30X challenge: Live segments
 
+Every loaded person has a commercial priority derived from their latest decision: **P1 High** (green: contact today), **P2 Medium** (yellow: follow up/nurture), **P3 Low** (red: qualify fit/information before outreach), or **Not evaluated** until Jev runs. Human review stays separate from commercial priority. The table defaults to priority order; Graph shows priority codes, colors and node sizes, with a priority filter. The graph side panel and profile dialog explain the level. No extra model call or numeric score is introduced.
+
 Switch **Table / Graph** above Sign-ups to explore the live CRM and Luma profiles as a force-directed network of people, programs and declared interests. Drag nodes or the background, scroll or use the zoom buttons, and select nodes with the pointer or keyboard. The side panel lists neighbors and opens the existing profile dialog; **Show local graph** isolates a node and its immediate connections. Search matches person aliases, programs and interests. Solid links represent declared interests or CRM programs; dashed links use the latest Jev recommendation. New Luma profiles and profile edits update both views. The layout settles automatically, can be paused, and respects reduced-motion preferences. This view uses the profiles currently loaded in the dashboard (24 CRM profiles initially), not all 697 evaluation profiles.
 
 A working prototype for the 30X Jev challenge (Commercial area), served at `/`. It runs on 30X's

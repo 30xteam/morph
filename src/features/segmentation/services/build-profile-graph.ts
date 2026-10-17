@@ -1,6 +1,8 @@
 import { PROGRAM_LABELS } from '../config/labels';
 import type { GraphEdge, GraphNode, ProfileGraph } from '../types/graph.types';
 import type { Profile, SegmentationOutcome } from '../types/segmentation.types';
+import { profilePriority } from './profile-priority';
+import type { PriorityLevel } from './profile-priority';
 
 export function normalizeGraphText(text: string) {
   return text.normalize('NFD').replace(/\p{M}/gu, '').trim().toLowerCase();
@@ -22,7 +24,14 @@ export function buildProfileGraph(
   }
   for (const profile of profiles) {
     const id = `profile:${profile.id}`;
-    nodes.set(id, { id, label: profile.alias, kind: 'profile', profileId: profile.id });
+    const outcome = history[profile.id]?.at(-1);
+    nodes.set(id, {
+      id,
+      label: profile.alias,
+      kind: 'profile',
+      profileId: profile.id,
+      priority: profilePriority(outcome),
+    });
     for (const topic of profile.topics) {
       const label = topic.trim();
       if (!label) continue;
@@ -36,7 +45,6 @@ export function buildProfileGraph(
       ([, label]) => normalizeGraphText(label) === normalizeGraphText(profile.crm.program),
     );
     if (crmProgram) connect(id, `program:${crmProgram[0]}`, 'crm');
-    const outcome = history[profile.id]?.at(-1);
     if (outcome && outcome.program.value !== 'none') {
       connect(id, `program:${outcome.program.value}`, 'recommendation');
     }
@@ -51,6 +59,16 @@ export function graphNeighborhood(graph: ProfileGraph, id: string) {
     if (edge.target === id) ids.add(edge.source);
   }
   return ids;
+}
+
+export function filterPriorityGraph(graph: ProfileGraph, priority: PriorityLevel | 'all') {
+  if (priority === 'all') return graph;
+  const ids = new Set(
+    graph.nodes.filter((node) => node.priority?.level === priority).map((node) => node.id),
+  );
+  const edges = graph.edges.filter((edge) => ids.has(edge.source));
+  for (const edge of edges) ids.add(edge.target);
+  return { nodes: graph.nodes.filter((node) => ids.has(node.id)), edges };
 }
 
 export function filterProfileGraph(graph: ProfileGraph, query: string, localId?: string) {

@@ -4,7 +4,12 @@ import { useDeferredValue, useMemo, useState } from 'react';
 
 import { Button } from '@/ui';
 
-import { buildProfileGraph, filterProfileGraph } from '../../services/build-profile-graph';
+import {
+  buildProfileGraph,
+  filterProfileGraph,
+  filterPriorityGraph,
+} from '../../services/build-profile-graph';
+import type { PriorityLevel } from '../../services/profile-priority';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { GraphDetails } from './graph-details';
 import { GraphSurface } from './graph-surface';
@@ -15,12 +20,18 @@ export function ProfileGraph() {
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string>();
   const [local, setLocal] = useState(false);
+  const [priority, setPriority] = useState<PriorityLevel | 'all'>('all');
   const deferredQuery = useDeferredValue(query);
   const graph = useMemo(() => buildProfileGraph(profiles, history), [profiles, history]);
   const selected = graph.nodes.find((node) => node.id === selectedId);
   const visible = useMemo(
-    () => filterProfileGraph(graph, deferredQuery, local ? selected?.id : undefined),
-    [graph, deferredQuery, local, selected?.id],
+    () =>
+      filterProfileGraph(
+        filterPriorityGraph(graph, priority),
+        deferredQuery,
+        local ? selected?.id : undefined,
+      ),
+    [graph, priority, deferredQuery, local, selected?.id],
   );
   const decided = profiles.filter((profile) => history[profile.id]?.length).length;
 
@@ -41,6 +52,21 @@ export function ProfileGraph() {
           </p>
         </div>
         <div className="flex flex-wrap items-end gap-2">
+          <label className="flex flex-col gap-1 text-caption text-fg-muted">
+            Priority
+            <select
+              aria-label="Priority"
+              value={priority}
+              onChange={(event) => setPriority(event.target.value as PriorityLevel | 'all')}
+              className="h-11 rounded-input border border-border-input bg-surface px-3 text-body-sm text-fg focus-visible:outline-2 focus-visible:outline-primary"
+            >
+              <option value="all">All priorities</option>
+              <option value="high">P1 · High</option>
+              <option value="medium">P2 · Medium</option>
+              <option value="low">P3 · Low</option>
+              <option value="pending">Not evaluated</option>
+            </select>
+          </label>
           <label className="flex flex-col gap-1 text-caption text-fg-muted">
             Search nodes
             <input
@@ -73,7 +99,9 @@ export function ProfileGraph() {
         </div>
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-caption">
-        <span className="text-fg-muted">● Profiles</span>
+        <span className="text-fg-muted">
+          People: P1 high · P2 medium · P3 low · — not evaluated
+        </span>
         <span className="text-primary">● Programs</span>
         <span className="text-accent-1">● Interests</span>
       </div>

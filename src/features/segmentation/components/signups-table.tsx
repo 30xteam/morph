@@ -1,14 +1,17 @@
 'use client';
 
 import { show } from '@ebay/nice-modal-react';
+import { useState } from 'react';
 
 import { cx } from '@/core/cx';
 
 import { PROGRAM_LABELS, RECOMMENDATION_LABELS } from '../config/labels';
+import { profilePriority } from '../services/profile-priority';
 import { latestOutcome, useSegmentationStore } from '../store/segmentation-store';
 import type { SegmentationOutcome } from '../types/segmentation.types';
 import { ConfidenceBar } from './confidence-bar';
 import { LightBadge } from './light-badge';
+import { PriorityBadge } from './priority-badge';
 import { ProfileDialog } from './profile/profile-dialog';
 
 const HEAD = 'px-3 py-2 text-left text-caption text-fg-muted';
@@ -23,6 +26,15 @@ export function SignupsTable() {
   const profiles = useSegmentationStore((state) => state.profiles);
   const history = useSegmentationStore((state) => state.history);
   const pendingIds = useSegmentationStore((state) => state.pendingIds);
+  const [order, setOrder] = useState('priority');
+  const ranked =
+    order === 'priority'
+      ? profiles.toSorted(
+          (a, b) =>
+            profilePriority(latestOutcome(history[a.id])).rank -
+            profilePriority(latestOutcome(history[b.id])).rank,
+        )
+      : profiles;
 
   return (
     <section
@@ -30,15 +42,35 @@ export function SignupsTable() {
       aria-labelledby="signups-heading"
       className="flex scroll-mt-32 flex-col gap-3"
     >
-      <h2 id="signups-heading" className="text-title-md text-fg-strong">
-        Sign-ups
-      </h2>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <h2 id="signups-heading" className="text-title-md text-fg-strong">
+          Sign-ups
+        </h2>
+        <label className="flex flex-col gap-1 text-caption text-fg-muted">
+          Order profiles
+          <select
+            aria-label="Order profiles"
+            value={order}
+            onChange={(event) => setOrder(event.target.value)}
+            className="h-11 rounded-input border border-border-input bg-surface px-3 text-body-sm text-fg focus-visible:outline-2 focus-visible:outline-primary"
+          >
+            <option value="priority">Priority first</option>
+            <option value="arrival">Arrival order</option>
+          </select>
+        </label>
+      </div>
+      <p className="text-caption text-fg-muted">
+        Commercial priority updates with each Jev decision. Human review is a separate requirement.
+      </p>
       <div className="-mx-3 overflow-x-auto">
         <table className="w-full min-w-160 border-collapse text-body-sm">
           <thead>
             <tr className="border-b border-border">
               <th scope="col" className={HEAD}>
                 Person
+              </th>
+              <th scope="col" className={HEAD}>
+                Priority
               </th>
               <th scope="col" className={HEAD}>
                 Suggested program
@@ -55,8 +87,9 @@ export function SignupsTable() {
             </tr>
           </thead>
           <tbody>
-            {profiles.map((profile) => {
+            {ranked.map((profile) => {
               const outcome = latestOutcome(history[profile.id]);
+              const priority = profilePriority(outcome);
               return (
                 <tr
                   key={profile.id}
@@ -77,6 +110,12 @@ export function SignupsTable() {
                       </span>
                     </button>
                   </th>
+                  <td className={CELL}>
+                    <PriorityBadge priority={priority} />
+                    {priority.needsReview ? (
+                      <span className="mt-1 block text-caption text-fg-muted">Review required</span>
+                    ) : null}
+                  </td>
                   <td className={cx(CELL, 'whitespace-nowrap text-fg-soft')}>
                     {programText(pendingIds.includes(profile.id), outcome)}
                   </td>
