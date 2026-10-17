@@ -6,7 +6,7 @@ export function ProfileHistory({ history }: { history: SegmentationOutcome[] }) 
   return (
     <section aria-labelledby="history-heading" className="flex flex-col gap-2">
       <h3 id="history-heading" className="text-label-md text-fg-strong">
-        How this segment changed
+        Earlier changes
       </h3>
       <ol className="flex flex-col gap-2">
         {history.toReversed().map((outcome) => (

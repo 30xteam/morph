@@ -8,6 +8,7 @@ import { latestOutcome, useSegmentationStore } from '../../store/segmentation-st
 import { Icon } from '../shell/icon';
 import { ProfileActions } from './profile-actions';
 import { ProfileDecision } from './profile-decision';
+import { ProfileDiff } from './profile-diff';
 import { ProfileHistory } from './profile-history';
 
 export const ProfileDialog = create<{ profileId: string }>(({ profileId }) => {
@@ -17,6 +18,7 @@ export const ProfileDialog = create<{ profileId: string }>(({ profileId }) => {
   );
   const history = useSegmentationStore((state) => state.history[profileId]);
   const outcome = latestOutcome(history);
+  const previous = history?.at(-2);
 
   return (
     <Dialog.Root
@@ -34,9 +36,7 @@ export const ProfileDialog = create<{ profileId: string }>(({ profileId }) => {
             <>
               <header className="flex items-start justify-between gap-4">
                 <div className="flex flex-col gap-1">
-                  <p className="text-caption text-fg-muted">
-                    {profile.alias} · {profile.event}
-                  </p>
+                  <p className="text-caption text-fg-muted">Signed up for {profile.event}</p>
                   <Dialog.Title className="text-title-md text-fg-strong">
                     {profile.role} at {profile.company}
                   </Dialog.Title>
@@ -53,13 +53,20 @@ export const ProfileDialog = create<{ profileId: string }>(({ profileId }) => {
               </header>
 
               <div className="flex flex-col gap-1 text-body-sm">
-                <p className="text-fg-soft">“{profile.signupAnswer}”</p>
-                <p className="text-caption text-fg-muted">Activity: {describeActivity(profile)}</p>
+                <p className="text-fg-soft">They wrote: “{profile.signupAnswer}”</p>
+                <p className="text-caption text-fg-muted">
+                  What they did lately: {describeActivity(profile)}
+                </p>
               </div>
 
+              {outcome ? (
+                <ProfileDecision outcome={outcome} />
+              ) : (
+                <p className="text-body-sm text-fg-muted">Jev hasn’t read this person yet.</p>
+              )}
+              {outcome && previous ? <ProfileDiff previous={previous} current={outcome} /> : null}
               <ProfileActions profile={profile} hasOutcome={outcome !== undefined} />
-              {outcome ? <ProfileDecision outcome={outcome} /> : null}
-              {history && history.length > 1 ? <ProfileHistory history={history} /> : null}
+              {history && history.length > 2 ? <ProfileHistory history={history} /> : null}
             </>
           ) : (
             <Dialog.Title className="text-title-md text-fg-strong">Profile not found</Dialog.Title>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { Button } from '@/ui';
 
+import { useRecalculateProfile } from '../../hooks/use-recalculate-profile';
 import { useSegmentProfile } from '../../hooks/use-segment-profile';
 import { type ActivityTrigger, applyTrigger } from '../../services/apply-trigger';
 import { useSegmentationStore } from '../../store/segmentation-store';
@@ -23,7 +24,9 @@ interface ProfileActionsProps {
 
 export function ProfileActions({ profile, hasOutcome }: ProfileActionsProps) {
   const updateProfile = useSegmentationStore((state) => state.updateProfile);
-  const { mutate, isPending } = useSegmentProfile();
+  const { mutate, isPending: segmenting } = useSegmentProfile();
+  const recalculate = useRecalculateProfile();
+  const isPending = segmenting || recalculate.isPending;
   const [editing, setEditing] = useState(false);
 
   function rerun(next: Profile, trigger: Trigger) {
@@ -38,16 +41,20 @@ export function ProfileActions({ profile, hasOutcome }: ProfileActionsProps) {
         onCancel={() => setEditing(false)}
         onSubmit={(next) => {
           setEditing(false);
-          rerun(next, 'manual_edit');
+          updateProfile(next);
+          recalculate.mutate(next);
         }}
       />
     );
   }
 
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-caption text-fg-muted">
-        Simulate what happens next. Jev re-decides on every change.
+    <section aria-labelledby="try-change-heading" className="flex flex-col gap-2">
+      <h3 id="try-change-heading" className="text-label-md text-fg-strong">
+        Try a change
+      </h3>
+      <p className="text-body-sm text-fg-muted">
+        Pretend something happened to this person. Jev reads them again and you see what changed.
       </p>
       <div className="flex flex-wrap gap-2">
         {ACTIVITY_ACTIONS.map(({ trigger, label }) => (
@@ -60,17 +67,29 @@ export function ProfileActions({ profile, hasOutcome }: ProfileActionsProps) {
             {label}
           </Button>
         ))}
-        <Button
-          variant="ghost"
-          disabled={isPending}
-          onClick={() => mutate({ profile, trigger: hasOutcome ? 're_run' : 'sign_up' })}
-        >
-          {hasOutcome ? 'Re-run Jev' : 'Run Jev'}
+        <Button variant="secondary" disabled={isPending} onClick={() => setEditing(true)}>
+          Edit role or company
         </Button>
-        <Button variant="ghost" onClick={() => setEditing(true)}>
-          Edit profile
-        </Button>
+        {hasOutcome ? null : (
+          <Button
+            variant="ghost"
+            disabled={isPending}
+            onClick={() => mutate({ profile, trigger: 'sign_up' })}
+          >
+            Sort this person
+          </Button>
+        )}
       </div>
-    </div>
+      {isPending ? (
+        <p aria-live="polite" className="text-caption text-fg-muted">
+          Jev is reading this person again…
+        </p>
+      ) : null}
+      {recalculate.isError ? (
+        <p role="alert" className="text-caption text-danger">
+          Jev couldn’t read the changes. Try again in a moment.
+        </p>
+      ) : null}
+    </section>
   );
 }

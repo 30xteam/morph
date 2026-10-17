@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 
 import { Button } from '@/ui';
 
-import { COMPANY_SIZES, profileSchema } from '../types/profile.schema';
+import { STAGE_LABELS } from '../config/labels';
+import { COMPANY_SIZES, profileSchema, STAGE_HINTS } from '../types/profile.schema';
 import type { Profile } from '../types/segmentation.types';
 
 interface EditProfileFormProps {
@@ -15,7 +16,7 @@ interface EditProfileFormProps {
 }
 
 const INPUT =
-  'w-full rounded-input border border-border-input bg-surface px-3 py-2 text-body-sm text-fg focus-visible:outline-2 focus-visible:outline-primary';
+  'min-h-11 w-full rounded-input border border-border-input bg-surface px-3 py-2 text-body-sm text-fg focus-visible:outline-2 focus-visible:outline-primary';
 const LABEL = 'flex flex-col gap-1 text-caption text-fg-muted';
 const ERROR = 'text-caption text-danger';
 
@@ -55,12 +56,26 @@ export function EditProfileForm({ profile, onSubmit, onCancel }: EditProfileForm
         </label>
       </div>
       <label className={LABEL}>
-        What do you want from this event?
+        Company stage
+        <select
+          className={INPUT}
+          {...register('stageHint', { setValueAs: (value: string) => value || undefined })}
+        >
+          <option value="">Let Jev decide</option>
+          {STAGE_HINTS.map((stage) => (
+            <option key={stage} value={stage}>
+              {STAGE_LABELS[stage]}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className={LABEL}>
+        What they wrote when signing up
         <textarea rows={4} className={INPUT} {...register('signupAnswer')} />
         {errors.signupAnswer ? <span className={ERROR}>{errors.signupAnswer.message}</span> : null}
       </label>
       <div className="flex gap-2">
-        <Button type="submit">Save and re-run Jev</Button>
+        <Button type="submit">Save and see what changes</Button>
         <Button type="button" variant="secondary" onClick={onCancel}>
           Cancel
         </Button>
