@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@import '../design/tokens.generated.css';
+@import '../design/theme.css';
+@import '../design/motion.css';
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-surface font-sans text-body-md text-fg antialiased;
+  }
+}

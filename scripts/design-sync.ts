@@ -1,0 +1,173 @@
+/**
+ * Compiles the tokens in DESIGN.md (https://github.com/google-labs-code/design.md) into
+ * `src/design/tokens.generated.css` as `--ds-*` custom properties, then verifies that every
+ * `--ds-*` variable referenced by `src/design/theme.css` (the app-facing contract) exists.
+ *
+ * Usage: pnpm design:sync [path/to/DESIGN.md]
+ */
+import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+import { parse } from 'yaml';
+
+type Scalar = string | number;
+type TokenTree = Record<string, unknown>;
+
+interface Typography {
+  fontFamily?: string;
+  fontSize?: Scalar;
+  fontWeight?: Scalar;
+  lineHeight?: Scalar;
+  letterSpacing?: Scalar;
+  fontFeature?: string;
+  fontVariation?: string;
+}
+
+const ROOT = resolve(import.meta.dirname, '..');
+const DESIGN_PATH = resolve(ROOT, process.argv[2] ?? 'DESIGN.md');
+const OUTPUT_PATH = resolve(ROOT, 'src/design/tokens.generated.css');
+const THEME_PATH = resolve(ROOT, 'src/design/theme.css');
+const FONTS_PATH = resolve(ROOT, 'src/design/fonts.ts');
+
+const FALLBACK_SANS =
+  "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
+
+function slug(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+/** Merges the front matter and every fenced ```yaml block, as the spec requires. */
+function extractTokens(markdown: string): TokenTree {
+  const blocks: string[] = [];
+  const frontMatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(markdown);
+  if (frontMatter?.[1]) blocks.push(frontMatter[1]);
+  for (const match of markdown.matchAll(/```ya?ml\r?\n([\s\S]*?)```/g)) {
+    if (match[1]) blocks.push(match[1]);
+  }
+
+  const tree: TokenTree = {};
+  for (const block of blocks) {
+    const parsed: unknown = parse(block);
+    if (!parsed || typeof parsed !== 'object') continue;
+    for (const [key, value] of Object.entries(parsed)) {
+      if (key in tree) throw new Error(`Duplicate top-level key "${key}" in DESIGN.md`);
+      tree[key] = value;
+    }
+  }
+  return tree;
+}
+
+/** Resolves `{group.token}` references against the merged tree. */
+function resolveRefs(value: Scalar, tree: TokenTree, seen: string[] = []): string {
+  return String(value).replace(/\{([^}]+)\}/g, (_, path: string) => {
+    if (seen.includes(path))
+      throw new Error(`Circular token reference: ${[...seen, path].join(' → ')}`);
+    const target = path.split('.').reduce<unknown>((node, key) => {
+      return node && typeof node === 'object' ? (node as TokenTree)[key] : undefined;
+    }, tree);
+    if (typeof target !== 'string' && typeof target !== 'number') {
+      throw new Error(`Unresolved token reference {${path}}`);
+    }
+    return resolveRefs(target, tree, [...seen, path]);
+  });
+}
+
+function group(tree: TokenTree, key: string): Record<string, Scalar> {
+  const value = tree[key];
+  return value && typeof value === 'object' ? (value as Record<string, Scalar>) : {};
+}
+
+function build(tree: TokenTree): { css: string; families: Set<string> } {
+  const lines: string[] = [];
+  const families = new Set<string>();
+  const push = (name: string, value: Scalar) =>
+    lines.push(`  --ds-${name}: ${resolveRefs(value, tree)};`);
+
+  for (const [name, value] of Object.entries(group(tree, 'colors'))) push(`color-${name}`, value);
+
+  const typography = (tree.typography ?? {}) as Record<string, Typography>;
+  for (const [name, t] of Object.entries(typography)) {
+    if (t.fontFamily) {
+      const family = resolveRefs(t.fontFamily, tree);
+      families.add(family);
+      push(`typo-${name}-family`, `var(--font-${slug(family)}, '${family}'), ${FALLBACK_SANS}`);
+    }
+    if (t.fontSize !== undefined) push(`typo-${name}-size`, t.fontSize);
+    if (t.fontWeight !== undefined) push(`typo-${name}-weight`, t.fontWeight);
+    if (t.lineHeight !== undefined) push(`typo-${name}-line-height`, t.lineHeight);
+    if (t.letterSpacing !== undefined) push(`typo-${name}-tracking`, t.letterSpacing);
+    if (t.fontFeature) push(`typo-${name}-feature`, t.fontFeature);
+    if (t.fontVariation) push(`typo-${name}-variation`, t.fontVariation);
+  }
+
+  for (const [name, value] of Object.entries(group(tree, 'rounded'))) push(`radius-${name}`, value);
+  for (const [name, value] of Object.entries(group(tree, 'spacing')))
+    push(`spacing-${name}`, value);
+  for (const [name, value] of Object.entries(group(tree, 'shadows'))) push(`shadow-${name}`, value);
+  for (const [name, value] of Object.entries(group(tree, 'z-index'))) push(`z-${name}`, value);
+
+  // Media queries cannot read custom properties, so breakpoints go straight into Tailwind's theme.
+  const breakpoints = Object.entries(group(tree, 'breakpoints'));
+  const themeBlock = breakpoints.length
+    ? [
+        '',
+        '@theme {',
+        '  --breakpoint-*: initial;',
+        ...breakpoints.map(
+          ([name, value]) => `  --breakpoint-${name}: ${resolveRefs(value, tree)};`,
+        ),
+        '}',
+      ]
+    : [];
+
+  const header = [
+    '/* AUTO-GENERATED by scripts/design-sync.ts from DESIGN.md — do not edit by hand. */',
+    `/* Design system: ${String(tree.name ?? 'unnamed')} */`,
+    '',
+    ':root {',
+  ];
+  return { css: [...header, ...lines, '}', ...themeBlock, ''].join('\n'), families };
+}
+
+function verifyContract(css: string, families: Set<string>): string[] {
+  const problems: string[] = [];
+  const defined = new Set([...css.matchAll(/--ds-([\w-]+):/g)].map((m) => m[1]));
+  const theme = readFileSync(THEME_PATH, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  const referenced = new Set([...theme.matchAll(/var\(--ds-([\w-]+)/g)].map((m) => m[1]));
+  for (const name of referenced) {
+    if (!defined.has(name))
+      problems.push(`theme.css uses --ds-${name}, which DESIGN.md does not define`);
+  }
+
+  const fonts = readFileSync(FONTS_PATH, 'utf8');
+  for (const family of families) {
+    if (!fonts.includes(`--font-${slug(family)}`)) {
+      problems.push(
+        `Font "${family}" is not loaded: declare variable '--font-${slug(family)}' in src/design/fonts.ts`,
+      );
+    }
+  }
+  return problems;
+}
+
+const tree = extractTokens(readFileSync(DESIGN_PATH, 'utf8'));
+const { css, families } = build(tree);
+writeFileSync(OUTPUT_PATH, css);
+console.log(
+  `✓ Wrote ${OUTPUT_PATH.replace(`${ROOT}/`, '')} from ${DESIGN_PATH.replace(`${ROOT}/`, '')}`,
+);
+
+const problems = verifyContract(css, families);
+if (problems.length) {
+  console.error('\n✗ Design contract is out of sync:');
+  for (const problem of problems) console.error(`  - ${problem}`);
+  console.error(
+    '\nRemap the missing roles in src/design/theme.css (or add the tokens to DESIGN.md).',
+  );
+  process.exit(1);
+}
+console.log('✓ theme.css contract satisfied');

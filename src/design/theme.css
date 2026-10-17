@@ -1,0 +1,171 @@
+/*
+ * Design contract — the ONLY place that knows DESIGN.md token names.
+ *
+ * Components use the semantic utilities registered here (bg-primary, text-fg-muted,
+ * rounded-md, shadow-dropdown, text-display-xl, z-modal, …). When DESIGN.md changes:
+ *   1. pnpm design:sync        → regenerates tokens.generated.css (--ds-* values)
+ *   2. if it reports a missing --ds-* name, remap that role below. Nothing else changes.
+ */
+
+@theme inline {
+  /* Brand / action */
+  --color-primary: var(--ds-color-primary);
+  --color-primary-hover: var(--ds-color-primary-hover);
+  --color-primary-active: var(--ds-color-primary-active);
+  --color-on-primary: var(--ds-color-on-primary);
+  --color-secondary: var(--ds-color-secondary);
+  --color-secondary-hover: var(--ds-color-secondary-hover);
+  --color-secondary-active: var(--ds-color-secondary-active);
+  --color-on-secondary: var(--ds-color-on-secondary);
+  --color-on-secondary-active: var(--ds-color-on-secondary-active);
+  --color-link: var(--ds-color-link);
+  --color-link-hover: var(--ds-color-link-hover);
+  --color-link-visited: var(--ds-color-link-visited);
+
+  /* Accents — badges, status and feature callouts only */
+  --color-accent-1: var(--ds-color-accent-teal);
+  --color-accent-2: var(--ds-color-accent-purple);
+  --color-accent-3: var(--ds-color-accent-orange);
+  --color-accent-4: var(--ds-color-accent-sky);
+  --color-accent-5: var(--ds-color-accent-deep-blue);
+  --color-accent-6: var(--ds-color-accent-dark-blue);
+
+  /* Surfaces */
+  --color-surface: var(--ds-color-surface);
+  --color-surface-subtle: var(--ds-color-surface-subtle);
+  --color-surface-muted: var(--ds-color-surface-muted);
+  --color-surface-accent: var(--ds-color-surface-accent);
+
+  /* Foreground (text & icons) */
+  --color-fg: var(--ds-color-on-surface-default);
+  --color-fg-strong: var(--ds-color-on-surface);
+  --color-fg-soft: var(--ds-color-on-surface-soft);
+  --color-fg-muted: var(--ds-color-on-surface-variant);
+  --color-fg-subtle: var(--ds-color-on-surface-muted);
+  --color-fg-icon: var(--ds-color-on-surface-icon);
+
+  /* Lines, states, overlays */
+  --color-border: var(--ds-color-outline);
+  --color-border-input: var(--ds-color-outline-input);
+  --color-state-hover: var(--ds-color-state-hover);
+  --color-state-pressed: var(--ds-color-state-pressed);
+  --color-disabled: var(--ds-color-disabled);
+  --color-on-disabled: var(--ds-color-on-disabled);
+  --color-scrim: var(--ds-color-scrim);
+
+  /* Status */
+  --color-danger: var(--ds-color-error);
+  --color-warning: var(--ds-color-warning);
+  --color-success: var(--ds-color-success);
+
+  /* Font families */
+  --font-sans: var(--ds-typo-body-md-family);
+  --font-display: var(--ds-typo-display-xl-family);
+
+  /* Type scale → text-<name> sets size, line-height, weight and tracking together */
+  --text-display-xl: var(--ds-typo-display-xl-size);
+  --text-display-xl--line-height: var(--ds-typo-display-xl-line-height);
+  --text-display-xl--font-weight: var(--ds-typo-display-xl-weight);
+  --text-display-xl--letter-spacing: var(--ds-typo-display-xl-tracking);
+  --text-display-lg: var(--ds-typo-display-lg-size);
+  --text-display-lg--line-height: var(--ds-typo-display-lg-line-height);
+  --text-display-lg--font-weight: var(--ds-typo-display-lg-weight);
+  --text-display-lg--letter-spacing: var(--ds-typo-display-lg-tracking);
+  --text-headline-lg: var(--ds-typo-headline-lg-size);
+  --text-headline-lg--line-height: var(--ds-typo-headline-lg-line-height);
+  --text-headline-lg--font-weight: var(--ds-typo-headline-lg-weight);
+  --text-headline-lg--letter-spacing: var(--ds-typo-headline-lg-tracking);
+  --text-headline-md: var(--ds-typo-headline-md-size);
+  --text-headline-md--line-height: var(--ds-typo-headline-md-line-height);
+  --text-headline-md--font-weight: var(--ds-typo-headline-md-weight);
+  --text-headline-md--letter-spacing: var(--ds-typo-headline-md-tracking);
+  --text-headline-sm: var(--ds-typo-headline-sm-size);
+  --text-headline-sm--line-height: var(--ds-typo-headline-sm-line-height);
+  --text-headline-sm--font-weight: var(--ds-typo-headline-sm-weight);
+  --text-headline-sm--letter-spacing: var(--ds-typo-headline-sm-tracking);
+  --text-title-lg: var(--ds-typo-title-lg-size);
+  --text-title-lg--line-height: var(--ds-typo-title-lg-line-height);
+  --text-title-lg--font-weight: var(--ds-typo-title-lg-weight);
+  --text-title-lg--letter-spacing: var(--ds-typo-title-lg-tracking);
+  --text-title-md: var(--ds-typo-title-md-size);
+  --text-title-md--line-height: var(--ds-typo-title-md-line-height);
+  --text-title-md--font-weight: var(--ds-typo-title-md-weight);
+  --text-title-md--letter-spacing: var(--ds-typo-title-md-tracking);
+  --text-body-md: var(--ds-typo-body-md-size);
+  --text-body-md--line-height: var(--ds-typo-body-md-line-height);
+  --text-body-md--font-weight: var(--ds-typo-body-md-weight);
+  --text-body-md--letter-spacing: var(--ds-typo-body-md-tracking);
+  --text-label-md: var(--ds-typo-label-md-size);
+  --text-label-md--line-height: var(--ds-typo-label-md-line-height);
+  --text-label-md--font-weight: var(--ds-typo-label-md-weight);
+  --text-label-md--letter-spacing: var(--ds-typo-label-md-tracking);
+  --text-body-sm: var(--ds-typo-body-sm-size);
+  --text-body-sm--line-height: var(--ds-typo-body-sm-line-height);
+  --text-body-sm--font-weight: var(--ds-typo-body-sm-weight);
+  --text-body-sm--letter-spacing: var(--ds-typo-body-sm-tracking);
+  --text-label-sm: var(--ds-typo-label-sm-size);
+  --text-label-sm--line-height: var(--ds-typo-label-sm-line-height);
+  --text-label-sm--font-weight: var(--ds-typo-label-sm-weight);
+  --text-label-sm--letter-spacing: var(--ds-typo-label-sm-tracking);
+  --text-caption: var(--ds-typo-caption-size);
+  --text-caption--line-height: var(--ds-typo-caption-line-height);
+  --text-caption--font-weight: var(--ds-typo-caption-weight);
+  --text-caption--letter-spacing: var(--ds-typo-caption-tracking);
+
+  /* Radii — Tailwind defaults removed so only design radii exist */
+  --radius-*: initial;
+  --radius-sm: var(--ds-radius-sm);
+  --radius-md: var(--ds-radius-md);
+  --radius-input: var(--ds-radius-input);
+  --radius-input-lg: var(--ds-radius-input-lg);
+
+  /* Spacing — the scale multiplier is the design's base unit */
+  --spacing: var(--ds-spacing-1);
+  --spacing-gutter: var(--ds-spacing-gutter);
+  --spacing-margin: var(--ds-spacing-margin);
+  --spacing-hero: var(--ds-spacing-31);
+  --container-page: var(--ds-spacing-container);
+
+  /* Elevation — Tailwind defaults removed so only design shadows exist */
+  --shadow-*: initial;
+  --shadow-nav: var(--ds-shadow-nav);
+  --shadow-dropdown: var(--ds-shadow-dropdown);
+  --shadow-modal: var(--ds-shadow-modal);
+  --shadow-elevated: var(--ds-shadow-elevated);
+  --shadow-search: var(--ds-shadow-search);
+}
+
+/* Z-index ladder (Tailwind v4 has no z-index theme namespace) */
+@utility z-base {
+  z-index: var(--ds-z-base);
+}
+@utility z-raised {
+  z-index: var(--ds-z-raised);
+}
+@utility z-floating {
+  z-index: var(--ds-z-floating);
+}
+@utility z-popover {
+  z-index: var(--ds-z-popover);
+}
+@utility z-dropdown {
+  z-index: var(--ds-z-dropdown);
+}
+@utility z-sticky {
+  z-index: var(--ds-z-sticky);
+}
+@utility z-sticky-high {
+  z-index: var(--ds-z-sticky-high);
+}
+@utility z-modal {
+  z-index: var(--ds-z-modal);
+}
+
+/*
+ * Dark mode slot: DESIGN.md has no dark palette yet. When it does, add the dark tokens to
+ * DESIGN.md (e.g. `surface-dark`) and remap the semantic roles here:
+ *
+ * @variant dark {
+ *   :root { --ds-color-surface: var(--ds-color-surface-dark); … }
+ * }
+ */

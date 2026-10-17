@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "skills": {
+    "animate": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/animate/SKILL.md",
+      "computedHash": "7598d33e7f60dd5c24531eaaa897621cc3bdb48e8050324211627973bc59c4ce"
+    },
+    "animation-performance": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/animation-performance/SKILL.md",
+      "computedHash": "b68ba704106e27b1f83df0cb817e09ec947abb76825d86eabdee2954b6c1bb84"
+    },
+    "animation-vocabulary": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/animation-vocabulary/SKILL.md",
+      "computedHash": "0058036865ecbb864fd0c4132efcc62425355d6e99c7e6ef6a936742d62a5dea"
+    },
+    "app-router": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nextjs/app-router/SKILL.md",
+      "computedHash": "3709ea2fd35385bda97a8883a27b16393f8fc1a73399cffedbd0e125e04a9717"
+    },
+    "apple-design": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/apple-design/SKILL.md",
+      "computedHash": "0190417d092a0df447b000154e39733ea6d97efad6d3bec8a6ce3845aeb88914"
+    },
+    "architecture": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/architecture/SKILL.md",
+      "computedHash": "0f50897a99f859e9ec36f221d491fd9494a7479c42b6c61e2e86a105032a5b29"
+    },
+    "auth-flow": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/auth-flow/SKILL.md",
+      "computedHash": "6757ac8dfb4b70fdb7b562311e9e872a247c0462a670f68e9e4151843129458c"
+    },
+    "break-ui": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/break-ui/SKILL.md",
+      "computedHash": "60ada67662925f4df5e3c6ff41cac3ab241b66f8898100a5ffcd7ba7196cb868"
+    },
+    "code-constraints": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/code-constraints/SKILL.md",
+      "computedHash": "97c24117be3082d974462898fa4128ad3b62fa77fa60cb2dc7ae36e0534f5eec"
+    },
+    "data-fetching": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/data-fetching/SKILL.md",
+      "computedHash": "949ca1f45c41c4df19b09b991620b889cf190714a7e9f1b0c886d95c869ba53c"
+    },
+    "data-table": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/data-table/SKILL.md",
+      "computedHash": "13eded6b33920e9257c01d141f4714bd90c8858aa4cb0c1ca2a54bff903123e5"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "51f2537e04d15911b41d78e2de24c36a0e26d41beae15e82a954fe5496a5eda9"
+    },
+    "find-animation-opportunities": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-animation-opportunities/SKILL.md",
+      "computedHash": "465d087c41768e4f14ed640dd049036009f613feb55baaa5831b68b33178f9d2"
+    },
+    "forms": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/forms/SKILL.md",
+      "computedHash": "587c0aedfd5fb667ab77953bc771339c0c575d61cb8c2bd027c93004ae4e18ef"
+    },
+    "http-layer": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/http-layer/SKILL.md",
+      "computedHash": "f9bea309e0e10f0738986e3f5d94b04ddc97a30a156ea3fc1b6e5b16350186d9"
+    },
+    "improve-animations": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/improve-animations/SKILL.md",
+      "computedHash": "524ea241e41d58bbdd8e288700fe24f5725e2a2f3ae7186ad7cebf9055058356"
+    },
+    "modals": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/modals/SKILL.md",
+      "computedHash": "96edbb54587ac3f5ccbd455a06d2b93d5600a3980e51daf97932b5cba190dcda"
+    },
+    "noxen": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/noxen/SKILL.md",
+      "computedHash": "660d315e3be648bcb8b9ac58a4bf5cb20d7bf3869e27353eac14730b4d191f6c"
+    },
+    "pick-ui-library": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pick-ui-library/SKILL.md",
+      "computedHash": "5d2a77bf0ecafbda85aa95fb49999b6d77945d9066ec83d970b62e5b388cd686"
+    },
+    "prototype": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/prototype/SKILL.md",
+      "computedHash": "77be567d8c946608fdd15e61b62ab383cdf289a194dce2479828b7eda860d3ba"
+    },
+    "react-patterns": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-patterns/SKILL.md",
+      "computedHash": "8ad9c949fce5ac306b463001cb3985d289c60622d1cbe16bc4846f1d98818168"
+    },
+    "review-animations": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/review-animations/SKILL.md",
+      "computedHash": "b4e5f0f4fe3e2743c85bf7354108f48a0b9d502cb20ef5c4a9c195da91f93736"
+    },
+    "state-management": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/state-management/SKILL.md",
+      "computedHash": "ec2acf0c7144fb70eb5f45de6dbee3abb06aefdb0728a166929e8d08a4af5bf4"
+    },
+    "styling": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/styling/SKILL.md",
+      "computedHash": "59b33a3834d9fedccd5350e1ee3e9f930ea8ef85153895f3091a3e7f3dfb50b3"
+    },
+    "typescript": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/SKILL.md",
+      "computedHash": "e9383a81e2e197371f7a81380815934ed1f5b8efa428e36b612c464f8989015e"
+    },
+    "ui-architecture": {
+      "source": "kevfarid/noxen-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ui-architecture/SKILL.md",
+      "computedHash": "0da073efe58d47acfcaa36169dcf3d3f3f989833df3b2186d698deea9fd4705c"
+    }
+  }
+}
