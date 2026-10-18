@@ -13,7 +13,6 @@ import type {
 import type { ProfileStatus } from '../utils/profile-status';
 
 export type ProgramFilter = ProgramKey | 'all';
-export type ListTab = 'all' | 'review' | 'low_affinity';
 export type ReviewTab = ReviewReason | 'all';
 
 export interface BatchRun {
@@ -44,7 +43,7 @@ interface SegmentationState {
   selectedId: string | null;
   reviewSelectedId: string | null;
   program: ProgramFilter;
-  listTab: ListTab;
+  lowAffinityOnly: boolean;
   lights: ProfileStatus[];
   reviewTab: ReviewTab;
   run: BatchRun;
@@ -61,9 +60,10 @@ interface SegmentationState {
   select: (id: string | null) => void;
   selectReview: (id: string | null) => void;
   setProgram: (program: ProgramFilter) => void;
-  setListTab: (tab: ListTab) => void;
+  setLowAffinityOnly: (lowAffinityOnly: boolean) => void;
   toggleLight: (light: ProfileStatus) => void;
   clearLights: () => void;
+  clearFilters: () => void;
   setReviewTab: (tab: ReviewTab) => void;
   setRun: (run: Partial<BatchRun>) => void;
   setEvaluation: (evaluation: SegmentationEvaluation) => void;
@@ -113,7 +113,7 @@ export const useSegmentationStore = create<SegmentationState>()(
       selectedId: null,
       reviewSelectedId: null,
       program: 'all',
-      listTab: 'all',
+      lowAffinityOnly: false,
       lights: [],
       reviewTab: 'all',
       run: IDLE_RUN,
@@ -153,7 +153,7 @@ export const useSegmentationStore = create<SegmentationState>()(
       select: (selectedId) => set({ selectedId }),
       selectReview: (reviewSelectedId) => set({ reviewSelectedId }),
       setProgram: (program) => set({ program }),
-      setListTab: (listTab) => set({ listTab }),
+      setLowAffinityOnly: (lowAffinityOnly) => set({ lowAffinityOnly }),
       toggleLight: (light) =>
         set((state) => ({
           lights: state.lights.includes(light)
@@ -161,6 +161,7 @@ export const useSegmentationStore = create<SegmentationState>()(
             : [...state.lights, light],
         })),
       clearLights: () => set({ lights: [] }),
+      clearFilters: () => set({ lights: [], lowAffinityOnly: false }),
       setReviewTab: (reviewTab) => set({ reviewTab }),
       setRun: (run) => set((state) => ({ run: { ...state.run, ...run } })),
       setEvaluation: (evaluation) => set({ evaluation }),

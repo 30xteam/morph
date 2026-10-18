@@ -52,10 +52,9 @@ export const es: Messages = {
   list: {
     title: 'Segmentos en vivo',
     subtitle: 'Se recalculan cada vez que cambia un perfil',
-    tabs: 'Filtrar perfiles',
     all: 'Todos',
-    review: 'Revisión',
-    lowAffinity: 'Afinidad baja',
+    lowAffinityOnly: 'Solo afinidad baja',
+    noMatches: 'Ningún perfil coincide con estos filtros.',
     filters: 'Filtros',
     lights: 'Semáforo',
     lightsHint: 'uno o varios',
