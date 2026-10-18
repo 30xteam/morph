@@ -11,6 +11,7 @@ import { useNow } from '../../hooks/use-now';
 import { useReviewFlow } from '../../hooks/use-review-flow';
 import { useReviewItems } from '../../hooks/use-review-items';
 import { useReviewShortcuts } from '../../hooks/use-review-shortcuts';
+import { useReviewTab } from '../../hooks/use-review-tab';
 import { type ReviewTab, useSegmentationStore } from '../../store/segmentation-store';
 import { timeAgo } from '../../utils/format';
 import { ListTabs } from '../live/list-tabs';
@@ -23,8 +24,7 @@ export function ReviewQueue() {
   const { locale } = usePreferences();
   const { items, total, labeled, lowConfidence, lowInfo } = useReviewItems();
   const reviews = useSegmentationStore((state) => state.reviews);
-  const tab = useSegmentationStore((state) => state.reviewTab);
-  const setTab = useSegmentationStore((state) => state.setReviewTab);
+  const [tab, setTab] = useReviewTab();
   const [detailOpen, setDetailOpen] = useState(false);
   const flow = useReviewFlow(items);
   const { selected, status } = flow;

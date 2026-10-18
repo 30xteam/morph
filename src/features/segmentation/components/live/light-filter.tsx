@@ -3,8 +3,8 @@
 import { cx } from '@/core/cx';
 
 import { LIGHT_ORDER, useLightCounts } from '../../hooks/use-light-counts';
+import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
-import { useSegmentationStore } from '../../store/segmentation-store';
 import type { ProfileStatus } from '../../utils/profile-status';
 import { LightHelp } from './light-help';
 
@@ -32,9 +32,7 @@ const DOT: Record<ProfileStatus, string> = {
 export function LightFilter() {
   const m = useMessages();
   const { counts, total } = useLightCounts();
-  const lights = useSegmentationStore((state) => state.lights);
-  const toggleLight = useSegmentationStore((state) => state.toggleLight);
-  const clearLights = useSegmentationStore((state) => state.clearLights);
+  const { lights, toggleLight, clearLights } = useLiveFilters();
   const all = lights.length === 0;
 
   return (

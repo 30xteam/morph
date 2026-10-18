@@ -1,6 +1,7 @@
 import { type ReviewTab, useSegmentationStore } from '../store/segmentation-store';
 import type { Profile, ReviewReason, SegmentationOutcome } from '../types/segmentation.types';
 import { needsPerson } from '../utils/profile-status';
+import { useReviewTab } from './use-review-tab';
 
 export interface ReviewItem {
   profile: Profile;
@@ -12,7 +13,7 @@ export function useReviewItems() {
   const profiles = useSegmentationStore((state) => state.profiles);
   const history = useSegmentationStore((state) => state.history);
   const flagged = useSegmentationStore((state) => state.flagged);
-  const tab = useSegmentationStore((state) => state.reviewTab);
+  const [tab] = useReviewTab();
   const reviews = useSegmentationStore((state) => state.reviews);
 
   const all: ReviewItem[] = profiles

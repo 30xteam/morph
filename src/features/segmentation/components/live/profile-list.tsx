@@ -4,6 +4,7 @@ import { cx } from '@/core/cx';
 import { Button } from '@/ui';
 
 import { useConsoleCounts } from '../../hooks/use-console-counts';
+import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
 import { useNow } from '../../hooks/use-now';
 import { useVisibleProfiles } from '../../hooks/use-visible-profiles';
@@ -24,9 +25,7 @@ export function ProfileList({ className, onOpen }: { className?: string; onOpen:
   const pendingIds = useSegmentationStore((state) => state.pendingIds);
   const flagged = useSegmentationStore((state) => state.flagged);
   const select = useSegmentationStore((state) => state.select);
-  const lights = useSegmentationStore((state) => state.lights);
-  const lowAffinityOnly = useSegmentationStore((state) => state.lowAffinityOnly);
-  const clearFilters = useSegmentationStore((state) => state.clearFilters);
+  const { lights, lowAffinityOnly, clearFilters } = useLiveFilters();
 
   return (
     <section

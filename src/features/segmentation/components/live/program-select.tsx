@@ -2,14 +2,13 @@
 
 import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useMessages } from '../../hooks/use-messages';
-import { type ProgramFilter, useSegmentationStore } from '../../store/segmentation-store';
+import type { ProgramFilter } from '../../store/segmentation-store';
 import { PROGRAM_ORDER } from '../shell/program-order';
 
 export function ProgramSelect() {
   const m = useMessages();
   const counts = useConsoleCounts();
-  const program = useSegmentationStore((state) => state.program);
-  const setProgram = useSegmentationStore((state) => state.setProgram);
+  const { program, setProgram } = useLiveFilters();
 
   return (
     <label className="flex flex-col gap-1.5 text-label-xs text-ink-soft desktop:hidden">
@@ -31,3 +30,4 @@ export function ProgramSelect() {
     </label>
   );
 }
+import { useLiveFilters } from '../../hooks/use-live-filters';
