@@ -152,9 +152,17 @@ export const es: Messages = {
   metrics: {
     title: 'Métricas',
     subtitle: (count) => `Medido en ${count} perfiles contra las etiquetas de los organizadores`,
-    notMeasured: 'Aún sin medir. Corre Jev contra las etiquetas de 30X para llenar esta página.',
     run: (count) => `Medir en ${count} perfiles`,
     running: 'Midiendo…',
+    runAgain: (count) => `Medir de nuevo en ${count} perfiles`,
+    emptyTitle: 'Aún no hay mediciones',
+    emptyBody: (count) =>
+      `Corre Jev en ${count} perfiles etiquetados por 30X para ver latencia, costo, acierto y cómo se comporta cada umbral.`,
+    measuredWith: (provider, calibrated) =>
+      `Proveedor: ${provider}${calibrated ? '' : ' · sin calibrar'}`,
+    notRealJev: 'No es Jev real',
+    chartLabel: (threshold, decided, accuracy) =>
+      `Con el umbral actual ${threshold.toFixed(2)}, Jev decide solo el ${decided} con ${accuracy} de acierto.`,
     failed: 'La medición falló. Vuelve a intentarlo.',
     medianLatency: 'Latencia mediana',
     questions: (count) => `${count} preguntas en 1 llamada`,
@@ -164,7 +172,6 @@ export const es: Messages = {
     baseline: (p, program) => `línea base ${percent(p)} (siempre ${program})`,
     profiles: 'Perfiles',
     tested: (count) => `${count} probados con Jev`,
-    notTested: 'Ninguno probado con Jev aún',
     pending: 'Pendiente',
     thresholdPending: (count) => `Pendiente: mide en ${count} perfiles para llenar esta tabla.`,
     thresholdTitle: 'Umbral: cuándo Jev decide solo',
