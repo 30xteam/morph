@@ -125,6 +125,11 @@ export const es: Messages = {
     sendToReview: 'Enviar a revisión',
     inReview: 'En la cola de revisión',
     queued: (action) => `En cola: ${action}`,
+    sentToast: (action) => `Listo: ${action}`,
+    sentToastBody: (id) => `${id} · simulado, no se envió nada a la persona.`,
+    flaggedToast: (id) => `${id} está en la cola de revisión`,
+    flaggedToastBody: 'Una persona confirmará el programa antes de contactar.',
+    undo: 'Deshacer',
     tryChange: 'Probar un cambio',
   },
   triggers: {
@@ -174,6 +179,8 @@ export const es: Messages = {
     skip: 'Saltar',
     labelNote: 'Cada decisión se guarda como etiqueta para medir a Jev',
     labeled: (program) => `Etiquetado como ${program}`,
+    labeledBody: (id, left) => `${id} · quedan ${left} en la cola`,
+    skippedBody: (id) => `${id} · puedes volver a él más tarde.`,
     undo: 'Deshacer',
   },
   metrics: {

@@ -1,13 +1,12 @@
 import { useRef, useState } from 'react';
 
+import { toast } from '@/ui';
+
 import { useSegmentationStore } from '../store/segmentation-store';
 import type { ProgramKey } from '../types/segmentation.types';
+import { useMessages } from './use-messages';
 import type { ReviewItem } from './use-review-items';
 import { useSelectedProfile } from './use-selected-profile';
-
-export type ReviewStatus =
-  | { kind: 'labeled'; id: string; program: ProgramKey }
-  | { kind: 'skipped' };
 
 export function choicesFor({ outcome }: ReviewItem): ProgramKey[] {
   const ranked = [outcome.program, ...outcome.program.alternatives].map((choice) => choice.value);
@@ -15,12 +14,12 @@ export function choicesFor({ outcome }: ReviewItem): ProgramKey[] {
 }
 
 export function useReviewFlow(items: ReviewItem[]) {
+  const m = useMessages();
   const reviews = useSegmentationStore((state) => state.reviews);
   const { requestedId: selectedId, select } = useSelectedProfile();
   const review = useSegmentationStore((state) => state.review);
   const clearReview = useSegmentationStore((state) => state.clearReview);
   const [choices, setChoices] = useState<Record<string, ProgramKey>>({});
-  const [status, setStatus] = useState<ReviewStatus | null>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const selected = items.find((item) => item.profile.id === selectedId) ?? items[0];
   const choice = selected
@@ -66,21 +65,25 @@ export function useReviewFlow(items: ReviewItem[]) {
         ? { verdict: 'approved' }
         : { verdict: 'corrected', program: choice },
     );
-    setStatus({ kind: 'labeled', id, program: choice });
+    const left = items.filter((item) => !reviews[item.profile.id]).length - 1;
+    toast.success(m.review.labeled(m.programs[choice]), {
+      description: m.review.labeledBody(id, Math.max(left, 0)),
+      action: { label: m.review.undoLast, onClick: () => undo(id) },
+    });
     next();
   };
 
   const skip = () => {
-    setStatus({ kind: 'skipped' });
+    if (selected) {
+      toast.info(m.review.skipped, { description: m.review.skippedBody(selected.profile.id) });
+    }
     next();
   };
 
-  const undo = () => {
-    if (status?.kind !== 'labeled') return;
-    clearReview(status.id);
-    setStatus(null);
-    goTo(status.id);
+  const undo = (id: string) => {
+    clearReview(id);
+    goTo(id);
   };
 
-  return { selected, choice, status, titleRef, move, choose, pick, confirm, skip, undo, goTo };
+  return { selected, choice, titleRef, move, choose, pick, confirm, skip, goTo };
 }
