@@ -1,6 +1,8 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+
+import { useProgressRouter } from '@/ui';
 
 import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useMessages } from '../../hooks/use-messages';
@@ -32,7 +34,7 @@ export interface WorkflowLink {
 export function useSidebarNav() {
   const m = useMessages();
   const pathname = usePathname();
-  const router = useRouter();
+  const router = useProgressRouter();
   const counts = useConsoleCounts();
   const program = useSegmentationStore((state) => state.program);
   const setProgram = useSegmentationStore((state) => state.setProgram);

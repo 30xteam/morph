@@ -214,6 +214,7 @@ export const es: Messages = {
   },
   graph: {
     legend: 'Cómo leer el grafo',
+    loading: 'Cargando grafo…',
     legendPriority:
       'Color y tamaño del perfil: verde P1, amarillo P2, rojo P3, gris sin evaluar. Los P1 son los nodos más grandes y sus etiquetas salen primero.',
     legendCrm: 'Línea gris fina: interés o programa registrado en el CRM',

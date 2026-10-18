@@ -1,9 +1,8 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
-import { Button } from '@/ui';
+import { Button, useProgressRouter } from '@/ui';
 
 import { graphNeighborhood } from '../../services/build-profile-graph';
 import { useSegmentationStore } from '../../store/segmentation-store';
@@ -18,7 +17,7 @@ interface GraphDetailsProps {
 }
 
 export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
-  const router = useRouter();
+  const router = useProgressRouter();
   const select = useSegmentationStore((state) => state.select);
   const profileId = selected?.profileId;
   const connections = useMemo(() => {

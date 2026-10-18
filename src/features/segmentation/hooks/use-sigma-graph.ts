@@ -38,6 +38,7 @@ export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: S
   const highlighted = useRef({ nodes: [] as string[], edges: [] as string[], selected: '' });
   const seededEpoch = useRef(0);
   const [ready, setReady] = useState(false);
+  const [laidOut, setLaidOut] = useState(false);
   const [epoch, setEpoch] = useState(0);
   const [zoomPercent, setZoomPercent] = useState(100);
 
@@ -74,6 +75,7 @@ export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: S
     cancelSettle.current = settleGraphLayout(sigma.getGraph(), libs, {
       computeMs,
       tweenMs: animationDuration() * 2,
+      onLaidOut: () => setLaidOut(true),
     });
   });
 
@@ -153,6 +155,7 @@ export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: S
 
   return {
     container,
+    loading: !laidOut && !paused,
     zoomPercent,
     zoomIn: () => void renderer.current?.getCamera().zoomIn({ duration: animationDuration() }),
     zoomOut: () => void renderer.current?.getCamera().zoomOut({ duration: animationDuration() }),

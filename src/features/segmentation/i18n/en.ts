@@ -214,6 +214,7 @@ export const en = {
   },
   graph: {
     legend: 'How to read the graph',
+    loading: 'Loading graph…',
     legendPriority:
       'Profile color and size: green P1, yellow P2, red P3, grey not evaluated. P1 nodes are the largest and get labels first.',
     legendCrm: 'Thin grey line: interest or program recorded in the CRM',

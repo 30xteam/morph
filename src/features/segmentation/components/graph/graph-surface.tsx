@@ -2,9 +2,11 @@
 
 import { useId, useState } from 'react';
 
-import { Button } from '@/ui';
+import { cx } from '@/core/cx';
+import { Button, MarkLoader } from '@/ui';
 
 import { useGraphColors } from '../../hooks/use-graph-colors';
+import { useMessages } from '../../hooks/use-messages';
 import { useSigmaGraph } from '../../hooks/use-sigma-graph';
 import type { ProfileGraph } from '../../types/graph.types';
 
@@ -18,8 +20,9 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
   const [paused, setPaused] = useState(false);
   const [jump, setJump] = useState('');
   const optionsId = useId();
+  const m = useMessages();
   const colors = useGraphColors();
-  const { container, zoomPercent, zoomIn, zoomOut, focus, reset } = useSigmaGraph({
+  const { container, loading, zoomPercent, zoomIn, zoomOut, focus, reset } = useSigmaGraph({
     graph,
     selectedId,
     paused,
@@ -75,8 +78,22 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
           ))}
         </datalist>
       </div>
-      <figure aria-label="30X relationship graph" aria-describedby="graph-instructions">
+      <figure
+        aria-label="30X relationship graph"
+        aria-describedby="graph-instructions"
+        aria-busy={loading}
+        className="relative"
+      >
         <div ref={container} className="h-128 w-full touch-none select-none tablet:h-160" />
+        <div
+          aria-hidden={!loading}
+          className={cx(
+            'absolute inset-0 grid place-items-center bg-canvas transition-[opacity,visibility] duration-500 motion-reduce:transition-none',
+            !loading && 'invisible opacity-0',
+          )}
+        >
+          <MarkLoader label={m.graph.loading} />
+        </div>
       </figure>
       {!graph.nodes.length ? (
         <output className="px-4 pb-4 text-body-sm text-ink-muted">
