@@ -7,6 +7,7 @@ import { EVALUATION_SIZE } from '../../hooks/use-evaluation';
 import { useMessages } from '../../hooks/use-messages';
 import type { SegmentationEvaluation, ThresholdRow } from '../../types/evaluation.types';
 import { formatPercent } from '../../utils/format';
+import { ThresholdChart } from './threshold-chart';
 
 const CELL = 'px-3 text-right';
 
@@ -32,6 +33,9 @@ export function ThresholdTable({ evaluation }: { evaluation: SegmentationEvaluat
       <p className="pb-3.5 text-body-sm text-ink-muted">
         {evaluation ? m.metrics.thresholdHint : m.metrics.thresholdPending(EVALUATION_SIZE)}
       </p>
+      {evaluation ? (
+        <ThresholdChart rows={evaluation.thresholds} currentThreshold={currentThreshold} />
+      ) : null}
       <table className="w-full border-collapse">
         <thead>
           <tr className="border-b border-line text-caption font-medium text-ink-muted">

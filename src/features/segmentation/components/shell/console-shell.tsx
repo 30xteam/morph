@@ -25,7 +25,7 @@ export function ConsoleShell({ profiles, children }: ConsoleShellProps) {
     <div className="flex min-h-dvh flex-col desktop:flex-row">
       <ConsoleSidebar />
       <ConsoleTopbar />
-      <div className="flex min-w-0 flex-1 flex-col">{children}</div>
+      <main className="flex min-w-0 flex-1 flex-col">{children}</main>
     </div>
   );
 }
