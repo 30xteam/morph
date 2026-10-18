@@ -1,6 +1,7 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { Button } from '@/ui';
 
 import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useMessages } from '../../hooks/use-messages';
@@ -8,6 +9,7 @@ import { useNow } from '../../hooks/use-now';
 import { useVisibleProfiles } from '../../hooks/use-visible-profiles';
 import { type ListTab, useSegmentationStore } from '../../store/segmentation-store';
 import { DecideAll } from './decide-all';
+import { LightFilter } from './light-filter';
 import { ListTabs } from './list-tabs';
 import { LiveSignUps } from './live-sign-ups';
 import { ProfileRow } from './profile-row';
@@ -24,6 +26,8 @@ export function ProfileList({ className, onOpen }: { className?: string; onOpen:
   const tab = useSegmentationStore((state) => state.listTab);
   const setTab = useSegmentationStore((state) => state.setListTab);
   const select = useSegmentationStore((state) => state.select);
+  const lights = useSegmentationStore((state) => state.lights);
+  const clearLights = useSegmentationStore((state) => state.clearLights);
 
   const tabs: { value: ListTab; label: string; count?: number }[] = [
     { value: 'all', label: m.list.all, count: counts.total },
@@ -46,8 +50,22 @@ export function ProfileList({ className, onOpen }: { className?: string; onOpen:
         <p className="text-body-sm text-ink-soft">{m.list.subtitle}</p>
       </header>
       <DecideAll />
-      <ProgramSelect />
       <LiveSignUps />
+      <section
+        aria-label={m.list.filters}
+        className="flex flex-col gap-5 border-y border-line bg-card px-5 py-5"
+      >
+        <ProgramSelect />
+        <LightFilter />
+      </section>
+      <div className="flex min-h-8 items-center justify-between gap-3 px-5">
+        <p className="text-body-sm text-ink-soft">{m.list.results(rows.length, counts.total)}</p>
+        {lights.length ? (
+          <Button variant="ghost" onClick={clearLights}>
+            {m.list.clearFilters}
+          </Button>
+        ) : null}
+      </div>
       <ListTabs label={m.list.tabs} value={tab} tabs={tabs} onChange={setTab} />
       <ul className="flex flex-col gap-0.5 overflow-y-auto px-3 pb-6">
         {rows.map(({ profile, outcome }) => (

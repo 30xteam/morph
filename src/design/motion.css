@@ -2,6 +2,11 @@
 @theme {
   --ease-out-strong: var(--ds-motion-ease-out-strong);
   --animate-enter: enter 600ms var(--ease-out-strong) both;
+  --animate-pop: pop 500ms var(--ease-out-strong) both;
+  --animate-slide-in: slide-in 550ms var(--ease-out-strong) both;
+  --animate-fill: fill 900ms var(--ease-out-strong) both;
+  --animate-highlight: highlight 400ms var(--ease-out-strong) both;
+  --animate-sheet: sheet 400ms var(--ease-out-strong) both;
 }
 
 @keyframes enter {
@@ -9,5 +14,43 @@
     opacity: 0;
     transform: translateY(8px);
     filter: blur(4px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes highlight {
+  to {
+    background-color: var(--color-selected);
+    border-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+}
+
+@keyframes sheet {
+  from {
+    transform: translateY(100%);
   }
 }
