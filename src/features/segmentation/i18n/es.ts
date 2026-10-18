@@ -175,6 +175,14 @@ export const es: Messages = {
     policyTitle: 'Política',
     policyBody: 'Poca información o poca confianza va a una persona. El resto es automático.',
   },
+  graph: {
+    legend: 'Cómo leer el grafo',
+    legendPriority:
+      'Color y tamaño del perfil: verde P1, amarillo P2, rojo P3, gris sin evaluar. Los P1 son los nodos más grandes y sus etiquetas salen primero.',
+    legendCrm: 'Línea gris fina: interés o programa registrado en el CRM',
+    legendRecommendation: 'Línea verde gruesa: última recomendación de programa de Jev',
+    legendShared: 'Compartir intereses no implica que las personas se conozcan.',
+  },
   preferences: {
     language: 'Idioma',
     theme: 'Tema',

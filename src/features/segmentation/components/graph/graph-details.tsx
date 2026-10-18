@@ -9,6 +9,7 @@ import { graphNeighborhood } from '../../services/build-profile-graph';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import type { GraphNode, ProfileGraph } from '../../types/graph.types';
 import { PriorityBadge } from '../priority-badge';
+import { GraphLegend } from './graph-legend';
 
 interface GraphDetailsProps {
   graph: ProfileGraph;
@@ -79,12 +80,7 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
           ))}
         </ul>
       ) : null}
-      <dl className="mt-auto flex flex-col gap-2 border-t border-line pt-4 text-body-sm text-ink-muted">
-        <dt className="text-label-sm text-ink">Connections</dt>
-        <dd>Grey: declared interest or program recorded in the CRM.</dd>
-        <dd>Green: latest Jev program recommendation.</dd>
-        <dd>Shared interests do not imply people know each other.</dd>
-      </dl>
+      <GraphLegend />
     </aside>
   );
 }
