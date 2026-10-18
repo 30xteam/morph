@@ -2,13 +2,13 @@
 
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
+import { TagBadge } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
 import { countryCode } from '../../i18n/values';
 import { timeAgo } from '../../utils/format';
 import { roleKey } from '../../utils/role-key';
-import { TagBadge } from '../ui/tag-badge';
 
 interface ReviewRowProps {
   item: ReviewItem;

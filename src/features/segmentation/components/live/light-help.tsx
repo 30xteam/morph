@@ -3,9 +3,9 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Popover from '@radix-ui/react-popover';
 
+import { useIsDesktop } from '@/core/hooks';
 import { Button } from '@/ui';
 
-import { useIsDesktop } from '../../hooks/use-is-desktop';
 import { useMessages } from '../../hooks/use-messages';
 import { HelpIcon } from './help-icon';
 import { LightMeanings } from './light-meanings';

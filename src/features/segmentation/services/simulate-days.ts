@@ -1,4 +1,5 @@
 import 'server-only';
+import { mapWithLimit } from '@/core/async';
 import { jevEnv } from '@/core/jev/jev-env';
 
 import { PROFILES_30X } from '../data/dataset';
@@ -9,7 +10,6 @@ import type {
   Trigger,
 } from '../types/segmentation.types';
 import type { SimulationResult } from '../types/simulation.types';
-import { mapWithLimit } from '../utils/map-with-limit';
 import { type ActivityTrigger, applyTrigger } from './apply-trigger';
 import { segmentProfile } from './segment-profile';
 

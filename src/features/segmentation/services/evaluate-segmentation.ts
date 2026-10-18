@@ -1,4 +1,5 @@
 import 'server-only';
+import { mapWithLimit } from '@/core/async';
 import { jevEnv } from '@/core/jev/jev-env';
 
 import { PROGRAM_LABELS } from '../config/labels';
@@ -6,7 +7,6 @@ import { THRESHOLD_STEPS, THRESHOLDS } from '../config/thresholds';
 import { LABELS_30X, PROFILES_30X } from '../data/dataset';
 import type { EvaluationMode, SegmentationEvaluation } from '../types/evaluation.types';
 import type { AffinityBand, ProgramKey, TrafficLight } from '../types/segmentation.types';
-import { mapWithLimit } from '../utils/map-with-limit';
 import { segmentProfile } from './segment-profile';
 
 const PROGRAMS: ProgramKey[] = [

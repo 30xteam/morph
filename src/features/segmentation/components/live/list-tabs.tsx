@@ -3,8 +3,7 @@
 import { useId } from 'react';
 
 import { cx } from '@/core/cx';
-
-import { RadioOption } from '../ui/radio-option';
+import { RadioOption } from '@/ui';
 
 interface ListTabsProps<T extends string> {
   label: string;

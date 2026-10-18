@@ -12,3 +12,7 @@ export { notify } from './toaster/notify';
 export { playToastSound } from './toaster/toast-sound';
 export type { ToastSound } from './toaster/toast-sound';
 export { useSoundOn } from './toaster/use-sound-on';
+export { Panel } from './panel/panel';
+export { RadioOption } from './segmented-control/radio-option';
+export { SegmentedControl } from './segmented-control/segmented-control';
+export { TagBadge } from './tag-badge/tag-badge';

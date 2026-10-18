@@ -1,9 +1,10 @@
 'use client';
 
+import { Panel } from '@/ui';
+
 import { THRESHOLDS } from '../../config/thresholds';
 import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
-import { Panel } from '../ui/panel';
 import { ProbabilityBars } from '../ui/probability-bars';
 
 export function WhyPanel({ item }: { item: ReviewItem }) {

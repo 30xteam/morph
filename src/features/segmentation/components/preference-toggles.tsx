@@ -1,10 +1,10 @@
 'use client';
 
 import { usePreferences } from '@/core/preferences';
+import { SegmentedControl } from '@/ui';
 
 import { useMessages } from '../hooks/use-messages';
 import { SoundToggle } from './sound-toggle';
-import { SegmentedControl } from './ui/segmented-control';
 
 const LANGUAGES = [
   { value: 'en', label: 'EN' },

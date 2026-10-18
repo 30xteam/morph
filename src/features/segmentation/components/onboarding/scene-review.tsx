@@ -1,9 +1,9 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { TagBadge } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import { TagBadge } from '../ui/tag-badge';
 import { sceneDelay } from './scene-delay';
 
 const OPTIONS = ['sales_machine', 'ai_sales', 'hardcore_ai', 'none'] as const;

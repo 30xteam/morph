@@ -3,10 +3,10 @@
 import { useState } from 'react';
 
 import { cx } from '@/core/cx';
+import { useNow } from '@/core/hooks';
 import { usePreferences } from '@/core/preferences';
 
 import { useMessages } from '../../hooks/use-messages';
-import { useNow } from '../../hooks/use-now';
 import { useReviewFlow } from '../../hooks/use-review-flow';
 import { useReviewItems } from '../../hooks/use-review-items';
 import { useReviewShortcuts } from '../../hooks/use-review-shortcuts';

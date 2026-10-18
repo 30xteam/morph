@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react';
 
 import { cx } from '@/core/cx';
+import { useNow } from '@/core/hooks';
 import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import { useNow } from '../../hooks/use-now';
 import { useSegmentProfile } from '../../hooks/use-segment-profile';
 import { useSelectedProfile } from '../../hooks/use-selected-profile';
 import { useSegmentationStore } from '../../store/segmentation-store';

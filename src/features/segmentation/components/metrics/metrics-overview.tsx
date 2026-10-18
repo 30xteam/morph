@@ -1,7 +1,7 @@
 'use client';
 
 import { cx } from '@/core/cx';
-import { Button } from '@/ui';
+import { Button, TagBadge } from '@/ui';
 
 import { SEGMENTATION_QUESTIONS } from '../../config/questions';
 import { useConsoleCounts } from '../../hooks/use-console-counts';
@@ -11,7 +11,6 @@ import { evaluationDeltas } from '../../services/evaluation-delta';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { formatPercent, formatUsd } from '../../utils/format';
 import { PreferenceToggles } from '../preference-toggles';
-import { TagBadge } from '../ui/tag-badge';
 import { HonestReading } from './honest-reading';
 import { StatTile } from './stat-tile';
 import { ThresholdTable } from './threshold-table';

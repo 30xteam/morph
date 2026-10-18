@@ -1,12 +1,12 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { useNow } from '@/core/hooks';
 import { Button } from '@/ui';
 
 import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
-import { useNow } from '../../hooks/use-now';
 import { useSelectedProfile } from '../../hooks/use-selected-profile';
 import { useVisibleProfiles } from '../../hooks/use-visible-profiles';
 import { useSegmentationStore } from '../../store/segmentation-store';

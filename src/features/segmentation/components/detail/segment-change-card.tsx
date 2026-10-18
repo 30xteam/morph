@@ -1,11 +1,11 @@
 'use client';
 
 import { usePreferences } from '@/core/preferences';
+import { Panel } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import type { SegmentationOutcome } from '../../types/segmentation.types';
 import { timeAgo } from '../../utils/format';
-import { Panel } from '../ui/panel';
 
 interface SegmentChangeCardProps {
   previous: SegmentationOutcome | undefined;

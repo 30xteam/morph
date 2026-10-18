@@ -1,8 +1,9 @@
 'use client';
 
+import { Panel } from '@/ui';
+
 import { useMessages } from '../../hooks/use-messages';
 import type { SegmentationEvaluation } from '../../types/evaluation.types';
-import { Panel } from '../ui/panel';
 
 export function HonestReading({ evaluation }: { evaluation: SegmentationEvaluation }) {
   const m = useMessages();

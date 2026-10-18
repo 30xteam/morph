@@ -2,12 +2,12 @@
 
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
+import { Panel } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { missingSignals } from '../../services/profile-state';
 import type { Profile } from '../../types/segmentation.types';
 import { DETAIL_SIGNALS, SIGNAL_LABELS, signalValue } from '../../utils/signal-values';
-import { Panel } from '../ui/panel';
 import { SignalIcon } from '../ui/signal-icon';
 
 interface SignalsCardProps {

@@ -1,8 +1,9 @@
 'use client';
 
+import { Panel } from '@/ui';
+
 import { useMessages } from '../../hooks/use-messages';
 import type { SegmentationOutcome } from '../../types/segmentation.types';
-import { Panel } from '../ui/panel';
 import { ProbabilityBars } from '../ui/probability-bars';
 
 export function DecisionCard({ outcome }: { outcome: SegmentationOutcome }) {
