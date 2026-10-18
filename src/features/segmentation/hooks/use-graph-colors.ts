@@ -6,10 +6,13 @@ export type GraphColors = Record<GraphColorKey, string>;
 
 const TOKENS = {
   'ink-muted': '--color-ink-muted',
+  'ink-soft': '--color-ink-soft',
   accent: '--color-accent',
   'yellow-fg': '--color-yellow-fg',
   'green-fg': '--color-green-fg',
   'red-fg': '--color-red-fg',
+  'blue-fg': '--color-blue-fg',
+  'violet-fg': '--color-violet-fg',
   ink: '--color-ink',
   line: '--color-line-strong',
   font: '--font-sans',

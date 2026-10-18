@@ -23,6 +23,8 @@
   --ds-color-yellow-fg-dark: #D9B866;
   --ds-color-red-bg-dark: #2A1717;
   --ds-color-red-fg-dark: #E39A9A;
+  --ds-color-blue-fg-dark: #7DB4E3;
+  --ds-color-violet-fg-dark: #B39DDB;
   --ds-color-review-bg-dark: #1F1F23;
   --ds-color-review-fg-dark: #A1A1AA;
   --ds-color-danger-dark: #F87171;
@@ -48,6 +50,8 @@
   --ds-color-yellow-fg: #854D0E;
   --ds-color-red-bg: #FEF2F2;
   --ds-color-red-fg: #B91C1C;
+  --ds-color-blue-fg: #1D4ED8;
+  --ds-color-violet-fg: #6D28D9;
   --ds-color-review-bg: #F4F4F5;
   --ds-color-review-fg: #52525B;
   --ds-color-danger: #B91C1C;

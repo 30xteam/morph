@@ -1,9 +1,18 @@
 import { MultiGraph } from 'graphology';
 
 import type { GraphEdge, GraphNode, GraphNodeKind, ProfileGraph } from '../types/graph.types';
+import type { ProgramKey } from '../types/segmentation.types';
 import type { PriorityLevel } from './profile-priority';
 
-export type GraphTone = 'ink-muted' | 'accent' | 'yellow-fg' | 'green-fg' | 'red-fg';
+export type GraphTone =
+  | 'ink-muted'
+  | 'ink-soft'
+  | 'accent'
+  | 'yellow-fg'
+  | 'green-fg'
+  | 'red-fg'
+  | 'blue-fg'
+  | 'violet-fg';
 
 export interface GraphNodeAttributes {
   x: number;
@@ -12,21 +21,36 @@ export interface GraphNodeAttributes {
   label: string;
   tone: GraphTone;
   kind: GraphNodeKind;
+  level?: PriorityLevel;
+  programTone?: GraphTone;
   fixed?: boolean;
 }
 
 export interface GraphEdgeAttributes {
   kind: GraphEdge['kind'];
+  strong: boolean;
 }
 
 export type SigmaGraph = MultiGraph<GraphNodeAttributes, GraphEdgeAttributes>;
 
-const KIND_SIZE: Record<GraphNodeKind, number> = { profile: 7, program: 13, interest: 10 };
-const PRIORITY_SIZE: Record<PriorityLevel, number> = { high: 12, medium: 9, low: 6, pending: 7 };
+const KIND_SIZE: Record<GraphNodeKind, number> = { profile: 4, program: 12, interest: 6 };
+const PRIORITY_SIZE: Record<PriorityLevel, number> = { high: 8, medium: 5, low: 4.5, pending: 4 };
+
+export const PROGRAM_TONE: Record<Exclude<ProgramKey, 'none'>, GraphTone> = {
+  ai_sales: 'accent',
+  sales_machine: 'blue-fg',
+  inmersion_ejecutiva: 'violet-fg',
+  achievers: 'yellow-fg',
+  hardcore_ai: 'red-fg',
+};
+
+function programTone(id: string) {
+  return PROGRAM_TONE[id.replace('program:', '') as keyof typeof PROGRAM_TONE];
+}
 const KIND_TONE: Record<GraphNodeKind, GraphTone> = {
   profile: 'ink-muted',
   program: 'accent',
-  interest: 'yellow-fg',
+  interest: 'ink-soft',
 };
 const PRIORITY_TONE: Record<PriorityLevel, GraphTone> = {
   high: 'green-fg',
@@ -51,11 +75,22 @@ export function toGraphology(graph: ProfileGraph, previous?: SigmaGraph): SigmaG
       label: node.priority ? `${node.label} · ${node.priority.short}` : node.label,
       tone: node.priority ? PRIORITY_TONE[node.priority.level] : KIND_TONE[node.kind],
       kind: node.kind,
+      level: node.priority?.level,
     });
   });
+  for (const node of graph.nodes) {
+    if (node.kind === 'program')
+      result.setNodeAttribute(node.id, 'programTone', programTone(node.id));
+  }
   for (const edge of graph.edges) {
     if (!result.hasNode(edge.source) || !result.hasNode(edge.target)) continue;
-    result.addEdgeWithKey(edge.id, edge.source, edge.target, { kind: edge.kind });
+    if (edge.kind === 'recommendation') {
+      result.setNodeAttribute(edge.source, 'programTone', programTone(edge.target));
+    }
+    const strong =
+      edge.kind === 'recommendation' &&
+      [edge.source, edge.target].some((id) => result.getNodeAttribute(id, 'level') === 'high');
+    result.addEdgeWithKey(edge.id, edge.source, edge.target, { kind: edge.kind, strong });
   }
   return result;
 }

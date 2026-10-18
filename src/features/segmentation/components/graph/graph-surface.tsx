@@ -8,15 +8,17 @@ import { Button, MarkLoader } from '@/ui';
 import { useGraphColors } from '../../hooks/use-graph-colors';
 import { useMessages } from '../../hooks/use-messages';
 import { useSigmaGraph } from '../../hooks/use-sigma-graph';
+import type { GraphColorBy } from '../../services/create-graph-renderer';
 import type { ProfileGraph } from '../../types/graph.types';
 
 interface GraphSurfaceProps {
   graph: ProfileGraph;
   selectedId?: string;
+  colorBy: GraphColorBy;
   onSelect: (id: string) => void;
 }
 
-export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps) {
+export function GraphSurface({ graph, selectedId, colorBy, onSelect }: GraphSurfaceProps) {
   const [paused, setPaused] = useState(false);
   const [jump, setJump] = useState('');
   const optionsId = useId();
@@ -26,6 +28,7 @@ export function GraphSurface({ graph, selectedId, onSelect }: GraphSurfaceProps)
     graph,
     selectedId,
     paused,
+    colorBy,
     colors,
     onSelect,
   });

@@ -2,7 +2,11 @@ import { useEffect, useEffectEvent, useRef, useState } from 'react';
 import type { RefObject } from 'react';
 
 import { loadGraphLibraries } from '../services/create-graph-renderer';
-import type { GraphLibraries, GraphRenderer } from '../services/create-graph-renderer';
+import type {
+  GraphColorBy,
+  GraphLibraries,
+  GraphRenderer,
+} from '../services/create-graph-renderer';
 import { settleGraphLayout } from '../services/settle-graph-layout';
 import { toGraphology } from '../services/to-graphology';
 import type { ProfileGraph } from '../types/graph.types';
@@ -12,6 +16,7 @@ interface SigmaGraphOptions {
   graph: ProfileGraph;
   selectedId?: string;
   paused: boolean;
+  colorBy: GraphColorBy;
   colors?: GraphColors;
   onSelect: (id: string) => void;
 }
@@ -28,13 +33,21 @@ function animationDuration() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 300;
 }
 
-export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: SigmaGraphOptions) {
+export function useSigmaGraph({
+  graph,
+  selectedId,
+  paused,
+  colorBy,
+  colors,
+  onSelect,
+}: SigmaGraphOptions) {
   const container = useRef<HTMLDivElement>(null);
   const renderer = useRef<GraphRenderer>(undefined);
   const libraries = useRef<GraphLibraries>(undefined);
   const cancelSettle = useRef<() => void>(undefined);
   const hovered = useRef<string>(undefined);
   const palette = useRef(colors);
+  const mode = useRef(colorBy);
   const highlighted = useRef({ nodes: [] as string[], edges: [] as string[], selected: '' });
   const seededEpoch = useRef(0);
   const [ready, setReady] = useState(false);
@@ -88,7 +101,10 @@ export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: S
       const libs = await loadGraphLibraries();
       if (disposed) return;
       libraries.current = libs;
-      instance = libs.createRenderer(target, (key) => palette.current?.[key] ?? '');
+      instance = libs.createRenderer(target, {
+        color: (key) => palette.current?.[key] ?? '',
+        colorBy: () => mode.current,
+      });
       instance.on('enterNode', ({ node }) => {
         hovered.current = node;
         highlight();
@@ -124,7 +140,6 @@ export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: S
     seededEpoch.current = epoch;
     const next = toGraphology(graph, reseed ? undefined : sigma.getGraph());
     sigma.setGraph(next);
-    highlighted.current = { nodes: [], edges: [], selected: '' };
     highlight();
     runLayout(firstRun ? FIRST_LAYOUT_MS : UPDATE_LAYOUT_MS);
     return () => cancel(cancelSettle);
@@ -141,8 +156,9 @@ export function useSigmaGraph({ graph, selectedId, paused, colors, onSelect }: S
 
   useEffect(() => {
     palette.current = colors;
+    mode.current = colorBy;
     renderer.current?.refresh({ skipIndexation: true });
-  }, [colors]);
+  }, [colors, colorBy]);
 
   function focus(id: string) {
     const sigma = renderer.current;

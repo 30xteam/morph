@@ -59,6 +59,8 @@ export function settleGraphLayout(
     settings: {
       ...libraries.forceAtlas2.inferSettings(shadow),
       barnesHutOptimize: shadow.order > 300,
+      strongGravityMode: true,
+      gravity: 1,
     },
   });
   let cancelTween: (() => void) | undefined;

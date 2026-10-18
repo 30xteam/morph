@@ -9,10 +9,13 @@ import {
   filterProfileGraph,
   filterPriorityGraph,
 } from '../../services/build-profile-graph';
+import type { GraphColorBy } from '../../services/create-graph-renderer';
 import type { PriorityLevel } from '../../services/profile-priority';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { GraphDetails } from './graph-details';
+import { GraphKey } from './graph-key';
 import { GraphSurface } from './graph-surface';
+import { GraphViewControls } from './graph-view-controls';
 
 export function ProfileGraph() {
   const profiles = useSegmentationStore((state) => state.profiles);
@@ -20,11 +23,13 @@ export function ProfileGraph() {
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string>();
   const [local, setLocal] = useState(false);
+  const [colorBy, setColorBy] = useState<GraphColorBy>('priority');
   const [priority, setPriority] = useState<PriorityLevel | 'all'>('all');
   const deferredQuery = useDeferredValue(query);
   const graph = useMemo(() => buildProfileGraph(profiles, history), [profiles, history]);
   const nodesById = useMemo(() => new Map(graph.nodes.map((node) => [node.id, node])), [graph]);
   const selected = selectedId ? nodesById.get(selectedId) : undefined;
+  const programs = useMemo(() => graph.nodes.filter((node) => node.kind === 'program'), [graph]);
   const visible = useMemo(
     () =>
       filterProfileGraph(
@@ -98,23 +103,23 @@ export function ProfileGraph() {
           ) : null}
         </div>
       </div>
-      <div className="flex flex-wrap gap-x-4 gap-y-1 text-body-sm">
-        <span className="text-ink-muted">
-          People: P1 high · P2 medium · P3 low · — not evaluated
-        </span>
-        <span className="flex items-center gap-1.5 text-ink-soft">
-          <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
-          Programs
-        </span>
-        <span className="flex items-center gap-1.5 text-ink-soft">
-          <span aria-hidden="true" className="size-2 rounded-full bg-yellow-fg" />
-          Interests
-        </span>
-      </div>
+      <GraphViewControls
+        programs={programs}
+        focusId={selected?.kind === 'program' ? selected.id : undefined}
+        colorBy={colorBy}
+        onFocus={setSelectedId}
+        onColorBy={setColorBy}
+      />
       <div className="grid min-w-0 overflow-hidden rounded-md border border-line desktop:grid-cols-[minmax(0,1fr)_15rem]">
-        <GraphSurface graph={visible} selectedId={selected?.id} onSelect={setSelectedId} />
+        <GraphSurface
+          graph={visible}
+          selectedId={selected?.id}
+          colorBy={colorBy}
+          onSelect={setSelectedId}
+        />
         <GraphDetails graph={graph} selected={selected} onSelect={setSelectedId} />
       </div>
+      <GraphKey colorBy={colorBy} programs={programs} />
       <p className="text-body-sm text-ink-muted">
         Uses the same CRM profiles and live Luma feed as the table. Decide all on Live segments to
         add recommendations.
