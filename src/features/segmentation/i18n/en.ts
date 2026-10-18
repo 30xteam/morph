@@ -123,6 +123,13 @@ export const en = {
     sendToReview: 'Send to review',
     inReview: 'In the review queue',
     queued: (action: string) => `Queued: ${action}`,
+    sentToast: (action: string) => `Done: ${action}`,
+    sentToastBody: (id: string) => `${id} · simulated, nothing was sent to the person.`,
+    flaggedToast: (id: string) => `${id} is in the review queue`,
+    flaggedToastBody: 'A person will confirm the program before any outreach.',
+    undo: 'Undo',
+    sentUndone: (id: string) => `Undone: ${id} is no longer queued`,
+    flaggedUndone: (id: string) => `Undone: ${id} left the review queue`,
     tryChange: 'Try a change',
   },
   triggers: {
@@ -172,6 +179,9 @@ export const en = {
     skip: 'Skip',
     labelNote: 'Each decision is saved as a label to measure Jev',
     labeled: (program: string) => `Labeled as ${program}`,
+    labeledBody: (id: string, left: number) => `${id} · ${left} left in the queue`,
+    skippedBody: (id: string) => `${id} · you can come back to it later.`,
+    undone: (id: string) => `Undone: ${id} is back in the queue`,
     undo: 'Undo',
   },
   metrics: {

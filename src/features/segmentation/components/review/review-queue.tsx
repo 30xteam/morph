@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
-import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useNow } from '../../hooks/use-now';
@@ -27,7 +26,7 @@ export function ReviewQueue() {
   const [tab, setTab] = useReviewTab();
   const [detailOpen, setDetailOpen] = useState(false);
   const flow = useReviewFlow(items);
-  const { selected, status } = flow;
+  const { selected } = flow;
   useReviewShortcuts({
     onMove: flow.move,
     onPick: flow.pick,
@@ -65,15 +64,6 @@ export function ReviewQueue() {
             <p className="text-label-sm text-ink tabular-nums">
               {m.review.progress(labeled, total)}
             </p>
-            <output aria-live="polite" className="text-body-sm text-ink-soft">
-              {status?.kind === 'labeled' ? m.review.labeled(m.programs[status.program]) : null}
-              {status?.kind === 'skipped' ? m.review.skipped : null}
-            </output>
-            {status?.kind === 'labeled' ? (
-              <Button variant="ghost" onClick={flow.undo} className="px-2">
-                {m.review.undoLast}
-              </Button>
-            ) : null}
           </div>
         </header>
         <ListTabs label={m.review.title} value={tab} tabs={tabs} onChange={setTab} />

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Button } from '@/ui';
+import { Button, notify } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useSegmentationStore } from '../../store/segmentation-store';
@@ -16,18 +16,48 @@ export function DetailActions({ outcome }: { outcome: SegmentationOutcome }) {
   const flagged = useSegmentationStore((state) => state.flagged.includes(id));
   const markSent = useSegmentationStore((state) => state.markSent);
   const flag = useSegmentationStore((state) => state.flag);
+  const unmarkSent = useSegmentationStore((state) => state.unmarkSent);
+  const unflag = useSegmentationStore((state) => state.unflag);
   const { kind, program } = outcome.recommendation;
   const action = m.detail.actions[kind](m.programs[program]);
   const inReview = flagged || outcome.needsReview;
   const [changing, setChanging] = useState(false);
 
+  function send() {
+    markSent(id, kind);
+    notify.success(m.detail.sentToast(action), {
+      description: m.detail.sentToastBody(id),
+      action: {
+        label: m.detail.undo,
+        onClick: () => {
+          unmarkSent(id);
+          notify.undo(m.detail.sentUndone(id));
+        },
+      },
+    });
+  }
+
+  function sendToReview() {
+    flag(id);
+    notify.info(m.detail.flaggedToast(id), {
+      description: m.detail.flaggedToastBody,
+      action: {
+        label: m.detail.undo,
+        onClick: () => {
+          unflag(id);
+          notify.undo(m.detail.flaggedUndone(id));
+        },
+      },
+    });
+  }
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap items-center gap-2.5">
-        <Button onClick={() => markSent(id, kind)} disabled={sent === kind}>
+        <Button onClick={send} disabled={sent === kind}>
           {action}
         </Button>
-        <Button variant="secondary" onClick={() => flag(id)} disabled={inReview}>
+        <Button variant="secondary" onClick={sendToReview} disabled={inReview}>
           {inReview ? m.detail.inReview : m.detail.sendToReview}
         </Button>
         <Button variant="ghost" onClick={() => setChanging(true)}>

@@ -60,7 +60,9 @@ interface SegmentationState {
   review: (id: string, verdict: ReviewVerdict) => void;
   clearReview: (id: string) => void;
   flag: (id: string) => void;
+  unflag: (id: string) => void;
   markSent: (id: string, kind: RecommendationKind) => void;
+  unmarkSent: (id: string) => void;
   setRun: (run: Partial<BatchRun>) => void;
   setEvaluation: (evaluation: SegmentationEvaluation) => void;
 }
@@ -140,6 +142,8 @@ export const useSegmentationStore = create<SegmentationState>()(
       flag: (id) =>
         set((state) => (state.flagged.includes(id) ? state : { flagged: [...state.flagged, id] })),
       markSent: (id, kind) => set((state) => ({ sent: { ...state.sent, [id]: kind } })),
+      unmarkSent: (id) => set((state) => ({ sent: without(state.sent, id) })),
+      unflag: (id) => set((state) => ({ flagged: state.flagged.filter((item) => item !== id) })),
       setRun: (run) => set((state) => ({ run: { ...state.run, ...run } })),
       setEvaluation: (evaluation) =>
         set((state) => ({ evaluation, previousEvaluation: state.evaluation })),
