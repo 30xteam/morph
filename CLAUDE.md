@@ -38,7 +38,8 @@ Read the relevant guide in `node_modules/next/dist/docs/` before using a Next AP
 - Pages in `src/app/**/page.tsx` stay thin; feature code lives in `src/features/<feature>/`
   (`components/ hooks/ services/ types/ context/`), exported only through `index.ts`.
   Server-only exports go through `server.ts`.
-- No cross-feature imports. App-wide infra lives in `src/core/`.
+- No cross-feature imports. App-wide infra lives in `src/core/`. Domain shared by several features lives in
+  `src/libs/<domain>/` (`index.ts` client-safe, `server.ts` server-only) and never imports from `src/features/`.
 - Files are kebab-case (lint-enforced), one component per file, max ~200 lines.
 - Server Components by default; push `'use client'` as far down as possible.
 
@@ -74,11 +75,12 @@ boundary when the first protected route exists.
 ## Jev (30X challenge prototype)
 
 - The app is one product, the console in `src/app/(console)/`: Live segments at `/`, `/review`, `/metrics` and `/graph`
-  (`src/features/segmentation/`). `/preview` and `/segmentation` redirect to `/`. The layout is the Figma's three panes
+  (features `segmentation` for live/detail/review, `graph`, `metrics`, `luma`, `shell`; shared domain in
+  `src/libs/segmentation/`: store, types, config, data, Jev services, shared i18n). `/preview` and `/segmentation` redirect to `/`. The layout is the Figma's three panes
   (sidebar, list, detail); decisions persist in `localStorage` per browser.
 - `src/core/jev/` is the server-only Jev client: `decide({ state, questions })` routes to the adapter picked by
   `JEV_PROVIDER` (`mock` default, `typesafe` real Jev at `/v1/systemone`, `openrouter` LLM emulation, not calibrated).
-- Data: 30X's anonymized sample (697 profiles, categories only) in `data/profiles-30x.json`; the dashboard starts
+- Data: 30X's anonymized sample (697 profiles, categories only) in `src/libs/segmentation/data/profiles-30x.json`; the dashboard starts
   with `data/crm-sample.json`. 30X's own labels (suggested program, affinity) live in `data/labels-30x.json`,
   are server-only and are never sent to Jev. Recommendations name real programs: AI Sales, Inmersión Ejecutiva,
   Sales Machine, Hardcore AI, Achievers.

@@ -46,7 +46,7 @@ Cada decisión queda en el historial y en "Recent activity".
 
 - **Descripciones de los programas:** salen de los datos de 30X. AI Sales se asocia a los temas "sales + ai"; Inmersión Ejecutiva, a liderazgo, expansión y capital; Sales Machine, a un proceso comercial sin foco en IA; Hardcore AI, a "ai + product" y perfiles técnicos; Achievers, a dueños con un dolor declarado.
 - **JEV no cuenta:** los contadores de actividad se pasan como categorías ("attended several events").
-- Fuente: [`questions.ts`](../src/features/segmentation/config/questions.ts) y [`profile-state.ts`](../src/features/segmentation/services/profile-state.ts).
+- Fuente: [`questions.ts`](../src/libs/segmentation/config/questions.ts) y [`profile-state.ts`](../src/libs/segmentation/services/profile-state.ts).
 
 ## 4. Semáforo y umbrales
 
@@ -57,7 +57,7 @@ Cada decisión queda en el historial y en "Recent activity".
 | **Rojo**     | Ningún programa calza, afinidad baja, o programa con p < 0,55                                  | **Lo revisa una persona**, sin contacto automático                                    |
 
 - **Cola de revisión:** todos los rojos y los casos con programa en p < 0,80. La persona aprueba o corrige el programa.
-- Fuentes: [`traffic-light.ts`](../src/features/segmentation/config/traffic-light.ts) y [`recommendations.ts`](../src/features/segmentation/config/recommendations.ts).
+- Fuentes: [`traffic-light.ts`](../src/libs/segmentation/config/traffic-light.ts) y [`recommendations.ts`](../src/libs/segmentation/config/recommendations.ts).
 
 ## 5. Quién lo opera
 
