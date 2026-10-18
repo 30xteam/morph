@@ -1,7 +1,6 @@
 import { sharedEs } from '@/libs/segmentation';
 
 import type { Messages } from './en';
-import { onboardingEs } from './onboarding-es';
 
 const percent = (p: number) => `${Math.round(p * 100)} %`;
 
@@ -131,5 +130,4 @@ export const es: Messages = {
     queueDoneBody: 'Todos los perfiles en que Jev dudaba ya tienen la etiqueta de una persona.',
     undo: 'Deshacer',
   },
-  onboarding: onboardingEs,
 };

@@ -2,7 +2,7 @@
 
 import { MorphLogo } from '@/ui';
 
-import { useMessages } from '../../hooks/use-messages';
+import { useMessages } from '../hooks/use-messages';
 import { SectionLabel, SegmentList, WorkflowList } from './sidebar-lists';
 import { useSidebarNav } from './use-sidebar-nav';
 

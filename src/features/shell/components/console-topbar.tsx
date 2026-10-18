@@ -7,7 +7,7 @@ import { cx } from '@/core/cx';
 import { PreferenceToggles, usePreferenceMessages } from '@/core/preferences';
 import { MorphLogo } from '@/ui';
 
-import { useMessages } from '../../hooks/use-messages';
+import { useMessages } from '../hooks/use-messages';
 
 const LINKS = [
   { href: '/', key: 'allProfiles' },

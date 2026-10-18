@@ -6,5 +6,3 @@ export { segmentRequestSchema } from './types/segment-request.schema';
 
 export { recalculateProfile } from './services/recalculate-profile';
 export { recalculateRequestSchema } from './types/recalculate-request.schema';
-
-export { ConsoleLayout } from './components/shell/console-layout';

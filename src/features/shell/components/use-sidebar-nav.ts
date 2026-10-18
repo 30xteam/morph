@@ -11,7 +11,7 @@ import {
 } from '@/libs/segmentation';
 import { useProgressRouter } from '@/ui';
 
-import { useMessages } from '../../hooks/use-messages';
+import { useMessages } from '../hooks/use-messages';
 import type { NavIconName } from './nav-icon';
 
 const WORKFLOW = [

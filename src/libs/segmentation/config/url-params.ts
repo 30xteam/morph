@@ -4,7 +4,7 @@ import {
   parseAsBoolean,
   parseAsString,
   parseAsStringLiteral,
-} from 'nuqs';
+} from 'nuqs/server';
 
 import { PRIORITY_LEVELS } from '../services/profile-priority';
 import type { ProgramKey } from '../types/segmentation.types';

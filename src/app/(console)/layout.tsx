@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { LumaFeedSync } from '@/features/luma';
-import { ConsoleLayout } from '@/features/segmentation/server';
+import { ConsoleLayout } from '@/features/shell/server';
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (

@@ -1,7 +1,5 @@
 import { sharedEn } from '@/libs/segmentation';
 
-import { onboardingEn } from './onboarding-en';
-
 const percent = (p: number) => `${Math.round(p * 100)}%`;
 
 export const en = {
@@ -132,7 +130,6 @@ export const en = {
     queueDoneBody: 'Every profile Jev was unsure about now has a person’s label.',
     undo: 'Undo',
   },
-  onboarding: onboardingEn,
 };
 
 export type Messages = typeof en;
