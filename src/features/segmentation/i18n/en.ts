@@ -1,3 +1,5 @@
+import { onboardingEn } from './onboarding-en';
+
 const percent = (p: number) => `${Math.round(p * 100)}%`;
 
 export const en = {
@@ -43,7 +45,7 @@ export const en = {
     yellow: 'Yellow',
     red: 'Red',
     review: 'Review',
-    pending: 'Not decided',
+    pending: 'Not evaluated',
     deciding: 'Deciding',
   },
   list: {
@@ -53,6 +55,23 @@ export const en = {
     all: 'All',
     review: 'Review',
     lowAffinity: 'Low affinity',
+    filters: 'Filters',
+    lights: 'Traffic light',
+    lightsHint: 'one or more',
+    results: (shown: number, total: number) => `${shown} of ${total} profiles`,
+    clearFilters: 'Clear filters',
+    lightsHelp: 'What each color means',
+    lightsHelpClose: 'Close',
+    lightMeanings: {
+      green: { meaning: 'Strong potential client', action: 'Write to them soon' },
+      yellow: { meaning: 'Possible client', action: 'Follow up' },
+      red: { meaning: 'Unlikely', action: 'Passive contact for now' },
+      review: {
+        meaning: 'Needs a person',
+        action: 'Jev is not sure: confirm it in the review queue',
+      },
+      pending: { meaning: 'Not through Jev yet', action: 'Decide it with Jev to give it a color' },
+    },
     empty: 'No profiles here yet.',
     decideAll: (count: number) => `Decide ${count} with Jev`,
     decideAgain: (count: number) => `Decide all ${count} again`,
@@ -202,6 +221,7 @@ export const en = {
     legendRecommendation: 'Thick green line: latest Jev program recommendation',
     legendShared: 'Shared interests do not imply people know each other.',
   },
+  onboarding: onboardingEn,
   preferences: {
     title: 'Preferences',
     language: 'Language',

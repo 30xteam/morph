@@ -1,4 +1,5 @@
 import type { Messages } from './en';
+import { onboardingEs } from './onboarding-es';
 
 const percent = (p: number) => `${Math.round(p * 100)} %`;
 
@@ -45,7 +46,7 @@ export const es: Messages = {
     yellow: 'Amarillo',
     red: 'Rojo',
     review: 'Revisión',
-    pending: 'Sin decidir',
+    pending: 'Sin evaluar',
     deciding: 'Decidiendo',
   },
   list: {
@@ -55,6 +56,26 @@ export const es: Messages = {
     all: 'Todos',
     review: 'Revisión',
     lowAffinity: 'Afinidad baja',
+    filters: 'Filtros',
+    lights: 'Semáforo',
+    lightsHint: 'uno o varios',
+    results: (shown, total) => `${shown} de ${total} perfiles`,
+    clearFilters: 'Limpiar filtros',
+    lightsHelp: 'Qué significa cada color',
+    lightsHelpClose: 'Cerrar',
+    lightMeanings: {
+      green: { meaning: 'Cliente potencial fuerte', action: 'Escríbele pronto' },
+      yellow: { meaning: 'Posible cliente', action: 'Dale seguimiento' },
+      red: { meaning: 'Poco probable', action: 'Contacto pasivo por ahora' },
+      review: {
+        meaning: 'Necesita una persona',
+        action: 'Jev no está seguro: confírmalo en la cola de revisión',
+      },
+      pending: {
+        meaning: 'Todavía no pasa por Jev',
+        action: 'Decídelo con Jev para darle un color',
+      },
+    },
     empty: 'Todavía no hay perfiles aquí.',
     decideAll: (count) => `Decidir ${count} con Jev`,
     decideAgain: (count) => `Decidir los ${count} de nuevo`,
@@ -200,6 +221,7 @@ export const es: Messages = {
     legendRecommendation: 'Línea verde gruesa: última recomendación de programa de Jev',
     legendShared: 'Compartir intereses no implica que las personas se conozcan.',
   },
+  onboarding: onboardingEs,
   preferences: {
     title: 'Preferencias',
     language: 'Idioma',
