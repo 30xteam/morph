@@ -1,11 +1,11 @@
 'use client';
 
 import { usePreferences } from '@/core/preferences';
+import { PreferenceToggles } from '@/core/preferences';
 import { countryName, type Profile } from '@/libs/segmentation';
 
 import { useMessages } from '../../hooks/use-messages';
 import { roleKey } from '../../utils/role-key';
-import { PreferenceToggles } from '../preference-toggles';
 
 export function DetailHeader({ profile }: { profile: Profile | undefined }) {
   const m = useMessages();

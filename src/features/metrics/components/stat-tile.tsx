@@ -1,6 +1,6 @@
 import { cx } from '@/core/cx';
 
-import type { StatDelta } from '../../services/evaluation-delta';
+import type { StatDelta } from '../services/evaluation-delta';
 
 interface StatTileProps {
   label: string;

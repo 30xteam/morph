@@ -1,10 +1,10 @@
 'use client';
 
-import { usePreferences } from '@/core/preferences';
 import { SegmentedControl } from '@/ui';
 
-import { useMessages } from '../hooks/use-messages';
+import { usePreferences } from './preferences-provider';
 import { SoundToggle } from './sound-toggle';
+import { usePreferenceMessages } from './use-preference-messages';
 
 const LANGUAGES = [
   { value: 'en', label: 'EN' },
@@ -12,23 +12,23 @@ const LANGUAGES = [
 ] as const;
 
 export function PreferenceToggles() {
-  const m = useMessages();
+  const m = usePreferenceMessages();
   const { locale, theme, setLocale, setTheme } = usePreferences();
 
   return (
     <div className="flex shrink-0 gap-2">
       <SegmentedControl
-        label={m.preferences.language}
+        label={m.language}
         value={locale}
         options={LANGUAGES}
         onChange={setLocale}
       />
       <SegmentedControl
-        label={m.preferences.theme}
+        label={m.theme}
         value={theme}
         options={[
-          { value: 'dark', label: m.preferences.dark },
-          { value: 'light', label: m.preferences.light },
+          { value: 'dark', label: m.dark },
+          { value: 'light', label: m.light },
         ]}
         onChange={setTheme}
       />

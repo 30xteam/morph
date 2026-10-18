@@ -8,3 +8,5 @@ export {
   type Locale,
   type Theme,
 } from './preferences';
+export { PreferenceToggles } from './preference-toggles';
+export { usePreferenceMessages } from './use-preference-messages';

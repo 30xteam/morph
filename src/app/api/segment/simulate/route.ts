@@ -1,4 +1,4 @@
-import { simulateDays, simulateRequestSchema } from '@/features/segmentation/server';
+import { simulateDays, simulateRequestSchema } from '@/features/metrics/server';
 
 export async function POST(request: Request) {
   const parsed = simulateRequestSchema.safeParse(await request.json().catch(() => ({})));

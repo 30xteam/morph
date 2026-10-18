@@ -1,4 +1,4 @@
-import { evaluateRequestSchema, evaluateSegmentation } from '@/features/segmentation/server';
+import { evaluateRequestSchema, evaluateSegmentation } from '@/features/metrics/server';
 
 export async function POST(request: Request) {
   const parsed = evaluateRequestSchema.safeParse(await request.json().catch(() => ({})));

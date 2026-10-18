@@ -3,7 +3,7 @@
 import type { SegmentationEvaluation } from '@/libs/segmentation';
 import { Panel } from '@/ui';
 
-import { useMessages } from '../../hooks/use-messages';
+import { useMessages } from '../hooks/use-messages';
 
 export function HonestReading({ evaluation }: { evaluation: SegmentationEvaluation }) {
   const m = useMessages();

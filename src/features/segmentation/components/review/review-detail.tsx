@@ -4,6 +4,7 @@ import type { Ref } from 'react';
 
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
+import { PreferenceToggles } from '@/core/preferences';
 import { countryName, type ProgramKey } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
@@ -11,7 +12,6 @@ import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
 import { roleKey } from '../../utils/role-key';
 import { SignalsCard } from '../detail/signals-card';
-import { PreferenceToggles } from '../preference-toggles';
 import { DecisionPanel } from './decision-panel';
 import { WhyPanel } from './why-panel';
 

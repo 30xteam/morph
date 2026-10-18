@@ -9,8 +9,8 @@ import {
   formatPercent,
 } from '@/libs/segmentation';
 
-import { EVALUATION_SIZE } from '../../hooks/use-evaluation';
-import { useMessages } from '../../hooks/use-messages';
+import { EVALUATION_SIZE } from '../hooks/use-evaluation';
+import { useMessages } from '../hooks/use-messages';
 import { ThresholdChart } from './threshold-chart';
 
 const CELL = 'px-3 text-right';

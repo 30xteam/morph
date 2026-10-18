@@ -2,12 +2,12 @@
 
 import { useSoundOn } from '@/ui';
 
-import { useMessages } from '../hooks/use-messages';
+import { usePreferenceMessages } from './use-preference-messages';
 
 export function SoundToggle() {
-  const m = useMessages();
+  const m = usePreferenceMessages();
   const [on, setOn] = useSoundOn();
-  const label = on ? m.preferences.soundOn : m.preferences.soundOff;
+  const label = on ? m.soundOn : m.soundOff;
 
   return (
     <button

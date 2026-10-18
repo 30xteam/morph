@@ -1,6 +1,7 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { PreferenceToggles } from '@/core/preferences';
 import {
   SEGMENTATION_QUESTIONS,
   useConsoleCounts,
@@ -10,10 +11,9 @@ import {
 } from '@/libs/segmentation';
 import { Button, TagBadge } from '@/ui';
 
-import { EVALUATION_SIZE, useEvaluation } from '../../hooks/use-evaluation';
-import { useMessages } from '../../hooks/use-messages';
-import { evaluationDeltas } from '../../services/evaluation-delta';
-import { PreferenceToggles } from '../preference-toggles';
+import { EVALUATION_SIZE, useEvaluation } from '../hooks/use-evaluation';
+import { useMessages } from '../hooks/use-messages';
+import { evaluationDeltas } from '../services/evaluation-delta';
 import { HonestReading } from './honest-reading';
 import { StatTile } from './stat-tile';
 import { ThresholdTable } from './threshold-table';

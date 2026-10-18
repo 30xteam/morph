@@ -2,7 +2,7 @@
 
 import { type ThresholdRow, formatPercent } from '@/libs/segmentation';
 
-import { useMessages } from '../../hooks/use-messages';
+import { useMessages } from '../hooks/use-messages';
 
 interface ThresholdChartProps {
   rows: ThresholdRow[];

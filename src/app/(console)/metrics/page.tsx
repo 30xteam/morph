@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { MetricsOverview } from '@/features/segmentation';
+import { MetricsOverview } from '@/features/metrics';
 
 export const metadata: Metadata = { title: 'Metrics' };
 

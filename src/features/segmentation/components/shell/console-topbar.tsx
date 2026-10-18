@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { cx } from '@/core/cx';
+import { PreferenceToggles, usePreferenceMessages } from '@/core/preferences';
 import { MorphLogo } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import { PreferenceToggles } from '../preference-toggles';
 
 const LINKS = [
   { href: '/', key: 'allProfiles' },
@@ -18,6 +18,7 @@ const LINKS = [
 
 export function ConsoleTopbar() {
   const m = useMessages();
+  const preferences = usePreferenceMessages();
   const pathname = usePathname();
 
   return (
@@ -26,7 +27,7 @@ export function ConsoleTopbar() {
         <MorphLogo />
         <details className="relative">
           <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-nav border border-line px-3 text-label-sm text-ink-soft hover:text-ink [&::-webkit-details-marker]:hidden">
-            {m.preferences.title}
+            {preferences.title}
           </summary>
           <div className="absolute top-full right-0 z-modal mt-2 rounded-md border border-line bg-card p-2 shadow-raised">
             <PreferenceToggles />
