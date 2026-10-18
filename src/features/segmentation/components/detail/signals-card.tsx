@@ -31,8 +31,10 @@ export function SignalsCard({ profile, flagMissing = false }: SignalsCardProps) 
               key={key}
               className="flex items-center gap-2.5 border-b border-line py-2 last:border-b-0"
             >
-              <SignalIcon signal={key} />
-              <dt className="text-body-md text-ink-soft">{SIGNAL_LABELS[locale][key]}</dt>
+              <dt className="flex items-center gap-2.5 text-body-md text-ink-soft">
+                <SignalIcon signal={key} />
+                {SIGNAL_LABELS[locale][key]}
+              </dt>
               <dd
                 className={cx(
                   'ml-auto text-right text-label-sm',

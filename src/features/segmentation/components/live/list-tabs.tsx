@@ -22,7 +22,7 @@ export function ListTabs<T extends string>({ label, value, tabs, onChange }: Lis
             aria-pressed={active}
             onClick={() => onChange(tab.value)}
             className={cx(
-              'flex min-h-11 shrink-0 flex-col justify-end gap-1.5 text-label-xs font-medium whitespace-nowrap text-ink-muted transition-colors duration-150 hover:text-ink desktop:min-h-0',
+              'flex min-h-11 shrink-0 flex-col justify-end gap-1.5 text-label-xs font-medium whitespace-nowrap text-ink-muted transition-colors duration-150 hover:text-ink desktop:min-h-6',
               active && 'font-semibold text-ink',
             )}
           >

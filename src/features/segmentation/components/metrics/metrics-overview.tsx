@@ -23,7 +23,7 @@ export function MetricsOverview() {
   const empty = '—';
 
   return (
-    <main className="flex min-w-0 flex-1 flex-col gap-4.5 px-4 py-6 tablet:px-8 desktop:py-7">
+    <div className="flex min-w-0 flex-1 flex-col gap-4.5 px-4 py-6 tablet:px-8 desktop:py-7">
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex flex-col gap-1">
           <h1 className="text-title-lg text-ink">{m.metrics.title}</h1>
@@ -80,6 +80,6 @@ export function MetricsOverview() {
       </dl>
       <ThresholdTable evaluation={evaluation} />
       {evaluation ? <HonestReading evaluation={evaluation} /> : null}
-    </main>
+    </div>
   );
 }

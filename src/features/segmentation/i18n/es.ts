@@ -66,6 +66,7 @@ export const es: Messages = {
     liveHint: (received) => `${received} registros de Luma recibidos · firmas verificadas`,
   },
   detail: {
+    region: 'Detalle del perfil',
     placeholder: 'Elige un perfil para ver qué decidió Jev y por qué.',
     back: 'Volver a la lista',
     lead: 'Lead sin oportunidad',
@@ -125,6 +126,8 @@ export const es: Messages = {
     title: 'Cola de revisión',
     subtitle: (count) =>
       `${count} perfiles que Jev no decidió solo: poca confianza o poca información`,
+    subtitleShort: (count) => `${count} sin decidir por Jev`,
+    labeledBadge: 'Etiquetado',
     all: 'Todos',
     lowConfidence: 'Poca confianza',
     lowInfo: 'Faltan campos',
@@ -179,6 +182,7 @@ export const es: Messages = {
     policyBody: 'Poca información o poca confianza va a una persona. El resto es automático.',
   },
   preferences: {
+    title: 'Preferencias',
     language: 'Idioma',
     theme: 'Tema',
     dark: 'Oscuro',

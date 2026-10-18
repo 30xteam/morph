@@ -43,37 +43,50 @@ export function ConsoleSidebar() {
     <aside className="sticky top-0 hidden h-dvh w-sidebar shrink-0 flex-col gap-0.5 overflow-y-auto border-r border-line px-3 py-6 desktop:flex">
       <MorphLogo className="px-2.5 pb-5" />
       <nav aria-label={m.nav.label} className="flex flex-1 flex-col gap-0.5">
-        <h2 className="px-2.5 pb-1.5 text-caption font-medium text-ink-muted">{m.nav.segments}</h2>
-        {segments.map(({ value, label, count }) => (
-          <button
-            key={value}
-            type="button"
-            aria-current={pathname === '/' && program === value ? 'true' : undefined}
-            onClick={() => openSegment(value)}
-            className={navItemClasses(pathname === '/' && program === value)}
-          >
-            <span className="flex-1 truncate">{label}</span>
-            <span className="text-body-sm font-normal text-ink-muted tabular-nums">{count}</span>
-          </button>
-        ))}
-        <h2 className="mt-auto px-2.5 pt-6 pb-1.5 text-caption font-medium text-ink-muted desktop:mt-25">
+        <p id="nav-segments" className="px-2.5 pb-1.5 text-caption font-medium text-ink-muted">
+          {m.nav.segments}
+        </p>
+        <ul aria-labelledby="nav-segments" className="flex flex-col gap-0.5">
+          {segments.map(({ value, label, count }) => (
+            <li key={value}>
+              <button
+                type="button"
+                aria-current={pathname === '/' && program === value ? 'true' : undefined}
+                onClick={() => openSegment(value)}
+                className={navItemClasses(pathname === '/' && program === value)}
+              >
+                <span className="flex-1 truncate">{label}</span>
+                <span className="text-body-sm font-normal text-ink-muted tabular-nums">
+                  {count}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p
+          id="nav-workflow"
+          className="mt-auto px-2.5 pt-6 pb-1.5 text-caption font-medium text-ink-muted desktop:mt-25"
+        >
           {m.nav.workflow}
-        </h2>
-        {WORKFLOW.map(({ href, key }) => (
-          <Link
-            key={href}
-            href={href}
-            aria-current={pathname === href ? 'page' : undefined}
-            className={navItemClasses(pathname === href)}
-          >
-            <span className="flex-1">{m.nav[key]}</span>
-            {key === 'review' && counts.review ? (
-              <span className="text-body-sm font-normal text-ink-muted tabular-nums">
-                {counts.review}
-              </span>
-            ) : null}
-          </Link>
-        ))}
+        </p>
+        <ul aria-labelledby="nav-workflow" className="flex flex-col gap-0.5">
+          {WORKFLOW.map(({ href, key }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                aria-current={pathname === href ? 'page' : undefined}
+                className={navItemClasses(pathname === href)}
+              >
+                <span className="flex-1">{m.nav[key]}</span>
+                {key === 'review' && counts.review ? (
+                  <span className="text-body-sm font-normal text-ink-muted tabular-nums">
+                    {counts.review}
+                  </span>
+                ) : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </nav>
     </aside>
   );

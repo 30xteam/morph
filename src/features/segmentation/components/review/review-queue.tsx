@@ -51,7 +51,10 @@ export function ReviewQueue() {
           <h1 id="review-heading" className="text-title-md text-ink">
             {m.review.title}
           </h1>
-          <p className="text-body-sm text-ink-soft">{m.review.subtitle(total)}</p>
+          <p className="text-body-sm text-ink-soft">
+            <span className="tablet:hidden">{m.review.subtitleShort(total)}</span>
+            <span className="hidden tablet:inline">{m.review.subtitle(total)}</span>
+          </p>
         </header>
         <ListTabs label={m.review.title} value={tab} tabs={tabs} onChange={setTab} />
         <ul className="flex flex-col gap-0.5 overflow-y-auto px-3 pb-6">

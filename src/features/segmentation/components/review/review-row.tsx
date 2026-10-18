@@ -34,7 +34,6 @@ export function ReviewRow({ item, selected, labeled, now, onSelect }: ReviewRowP
         className={cx(
           'relative flex w-full items-start gap-3 overflow-hidden rounded-md py-3 pr-3.5 pl-4.5 text-left transition-colors duration-150 hover:bg-selected',
           selected && 'bg-selected shadow-raised',
-          labeled && 'opacity-60',
         )}
       >
         {selected ? (
@@ -58,6 +57,7 @@ export function ReviewRow({ item, selected, labeled, now, onSelect }: ReviewRowP
           </span>
         </span>
         <span className="flex shrink-0 flex-col items-end gap-1.5">
+          {labeled ? <TagBadge>{m.review.labeledBadge}</TagBadge> : null}
           <TagBadge tone="warning">
             {reason === 'low_info'
               ? m.review.lowInfoBadge(outcome.missingSignals.length)

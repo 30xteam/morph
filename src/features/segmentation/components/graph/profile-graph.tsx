@@ -36,10 +36,7 @@ export function ProfileGraph() {
   const decided = profiles.filter((profile) => history[profile.id]?.length).length;
 
   return (
-    <main
-      aria-labelledby="graph-heading"
-      className="flex min-w-0 flex-1 flex-col gap-3 px-4 py-6 tablet:px-8 desktop:py-7"
-    >
+    <div className="flex min-w-0 flex-1 flex-col gap-3 px-4 py-6 tablet:px-8 desktop:py-7">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 id="graph-heading" className="text-title-lg text-ink">
@@ -118,6 +115,6 @@ export function ProfileGraph() {
         Uses the same CRM profiles and live Luma feed as the table. Decide all on Live segments to
         add recommendations.
       </p>
-    </main>
+    </div>
   );
 }

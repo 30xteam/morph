@@ -44,7 +44,7 @@ export function ProfileDetail({ className, onBack }: ProfileDetailProps) {
 
   return (
     <section
-      aria-label={m.detail.decision}
+      aria-label={m.detail.region}
       className={cx(
         'min-w-0 flex-col gap-4 overflow-y-auto px-4 py-6 tablet:px-8 desktop:h-dvh desktop:py-7',
         className,

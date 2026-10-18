@@ -25,7 +25,7 @@ export function SegmentedControl<T extends string>({
           aria-pressed={option.value === value}
           onClick={() => onChange(option.value)}
           className={cx(
-            'min-h-11 rounded-sm px-2.5 text-label-sm text-ink-muted transition-colors duration-150 hover:text-ink desktop:min-h-0 desktop:py-1 desktop:text-caption desktop:font-medium',
+            'min-h-11 rounded-sm px-2.5 text-label-sm text-ink-muted transition-colors duration-150 hover:text-ink desktop:min-h-6 desktop:py-1 desktop:text-caption desktop:font-medium',
             option.value === value && 'bg-raised text-ink',
           )}
         >

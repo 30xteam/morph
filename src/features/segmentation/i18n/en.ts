@@ -65,6 +65,7 @@ export const en = {
     liveHint: (received: number) => `${received} Luma sign-ups received · signatures verified`,
   },
   detail: {
+    region: 'Profile detail',
     placeholder: 'Pick a profile to see what Jev decided and why.',
     back: 'Back to list',
     lead: 'Lead without deal',
@@ -124,6 +125,8 @@ export const en = {
     title: 'Review queue',
     subtitle: (count: number) =>
       `${count} profiles Jev did not decide alone: low confidence or too little info`,
+    subtitleShort: (count: number) => `${count} not decided by Jev`,
+    labeledBadge: 'Labeled',
     all: 'All',
     lowConfidence: 'Low confidence',
     lowInfo: 'Missing fields',
@@ -181,6 +184,7 @@ export const en = {
     policyBody: 'Low info or low confidence goes to a person. The rest is automatic.',
   },
   preferences: {
+    title: 'Preferences',
     language: 'Language',
     theme: 'Theme',
     dark: 'Dark',
