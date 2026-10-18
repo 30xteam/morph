@@ -1,5 +1,7 @@
+import { useQueryStates } from 'nuqs';
 import { useDeferredValue, useMemo, useState } from 'react';
 
+import { graphParams } from '../config/url-params';
 import {
   buildProfileGraph,
   filterPriorityGraph,
@@ -19,12 +21,10 @@ export interface GraphJump {
 export function useGraphView() {
   const profiles = useSegmentationStore((state) => state.profiles);
   const history = useSegmentationStore((state) => state.history);
-  const [query, setQuery] = useState('');
-  const [selectedId, setSelectedId] = useState<string>();
+  const [params, setParams] = useQueryStates(graphParams);
   const [jump, setJump] = useState<GraphJump>();
-  const [local, setLocal] = useState(false);
-  const [colorBy, setColorBy] = useState<GraphColorBy>('priority');
-  const [levels, setLevels] = useState<readonly PriorityLevel[]>(PRIORITY_LEVELS);
+  const { q: query, local, color: colorBy, priority: levels } = params;
+  const selectedId = params.node ?? undefined;
   const deferredQuery = useDeferredValue(query);
 
   const graph = useMemo(() => buildProfileGraph(profiles, history), [profiles, history]);
@@ -47,33 +47,29 @@ export function useGraphView() {
     Number(Boolean(query));
 
   function select(id: string | undefined) {
-    setSelectedId(id);
-    if (!id) setLocal(false);
+    void setParams(id ? { node: id } : { node: null, local: null });
   }
 
   function search(value: string) {
     const match = graph.nodes.find((node) => node.label === value);
     if (!match) {
-      setQuery(value);
+      void setParams({ q: value });
       return;
     }
-    setQuery('');
-    select(match.id);
+    void setParams({ q: null, node: match.id });
     setJump({ id: match.id, at: Date.now() });
   }
 
   function toggleLevel(level: PriorityLevel) {
-    setLevels((current) =>
-      current.includes(level)
-        ? current.filter((item) => item !== level)
-        : PRIORITY_LEVELS.filter((item) => item === level || current.includes(item)),
-    );
+    void setParams({
+      priority: levels.includes(level)
+        ? levels.filter((item) => item !== level)
+        : PRIORITY_LEVELS.filter((item) => item === level || levels.includes(item)),
+    });
   }
 
   function clear() {
-    setQuery('');
-    setLevels(PRIORITY_LEVELS);
-    select(undefined);
+    void setParams({ q: null, priority: null, node: null, local: null });
   }
 
   return {
@@ -97,8 +93,8 @@ export function useGraphView() {
     search,
     toggleLevel,
     clear,
-    setLocal,
-    setColorBy,
+    setLocal: (value: boolean) => void setParams({ local: value }),
+    setColorBy: (value: GraphColorBy) => void setParams({ color: value }),
   };
 }
 

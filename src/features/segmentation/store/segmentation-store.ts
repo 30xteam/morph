@@ -10,7 +10,6 @@ import type {
   ReviewVerdict,
   SegmentationOutcome,
 } from '../types/segmentation.types';
-import type { ProfileStatus } from '../utils/profile-status';
 
 export type ProgramFilter = ProgramKey | 'all';
 export type ReviewTab = ReviewReason | 'all';
@@ -42,10 +41,6 @@ interface SegmentationState {
   pendingIds: string[];
   selectedId: string | null;
   reviewSelectedId: string | null;
-  program: ProgramFilter;
-  lowAffinityOnly: boolean;
-  lights: ProfileStatus[];
-  reviewTab: ReviewTab;
   run: BatchRun;
   evaluation: SegmentationEvaluation | null;
   hydrate: (profiles: Profile[]) => void;
@@ -59,12 +54,6 @@ interface SegmentationState {
   markSent: (id: string, kind: RecommendationKind) => void;
   select: (id: string | null) => void;
   selectReview: (id: string | null) => void;
-  setProgram: (program: ProgramFilter) => void;
-  setLowAffinityOnly: (lowAffinityOnly: boolean) => void;
-  toggleLight: (light: ProfileStatus) => void;
-  clearLights: () => void;
-  clearFilters: () => void;
-  setReviewTab: (tab: ReviewTab) => void;
   setRun: (run: Partial<BatchRun>) => void;
   setEvaluation: (evaluation: SegmentationEvaluation) => void;
 }
@@ -112,10 +101,6 @@ export const useSegmentationStore = create<SegmentationState>()(
       pendingIds: [],
       selectedId: null,
       reviewSelectedId: null,
-      program: 'all',
-      lowAffinityOnly: false,
-      lights: [],
-      reviewTab: 'all',
       run: IDLE_RUN,
       evaluation: null,
       hydrate: (profiles) =>
@@ -152,17 +137,6 @@ export const useSegmentationStore = create<SegmentationState>()(
       markSent: (id, kind) => set((state) => ({ sent: { ...state.sent, [id]: kind } })),
       select: (selectedId) => set({ selectedId }),
       selectReview: (reviewSelectedId) => set({ reviewSelectedId }),
-      setProgram: (program) => set({ program }),
-      setLowAffinityOnly: (lowAffinityOnly) => set({ lowAffinityOnly }),
-      toggleLight: (light) =>
-        set((state) => ({
-          lights: state.lights.includes(light)
-            ? state.lights.filter((item) => item !== light)
-            : [...state.lights, light],
-        })),
-      clearLights: () => set({ lights: [] }),
-      clearFilters: () => set({ lights: [], lowAffinityOnly: false }),
-      setReviewTab: (reviewTab) => set({ reviewTab }),
       setRun: (run) => set((state) => ({ run: { ...state.run, ...run } })),
       setEvaluation: (evaluation) => set({ evaluation }),
     }),

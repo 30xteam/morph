@@ -1,5 +1,6 @@
 import { useSegmentationStore } from '../store/segmentation-store';
 import { type ProfileStatus, profileStatus } from '../utils/profile-status';
+import { useLiveFilters } from './use-live-filters';
 
 export const LIGHT_ORDER: ProfileStatus[] = ['green', 'yellow', 'red', 'review', 'pending'];
 
@@ -7,9 +8,7 @@ export function useLightCounts() {
   const profiles = useSegmentationStore((state) => state.profiles);
   const history = useSegmentationStore((state) => state.history);
   const flagged = useSegmentationStore((state) => state.flagged);
-  const program = useSegmentationStore((state) => state.program);
-  const lights = useSegmentationStore((state) => state.lights);
-  const lowAffinityOnly = useSegmentationStore((state) => state.lowAffinityOnly);
+  const { program, lights, lowAffinityOnly } = useLiveFilters();
 
   const counts: Record<ProfileStatus, number> = {
     green: 0,

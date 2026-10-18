@@ -4,9 +4,11 @@ import { usePathname } from 'next/navigation';
 
 import { useProgressRouter } from '@/ui';
 
+import { liveHref } from '../../config/url-params';
 import { useConsoleCounts } from '../../hooks/use-console-counts';
+import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
-import { type ProgramFilter, useSegmentationStore } from '../../store/segmentation-store';
+import type { ProgramFilter } from '../../store/segmentation-store';
 import type { NavIconName } from './nav-icon';
 import { PROGRAM_ORDER } from './program-order';
 
@@ -36,8 +38,7 @@ export function useSidebarNav() {
   const pathname = usePathname();
   const router = useProgressRouter();
   const counts = useConsoleCounts();
-  const program = useSegmentationStore((state) => state.program);
-  const setProgram = useSegmentationStore((state) => state.setProgram);
+  const { program, setProgram } = useLiveFilters();
 
   const isActive = (value: ProgramFilter) => pathname === '/' && program === value;
   const segments: SegmentLink[] = [
@@ -59,8 +60,8 @@ export function useSidebarNav() {
   }));
 
   const openSegment = (value: ProgramFilter) => {
-    setProgram(value);
-    if (pathname !== '/') router.push('/');
+    if (pathname === '/') setProgram(value);
+    else router.push(liveHref('/', { program: value }));
   };
 
   return { segments, workflow, openSegment };
