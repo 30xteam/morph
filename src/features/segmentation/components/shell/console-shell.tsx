@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useLumaFeed } from '../../hooks/use-luma-feed';
 import { hydrateProfiles, useSegmentationStore } from '../../store/segmentation-store';
 import type { Profile } from '../../types/segmentation.types';
+import { OnboardingDialog } from '../onboarding/onboarding-dialog';
 import { ConsoleSidebar } from './console-sidebar';
 import { ConsoleTopbar } from './console-topbar';
 
@@ -26,6 +27,7 @@ export function ConsoleShell({ profiles, children }: ConsoleShellProps) {
       <ConsoleSidebar />
       <ConsoleTopbar />
       <main className="flex min-w-0 flex-1 flex-col">{children}</main>
+      <OnboardingDialog />
     </div>
   );
 }
