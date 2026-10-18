@@ -12,7 +12,7 @@ export function ProgramSelect() {
   const setProgram = useSegmentationStore((state) => state.setProgram);
 
   return (
-    <label className="flex flex-col gap-1.5 px-5 text-label-xs text-ink-soft desktop:hidden">
+    <label className="flex flex-col gap-1.5 text-label-xs text-ink-soft desktop:hidden">
       {m.nav.segments}
       <select
         value={program}

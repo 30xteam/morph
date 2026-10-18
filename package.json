@@ -26,6 +26,7 @@
     "@ebay/nice-modal-react": "^1.2.13",
     "@hookform/resolvers": "^5.9.1",
     "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-popover": "^1.3.1",
     "@radix-ui/react-slot": "^1.5.0",
     "@tanstack/react-query": "^5.104.3",
     "@tanstack/react-table": "^9.3.1",

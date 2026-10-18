@@ -10,6 +10,7 @@ import type {
   ReviewVerdict,
   SegmentationOutcome,
 } from '../types/segmentation.types';
+import type { ProfileStatus } from '../utils/profile-status';
 
 export type ProgramFilter = ProgramKey | 'all';
 export type ListTab = 'all' | 'review' | 'low_affinity';
@@ -44,6 +45,7 @@ interface SegmentationState {
   reviewSelectedId: string | null;
   program: ProgramFilter;
   listTab: ListTab;
+  lights: ProfileStatus[];
   reviewTab: ReviewTab;
   run: BatchRun;
   evaluation: SegmentationEvaluation | null;
@@ -60,6 +62,8 @@ interface SegmentationState {
   selectReview: (id: string | null) => void;
   setProgram: (program: ProgramFilter) => void;
   setListTab: (tab: ListTab) => void;
+  toggleLight: (light: ProfileStatus) => void;
+  clearLights: () => void;
   setReviewTab: (tab: ReviewTab) => void;
   setRun: (run: Partial<BatchRun>) => void;
   setEvaluation: (evaluation: SegmentationEvaluation) => void;
@@ -110,6 +114,7 @@ export const useSegmentationStore = create<SegmentationState>()(
       reviewSelectedId: null,
       program: 'all',
       listTab: 'all',
+      lights: [],
       reviewTab: 'all',
       run: IDLE_RUN,
       evaluation: null,
@@ -149,6 +154,13 @@ export const useSegmentationStore = create<SegmentationState>()(
       selectReview: (reviewSelectedId) => set({ reviewSelectedId }),
       setProgram: (program) => set({ program }),
       setListTab: (listTab) => set({ listTab }),
+      toggleLight: (light) =>
+        set((state) => ({
+          lights: state.lights.includes(light)
+            ? state.lights.filter((item) => item !== light)
+            : [...state.lights, light],
+        })),
+      clearLights: () => set({ lights: [] }),
       setReviewTab: (reviewTab) => set({ reviewTab }),
       setRun: (run) => set((state) => ({ run: { ...state.run, ...run } })),
       setEvaluation: (evaluation) => set({ evaluation }),

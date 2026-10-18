@@ -34,6 +34,7 @@
   --role-danger: var(--ds-color-danger-dark);
   --role-shadow-raised: var(--ds-shadow-raised-dark);
   --role-shadow-modal: var(--ds-shadow-modal-dark);
+  --viewport-desktop: --theme(--breakpoint-desktop);
 }
 
 :root[data-theme='light'] {
