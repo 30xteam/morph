@@ -4,10 +4,10 @@ import { useMemo } from 'react';
 
 import { Button, useProgressRouter } from '@/ui';
 
+import { liveHref } from '../../config/url-params';
 import type { GraphView } from '../../hooks/use-graph-view';
 import { useMessages } from '../../hooks/use-messages';
 import { graphNeighborhood } from '../../services/build-profile-graph';
-import { useSegmentationStore } from '../../store/segmentation-store';
 import type { GraphNode } from '../../types/graph.types';
 import { PriorityBadge } from '../priority-badge';
 import { CloseIcon } from './graph-icons';
@@ -16,7 +16,6 @@ import { GraphProgramSummary } from './graph-program-summary';
 export function GraphDetails({ view, selected }: { view: GraphView; selected: GraphNode }) {
   const m = useMessages();
   const router = useProgressRouter();
-  const openProfile = useSegmentationStore((state) => state.select);
   const summary = view.summaries.get(selected.id);
   const connections = useMemo(() => {
     const neighbors = graphNeighborhood(view.graph, selected.id);
@@ -55,8 +54,7 @@ export function GraphDetails({ view, selected }: { view: GraphView; selected: Gr
       {profileId ? (
         <Button
           onClick={() => {
-            openProfile(profileId);
-            router.push('/');
+            router.push(liveHref('/', { profile: profileId }));
           }}
         >
           {m.graph.openProfile}
