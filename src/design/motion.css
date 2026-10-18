@@ -7,6 +7,7 @@
   --animate-fill: fill 900ms var(--ease-out-strong) both;
   --animate-highlight: highlight 400ms var(--ease-out-strong) both;
   --animate-sheet: sheet 400ms var(--ease-out-strong) both;
+  --animate-loader-pulse: loader-pulse 1200ms ease-in-out infinite;
 }
 
 @keyframes enter {
@@ -52,5 +53,15 @@
 @keyframes sheet {
   from {
     transform: translateY(100%);
+  }
+}
+
+@keyframes loader-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
   }
 }

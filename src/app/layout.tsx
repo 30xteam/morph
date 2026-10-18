@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { SITE } from '@/core/config/site';
 import { DEFAULT_THEME, PreferencesScript } from '@/core/preferences';
 import { AppProviders } from '@/core/providers/app-providers';
 import { fontVariables } from '@/design/fonts';
+import { TopLoader } from '@/ui';
 
 import './globals.css';
 
@@ -25,6 +27,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <PreferencesScript />
       </head>
       <body className="flex min-h-dvh flex-col">
+        <Suspense>
+          <TopLoader />
+        </Suspense>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

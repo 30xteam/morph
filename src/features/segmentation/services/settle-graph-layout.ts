@@ -4,6 +4,7 @@ import type { SigmaGraph } from './to-graphology';
 interface SettleOptions {
   computeMs: number;
   tweenMs: number;
+  onLaidOut?: () => void;
 }
 
 function easeOutCubic(progress: number) {
@@ -51,7 +52,7 @@ function tweenPositions(graph: SigmaGraph, target: SigmaGraph, duration: number)
 export function settleGraphLayout(
   graph: SigmaGraph,
   libraries: GraphLibraries,
-  { computeMs, tweenMs }: SettleOptions,
+  { computeMs, tweenMs, onLaidOut }: SettleOptions,
 ) {
   const shadow = graph.copy();
   const layout = new libraries.Layout(shadow, {
@@ -65,6 +66,7 @@ export function settleGraphLayout(
   const timer = setTimeout(() => {
     layout.kill();
     cancelTween = tweenPositions(graph, shadow, tweenMs);
+    onLaidOut?.();
   }, computeMs);
   return () => {
     clearTimeout(timer);
