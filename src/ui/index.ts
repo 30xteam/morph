@@ -9,3 +9,6 @@ export { useProgressRouter } from './top-loader/use-progress-router';
 export { Toaster } from './toaster/toaster';
 export { toast } from 'sonner';
 export { notify } from './toaster/notify';
+export { playToastSound } from './toaster/toast-sound';
+export type { ToastSound } from './toaster/toast-sound';
+export { useSoundOn } from './toaster/use-sound-on';

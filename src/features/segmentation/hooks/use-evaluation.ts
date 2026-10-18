@@ -1,5 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
+import { playToastSound } from '@/ui';
+
 import { SegmentationService } from '../services/segmentation.service';
 import { useSegmentationStore } from '../store/segmentation-store';
 
@@ -10,6 +12,10 @@ export function useEvaluation() {
   return useMutation({
     mutationKey: ['segmentation', 'evaluate'],
     mutationFn: () => SegmentationService.evaluate('single', EVALUATION_SIZE),
-    onSuccess: setEvaluation,
+    onSuccess: (evaluation) => {
+      setEvaluation(evaluation);
+      playToastSound('success');
+    },
+    onError: () => playToastSound('error'),
   });
 }

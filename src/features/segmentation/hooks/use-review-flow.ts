@@ -65,9 +65,10 @@ export function useReviewFlow(items: ReviewItem[]) {
         ? { verdict: 'approved' }
         : { verdict: 'corrected', program: choice },
     );
-    const left = items.filter((item) => !reviews[item.profile.id]).length - 1;
-    notify.success(m.review.labeled(m.programs[choice]), {
-      description: m.review.labeledBody(id, Math.max(left, 0)),
+    const left = Math.max(items.filter((item) => !reviews[item.profile.id]).length - 1, 0);
+    const show = left ? notify.success : notify.complete;
+    show(left ? m.review.labeled(m.programs[choice]) : m.review.queueDone, {
+      description: left ? m.review.labeledBody(id, left) : m.review.queueDoneBody,
       action: { label: m.review.undoLast, onClick: () => undo(id) },
     });
     next();

@@ -3,6 +3,7 @@
 import { usePreferences } from '@/core/preferences';
 
 import { useMessages } from '../hooks/use-messages';
+import { SoundToggle } from './sound-toggle';
 import { SegmentedControl } from './ui/segmented-control';
 
 const LANGUAGES = [
@@ -31,6 +32,7 @@ export function PreferenceToggles() {
         ]}
         onChange={setTheme}
       />
+      <SoundToggle />
     </div>
   );
 }

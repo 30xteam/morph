@@ -184,6 +184,8 @@ export const es: Messages = {
     labeledBody: (id, left) => `${id} · quedan ${left} en la cola`,
     skippedBody: (id) => `${id} · puedes volver a él más tarde.`,
     undone: (id) => `Deshecho: ${id} vuelve a la cola`,
+    queueDone: 'Cola de revisión terminada',
+    queueDoneBody: 'Todos los perfiles en que Jev dudaba ya tienen la etiqueta de una persona.',
     undo: 'Deshacer',
   },
   metrics: {
@@ -296,5 +298,7 @@ export const es: Messages = {
     theme: 'Tema',
     dark: 'Oscuro',
     light: 'Claro',
+    soundOn: 'Sonidos activados. Desactivar',
+    soundOff: 'Sonidos desactivados. Activar',
   },
 };
