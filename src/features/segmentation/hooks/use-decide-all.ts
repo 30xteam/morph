@@ -1,3 +1,5 @@
+import { playToastSound } from '@/ui';
+
 import { SegmentationService } from '../services/segmentation.service';
 import { useSegmentationStore } from '../store/segmentation-store';
 import { BATCH_LIMIT } from '../types/segment-batch-request.schema';
@@ -66,6 +68,8 @@ export function useDecideAll() {
     if (!isCancelled()) setRun({ batch: batches.length + 1 });
     await wait(CLOSE_PAUSE_MS);
     setRun({ ...tally, running: false, elapsedMs });
+    if (tally.failed) playToastSound('error');
+    else if (!isCancelled()) playToastSound('success');
   }
 
   return { decideAll, cancel: () => setRun({ cancelled: true }) };

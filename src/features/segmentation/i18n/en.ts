@@ -182,6 +182,8 @@ export const en = {
     labeledBody: (id: string, left: number) => `${id} · ${left} left in the queue`,
     skippedBody: (id: string) => `${id} · you can come back to it later.`,
     undone: (id: string) => `Undone: ${id} is back in the queue`,
+    queueDone: 'Review queue done',
+    queueDoneBody: 'Every profile Jev was unsure about now has a person’s label.',
     undo: 'Undo',
   },
   metrics: {
@@ -297,6 +299,8 @@ export const en = {
     theme: 'Theme',
     dark: 'Dark',
     light: 'Light',
+    soundOn: 'Sounds on. Turn off',
+    soundOff: 'Sounds off. Turn on',
   },
 };
 
