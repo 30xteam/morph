@@ -40,7 +40,7 @@ function save(name: string, markdown: string, data: Json) {
 
 async function smoke() {
   const profiles = JSON.parse(
-    readFileSync(join(ROOT, 'src/features/segmentation/data/crm-sample.json'), 'utf8'),
+    readFileSync(join(ROOT, 'src/libs/segmentation/data/crm-sample.json'), 'utf8'),
   ) as Json[];
   const profile = {
     ...profiles[0],
@@ -182,7 +182,7 @@ ${transitions || 'None.'}
 
 async function states() {
   const profiles = JSON.parse(
-    readFileSync(join(ROOT, 'src/features/segmentation/data/profiles-30x.json'), 'utf8'),
+    readFileSync(join(ROOT, 'src/libs/segmentation/data/profiles-30x.json'), 'utf8'),
   ) as Json[];
   const expected = new Set(['auto', 'review', 'escalate']);
   for (const stored of profiles.slice(0, 100)) {

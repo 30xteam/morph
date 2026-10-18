@@ -1,7 +1,5 @@
 import 'server-only';
-import type { LumaFeed, LumaFeedEntry } from '../types/luma-feed.types';
-import type { LumaEvent, LumaGuest } from '../types/luma.schema';
-import type { Profile } from '../types/segmentation.types';
+import type { LumaFeed, LumaFeedEntry, LumaEvent, LumaGuest, Profile } from '@/libs/segmentation';
 
 interface StoredGuest {
   guest: LumaGuest;

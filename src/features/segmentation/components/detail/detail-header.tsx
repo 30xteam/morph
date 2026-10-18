@@ -1,10 +1,9 @@
 'use client';
 
 import { usePreferences } from '@/core/preferences';
+import { countryName, type Profile } from '@/libs/segmentation';
 
 import { useMessages } from '../../hooks/use-messages';
-import { countryName } from '../../i18n/values';
-import type { Profile } from '../../types/segmentation.types';
 import { roleKey } from '../../utils/role-key';
 import { PreferenceToggles } from '../preference-toggles';
 

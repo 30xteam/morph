@@ -1,10 +1,12 @@
+import {
+  SegmentationService,
+  useSegmentationStore,
+  type Profile,
+  profileStatus,
+} from '@/libs/segmentation';
 import { playToastSound } from '@/ui';
 
-import { SegmentationService } from '../services/segmentation.service';
-import { useSegmentationStore } from '../store/segmentation-store';
 import { BATCH_LIMIT } from '../types/segment-batch-request.schema';
-import type { Profile } from '../types/segmentation.types';
-import { profileStatus } from '../utils/profile-status';
 
 function chunks<T>(items: T[], size: number) {
   return Array.from({ length: Math.ceil(items.length / size) }, (_, index) =>

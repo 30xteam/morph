@@ -1,7 +1,6 @@
 import { useQueryStates } from 'nuqs';
 
-import { PROFILE_URL_KEYS, profileParams } from '../config/url-params';
-import { useSegmentationStore } from '../store/segmentation-store';
+import { PROFILE_URL_KEYS, profileParams, useSegmentationStore } from '@/libs/segmentation';
 
 export function useSelectedProfile() {
   const firstId = useSegmentationStore((state) => state.profiles[0]?.id ?? null);

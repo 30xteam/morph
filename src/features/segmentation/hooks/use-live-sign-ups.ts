@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { SegmentationService } from '../services/segmentation.service';
+import { SegmentationService } from '@/libs/segmentation';
 
 const EVERY_MS = 3000;
 

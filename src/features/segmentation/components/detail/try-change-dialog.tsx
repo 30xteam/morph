@@ -2,12 +2,11 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 
+import { type ActivityTrigger, applyTrigger, useSegmentationStore } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useSegmentProfile } from '../../hooks/use-segment-profile';
-import { type ActivityTrigger, applyTrigger } from '../../services/apply-trigger';
-import { useSegmentationStore } from '../../store/segmentation-store';
 import { EditProfileForm } from './edit-profile-form';
 
 const ACTIVITIES: ActivityTrigger[] = ['attended_event', 'role_change', 'funding_round'];

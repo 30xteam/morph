@@ -1,12 +1,16 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import {
+  THRESHOLD_STEPS,
+  THRESHOLDS,
+  type SegmentationEvaluation,
+  type ThresholdRow,
+  formatPercent,
+} from '@/libs/segmentation';
 
-import { THRESHOLD_STEPS, THRESHOLDS } from '../../config/thresholds';
 import { EVALUATION_SIZE } from '../../hooks/use-evaluation';
 import { useMessages } from '../../hooks/use-messages';
-import type { SegmentationEvaluation, ThresholdRow } from '../../types/evaluation.types';
-import { formatPercent } from '../../utils/format';
 import { ThresholdChart } from './threshold-chart';
 
 const CELL = 'px-3 text-right';

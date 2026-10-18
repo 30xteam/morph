@@ -1,6 +1,4 @@
-import { NO_ACTIVITY } from '../config/signals';
-import type { LumaEvent, LumaGuest } from '../types/luma.schema';
-import type { Profile } from '../types/segmentation.types';
+import { NO_ACTIVITY, type LumaEvent, type LumaGuest, type Profile } from '@/libs/segmentation';
 
 export const LUMA_QUESTIONS = {
   role: 'Rol',

@@ -2,9 +2,9 @@
 
 import { useMemo } from 'react';
 
+import { liveHref } from '@/libs/segmentation';
 import { Button, useProgressRouter } from '@/ui';
 
-import { liveHref } from '../../config/url-params';
 import type { GraphView } from '../../hooks/use-graph-view';
 import { useMessages } from '../../hooks/use-messages';
 import { graphNeighborhood } from '../../services/build-profile-graph';

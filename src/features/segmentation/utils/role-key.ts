@@ -1,4 +1,4 @@
-import type { Profile, SegmentKey } from '../types/segmentation.types';
+import type { Profile, SegmentKey } from '@/libs/segmentation';
 
 const ROLE_KEYS: Record<string, SegmentKey> = {
   'Fundador, socio o CEO': 'founder',

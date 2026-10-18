@@ -1,6 +1,12 @@
-import { type ReviewTab, useSegmentationStore } from '../store/segmentation-store';
-import type { Profile, ReviewReason, SegmentationOutcome } from '../types/segmentation.types';
-import { needsPerson } from '../utils/profile-status';
+import {
+  type ReviewTab,
+  useSegmentationStore,
+  type Profile,
+  type ReviewReason,
+  type SegmentationOutcome,
+  needsPerson,
+} from '@/libs/segmentation';
+
 import { useReviewTab } from './use-review-tab';
 
 export interface ReviewItem {

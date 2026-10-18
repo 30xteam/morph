@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 
-import type { ProgramFilter } from '../../store/segmentation-store';
+import type { ProgramFilter } from '@/libs/segmentation';
+
 import { NavIcon } from './nav-icon';
 import { navItemClasses } from './nav-link-classes';
 import type { SegmentLink, WorkflowLink } from './use-sidebar-nav';

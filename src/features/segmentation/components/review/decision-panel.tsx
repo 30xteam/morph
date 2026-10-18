@@ -3,13 +3,12 @@
 import { useId } from 'react';
 
 import { cx } from '@/core/cx';
+import { useSegmentationStore, type ProgramKey } from '@/libs/segmentation';
 import { Button, Panel, RadioOption } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { choicesFor } from '../../hooks/use-review-flow';
 import type { ReviewItem } from '../../hooks/use-review-items';
-import { useSegmentationStore } from '../../store/segmentation-store';
-import type { ProgramKey } from '../../types/segmentation.types';
 
 interface DecisionPanelProps {
   item: ReviewItem;

@@ -1,6 +1,4 @@
-import { useSegmentationStore } from '../store/segmentation-store';
-import { profileStatus } from '../utils/profile-status';
-import { useLiveFilters } from './use-live-filters';
+import { useSegmentationStore, profileStatus, useLiveFilters } from '@/libs/segmentation';
 
 export function useVisibleProfiles() {
   const profiles = useSegmentationStore((state) => state.profiles);

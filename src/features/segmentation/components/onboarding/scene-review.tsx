@@ -15,7 +15,7 @@ export function SceneReview() {
     <div className="flex w-full max-w-80 flex-col gap-3 rounded-md border border-line bg-card p-3.5 motion-safe:animate-enter">
       <div className="flex items-center justify-between gap-2">
         <span className="text-label-sm text-ink">{m.roles.founder}</span>
-        <TagBadge tone="warning">{m.review.lowConfidence}</TagBadge>
+        <TagBadge tone="warning">{m.reasons.lowConfidence}</TagBadge>
       </div>
       <p className="text-caption text-ink-soft">{copy.guess}</p>
       <div className="grid grid-cols-2 gap-1.5">

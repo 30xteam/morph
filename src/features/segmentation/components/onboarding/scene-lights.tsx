@@ -1,14 +1,15 @@
 'use client';
 
+import { StatusBadge } from '@/libs/segmentation';
+
 import { useMessages } from '../../hooks/use-messages';
-import { StatusBadge } from '../ui/status-badge';
 import { sceneDelay } from './scene-delay';
 
 const STATUSES = ['green', 'yellow', 'red', 'pending'] as const;
 
 export function SceneLights() {
   const m = useMessages();
-  const rows = m.list.lightMeanings;
+  const rows = m.lightMeanings;
   return (
     <ul className="grid w-full max-w-80 grid-cols-[max-content_1fr] gap-y-1.5">
       {STATUSES.map((status, index) => (

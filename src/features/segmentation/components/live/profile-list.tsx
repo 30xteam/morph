@@ -2,14 +2,12 @@
 
 import { cx } from '@/core/cx';
 import { useNow } from '@/core/hooks';
+import { useConsoleCounts, useLiveFilters, useSegmentationStore } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
-import { useConsoleCounts } from '../../hooks/use-console-counts';
-import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
 import { useSelectedProfile } from '../../hooks/use-selected-profile';
 import { useVisibleProfiles } from '../../hooks/use-visible-profiles';
-import { useSegmentationStore } from '../../store/segmentation-store';
 import { DecideAll } from './decide-all';
 import { LightFilter } from './light-filter';
 import { LowAffinityToggle } from './low-affinity-toggle';

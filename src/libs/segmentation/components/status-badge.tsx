@@ -1,7 +1,7 @@
 import { cx } from '@/core/cx';
 
-import { useMessages } from '../../hooks/use-messages';
-import type { ProfileStatus } from '../../utils/profile-status';
+import { useSharedMessages } from '../hooks/use-shared-messages';
+import type { ProfileStatus } from '../utils/profile-status';
 
 const TONE: Record<ProfileStatus | 'deciding', string> = {
   green: 'bg-green-bg text-green-fg',
@@ -13,7 +13,7 @@ const TONE: Record<ProfileStatus | 'deciding', string> = {
 };
 
 export function StatusBadge({ status }: { status: ProfileStatus | 'deciding' }) {
-  const m = useMessages();
+  const m = useSharedMessages();
   return (
     <span
       className={cx(

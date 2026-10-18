@@ -1,9 +1,13 @@
 'use client';
 
-import { useConsoleCounts } from '../../hooks/use-console-counts';
+import {
+  useConsoleCounts,
+  type ProgramFilter,
+  PROGRAM_ORDER,
+  useLiveFilters,
+} from '@/libs/segmentation';
+
 import { useMessages } from '../../hooks/use-messages';
-import type { ProgramFilter } from '../../store/segmentation-store';
-import { PROGRAM_ORDER } from '../shell/program-order';
 
 export function ProgramSelect() {
   const m = useMessages();
@@ -30,4 +34,3 @@ export function ProgramSelect() {
     </label>
   );
 }
-import { useLiveFilters } from '../../hooks/use-live-filters';

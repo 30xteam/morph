@@ -2,14 +2,17 @@
 
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
+import {
+  countryCode,
+  type Profile,
+  type SegmentationOutcome,
+  timeAgo,
+  profileStatus,
+  StatusBadge,
+} from '@/libs/segmentation';
 
 import { useMessages } from '../../hooks/use-messages';
-import { countryCode } from '../../i18n/values';
-import type { Profile, SegmentationOutcome } from '../../types/segmentation.types';
-import { timeAgo } from '../../utils/format';
-import { profileStatus } from '../../utils/profile-status';
 import { roleKey } from '../../utils/role-key';
-import { StatusBadge } from '../ui/status-badge';
 
 interface ProfileRowProps {
   profile: Profile;

@@ -1,10 +1,10 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import type { BatchRun } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import type { BatchRun } from '../../store/segmentation-store';
 
 interface DecideProgressProps {
   open: boolean;

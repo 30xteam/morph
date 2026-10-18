@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { profileSchema } from './profile.schema';
+import { profileSchema } from '@/libs/segmentation';
 
 export const previousOutcomeSchema = z.looseObject({
   profileId: z.string(),

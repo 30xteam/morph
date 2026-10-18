@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
-import { profileSchema } from './profile.schema';
+import { profileSchema } from '@/libs/segmentation';
+
 import { TRIGGERS } from './segment-request.schema';
 
 export const BATCH_LIMIT = 50;

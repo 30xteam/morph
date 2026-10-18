@@ -1,6 +1,6 @@
 import { useQueryStates } from 'nuqs';
 
-import { reviewParams } from '../config/url-params';
+import { reviewParams } from '@/libs/segmentation';
 
 export function useReviewTab() {
   const [{ tab }, setParams] = useQueryStates(reviewParams);

@@ -3,7 +3,6 @@ import 'server-only';
 export { evaluateSegmentation } from './services/evaluate-segmentation';
 export { handleLumaWebhook } from './services/handle-luma-webhook';
 export { segmentBatch } from './services/segment-batch';
-export { segmentProfile } from './services/segment-profile';
 export {
   previewLumaWebhook,
   readLumaFeed,

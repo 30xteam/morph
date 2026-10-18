@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react';
 
+import { useSegmentationStore, type ProgramKey } from '@/libs/segmentation';
 import { notify } from '@/ui';
 
-import { useSegmentationStore } from '../store/segmentation-store';
-import type { ProgramKey } from '../types/segmentation.types';
 import { useMessages } from './use-messages';
 import type { ReviewItem } from './use-review-items';
 import { useSelectedProfile } from './use-selected-profile';

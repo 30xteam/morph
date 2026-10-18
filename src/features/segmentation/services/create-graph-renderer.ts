@@ -3,7 +3,8 @@ import type FA2Layout from 'graphology-layout-forceatlas2/worker';
 import type { Attributes } from 'graphology-types';
 import type Sigma from 'sigma';
 
-import type { PriorityLevel } from './profile-priority';
+import type { PriorityLevel } from '@/libs/segmentation';
+
 import type {
   GraphEdgeAttributes,
   GraphNodeAttributes,

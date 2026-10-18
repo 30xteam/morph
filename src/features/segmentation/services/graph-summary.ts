@@ -1,6 +1,6 @@
+import { PRIORITY_LEVELS, type PriorityLevel } from '@/libs/segmentation';
+
 import type { GraphNode, ProfileGraph } from '../types/graph.types';
-import { PRIORITY_LEVELS } from './profile-priority';
-import type { PriorityLevel } from './profile-priority';
 
 export type LevelCounts = Record<PriorityLevel, number>;
 

@@ -1,8 +1,8 @@
 'use client';
 
+import { THRESHOLDS } from '@/libs/segmentation';
 import { Panel } from '@/ui';
 
-import { THRESHOLDS } from '../../config/thresholds';
 import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
 import { ProbabilityBars } from '../ui/probability-bars';
@@ -10,7 +10,7 @@ import { ProbabilityBars } from '../ui/probability-bars';
 export function WhyPanel({ item }: { item: ReviewItem }) {
   const m = useMessages();
   const { program, meta } = item.outcome;
-  const reason = item.reason === 'low_info' ? m.review.lowInfo : m.review.lowConfidence;
+  const reason = item.reason === 'low_info' ? m.reasons.lowInfo : m.reasons.lowConfidence;
   const bars = [program, ...program.alternatives].map((choice) => ({
     key: choice.value,
     label: m.programs[choice.value],

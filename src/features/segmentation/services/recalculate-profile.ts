@@ -1,7 +1,8 @@
 import 'server-only';
+import type { Profile, RecalculateResult, SegmentationOutcome } from '@/libs/segmentation';
+import { segmentProfile } from '@/libs/segmentation/server';
+
 import type { RecalculateRequest } from '../types/recalculate-request.schema';
-import type { Profile, RecalculateResult, SegmentationOutcome } from '../types/segmentation.types';
-import { segmentProfile } from './segment-profile';
 
 export async function recalculateProfile(
   profile: Profile,

@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 
 import { PreferencesProvider } from '@/core/preferences';
 import { getPreferences } from '@/core/preferences/server';
+import { PROFILES_30X } from '@/libs/segmentation/server';
 
-import { PROFILES_30X } from '../../data/dataset';
 import { ConsoleShell } from './console-shell';
 
 export async function ConsoleLayout({ children }: { children: ReactNode }) {

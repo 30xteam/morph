@@ -1,9 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
+import { SegmentationService, useSegmentationStore } from '@/libs/segmentation';
 import { playToastSound } from '@/ui';
-
-import { SegmentationService } from '../services/segmentation.service';
-import { useSegmentationStore } from '../store/segmentation-store';
 
 export const EVALUATION_SIZE = 150;
 

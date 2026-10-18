@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 
-import { SegmentationService } from '../services/segmentation.service';
-import { useSegmentationStore } from '../store/segmentation-store';
+import { SegmentationService, useSegmentationStore } from '@/libs/segmentation';
 
 const POLL_MS = 1500;
 const LUMA_FEED_KEY = ['segmentation', 'luma-feed'];

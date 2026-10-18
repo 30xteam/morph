@@ -1,4 +1,4 @@
-import type { ProfilePriority } from '../services/profile-priority';
+import type { ProfilePriority } from '@/libs/segmentation';
 
 export type GraphNodeKind = 'profile' | 'program' | 'interest';
 

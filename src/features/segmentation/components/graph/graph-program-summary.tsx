@@ -1,11 +1,10 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { PRIORITY_LEVELS, type PriorityLevel } from '@/libs/segmentation';
 
 import { useMessages } from '../../hooks/use-messages';
 import type { ProgramSummary } from '../../services/graph-summary';
-import { PRIORITY_LEVELS } from '../../services/profile-priority';
-import type { PriorityLevel } from '../../services/profile-priority';
 
 const BAR: Record<PriorityLevel, string> = {
   high: 'bg-green-fg',

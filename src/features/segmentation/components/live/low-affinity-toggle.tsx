@@ -21,4 +21,4 @@ export function LowAffinityToggle() {
     </label>
   );
 }
-import { useLiveFilters } from '../../hooks/use-live-filters';
+import { useLiveFilters } from '@/libs/segmentation';

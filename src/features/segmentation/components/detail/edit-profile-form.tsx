@@ -5,12 +5,10 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { usePreferences } from '@/core/preferences';
+import { translateValue, ROLE_OPTIONS, type Profile } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import { translateValue } from '../../i18n/values';
-import { ROLE_OPTIONS } from '../../types/profile.schema';
-import type { Profile } from '../../types/segmentation.types';
 
 const editSchema = z.object({
   role: z.enum(ROLE_OPTIONS),

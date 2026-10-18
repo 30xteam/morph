@@ -1,8 +1,8 @@
 import { MultiGraph } from 'graphology';
 
+import type { ProgramKey, PriorityLevel } from '@/libs/segmentation';
+
 import type { GraphEdge, GraphNode, GraphNodeKind, ProfileGraph } from '../types/graph.types';
-import type { ProgramKey } from '../types/segmentation.types';
-import type { PriorityLevel } from './profile-priority';
 
 export type GraphTone =
   | 'ink-muted'

@@ -1,4 +1,4 @@
-import type { ProgramKey } from '../../types/segmentation.types';
+import type { ProgramKey } from '../types/segmentation.types';
 
 export const PROGRAM_ORDER: ProgramKey[] = [
   'ai_sales',

@@ -5,14 +5,13 @@ import { useState } from 'react';
 import { cx } from '@/core/cx';
 import { useNow } from '@/core/hooks';
 import { usePreferences } from '@/core/preferences';
+import { type ReviewTab, useSegmentationStore, timeAgo } from '@/libs/segmentation';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useReviewFlow } from '../../hooks/use-review-flow';
 import { useReviewItems } from '../../hooks/use-review-items';
 import { useReviewShortcuts } from '../../hooks/use-review-shortcuts';
 import { useReviewTab } from '../../hooks/use-review-tab';
-import { type ReviewTab, useSegmentationStore } from '../../store/segmentation-store';
-import { timeAgo } from '../../utils/format';
 import { ListTabs } from '../live/list-tabs';
 import { ReviewDetail } from './review-detail';
 import { ReviewRow } from './review-row';
@@ -39,8 +38,8 @@ export function ReviewQueue() {
 
   const tabs: { value: ReviewTab; label: string; count: number }[] = [
     { value: 'all', label: m.review.all, count: total },
-    { value: 'low_confidence', label: m.review.lowConfidence, count: lowConfidence },
-    { value: 'low_info', label: m.review.lowInfo, count: lowInfo },
+    { value: 'low_confidence', label: m.reasons.lowConfidence, count: lowConfidence },
+    { value: 'low_info', label: m.reasons.lowInfo, count: lowInfo },
   ];
 
   return (

@@ -1,53 +1,11 @@
+import { sharedEn } from '@/libs/segmentation';
+
 import { onboardingEn } from './onboarding-en';
 
 const percent = (p: number) => `${Math.round(p * 100)}%`;
 
 export const en = {
-  nav: {
-    segments: 'Segments',
-    allProfiles: 'All profiles',
-    workflow: 'Workflow',
-    review: 'Review queue',
-    metrics: 'Metrics',
-    graph: 'Graph',
-    label: 'Console',
-  },
-  programs: {
-    ai_sales: 'AI Sales',
-    inmersion_ejecutiva: 'Inmersión Ejecutiva',
-    sales_machine: 'Sales Machine',
-    hardcore_ai: 'Hardcore AI',
-    achievers: 'Achievers',
-    none: 'No program',
-  },
-  affinity: {
-    low: 'Low affinity',
-    medium: 'Medium affinity',
-    high: 'High affinity',
-    very_high: 'Very high affinity',
-  },
-  match: {
-    low: 'Low match',
-    medium: 'Medium match',
-    high: 'High match',
-    very_high: 'Very high match',
-  },
-  roles: {
-    founder: 'Founder / CEO',
-    executive: 'Executive',
-    sales_leader: 'Sales leader',
-    manager: 'Manager',
-    technical: 'Technical profile',
-    unknown: 'No data',
-  },
-  status: {
-    green: 'Green',
-    yellow: 'Yellow',
-    red: 'Red',
-    review: 'Review',
-    pending: 'Not evaluated',
-    deciding: 'Deciding',
-  },
+  ...sharedEn,
   list: {
     title: 'Live segments',
     subtitle: 'Recalculated whenever a profile changes',
@@ -61,16 +19,6 @@ export const en = {
     clearFilters: 'Clear filters',
     lightsHelp: 'What each color means',
     lightsHelpClose: 'Close',
-    lightMeanings: {
-      green: { meaning: 'Strong potential client', action: 'Write to them soon' },
-      yellow: { meaning: 'Possible client', action: 'Follow up' },
-      red: { meaning: 'Unlikely', action: 'Passive contact for now' },
-      review: {
-        meaning: 'Needs a person',
-        action: 'Jev is not sure: confirm it in the review queue',
-      },
-      pending: { meaning: 'Not through Jev yet', action: 'Decide it with Jev to give it a color' },
-    },
     empty: 'No profiles here yet.',
     decideAll: (count: number) => `Decide ${count} with Jev`,
     decideAgain: (count: number) => `Decide all ${count} again`,
@@ -165,8 +113,6 @@ export const en = {
     undoLast: 'Undo',
     shortcuts: 'Keys: J/K move · 1–4 choose · Enter confirm · S skip',
     all: 'All',
-    lowConfidence: 'Low confidence',
-    lowInfo: 'Missing fields',
     lowInfoBadge: (missing: number) => `Missing fields · ${missing}`,
     jevGuess: (program: string, p: number) => `Jev: ${program} ${percent(p)}`,
     empty: 'Nothing waiting for a person. Decide profiles first, or everything was clear.',

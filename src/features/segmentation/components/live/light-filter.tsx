@@ -1,11 +1,10 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { useLiveFilters, type ProfileStatus } from '@/libs/segmentation';
 
 import { LIGHT_ORDER, useLightCounts } from '../../hooks/use-light-counts';
-import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
-import type { ProfileStatus } from '../../utils/profile-status';
 import { LightHelp } from './light-help';
 
 const CHIP =

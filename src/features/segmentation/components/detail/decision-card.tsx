@@ -1,9 +1,9 @@
 'use client';
 
+import type { SegmentationOutcome } from '@/libs/segmentation';
 import { Panel } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import type { SegmentationOutcome } from '../../types/segmentation.types';
 import { ProbabilityBars } from '../ui/probability-bars';
 
 export function DecisionCard({ outcome }: { outcome: SegmentationOutcome }) {
@@ -14,7 +14,7 @@ export function DecisionCard({ outcome }: { outcome: SegmentationOutcome }) {
     label: m.programs[choice.value],
     probability: choice.probability,
   }));
-  const reason = outcome.reviewReason === 'low_info' ? m.review.lowInfo : m.review.lowConfidence;
+  const reason = outcome.reviewReason === 'low_info' ? m.reasons.lowInfo : m.reasons.lowConfidence;
 
   return (
     <Panel title={m.detail.decision}>

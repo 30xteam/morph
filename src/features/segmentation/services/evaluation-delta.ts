@@ -1,5 +1,4 @@
-import type { SegmentationEvaluation } from '../types/evaluation.types';
-import { formatUsd } from '../utils/format';
+import { type SegmentationEvaluation, formatUsd } from '@/libs/segmentation';
 
 export interface StatDelta {
   text: string;

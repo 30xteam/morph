@@ -1,17 +1,17 @@
 import 'server-only';
 import { mapWithLimit } from '@/core/async';
 import { jevEnv } from '@/core/jev/jev-env';
+import {
+  type Profile,
+  type SegmentationOutcome,
+  type TrafficLight,
+  type Trigger,
+  type ActivityTrigger,
+  applyTrigger,
+} from '@/libs/segmentation';
+import { PROFILES_30X, segmentProfile } from '@/libs/segmentation/server';
 
-import { PROFILES_30X } from '../data/dataset';
-import type {
-  Profile,
-  SegmentationOutcome,
-  TrafficLight,
-  Trigger,
-} from '../types/segmentation.types';
 import type { SimulationResult } from '../types/simulation.types';
-import { type ActivityTrigger, applyTrigger } from './apply-trigger';
-import { segmentProfile } from './segment-profile';
 
 const DAILY_PROBABILITY: Record<ActivityTrigger, number> = {
   attended_event: 0.05,

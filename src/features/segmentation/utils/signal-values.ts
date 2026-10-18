@@ -1,8 +1,7 @@
 import type { Locale } from '@/core/preferences';
+import { countryName, translateValue, type Profile, type SignalKey } from '@/libs/segmentation';
 
 import type { Messages } from '../i18n/en';
-import { countryName, translateValue } from '../i18n/values';
-import type { Profile, SignalKey } from '../types/segmentation.types';
 
 export const DETAIL_SIGNALS: SignalKey[] = [
   'relation',

@@ -1,8 +1,8 @@
 'use client';
 
+import { type ThresholdRow, formatPercent } from '@/libs/segmentation';
+
 import { useMessages } from '../../hooks/use-messages';
-import type { ThresholdRow } from '../../types/evaluation.types';
-import { formatPercent } from '../../utils/format';
 
 interface ThresholdChartProps {
   rows: ThresholdRow[];

@@ -1,8 +1,9 @@
 'use client';
 
+import { StatusBadge } from '@/libs/segmentation';
+
 import { LIGHT_ORDER } from '../../hooks/use-light-counts';
 import { useMessages } from '../../hooks/use-messages';
-import { StatusBadge } from '../ui/status-badge';
 
 export function LightMeanings() {
   const m = useMessages();
@@ -14,10 +15,8 @@ export function LightMeanings() {
             <StatusBadge status={light} />
           </dt>
           <dd className="flex flex-col gap-0.5">
-            <span className="text-label-sm text-ink">{m.list.lightMeanings[light].meaning}</span>
-            <span className="text-caption text-ink-muted">
-              {m.list.lightMeanings[light].action}
-            </span>
+            <span className="text-label-sm text-ink">{m.lightMeanings[light].meaning}</span>
+            <span className="text-caption text-ink-muted">{m.lightMeanings[light].action}</span>
           </dd>
         </div>
       ))}

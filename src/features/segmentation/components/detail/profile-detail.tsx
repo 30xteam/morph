@@ -4,12 +4,12 @@ import { useEffect, useRef } from 'react';
 
 import { cx } from '@/core/cx';
 import { useNow } from '@/core/hooks';
+import { useSegmentationStore } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useSegmentProfile } from '../../hooks/use-segment-profile';
 import { useSelectedProfile } from '../../hooks/use-selected-profile';
-import { useSegmentationStore } from '../../store/segmentation-store';
 import { DecisionCard } from './decision-card';
 import { DetailActions } from './detail-actions';
 import { DetailHeader } from './detail-header';

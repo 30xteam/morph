@@ -1,13 +1,12 @@
 'use client';
 
 import { cx } from '@/core/cx';
+import { PRIORITY_LEVELS, type PriorityLevel } from '@/libs/segmentation';
 import { SegmentedControl } from '@/ui';
 
 import type { GraphView } from '../../hooks/use-graph-view';
 import { useMessages } from '../../hooks/use-messages';
 import type { GraphColorBy } from '../../services/create-graph-renderer';
-import { PRIORITY_LEVELS } from '../../services/profile-priority';
-import type { PriorityLevel } from '../../services/profile-priority';
 import { GraphKey } from './graph-key';
 import { GraphLegend } from './graph-legend';
 import { GraphSearch } from './graph-search';

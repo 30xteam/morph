@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 
+import { useSegmentationStore, type SegmentationOutcome } from '@/libs/segmentation';
 import { Button, notify } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
-import { useSegmentationStore } from '../../store/segmentation-store';
-import type { SegmentationOutcome } from '../../types/segmentation.types';
 import { TryChangeDialog } from './try-change-dialog';
 
 export function DetailActions({ outcome }: { outcome: SegmentationOutcome }) {

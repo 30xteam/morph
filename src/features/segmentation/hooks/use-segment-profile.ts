@@ -1,8 +1,12 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { SegmentationService } from '../services/segmentation.service';
-import { latestOutcome, useSegmentationStore } from '../store/segmentation-store';
-import type { Profile, Trigger } from '../types/segmentation.types';
+import {
+  SegmentationService,
+  latestOutcome,
+  useSegmentationStore,
+  type Profile,
+  type Trigger,
+} from '@/libs/segmentation';
 
 interface SegmentVariables {
   profile: Profile;

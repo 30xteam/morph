@@ -1,6 +1,5 @@
 import { cx } from '@/core/cx';
-
-import type { PriorityLevel, ProfilePriority } from '../services/profile-priority';
+import type { PriorityLevel, ProfilePriority } from '@/libs/segmentation';
 
 export const PRIORITY_COLOR: Record<PriorityLevel, string> = {
   high: 'text-green-fg',

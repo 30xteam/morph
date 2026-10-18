@@ -2,12 +2,11 @@
 
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
+import { countryCode, timeAgo } from '@/libs/segmentation';
 import { TagBadge } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
-import { countryCode } from '../../i18n/values';
-import { timeAgo } from '../../utils/format';
 import { roleKey } from '../../utils/role-key';
 
 interface ReviewRowProps {
@@ -66,7 +65,7 @@ export function ReviewRow({ item, selected, labeled, now, showTime, onSelect }: 
           <TagBadge tone={reason === 'low_info' ? 'neutral' : 'warning'}>
             {reason === 'low_info'
               ? m.review.lowInfoBadge(outcome.missingSignals.length)
-              : m.review.lowConfidence}
+              : m.reasons.lowConfidence}
           </TagBadge>
           {showTime ? (
             <span className="text-caption text-ink-muted">

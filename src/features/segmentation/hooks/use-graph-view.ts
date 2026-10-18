@@ -1,7 +1,13 @@
 import { useQueryStates } from 'nuqs';
 import { useDeferredValue, useMemo, useState } from 'react';
 
-import { graphParams } from '../config/url-params';
+import {
+  graphParams,
+  PRIORITY_LEVELS,
+  type PriorityLevel,
+  useSegmentationStore,
+} from '@/libs/segmentation';
+
 import {
   buildProfileGraph,
   filterPriorityGraph,
@@ -9,9 +15,6 @@ import {
 } from '../services/build-profile-graph';
 import type { GraphColorBy } from '../services/create-graph-renderer';
 import { countLevels, summarizePrograms } from '../services/graph-summary';
-import { PRIORITY_LEVELS } from '../services/profile-priority';
-import type { PriorityLevel } from '../services/profile-priority';
-import { useSegmentationStore } from '../store/segmentation-store';
 
 export interface GraphJump {
   id: string;

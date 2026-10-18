@@ -1,6 +1,5 @@
 import type { JevProvider } from '@/core/jev/jev.types';
-
-import type { Trigger } from './segmentation.types';
+import type { Trigger } from '@/libs/segmentation';
 
 export interface SimulationResult {
   provider: JevProvider;

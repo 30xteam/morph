@@ -1,8 +1,13 @@
-import { PROGRAM_LABELS } from '../config/labels';
+import {
+  PROGRAM_LABELS,
+  type Profile,
+  type SegmentationOutcome,
+  PRIORITY_LEVELS,
+  profilePriority,
+  type PriorityLevel,
+} from '@/libs/segmentation';
+
 import type { GraphEdge, GraphNode, ProfileGraph } from '../types/graph.types';
-import type { Profile, SegmentationOutcome } from '../types/segmentation.types';
-import { PRIORITY_LEVELS, profilePriority } from './profile-priority';
-import type { PriorityLevel } from './profile-priority';
 
 export function normalizeGraphText(text: string) {
   return text.normalize('NFD').replace(/\p{M}/gu, '').trim().toLowerCase();

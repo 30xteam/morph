@@ -1,6 +1,9 @@
-import { useSegmentationStore } from '../store/segmentation-store';
-import { type ProfileStatus, profileStatus } from '../utils/profile-status';
-import { useLiveFilters } from './use-live-filters';
+import {
+  useSegmentationStore,
+  type ProfileStatus,
+  profileStatus,
+  useLiveFilters,
+} from '@/libs/segmentation';
 
 export const LIGHT_ORDER: ProfileStatus[] = ['green', 'yellow', 'red', 'review', 'pending'];
 

@@ -1,9 +1,9 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { SEGMENTATION_QUESTIONS } from '../src/features/segmentation/config/questions.ts';
-import { toJevState } from '../src/features/segmentation/services/profile-state.ts';
-import type { Profile } from '../src/features/segmentation/types/segmentation.types.ts';
+import { SEGMENTATION_QUESTIONS } from '../src/libs/segmentation/config/questions.ts';
+import { toJevState } from '../src/libs/segmentation/services/profile-state.ts';
+import type { Profile } from '../src/libs/segmentation/types/segmentation.types.ts';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const REPORTS = join(ROOT, 'docs', 'evaluation');
@@ -25,7 +25,7 @@ async function main() {
   }
 
   const profiles = JSON.parse(
-    readFileSync(join(ROOT, 'src/features/segmentation/data/crm-sample.json'), 'utf8'),
+    readFileSync(join(ROOT, 'src/libs/segmentation/data/crm-sample.json'), 'utf8'),
   ) as Profile[];
   const [stored] = profiles;
   const profile = stored

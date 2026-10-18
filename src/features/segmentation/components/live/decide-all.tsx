@@ -1,12 +1,11 @@
 'use client';
 
+import { useSegmentationStore, formatUsd } from '@/libs/segmentation';
 import { Button } from '@/ui';
 
 import { useDecideAll } from '../../hooks/use-decide-all';
 import { useLumaReceived } from '../../hooks/use-luma-feed';
 import { useMessages } from '../../hooks/use-messages';
-import { useSegmentationStore } from '../../store/segmentation-store';
-import { formatUsd } from '../../utils/format';
 import { DecideProgress } from './decide-progress';
 import { LiveSignUps } from './live-sign-ups';
 

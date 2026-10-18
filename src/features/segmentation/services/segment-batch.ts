@@ -1,8 +1,7 @@
 import 'server-only';
 import { mapWithLimit } from '@/core/async';
-
-import type { BatchItem, Profile, Trigger } from '../types/segmentation.types';
-import { segmentProfile } from './segment-profile';
+import type { BatchItem, Profile, Trigger } from '@/libs/segmentation';
+import { segmentProfile } from '@/libs/segmentation/server';
 
 const CONCURRENCY = 8;
 

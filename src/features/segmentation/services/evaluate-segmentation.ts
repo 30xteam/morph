@@ -1,13 +1,17 @@
 import 'server-only';
 import { mapWithLimit } from '@/core/async';
 import { jevEnv } from '@/core/jev/jev-env';
-
-import { PROGRAM_LABELS } from '../config/labels';
-import { THRESHOLD_STEPS, THRESHOLDS } from '../config/thresholds';
-import { LABELS_30X, PROFILES_30X } from '../data/dataset';
-import type { EvaluationMode, SegmentationEvaluation } from '../types/evaluation.types';
-import type { AffinityBand, ProgramKey, TrafficLight } from '../types/segmentation.types';
-import { segmentProfile } from './segment-profile';
+import {
+  PROGRAM_LABELS,
+  THRESHOLD_STEPS,
+  THRESHOLDS,
+  type EvaluationMode,
+  type SegmentationEvaluation,
+  type AffinityBand,
+  type ProgramKey,
+  type TrafficLight,
+} from '@/libs/segmentation';
+import { LABELS_30X, PROFILES_30X, segmentProfile } from '@/libs/segmentation/server';
 
 const PROGRAMS: ProgramKey[] = [
   'ai_sales',

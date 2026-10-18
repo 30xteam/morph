@@ -1,4 +1,5 @@
-import { segmentRequestSchema, segmentProfile } from '@/features/segmentation/server';
+import { segmentRequestSchema } from '@/features/segmentation/server';
+import { segmentProfile } from '@/libs/segmentation/server';
 
 export async function POST(request: Request) {
   const parsed = segmentRequestSchema.safeParse(await request.json().catch(() => null));

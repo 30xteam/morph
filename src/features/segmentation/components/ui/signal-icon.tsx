@@ -1,4 +1,4 @@
-import type { SignalKey } from '../../types/segmentation.types';
+import type { SignalKey } from '@/libs/segmentation';
 
 const ICONS: Record<SignalKey, string> = {
   relation: 'user',

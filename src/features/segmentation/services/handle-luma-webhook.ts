@@ -1,11 +1,10 @@
 import 'server-only';
-import type { LumaFeedEntry } from '../types/luma-feed.types';
-import { lumaWebhookSchema } from '../types/luma.schema';
-import { applyTrigger } from './apply-trigger';
+import { type LumaFeedEntry, lumaWebhookSchema, applyTrigger } from '@/libs/segmentation';
+import { segmentProfile } from '@/libs/segmentation/server';
+
 import { LumaFeedStore } from './luma-feed-store';
 import { profileFromLuma } from './luma-mapping';
 import { verifyWebhook } from './luma-signature';
-import { segmentProfile } from './segment-profile';
 
 export type WebhookResult =
   | { status: 200; body: { ok: true; duplicate?: boolean; entry?: Omit<LumaFeedEntry, 'seq'> } }

@@ -2,15 +2,17 @@
 
 import { usePathname } from 'next/navigation';
 
+import {
+  liveHref,
+  useConsoleCounts,
+  useLiveFilters,
+  type ProgramFilter,
+  PROGRAM_ORDER,
+} from '@/libs/segmentation';
 import { useProgressRouter } from '@/ui';
 
-import { liveHref } from '../../config/url-params';
-import { useConsoleCounts } from '../../hooks/use-console-counts';
-import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
-import type { ProgramFilter } from '../../store/segmentation-store';
 import type { NavIconName } from './nav-icon';
-import { PROGRAM_ORDER } from './program-order';
 
 const WORKFLOW = [
   { href: '/review', key: 'review' },

@@ -1,7 +1,8 @@
 import 'server-only';
-import { PROFILES_30X } from '../data/dataset';
+import type { LumaWebhook } from '@/libs/segmentation';
+import { PROFILES_30X } from '@/libs/segmentation/server';
+
 import { fictionalPerson, SIMULATED_EVENTS } from '../mocks/fictional-guests';
-import type { LumaWebhook } from '../types/luma.schema';
 import { LumaFeedStore } from './luma-feed-store';
 import { registrationAnswers } from './luma-mapping';
 
