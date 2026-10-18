@@ -1,37 +1,35 @@
 'use client';
 
-import { useState } from 'react';
+import { useId } from 'react';
 
 import { cx } from '@/core/cx';
 import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
+import { choicesFor } from '../../hooks/use-review-flow';
 import type { ReviewItem } from '../../hooks/use-review-items';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import type { ProgramKey } from '../../types/segmentation.types';
 import { Panel } from '../ui/panel';
+import { RadioOption } from '../ui/radio-option';
 
 interface DecisionPanelProps {
   item: ReviewItem;
-  onDone: () => void;
+  choice: ProgramKey;
+  onChoose: (program: ProgramKey) => void;
+  onConfirm: () => void;
+  onSkip: () => void;
 }
 
-function choicesFor({ outcome }: ReviewItem): ProgramKey[] {
-  const ranked = [outcome.program, ...outcome.program.alternatives].map((c) => c.value);
-  return [...new Set<ProgramKey>([...ranked, 'none'])];
-}
-
-export function DecisionPanel({ item, onDone }: DecisionPanelProps) {
+export function DecisionPanel({ item, choice, onChoose, onConfirm, onSkip }: DecisionPanelProps) {
   const m = useMessages();
+  const name = useId();
   const id = item.profile.id;
   const verdict = useSegmentationStore((state) => state.reviews[id]);
-  const review = useSegmentationStore((state) => state.review);
   const clearReview = useSegmentationStore((state) => state.clearReview);
-  const [choice, setChoice] = useState<ProgramKey>(item.outcome.program.value);
-  const jevProgram = item.outcome.program.value;
 
   if (verdict) {
-    const labeled = verdict.verdict === 'corrected' ? verdict.program : jevProgram;
+    const labeled = verdict.verdict === 'corrected' ? verdict.program : item.outcome.program.value;
     return (
       <Panel title={m.review.yourDecision}>
         <div className="flex flex-wrap items-center gap-3">
@@ -50,36 +48,25 @@ export function DecisionPanel({ item, onDone }: DecisionPanelProps) {
         <fieldset className="flex flex-wrap gap-2">
           <legend className="sr-only">{m.review.yourDecision}</legend>
           {choicesFor(item).map((program) => (
-            <button
+            <RadioOption
               key={program}
-              type="button"
-              aria-pressed={choice === program}
-              onClick={() => setChoice(program)}
+              name={name}
+              checked={choice === program}
+              onSelect={() => onChoose(program)}
               className={cx(
-                'min-h-11 rounded-nav border border-line px-3 text-label-sm text-ink-soft transition-colors duration-150 hover:text-ink desktop:min-h-8',
+                'flex min-h-11 items-center rounded-nav border border-line px-3 text-label-sm text-ink-soft transition-colors duration-150 hover:text-ink desktop:min-h-8',
                 choice === program && 'border-accent bg-raised font-semibold text-ink',
               )}
             >
               {m.programs[program]}
-            </button>
+            </RadioOption>
           ))}
         </fieldset>
+        <p className="hidden text-caption text-ink-muted desktop:block">{m.review.shortcuts}</p>
       </Panel>
       <div className="flex flex-wrap items-center gap-2.5">
-        <Button
-          onClick={() => {
-            review(
-              id,
-              choice === jevProgram
-                ? { verdict: 'approved' }
-                : { verdict: 'corrected', program: choice },
-            );
-            onDone();
-          }}
-        >
-          {m.review.confirm(m.programs[choice])}
-        </Button>
-        <Button variant="secondary" onClick={onDone}>
+        <Button onClick={onConfirm}>{m.review.confirm(m.programs[choice])}</Button>
+        <Button variant="secondary" onClick={onSkip}>
           {m.review.skip}
         </Button>
         <p className="w-full text-caption text-ink-muted tablet:ml-auto tablet:w-auto">
