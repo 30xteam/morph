@@ -7,6 +7,7 @@ import type {
   GraphLibraries,
   GraphRenderer,
 } from '../services/create-graph-renderer';
+import { fitGraphView } from '../services/fit-graph-view';
 import { settleGraphLayout } from '../services/settle-graph-layout';
 import { toGraphology } from '../services/to-graphology';
 import type { ProfileGraph } from '../types/graph.types';
@@ -123,9 +124,17 @@ export function useSigmaGraph({
       renderer.current = instance;
       setReady(true);
     }
+    const observer = new ResizeObserver(() => {
+      if (!element.offsetWidth || !element.offsetHeight) return;
+      if (!instance) return;
+      instance.resize();
+      fitGraphView(instance, 0);
+    });
+    observer.observe(element);
     void mount(element);
     return () => {
       disposed = true;
+      observer.disconnect();
       cancel(cancelSettle);
       instance?.kill();
       renderer.current = undefined;
@@ -178,7 +187,7 @@ export function useSigmaGraph({
     focus,
     reset: () => {
       setEpoch((value) => value + 1);
-      void renderer.current?.getCamera().reset({ duration: animationDuration() });
+      if (renderer.current) fitGraphView(renderer.current, animationDuration());
     },
   };
 }

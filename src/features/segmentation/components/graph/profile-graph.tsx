@@ -1,129 +1,26 @@
 'use client';
 
-import { useDeferredValue, useMemo, useState } from 'react';
-
-import { Button } from '@/ui';
-
-import {
-  buildProfileGraph,
-  filterProfileGraph,
-  filterPriorityGraph,
-} from '../../services/build-profile-graph';
-import type { GraphColorBy } from '../../services/create-graph-renderer';
-import type { PriorityLevel } from '../../services/profile-priority';
-import { useSegmentationStore } from '../../store/segmentation-store';
+import { useGraphView } from '../../hooks/use-graph-view';
 import { GraphDetails } from './graph-details';
-import { GraphKey } from './graph-key';
+import { GraphFiltersPanel } from './graph-filters-panel';
+import { GraphMobileBar } from './graph-mobile-bar';
 import { GraphSurface } from './graph-surface';
-import { GraphViewControls } from './graph-view-controls';
 
 export function ProfileGraph() {
-  const profiles = useSegmentationStore((state) => state.profiles);
-  const history = useSegmentationStore((state) => state.history);
-  const [query, setQuery] = useState('');
-  const [selectedId, setSelectedId] = useState<string>();
-  const [local, setLocal] = useState(false);
-  const [colorBy, setColorBy] = useState<GraphColorBy>('priority');
-  const [priority, setPriority] = useState<PriorityLevel | 'all'>('all');
-  const deferredQuery = useDeferredValue(query);
-  const graph = useMemo(() => buildProfileGraph(profiles, history), [profiles, history]);
-  const nodesById = useMemo(() => new Map(graph.nodes.map((node) => [node.id, node])), [graph]);
-  const selected = selectedId ? nodesById.get(selectedId) : undefined;
-  const programs = useMemo(() => graph.nodes.filter((node) => node.kind === 'program'), [graph]);
-  const visible = useMemo(
-    () =>
-      filterProfileGraph(
-        filterPriorityGraph(graph, priority),
-        deferredQuery,
-        local ? selected?.id : undefined,
-      ),
-    [graph, priority, deferredQuery, local, selected?.id],
-  );
-  const decided = useMemo(
-    () => profiles.filter((profile) => history[profile.id]?.length).length,
-    [profiles, history],
-  );
+  const view = useGraphView();
 
   return (
-    <div className="flex min-w-0 flex-1 flex-col gap-3 px-4 py-6 tablet:px-8 desktop:py-7">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 id="graph-heading" className="text-title-lg text-ink">
-            30X Graph
-          </h1>
-          <p className="text-body-sm text-ink-muted" aria-live="polite">
-            {visible.nodes.length} nodes · {visible.edges.length} connections · {profiles.length}{' '}
-            live profiles · {decided} with Jev decisions
-          </p>
-        </div>
-        <div className="flex flex-wrap items-end gap-2">
-          <label className="flex flex-col gap-1 text-body-sm text-ink-muted">
-            Priority
-            <select
-              aria-label="Priority"
-              value={priority}
-              onChange={(event) => setPriority(event.target.value as PriorityLevel | 'all')}
-              className="h-11 rounded-md border border-line bg-canvas px-3 text-body-sm text-ink focus-visible:outline-2 focus-visible:outline-accent"
-            >
-              <option value="all">All priorities</option>
-              <option value="high">P1 · High</option>
-              <option value="medium">P2 · Medium</option>
-              <option value="low">P3 · Low</option>
-              <option value="pending">Not evaluated</option>
-            </select>
-          </label>
-          <label className="flex flex-col gap-1 text-body-sm text-ink-muted">
-            Search nodes
-            <input
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Person, program or interest"
-              className="h-11 w-full rounded-md border border-line bg-canvas px-3 text-body-sm text-ink focus-visible:outline-2 focus-visible:outline-accent"
-            />
-          </label>
-          <Button
-            variant="secondary"
-            aria-pressed={local}
-            disabled={!selected}
-            onClick={() => setLocal((value) => !value)}
-          >
-            {local ? 'Show global graph' : 'Show local graph'}
-          </Button>
-          {selected ? (
-            <Button
-              variant="ghost"
-              onClick={() => {
-                setSelectedId(undefined);
-                setLocal(false);
-              }}
-            >
-              Clear selection
-            </Button>
-          ) : null}
-        </div>
-      </div>
-      <GraphViewControls
-        programs={programs}
-        focusId={selected?.kind === 'program' ? selected.id : undefined}
-        colorBy={colorBy}
-        onFocus={setSelectedId}
-        onColorBy={setColorBy}
+    <div className="flex min-w-0 flex-1 flex-col desktop:h-dvh desktop:flex-row">
+      <GraphFiltersPanel view={view} />
+      <GraphMobileBar view={view} />
+      <GraphSurface
+        graph={view.visible}
+        selectedId={view.selected?.id}
+        jump={view.jump}
+        colorBy={view.colorBy}
+        onSelect={view.select}
       />
-      <div className="grid min-w-0 overflow-hidden rounded-md border border-line desktop:grid-cols-[minmax(0,1fr)_15rem]">
-        <GraphSurface
-          graph={visible}
-          selectedId={selected?.id}
-          colorBy={colorBy}
-          onSelect={setSelectedId}
-        />
-        <GraphDetails graph={graph} selected={selected} onSelect={setSelectedId} />
-      </div>
-      <GraphKey colorBy={colorBy} programs={programs} />
-      <p className="text-body-sm text-ink-muted">
-        Uses the same CRM profiles and live Luma feed as the table. Decide all on Live segments to
-        add recommendations.
-      </p>
+      {view.selected ? <GraphDetails view={view} selected={view.selected} /> : null}
     </div>
   );
 }

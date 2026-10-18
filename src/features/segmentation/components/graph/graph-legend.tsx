@@ -15,8 +15,8 @@ export function GraphLegend() {
   const m = useMessages();
 
   return (
-    <dl className="mt-auto flex flex-col gap-2.5 border-t border-line pt-4 text-body-sm text-ink-muted">
-      <dt className="text-label-sm text-ink">{m.graph.legend}</dt>
+    <dl className="flex flex-col gap-2.5 pt-2 text-body-sm text-ink-muted">
+      <dt className="sr-only">{m.graph.legend}</dt>
       <dd className="flex items-start gap-3">
         <span aria-hidden="true" className="flex h-5 w-12 shrink-0 items-center gap-1">
           {PRIORITY_DOTS.map((dot) => (
@@ -41,6 +41,7 @@ export function GraphLegend() {
         {m.graph.legendRecommendation}
       </dd>
       <dd>{m.graph.legendShared}</dd>
+      <dd>{m.graph.legendSource}</dd>
     </dl>
   );
 }
