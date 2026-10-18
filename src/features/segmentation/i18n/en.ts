@@ -51,10 +51,9 @@ export const en = {
   list: {
     title: 'Live segments',
     subtitle: 'Recalculated whenever a profile changes',
-    tabs: 'Filter profiles',
     all: 'All',
-    review: 'Review',
-    lowAffinity: 'Low affinity',
+    lowAffinityOnly: 'Only low affinity',
+    noMatches: 'No profiles match these filters.',
     filters: 'Filters',
     lights: 'Traffic light',
     lightsHint: 'one or more',
