@@ -34,4 +34,13 @@ export const graphParams = {
   color: parseAsStringLiteral(COLOR_MODES).withDefault('priority'),
 };
 
-export const liveHref = createSerializer(liveParams);
+export const profileParams = {
+  profile: parseAsString,
+};
+
+export const PROFILE_URL_KEYS = { profile: 'profile-id' };
+
+export const liveHref = createSerializer(
+  { ...liveParams, ...profileParams },
+  { urlKeys: PROFILE_URL_KEYS },
+);

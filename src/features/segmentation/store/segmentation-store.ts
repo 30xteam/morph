@@ -39,8 +39,6 @@ interface SegmentationState {
   flagged: string[];
   sent: Record<string, RecommendationKind>;
   pendingIds: string[];
-  selectedId: string | null;
-  reviewSelectedId: string | null;
   run: BatchRun;
   evaluation: SegmentationEvaluation | null;
   hydrate: (profiles: Profile[]) => void;
@@ -52,8 +50,6 @@ interface SegmentationState {
   clearReview: (id: string) => void;
   flag: (id: string) => void;
   markSent: (id: string, kind: RecommendationKind) => void;
-  select: (id: string | null) => void;
-  selectReview: (id: string | null) => void;
   setRun: (run: Partial<BatchRun>) => void;
   setEvaluation: (evaluation: SegmentationEvaluation) => void;
 }
@@ -99,12 +95,9 @@ export const useSegmentationStore = create<SegmentationState>()(
       flagged: [],
       sent: {},
       pendingIds: [],
-      selectedId: null,
-      reviewSelectedId: null,
       run: IDLE_RUN,
       evaluation: null,
-      hydrate: (profiles) =>
-        set((state) => (state.profiles.length ? state : { profiles, selectedId: profiles[0]?.id })),
+      hydrate: (profiles) => set((state) => (state.profiles.length ? state : { profiles })),
       addProfile: (profile) =>
         set((state) =>
           state.profiles.some((item) => item.id === profile.id)
@@ -135,8 +128,6 @@ export const useSegmentationStore = create<SegmentationState>()(
       flag: (id) =>
         set((state) => (state.flagged.includes(id) ? state : { flagged: [...state.flagged, id] })),
       markSent: (id, kind) => set((state) => ({ sent: { ...state.sent, [id]: kind } })),
-      select: (selectedId) => set({ selectedId }),
-      selectReview: (reviewSelectedId) => set({ reviewSelectedId }),
       setRun: (run) => set((state) => ({ run: { ...state.run, ...run } })),
       setEvaluation: (evaluation) => set({ evaluation }),
     }),

@@ -8,6 +8,7 @@ import { Button } from '@/ui';
 import { useMessages } from '../../hooks/use-messages';
 import { useNow } from '../../hooks/use-now';
 import { useSegmentProfile } from '../../hooks/use-segment-profile';
+import { useSelectedProfile } from '../../hooks/use-selected-profile';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { DecisionCard } from './decision-card';
 import { DetailActions } from './detail-actions';
@@ -23,7 +24,7 @@ interface ProfileDetailProps {
 export function ProfileDetail({ className, onBack }: ProfileDetailProps) {
   const m = useMessages();
   const now = useNow();
-  const selectedId = useSegmentationStore((state) => state.selectedId);
+  const { selectedId } = useSelectedProfile();
   const profile = useSegmentationStore((state) =>
     state.profiles.find((item) => item.id === selectedId),
   );
