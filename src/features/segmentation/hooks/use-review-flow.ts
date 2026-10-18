@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-import { toast } from '@/ui';
+import { notify } from '@/ui';
 
 import { useSegmentationStore } from '../store/segmentation-store';
 import type { ProgramKey } from '../types/segmentation.types';
@@ -66,7 +66,7 @@ export function useReviewFlow(items: ReviewItem[]) {
         : { verdict: 'corrected', program: choice },
     );
     const left = items.filter((item) => !reviews[item.profile.id]).length - 1;
-    toast.success(m.review.labeled(m.programs[choice]), {
+    notify.success(m.review.labeled(m.programs[choice]), {
       description: m.review.labeledBody(id, Math.max(left, 0)),
       action: { label: m.review.undoLast, onClick: () => undo(id) },
     });
@@ -75,7 +75,7 @@ export function useReviewFlow(items: ReviewItem[]) {
 
   const skip = () => {
     if (selected) {
-      toast.info(m.review.skipped, { description: m.review.skippedBody(selected.profile.id) });
+      notify.info(m.review.skipped, { description: m.review.skippedBody(selected.profile.id) });
     }
     next();
   };

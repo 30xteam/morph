@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Button, toast } from '@/ui';
+import { Button, notify } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useSegmentationStore } from '../../store/segmentation-store';
@@ -25,7 +25,7 @@ export function DetailActions({ outcome }: { outcome: SegmentationOutcome }) {
 
   function send() {
     markSent(id, kind);
-    toast.success(m.detail.sentToast(action), {
+    notify.success(m.detail.sentToast(action), {
       description: m.detail.sentToastBody(id),
       action: { label: m.detail.undo, onClick: () => unmarkSent(id) },
     });
@@ -33,7 +33,7 @@ export function DetailActions({ outcome }: { outcome: SegmentationOutcome }) {
 
   function sendToReview() {
     flag(id);
-    toast.info(m.detail.flaggedToast(id), {
+    notify.info(m.detail.flaggedToast(id), {
       description: m.detail.flaggedToastBody,
       action: { label: m.detail.undo, onClick: () => unflag(id) },
     });
