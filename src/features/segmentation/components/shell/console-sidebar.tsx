@@ -1,92 +1,24 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-
 import { MorphLogo } from '@/ui';
 
-import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useMessages } from '../../hooks/use-messages';
-import { type ProgramFilter, useSegmentationStore } from '../../store/segmentation-store';
-import { navItemClasses } from './nav-link-classes';
-import { PROGRAM_ORDER } from './program-order';
-
-const WORKFLOW = [
-  { href: '/review', key: 'review' },
-  { href: '/metrics', key: 'metrics' },
-  { href: '/graph', key: 'graph' },
-] as const;
+import { SectionLabel, SegmentList, WorkflowList } from './sidebar-lists';
+import { useSidebarNav } from './use-sidebar-nav';
 
 export function ConsoleSidebar() {
   const m = useMessages();
-  const pathname = usePathname();
-  const router = useRouter();
-  const counts = useConsoleCounts();
-  const program = useSegmentationStore((state) => state.program);
-  const setProgram = useSegmentationStore((state) => state.setProgram);
-
-  const segments: { value: ProgramFilter; label: string; count: number }[] = [
-    { value: 'all', label: m.nav.allProfiles, count: counts.total },
-    ...PROGRAM_ORDER.map((key) => ({
-      value: key,
-      label: m.programs[key],
-      count: counts.programs[key],
-    })),
-  ];
-
-  const openSegment = (value: ProgramFilter) => {
-    setProgram(value);
-    if (pathname !== '/') router.push('/');
-  };
+  const { segments, workflow, openSegment } = useSidebarNav();
 
   return (
-    <aside className="sticky top-0 hidden h-dvh w-sidebar shrink-0 flex-col gap-0.5 overflow-y-auto border-r border-line px-3 py-6 desktop:flex">
+    <aside className="sticky top-0 hidden h-dvh w-sidebar shrink-0 flex-col overflow-y-auto border-r border-line px-3 py-6 desktop:flex">
       <MorphLogo className="px-2.5 pb-5" />
-      <nav aria-label={m.nav.label} className="flex flex-1 flex-col gap-0.5">
-        <p id="nav-segments" className="px-2.5 pb-1.5 text-caption font-medium text-ink-muted">
-          {m.nav.segments}
-        </p>
-        <ul aria-labelledby="nav-segments" className="flex flex-col gap-0.5">
-          {segments.map(({ value, label, count }) => (
-            <li key={value}>
-              <button
-                type="button"
-                aria-current={pathname === '/' && program === value ? 'true' : undefined}
-                onClick={() => openSegment(value)}
-                className={navItemClasses(pathname === '/' && program === value)}
-              >
-                <span className="flex-1 truncate">{label}</span>
-                <span className="text-body-sm font-normal text-ink-muted tabular-nums">
-                  {count}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <p
-          id="nav-workflow"
-          className="mt-auto px-2.5 pt-6 pb-1.5 text-caption font-medium text-ink-muted desktop:mt-25"
-        >
-          {m.nav.workflow}
-        </p>
-        <ul aria-labelledby="nav-workflow" className="flex flex-col gap-0.5">
-          {WORKFLOW.map(({ href, key }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                aria-current={pathname === href ? 'page' : undefined}
-                className={navItemClasses(pathname === href)}
-              >
-                <span className="flex-1">{m.nav[key]}</span>
-                {key === 'review' && counts.review ? (
-                  <span className="text-body-sm font-normal text-ink-muted tabular-nums">
-                    {counts.review}
-                  </span>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <nav aria-label={m.nav.label} className="flex flex-col gap-0.5">
+        <SectionLabel id="nav-segments">{m.nav.segments}</SectionLabel>
+        <SegmentList segments={segments} onOpen={openSegment} />
+        <div className="h-4" />
+        <SectionLabel id="nav-workflow">{m.nav.workflow}</SectionLabel>
+        <WorkflowList workflow={workflow} />
       </nav>
     </aside>
   );
