@@ -130,6 +130,8 @@ export const es: Messages = {
     flaggedToast: (id) => `${id} está en la cola de revisión`,
     flaggedToastBody: 'Una persona confirmará el programa antes de contactar.',
     undo: 'Deshacer',
+    sentUndone: (id) => `Deshecho: ${id} ya no está en cola`,
+    flaggedUndone: (id) => `Deshecho: ${id} salió de la cola de revisión`,
     tryChange: 'Probar un cambio',
   },
   triggers: {
@@ -181,6 +183,7 @@ export const es: Messages = {
     labeled: (program) => `Etiquetado como ${program}`,
     labeledBody: (id, left) => `${id} · quedan ${left} en la cola`,
     skippedBody: (id) => `${id} · puedes volver a él más tarde.`,
+    undone: (id) => `Deshecho: ${id} vuelve a la cola`,
     undo: 'Deshacer',
   },
   metrics: {

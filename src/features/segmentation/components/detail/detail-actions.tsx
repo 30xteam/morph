@@ -27,7 +27,13 @@ export function DetailActions({ outcome }: { outcome: SegmentationOutcome }) {
     markSent(id, kind);
     notify.success(m.detail.sentToast(action), {
       description: m.detail.sentToastBody(id),
-      action: { label: m.detail.undo, onClick: () => unmarkSent(id) },
+      action: {
+        label: m.detail.undo,
+        onClick: () => {
+          unmarkSent(id);
+          notify.undo(m.detail.sentUndone(id));
+        },
+      },
     });
   }
 
@@ -35,7 +41,13 @@ export function DetailActions({ outcome }: { outcome: SegmentationOutcome }) {
     flag(id);
     notify.info(m.detail.flaggedToast(id), {
       description: m.detail.flaggedToastBody,
-      action: { label: m.detail.undo, onClick: () => unflag(id) },
+      action: {
+        label: m.detail.undo,
+        onClick: () => {
+          unflag(id);
+          notify.undo(m.detail.flaggedUndone(id));
+        },
+      },
     });
   }
 

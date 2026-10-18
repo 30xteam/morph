@@ -83,6 +83,7 @@ export function useReviewFlow(items: ReviewItem[]) {
   const undo = (id: string) => {
     clearReview(id);
     goTo(id);
+    notify.undo(m.review.undone(id));
   };
 
   return { selected, choice, titleRef, move, choose, pick, confirm, skip, goTo };

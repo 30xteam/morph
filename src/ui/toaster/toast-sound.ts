@@ -1,8 +1,9 @@
-export type ToastSound = 'success' | 'info';
+export type ToastSound = 'success' | 'info' | 'undo';
 
 const TONES: Record<ToastSound, number[]> = {
   success: [660, 880],
   info: [520],
+  undo: [880, 590],
 };
 const NOTE_GAP_S = 0.09;
 const NOTE_LENGTH_S = 0.25;
@@ -12,7 +13,7 @@ let context: AudioContext | undefined;
 
 /**
  * Plays a short, quiet chime with the Web Audio API. Fails silently where audio is unavailable.
- * @param kind `success` plays two rising notes, `info` a single lower note.
+ * @param kind `success` plays two rising notes, `info` a single lower note, `undo` two falling notes.
  */
 export function playToastSound(kind: ToastSound) {
   try {

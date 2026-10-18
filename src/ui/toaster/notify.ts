@@ -15,4 +15,8 @@ export const notify = {
     playToastSound('info');
     return toast.info(title, options);
   },
+  undo(title: string, options?: ExternalToast) {
+    playToastSound('undo');
+    return toast(title, options);
+  },
 };
