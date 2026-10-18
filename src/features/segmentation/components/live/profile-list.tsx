@@ -7,6 +7,7 @@ import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { useLiveFilters } from '../../hooks/use-live-filters';
 import { useMessages } from '../../hooks/use-messages';
 import { useNow } from '../../hooks/use-now';
+import { useSelectedProfile } from '../../hooks/use-selected-profile';
 import { useVisibleProfiles } from '../../hooks/use-visible-profiles';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { DecideAll } from './decide-all';
@@ -20,10 +21,9 @@ export function ProfileList({ className, onOpen }: { className?: string; onOpen:
   const now = useNow();
   const rows = useVisibleProfiles();
   const counts = useConsoleCounts();
-  const selectedId = useSegmentationStore((state) => state.selectedId);
+  const { selectedId, select } = useSelectedProfile();
   const pendingIds = useSegmentationStore((state) => state.pendingIds);
   const flagged = useSegmentationStore((state) => state.flagged);
-  const select = useSegmentationStore((state) => state.select);
   const { lights, lowAffinityOnly, clearFilters } = useLiveFilters();
 
   return (

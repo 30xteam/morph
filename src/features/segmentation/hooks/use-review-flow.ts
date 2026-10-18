@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { useSegmentationStore } from '../store/segmentation-store';
 import type { ProgramKey } from '../types/segmentation.types';
 import type { ReviewItem } from './use-review-items';
+import { useSelectedProfile } from './use-selected-profile';
 
 export type ReviewStatus =
   | { kind: 'labeled'; id: string; program: ProgramKey }
@@ -15,8 +16,7 @@ export function choicesFor({ outcome }: ReviewItem): ProgramKey[] {
 
 export function useReviewFlow(items: ReviewItem[]) {
   const reviews = useSegmentationStore((state) => state.reviews);
-  const selectedId = useSegmentationStore((state) => state.reviewSelectedId);
-  const select = useSegmentationStore((state) => state.selectReview);
+  const { requestedId: selectedId, select } = useSelectedProfile();
   const review = useSegmentationStore((state) => state.review);
   const clearReview = useSegmentationStore((state) => state.clearReview);
   const [choices, setChoices] = useState<Record<string, ProgramKey>>({});
