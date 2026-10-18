@@ -29,6 +29,8 @@
   --role-yellow-fg: var(--ds-color-yellow-fg-dark);
   --role-red-bg: var(--ds-color-red-bg-dark);
   --role-red-fg: var(--ds-color-red-fg-dark);
+  --role-blue-fg: var(--ds-color-blue-fg-dark);
+  --role-violet-fg: var(--ds-color-violet-fg-dark);
   --role-review-bg: var(--ds-color-review-bg-dark);
   --role-review-fg: var(--ds-color-review-fg-dark);
   --role-danger: var(--ds-color-danger-dark);
@@ -60,6 +62,8 @@
   --role-yellow-fg: var(--ds-color-yellow-fg);
   --role-red-bg: var(--ds-color-red-bg);
   --role-red-fg: var(--ds-color-red-fg);
+  --role-blue-fg: var(--ds-color-blue-fg);
+  --role-violet-fg: var(--ds-color-violet-fg);
   --role-review-bg: var(--ds-color-review-bg);
   --role-review-fg: var(--ds-color-review-fg);
   --role-danger: var(--ds-color-danger);
@@ -93,6 +97,8 @@
   --color-yellow-fg: var(--role-yellow-fg);
   --color-red-bg: var(--role-red-bg);
   --color-red-fg: var(--role-red-fg);
+  --color-blue-fg: var(--role-blue-fg);
+  --color-violet-fg: var(--role-violet-fg);
   --color-review-bg: var(--role-review-bg);
   --color-review-fg: var(--role-review-fg);
   --color-danger: var(--role-danger);

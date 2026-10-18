@@ -215,8 +215,19 @@ export const en = {
   graph: {
     legend: 'How to read the graph',
     loading: 'Loading graph…',
+    colorBy: 'Color by',
+    colorPriority: 'Priority',
+    colorProgram: 'Program',
+    colorNone: 'None',
+    keyInterest: 'Interest',
+    keyStructure: 'All profiles in grey: structure only',
+    focus: 'Focus',
+    focusNone: 'None',
     legendPriority:
       'Profile color and size: green P1, yellow P2, red P3, grey not evaluated. P1 nodes are the largest and get labels first.',
+    legendFocus:
+      'P2 and P3 stay faded. Select a program or person to light up only its connections.',
+    legendInterest: 'Grey diamond: interest',
     legendCrm: 'Thin grey line: interest or program recorded in the CRM',
     legendRecommendation: 'Thick green line: latest Jev program recommendation',
     legendShared: 'Shared interests do not imply people know each other.',

@@ -25,6 +25,13 @@ export function GraphLegend() {
         </span>
         {m.graph.legendPriority}
       </dd>
+      <dd className="pl-15">{m.graph.legendFocus}</dd>
+      <dd className="flex items-center gap-3">
+        <span aria-hidden="true" className="flex w-12 shrink-0 justify-center">
+          <span className="size-2 rotate-45 bg-ink-soft" />
+        </span>
+        {m.graph.legendInterest}
+      </dd>
       <dd className="flex items-center gap-3">
         <span aria-hidden="true" className="h-px w-12 shrink-0 bg-line-strong" />
         {m.graph.legendCrm}

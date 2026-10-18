@@ -215,8 +215,19 @@ export const es: Messages = {
   graph: {
     legend: 'Cómo leer el grafo',
     loading: 'Cargando grafo…',
+    colorBy: 'Color por',
+    colorPriority: 'Prioridad',
+    colorProgram: 'Programa',
+    colorNone: 'Ninguno',
+    keyInterest: 'Interés',
+    keyStructure: 'Todos los perfiles en gris: solo estructura',
+    focus: 'Foco',
+    focusNone: 'Ninguno',
     legendPriority:
       'Color y tamaño del perfil: verde P1, amarillo P2, rojo P3, gris sin evaluar. Los P1 son los nodos más grandes y sus etiquetas salen primero.',
+    legendFocus:
+      'P2 y P3 quedan atenuados. Selecciona un programa o una persona para encender solo sus conexiones.',
+    legendInterest: 'Rombo gris: interés',
     legendCrm: 'Línea gris fina: interés o programa registrado en el CRM',
     legendRecommendation: 'Línea verde gruesa: última recomendación de programa de Jev',
     legendShared: 'Compartir intereses no implica que las personas se conozcan.',
