@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useMemo } from 'react';
 
 import { Button } from '@/ui';
 
@@ -8,6 +9,7 @@ import { graphNeighborhood } from '../../services/build-profile-graph';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import type { GraphNode, ProfileGraph } from '../../types/graph.types';
 import { PriorityBadge } from '../priority-badge';
+import { GraphLegend } from './graph-legend';
 
 interface GraphDetailsProps {
   graph: ProfileGraph;
@@ -19,10 +21,11 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
   const router = useRouter();
   const select = useSegmentationStore((state) => state.select);
   const profileId = selected?.profileId;
-  const neighbors = selected ? graphNeighborhood(graph, selected.id) : new Set<string>();
-  const connections = graph.nodes.filter(
-    (node) => node.id !== selected?.id && neighbors.has(node.id),
-  );
+  const connections = useMemo(() => {
+    if (!selected) return [];
+    const neighbors = graphNeighborhood(graph, selected.id);
+    return graph.nodes.filter((node) => node.id !== selected.id && neighbors.has(node.id));
+  }, [graph, selected]);
 
   return (
     <aside
@@ -77,12 +80,7 @@ export function GraphDetails({ graph, selected, onSelect }: GraphDetailsProps) {
           ))}
         </ul>
       ) : null}
-      <dl className="mt-auto flex flex-col gap-2 border-t border-line pt-4 text-body-sm text-ink-muted">
-        <dt className="text-label-sm text-ink">Connections</dt>
-        <dd>Solid: declared interest or program recorded in the CRM.</dd>
-        <dd>Dashed: latest Jev program recommendation.</dd>
-        <dd>Shared interests do not imply people know each other.</dd>
-      </dl>
+      <GraphLegend />
     </aside>
   );
 }

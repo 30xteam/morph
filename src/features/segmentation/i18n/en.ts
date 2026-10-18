@@ -194,6 +194,14 @@ export const en = {
     policyTitle: 'Policy',
     policyBody: 'Low info or low confidence goes to a person. The rest is automatic.',
   },
+  graph: {
+    legend: 'How to read the graph',
+    legendPriority:
+      'Profile color and size: green P1, yellow P2, red P3, grey not evaluated. P1 nodes are the largest and get labels first.',
+    legendCrm: 'Thin grey line: interest or program recorded in the CRM',
+    legendRecommendation: 'Thick green line: latest Jev program recommendation',
+    legendShared: 'Shared interests do not imply people know each other.',
+  },
   preferences: {
     title: 'Preferences',
     language: 'Language',

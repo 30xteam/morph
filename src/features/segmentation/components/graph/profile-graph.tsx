@@ -23,7 +23,8 @@ export function ProfileGraph() {
   const [priority, setPriority] = useState<PriorityLevel | 'all'>('all');
   const deferredQuery = useDeferredValue(query);
   const graph = useMemo(() => buildProfileGraph(profiles, history), [profiles, history]);
-  const selected = graph.nodes.find((node) => node.id === selectedId);
+  const nodesById = useMemo(() => new Map(graph.nodes.map((node) => [node.id, node])), [graph]);
+  const selected = selectedId ? nodesById.get(selectedId) : undefined;
   const visible = useMemo(
     () =>
       filterProfileGraph(
@@ -33,7 +34,10 @@ export function ProfileGraph() {
       ),
     [graph, priority, deferredQuery, local, selected?.id],
   );
-  const decided = profiles.filter((profile) => history[profile.id]?.length).length;
+  const decided = useMemo(
+    () => profiles.filter((profile) => history[profile.id]?.length).length,
+    [profiles, history],
+  );
 
   return (
     <div className="flex min-w-0 flex-1 flex-col gap-3 px-4 py-6 tablet:px-8 desktop:py-7">
