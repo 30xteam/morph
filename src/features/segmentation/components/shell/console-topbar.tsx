@@ -24,7 +24,14 @@ export function ConsoleTopbar() {
     <header className="flex flex-col gap-2 border-b border-line px-4 pt-4 desktop:hidden">
       <div className="flex items-center justify-between gap-3">
         <MorphLogo />
-        <PreferenceToggles />
+        <details className="relative">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-nav border border-line px-3 text-label-sm text-ink-soft hover:text-ink [&::-webkit-details-marker]:hidden">
+            {m.preferences.title}
+          </summary>
+          <div className="absolute top-full right-0 z-modal mt-2 rounded-md border border-line bg-card p-2 shadow-raised">
+            <PreferenceToggles />
+          </div>
+        </details>
       </div>
       <nav aria-label={m.nav.label} className="-mx-4 flex gap-1 overflow-x-auto px-4">
         {LINKS.map(({ href, key }) => (

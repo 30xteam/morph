@@ -65,6 +65,7 @@ export const en = {
     liveHint: (received: number) => `${received} Luma sign-ups received · signatures verified`,
   },
   detail: {
+    region: 'Profile detail',
     placeholder: 'Pick a profile to see what Jev decided and why.',
     back: 'Back to list',
     lead: 'Lead without deal',
@@ -124,6 +125,12 @@ export const en = {
     title: 'Review queue',
     subtitle: (count: number) =>
       `${count} profiles Jev did not decide alone: low confidence or too little info`,
+    subtitleShort: (count: number) => `${count} not decided by Jev`,
+    labeledBadge: 'Labeled',
+    progress: (done: number, total: number) => `${done} of ${total} reviewed`,
+    skipped: 'Skipped. It stays in the queue.',
+    undoLast: 'Undo',
+    shortcuts: 'Keys: J/K move · 1–4 choose · Enter confirm · S skip',
     all: 'All',
     lowConfidence: 'Low confidence',
     lowInfo: 'Missing fields',
@@ -144,9 +151,17 @@ export const en = {
   metrics: {
     title: 'Metrics',
     subtitle: (count: number) => `Measured on ${count} profiles against the organizers’ labels`,
-    notMeasured: 'Not measured yet. Run Jev against 30X’s labels to fill this page.',
     run: (count: number) => `Measure on ${count} profiles`,
     running: 'Measuring…',
+    runAgain: (count: number) => `Measure again on ${count} profiles`,
+    emptyTitle: 'Nothing measured yet',
+    emptyBody: (count: number) =>
+      `Run Jev on ${count} profiles labeled by 30X to see latency, cost, accuracy and how each threshold behaves.`,
+    measuredWith: (provider: string, calibrated: boolean) =>
+      `Provider: ${provider}${calibrated ? '' : ' · not calibrated'}`,
+    notRealJev: 'Not real Jev',
+    chartLabel: (threshold: number, decided: string, accuracy: string) =>
+      `At the current threshold ${threshold.toFixed(2)}, Jev decides ${decided} alone with ${accuracy} accuracy.`,
     failed: 'The measurement failed. Try again.',
     medianLatency: 'Median latency',
     questions: (count: number) => `${count} questions in 1 call`,
@@ -156,7 +171,6 @@ export const en = {
     baseline: (p: number, program: string) => `baseline ${percent(p)} (always ${program})`,
     profiles: 'Profiles',
     tested: (count: number) => `${count} tested with Jev`,
-    notTested: 'None tested with Jev yet',
     pending: 'Pending',
     thresholdPending: (count: number) =>
       `Pending: measure on ${count} profiles to fill this table.`,
@@ -189,6 +203,7 @@ export const en = {
     legendShared: 'Shared interests do not imply people know each other.',
   },
   preferences: {
+    title: 'Preferences',
     language: 'Language',
     theme: 'Theme',
     dark: 'Dark',

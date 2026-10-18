@@ -1,5 +1,7 @@
 'use client';
 
+import type { Ref } from 'react';
+
 import { cx } from '@/core/cx';
 import { usePreferences } from '@/core/preferences';
 import { Button } from '@/ui';
@@ -7,6 +9,7 @@ import { Button } from '@/ui';
 import { useMessages } from '../../hooks/use-messages';
 import type { ReviewItem } from '../../hooks/use-review-items';
 import { countryName } from '../../i18n/values';
+import type { ProgramKey } from '../../types/segmentation.types';
 import { roleKey } from '../../utils/role-key';
 import { SignalsCard } from '../detail/signals-card';
 import { PreferenceToggles } from '../preference-toggles';
@@ -16,18 +19,31 @@ import { WhyPanel } from './why-panel';
 interface ReviewDetailProps {
   item: ReviewItem | undefined;
   className?: string;
+  titleRef: Ref<HTMLHeadingElement>;
+  choice: ProgramKey | undefined;
   onBack: () => void;
-  onNext: () => void;
+  onChoose: (program: ProgramKey) => void;
+  onConfirm: () => void;
+  onSkip: () => void;
 }
 
-export function ReviewDetail({ item, className, onBack, onNext }: ReviewDetailProps) {
+export function ReviewDetail({
+  item,
+  className,
+  titleRef,
+  choice,
+  onBack,
+  onChoose,
+  onConfirm,
+  onSkip,
+}: ReviewDetailProps) {
   const m = useMessages();
   const { locale } = usePreferences();
   const profile = item?.profile;
 
   return (
     <section
-      aria-label={m.review.why}
+      aria-label={m.detail.region}
       className={cx(
         'min-w-0 flex-col gap-4 overflow-y-auto px-4 py-6 tablet:px-8 desktop:h-dvh desktop:py-7',
         className,
@@ -38,7 +54,9 @@ export function ReviewDetail({ item, className, onBack, onNext }: ReviewDetailPr
       </Button>
       <header className="flex items-start justify-between gap-4">
         <div className="flex min-w-0 flex-col gap-1">
-          <h2 className="text-title-lg text-ink">{profile ? m.roles[roleKey(profile)] : ''}</h2>
+          <h2 ref={titleRef} tabIndex={-1} className="text-title-lg text-ink">
+            {profile ? m.roles[roleKey(profile)] : ''}
+          </h2>
           <p className="text-body-md text-ink-soft">
             {profile
               ? [
@@ -59,7 +77,15 @@ export function ReviewDetail({ item, className, onBack, onNext }: ReviewDetailPr
         <>
           <WhyPanel item={item} />
           <SignalsCard profile={item.profile} flagMissing />
-          <DecisionPanel key={item.profile.id} item={item} onDone={onNext} />
+          {choice ? (
+            <DecisionPanel
+              item={item}
+              choice={choice}
+              onChoose={onChoose}
+              onConfirm={onConfirm}
+              onSkip={onSkip}
+            />
+          ) : null}
         </>
       ) : (
         <p className="text-body-md text-ink-muted">{m.review.empty}</p>

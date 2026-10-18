@@ -66,6 +66,7 @@ export const es: Messages = {
     liveHint: (received) => `${received} registros de Luma recibidos · firmas verificadas`,
   },
   detail: {
+    region: 'Detalle del perfil',
     placeholder: 'Elige un perfil para ver qué decidió Jev y por qué.',
     back: 'Volver a la lista',
     lead: 'Lead sin oportunidad',
@@ -125,6 +126,12 @@ export const es: Messages = {
     title: 'Cola de revisión',
     subtitle: (count) =>
       `${count} perfiles que Jev no decidió solo: poca confianza o poca información`,
+    subtitleShort: (count) => `${count} sin decidir por Jev`,
+    labeledBadge: 'Etiquetado',
+    progress: (done, total) => `${done} de ${total} revisados`,
+    skipped: 'Omitido. Sigue en la cola.',
+    undoLast: 'Deshacer',
+    shortcuts: 'Teclas: J/K mover · 1–4 elegir · Enter confirmar · S omitir',
     all: 'Todos',
     lowConfidence: 'Poca confianza',
     lowInfo: 'Faltan campos',
@@ -145,9 +152,17 @@ export const es: Messages = {
   metrics: {
     title: 'Métricas',
     subtitle: (count) => `Medido en ${count} perfiles contra las etiquetas de los organizadores`,
-    notMeasured: 'Aún sin medir. Corre Jev contra las etiquetas de 30X para llenar esta página.',
     run: (count) => `Medir en ${count} perfiles`,
     running: 'Midiendo…',
+    runAgain: (count) => `Medir de nuevo en ${count} perfiles`,
+    emptyTitle: 'Aún no hay mediciones',
+    emptyBody: (count) =>
+      `Corre Jev en ${count} perfiles etiquetados por 30X para ver latencia, costo, acierto y cómo se comporta cada umbral.`,
+    measuredWith: (provider, calibrated) =>
+      `Proveedor: ${provider}${calibrated ? '' : ' · sin calibrar'}`,
+    notRealJev: 'No es Jev real',
+    chartLabel: (threshold, decided, accuracy) =>
+      `Con el umbral actual ${threshold.toFixed(2)}, Jev decide solo el ${decided} con ${accuracy} de acierto.`,
     failed: 'La medición falló. Vuelve a intentarlo.',
     medianLatency: 'Latencia mediana',
     questions: (count) => `${count} preguntas en 1 llamada`,
@@ -157,7 +172,6 @@ export const es: Messages = {
     baseline: (p, program) => `línea base ${percent(p)} (siempre ${program})`,
     profiles: 'Perfiles',
     tested: (count) => `${count} probados con Jev`,
-    notTested: 'Ninguno probado con Jev aún',
     pending: 'Pendiente',
     thresholdPending: (count) => `Pendiente: mide en ${count} perfiles para llenar esta tabla.`,
     thresholdTitle: 'Umbral: cuándo Jev decide solo',
@@ -187,6 +201,7 @@ export const es: Messages = {
     legendShared: 'Compartir intereses no implica que las personas se conozcan.',
   },
   preferences: {
+    title: 'Preferencias',
     language: 'Idioma',
     theme: 'Tema',
     dark: 'Oscuro',
