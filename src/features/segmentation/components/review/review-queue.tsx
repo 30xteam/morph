@@ -3,11 +3,16 @@
 import { useState } from 'react';
 
 import { cx } from '@/core/cx';
+import { usePreferences } from '@/core/preferences';
+import { Button } from '@/ui';
 
 import { useMessages } from '../../hooks/use-messages';
 import { useNow } from '../../hooks/use-now';
+import { useReviewFlow } from '../../hooks/use-review-flow';
 import { useReviewItems } from '../../hooks/use-review-items';
+import { useReviewShortcuts } from '../../hooks/use-review-shortcuts';
 import { type ReviewTab, useSegmentationStore } from '../../store/segmentation-store';
+import { timeAgo } from '../../utils/format';
 import { ListTabs } from '../live/list-tabs';
 import { ReviewDetail } from './review-detail';
 import { ReviewRow } from './review-row';
@@ -15,22 +20,23 @@ import { ReviewRow } from './review-row';
 export function ReviewQueue() {
   const m = useMessages();
   const now = useNow();
-  const { items, total, lowConfidence, lowInfo } = useReviewItems();
+  const { locale } = usePreferences();
+  const { items, total, labeled, lowConfidence, lowInfo } = useReviewItems();
   const reviews = useSegmentationStore((state) => state.reviews);
-  const selectedId = useSegmentationStore((state) => state.reviewSelectedId);
-  const select = useSegmentationStore((state) => state.selectReview);
   const tab = useSegmentationStore((state) => state.reviewTab);
   const setTab = useSegmentationStore((state) => state.setReviewTab);
   const [detailOpen, setDetailOpen] = useState(false);
-  const selected = items.find((item) => item.profile.id === selectedId) ?? items[0];
+  const flow = useReviewFlow(items);
+  const { selected, status } = flow;
+  useReviewShortcuts({
+    onMove: flow.move,
+    onPick: flow.pick,
+    onConfirm: flow.confirm,
+    onSkip: flow.skip,
+  });
 
-  const next = () => {
-    const index = items.findIndex((item) => item.profile.id === selected?.profile.id);
-    const upcoming = [...items.slice(index + 1), ...items.slice(0, index)].find(
-      (item) => !reviews[item.profile.id] && item.profile.id !== selected?.profile.id,
-    );
-    if (upcoming) select(upcoming.profile.id);
-  };
+  const showTime =
+    new Set(items.map((item) => timeAgo(item.outcome.meta.decidedAt, now, locale))).size > 1;
 
   const tabs: { value: ReviewTab; label: string; count: number }[] = [
     { value: 'all', label: m.review.all, count: total },
@@ -55,6 +61,20 @@ export function ReviewQueue() {
             <span className="tablet:hidden">{m.review.subtitleShort(total)}</span>
             <span className="hidden tablet:inline">{m.review.subtitle(total)}</span>
           </p>
+          <div className="flex min-h-8 flex-wrap items-center gap-x-3 gap-y-1">
+            <p className="text-label-sm text-ink tabular-nums">
+              {m.review.progress(labeled, total)}
+            </p>
+            <output aria-live="polite" className="text-body-sm text-ink-soft">
+              {status?.kind === 'labeled' ? m.review.labeled(m.programs[status.program]) : null}
+              {status?.kind === 'skipped' ? m.review.skipped : null}
+            </output>
+            {status?.kind === 'labeled' ? (
+              <Button variant="ghost" onClick={flow.undo} className="px-2">
+                {m.review.undoLast}
+              </Button>
+            ) : null}
+          </div>
         </header>
         <ListTabs label={m.review.title} value={tab} tabs={tabs} onChange={setTab} />
         <ul className="flex flex-col gap-0.5 overflow-y-auto px-3 pb-6">
@@ -65,8 +85,9 @@ export function ReviewQueue() {
               selected={item.profile.id === selected?.profile.id}
               labeled={Boolean(reviews[item.profile.id])}
               now={now}
+              showTime={showTime}
               onSelect={() => {
-                select(item.profile.id);
+                flow.goTo(item.profile.id);
                 setDetailOpen(true);
               }}
             />
@@ -75,9 +96,13 @@ export function ReviewQueue() {
       </section>
       <ReviewDetail
         item={selected}
+        titleRef={flow.titleRef}
+        choice={flow.choice}
         className={cx('flex-1 desktop:flex', detailOpen ? 'flex' : 'hidden')}
         onBack={() => setDetailOpen(false)}
-        onNext={next}
+        onChoose={flow.choose}
+        onConfirm={flow.confirm}
+        onSkip={flow.skip}
       />
     </div>
   );
