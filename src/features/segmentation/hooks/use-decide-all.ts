@@ -10,6 +10,13 @@ function chunks<T>(items: T[], size: number) {
   );
 }
 
+const OPEN_PAUSE_MS = 250;
+const CLOSE_PAUSE_MS = 600;
+
+function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function isCancelled() {
   return useSegmentationStore.getState().run.cancelled;
 }
@@ -31,6 +38,7 @@ export function useDecideAll() {
       batch: 0,
       batches: batches.length,
     });
+    await wait(OPEN_PAUSE_MS);
     for (const [index, batch] of batches.entries()) {
       if (isCancelled()) break;
       const ids = batch.map((profile) => profile.id);
@@ -54,7 +62,10 @@ export function useDecideAll() {
       if (!items) tally.failed += batch.length;
       setRun({ ...tally, done: tally.done + tally.failed });
     }
-    setRun({ ...tally, running: false, elapsedMs: performance.now() - startedAt });
+    const elapsedMs = performance.now() - startedAt;
+    if (!isCancelled()) setRun({ batch: batches.length + 1 });
+    await wait(CLOSE_PAUSE_MS);
+    setRun({ ...tally, running: false, elapsedMs });
   }
 
   return { decideAll, cancel: () => setRun({ cancelled: true }) };

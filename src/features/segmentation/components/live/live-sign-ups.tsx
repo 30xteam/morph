@@ -24,37 +24,32 @@ export function LiveSignUps() {
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-5">
-      <button
-        type="button"
-        aria-pressed={live}
-        title={live ? m.list.livePause : undefined}
-        onClick={toggle}
-        className={cx(
-          PILL,
-          live
-            ? 'border-accent bg-green-bg text-green-fg'
-            : 'border-line-strong bg-raised text-ink hover:bg-selected',
-        )}
-      >
-        <span aria-hidden="true" className="relative size-2">
-          <span
-            className={cx('absolute inset-0 rounded-full', live ? 'bg-accent' : 'bg-ink-muted')}
-          />
-          {live ? (
-            <span className="absolute inset-0 rounded-full bg-accent motion-safe:animate-live-ping" />
-          ) : null}
-        </span>
-        {live ? m.list.liveOn : m.list.liveOff}
+    <button
+      type="button"
+      aria-pressed={live}
+      title={live ? m.list.livePause : undefined}
+      onClick={toggle}
+      className={cx(
+        PILL,
+        live
+          ? 'border-accent bg-green-bg text-green-fg'
+          : 'border-line-strong bg-raised text-ink hover:bg-selected',
+      )}
+    >
+      <span aria-hidden="true" className="relative size-2">
+        <span
+          className={cx('absolute inset-0 rounded-full', live ? 'bg-accent' : 'bg-ink-muted')}
+        />
         {live ? (
-          <span className="rounded-full bg-primary px-1.5 text-badge text-on-primary tabular-nums">
-            {Math.max(received - since, 0)}
-          </span>
+          <span className="absolute inset-0 rounded-full bg-accent motion-safe:animate-live-ping" />
         ) : null}
-      </button>
-      <p aria-live="polite" className="text-caption text-ink-muted tabular-nums">
-        {m.list.liveHint(received)}
-      </p>
-    </div>
+      </span>
+      {live ? m.list.liveOn : m.list.liveOff}
+      {live ? (
+        <span className="rounded-full bg-primary px-1.5 text-badge text-on-primary tabular-nums">
+          {Math.max(received - since, 0)}
+        </span>
+      ) : null}
+    </button>
   );
 }

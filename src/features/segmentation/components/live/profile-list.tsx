@@ -11,7 +11,6 @@ import { useVisibleProfiles } from '../../hooks/use-visible-profiles';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { DecideAll } from './decide-all';
 import { LightFilter } from './light-filter';
-import { LiveSignUps } from './live-sign-ups';
 import { LowAffinityToggle } from './low-affinity-toggle';
 import { ProfileRow } from './profile-row';
 import { ProgramSelect } from './program-select';
@@ -42,7 +41,6 @@ export function ProfileList({ className, onOpen }: { className?: string; onOpen:
         <p className="text-body-sm text-ink-soft">{m.list.subtitle}</p>
       </header>
       <DecideAll />
-      <LiveSignUps />
       <section
         aria-label={m.list.filters}
         className="flex flex-col gap-5 border-y border-line bg-card px-5 py-5"
