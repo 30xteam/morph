@@ -51,7 +51,7 @@ export function useSigmaGraph({
   const mode = useRef(colorBy);
   const highlighted = useRef({ nodes: [] as string[], edges: [] as string[], selected: '' });
   const seededEpoch = useRef(0);
-  const [ready, setReady] = useState(false);
+  const [mounts, setMounts] = useState(0);
   const [laidOut, setLaidOut] = useState(false);
   const [epoch, setEpoch] = useState(0);
   const [zoomPercent, setZoomPercent] = useState(100);
@@ -122,7 +122,8 @@ export function useSigmaGraph({
       instance.on('nodeDragEnd', () => runLayout());
       instance.getCamera().on('updated', (state) => setZoomPercent(Math.round(100 / state.ratio)));
       renderer.current = instance;
-      setReady(true);
+      setLaidOut(false);
+      setMounts((value) => value + 1);
     }
     const observer = new ResizeObserver(() => {
       if (!element.offsetWidth || !element.offsetHeight) return;
@@ -143,7 +144,7 @@ export function useSigmaGraph({
 
   useEffect(() => {
     const sigma = renderer.current;
-    if (!ready || !sigma) return;
+    if (!mounts || !sigma) return;
     const reseed = seededEpoch.current !== epoch;
     const firstRun = reseed || sigma.getGraph().order === 0;
     seededEpoch.current = epoch;
@@ -152,7 +153,7 @@ export function useSigmaGraph({
     highlight();
     runLayout(firstRun ? FIRST_LAYOUT_MS : UPDATE_LAYOUT_MS);
     return () => cancel(cancelSettle);
-  }, [ready, graph, epoch]);
+  }, [mounts, graph, epoch]);
 
   useEffect(() => {
     if (paused) cancel(cancelSettle);
