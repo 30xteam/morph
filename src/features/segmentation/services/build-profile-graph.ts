@@ -1,7 +1,7 @@
 import { PROGRAM_LABELS } from '../config/labels';
 import type { GraphEdge, GraphNode, ProfileGraph } from '../types/graph.types';
 import type { Profile, SegmentationOutcome } from '../types/segmentation.types';
-import { profilePriority } from './profile-priority';
+import { PRIORITY_LEVELS, profilePriority } from './profile-priority';
 import type { PriorityLevel } from './profile-priority';
 
 export function normalizeGraphText(text: string) {
@@ -61,10 +61,12 @@ export function graphNeighborhood(graph: ProfileGraph, id: string) {
   return ids;
 }
 
-export function filterPriorityGraph(graph: ProfileGraph, priority: PriorityLevel | 'all') {
-  if (priority === 'all') return graph;
+export function filterPriorityGraph(graph: ProfileGraph, levels: readonly PriorityLevel[]) {
+  if (levels.length === PRIORITY_LEVELS.length) return graph;
   const ids = new Set(
-    graph.nodes.filter((node) => node.priority?.level === priority).map((node) => node.id),
+    graph.nodes
+      .filter((node) => node.priority && levels.includes(node.priority.level))
+      .map((node) => node.id),
   );
   const edges = graph.edges.filter((edge) => ids.has(edge.source));
   for (const edge of edges) ids.add(edge.target);

@@ -2,6 +2,8 @@ import type { SegmentationOutcome, TrafficLight } from '../types/segmentation.ty
 
 export type PriorityLevel = 'high' | 'medium' | 'low' | 'pending';
 
+export const PRIORITY_LEVELS: readonly PriorityLevel[] = ['high', 'medium', 'low', 'pending'];
+
 export interface ProfilePriority {
   level: PriorityLevel;
   label: string;

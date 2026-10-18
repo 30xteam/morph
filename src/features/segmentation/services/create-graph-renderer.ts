@@ -122,6 +122,8 @@ export async function loadGraphLibraries(): Promise<GraphLibraries> {
       settings: {
         enableNodeDrag: true,
         labelRenderedSizeThreshold: 16,
+        stagePadding: 40,
+        allowInvalidContainer: true,
         hideEdgesOnMove: true,
         minCameraRatio: 0.1,
         maxCameraRatio: 4,

@@ -1,27 +1,31 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useEffectEvent, useState } from 'react';
 
 import { cx } from '@/core/cx';
-import { Button, MarkLoader } from '@/ui';
+import { MarkLoader } from '@/ui';
 
 import { useGraphColors } from '../../hooks/use-graph-colors';
+import type { GraphJump } from '../../hooks/use-graph-view';
 import { useMessages } from '../../hooks/use-messages';
 import { useSigmaGraph } from '../../hooks/use-sigma-graph';
 import type { GraphColorBy } from '../../services/create-graph-renderer';
 import type { ProfileGraph } from '../../types/graph.types';
+import { FitIcon, PauseIcon, PlayIcon } from './graph-icons';
+
+const CONTROL =
+  'inline-flex size-11 items-center justify-center rounded-sm text-ink-soft transition-colors duration-150 hover:bg-raised hover:text-ink desktop:size-9';
 
 interface GraphSurfaceProps {
   graph: ProfileGraph;
   selectedId?: string;
+  jump?: GraphJump;
   colorBy: GraphColorBy;
   onSelect: (id: string) => void;
 }
 
-export function GraphSurface({ graph, selectedId, colorBy, onSelect }: GraphSurfaceProps) {
+export function GraphSurface({ graph, selectedId, jump, colorBy, onSelect }: GraphSurfaceProps) {
   const [paused, setPaused] = useState(false);
-  const [jump, setJump] = useState('');
-  const optionsId = useId();
   const m = useMessages();
   const colors = useGraphColors();
   const { container, loading, zoomPercent, zoomIn, zoomOut, focus, reset } = useSigmaGraph({
@@ -32,62 +36,21 @@ export function GraphSurface({ graph, selectedId, colorBy, onSelect }: GraphSurf
     colors,
     onSelect,
   });
+  const focusNode = useEffectEvent((id: string) => focus(id));
 
-  function jumpTo(value: string) {
-    setJump(value);
-    const match = graph.nodes.find((node) => node.label === value);
-    if (!match) return;
-    onSelect(match.id);
-    focus(match.id);
-    setJump('');
-  }
+  useEffect(() => {
+    if (jump) focusNode(jump.id);
+  }, [jump]);
 
   return (
-    <div className="flex min-w-0 flex-col bg-canvas">
-      <div className="flex flex-wrap items-center gap-1 border-b border-line p-2">
-        <Button variant="ghost" aria-label="Zoom out" onClick={zoomOut}>
-          −
-        </Button>
-        <span
-          className="min-w-12 text-center text-body-sm text-ink-muted tabular-nums"
-          aria-live="polite"
-        >
-          {zoomPercent}%
-        </span>
-        <Button variant="ghost" aria-label="Zoom in" onClick={zoomIn}>
-          +
-        </Button>
-        <Button variant="ghost" onClick={reset}>
-          Reset view
-        </Button>
-        <Button variant="ghost" aria-pressed={paused} onClick={() => setPaused((value) => !value)}>
-          {paused ? 'Resume layout' : 'Pause layout'}
-        </Button>
-        <label className="ml-auto flex items-center gap-2 text-body-sm text-ink-muted">
-          Go to node
-          <input
-            list={optionsId}
-            value={jump}
-            onChange={(event) => jumpTo(event.target.value)}
-            placeholder="Type a name"
-            className="h-11 w-48 rounded-md border border-line bg-canvas px-3 text-body-sm text-ink focus-visible:outline-2 focus-visible:outline-accent"
-          />
-        </label>
-        <datalist id={optionsId}>
-          {graph.nodes.map((node) => (
-            <option key={node.id} value={node.label}>
-              {node.kind}
-            </option>
-          ))}
-        </datalist>
-      </div>
+    <div className="relative h-[65dvh] min-w-0 flex-none bg-canvas desktop:h-auto desktop:flex-1">
       <figure
-        aria-label="30X relationship graph"
+        aria-label={m.graph.label}
         aria-describedby="graph-instructions"
         aria-busy={loading}
-        className="relative"
+        className="absolute inset-0"
       >
-        <div ref={container} className="h-128 w-full touch-none select-none tablet:h-160" />
+        <div ref={container} className="absolute inset-0 touch-none select-none" />
         <div
           aria-hidden={!loading}
           className={cx(
@@ -98,18 +61,48 @@ export function GraphSurface({ graph, selectedId, colorBy, onSelect }: GraphSurf
           <MarkLoader label={m.graph.loading} />
         </div>
       </figure>
+      <p id="graph-instructions" className="sr-only">
+        {m.graph.instructions}
+      </p>
       {!graph.nodes.length ? (
-        <output className="px-4 pb-4 text-body-sm text-ink-muted">
-          No matching nodes. Try another search.
+        <output className="absolute inset-x-4 top-6 text-center text-body-sm text-ink-muted">
+          {m.graph.empty}
         </output>
       ) : null}
-      <p
-        id="graph-instructions"
-        className="border-t border-line px-3 py-3 text-body-sm text-ink-muted"
-      >
-        Drag nodes or the background. Scroll to zoom. Use Go to node to select one with the
-        keyboard.
-      </p>
+      <div className="absolute bottom-4 left-4 flex items-center gap-0.5 rounded-md border border-line bg-card p-0.5 shadow-raised">
+        <button type="button" aria-label={m.graph.zoomOut} onClick={zoomOut} className={CONTROL}>
+          −
+        </button>
+        <span
+          aria-live="polite"
+          className="min-w-12 text-center text-caption text-ink-muted tabular-nums"
+        >
+          {zoomPercent}%
+        </span>
+        <button type="button" aria-label={m.graph.zoomIn} onClick={zoomIn} className={CONTROL}>
+          +
+        </button>
+        <span aria-hidden="true" className="mx-0.5 h-5 w-px bg-line" />
+        <button
+          type="button"
+          aria-label={m.graph.fit}
+          title={m.graph.fit}
+          onClick={reset}
+          className={CONTROL}
+        >
+          <FitIcon />
+        </button>
+        <button
+          type="button"
+          aria-label={paused ? m.graph.resume : m.graph.pause}
+          title={paused ? m.graph.resume : m.graph.pause}
+          aria-pressed={paused}
+          onClick={() => setPaused((value) => !value)}
+          className={CONTROL}
+        >
+          {paused ? <PlayIcon /> : <PauseIcon />}
+        </button>
+      </div>
     </div>
   );
 }
