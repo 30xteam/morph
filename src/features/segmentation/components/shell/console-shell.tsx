@@ -7,7 +7,6 @@ import { usePreferences } from '@/core/preferences';
 import { hydrateProfiles, useSegmentationStore, type Profile } from '@/libs/segmentation';
 import { Toaster } from '@/ui';
 
-import { useLumaFeed } from '../../hooks/use-luma-feed';
 import { OnboardingDialog } from '../onboarding/onboarding-dialog';
 import { ConsoleSidebar } from './console-sidebar';
 import { ConsoleTopbar } from './console-topbar';
@@ -22,7 +21,6 @@ export function ConsoleShell({ profiles, children }: ConsoleShellProps) {
   useEffect(() => {
     void useSegmentationStore.persist.rehydrate();
   }, []);
-  useLumaFeed();
   const { theme } = usePreferences();
 
   return (

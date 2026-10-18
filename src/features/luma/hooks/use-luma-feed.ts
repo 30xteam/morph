@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 
-import { SegmentationService, useSegmentationStore } from '@/libs/segmentation';
+import { LUMA_FEED_KEY, SegmentationService, useSegmentationStore } from '@/libs/segmentation';
 
 const POLL_MS = 1500;
-const LUMA_FEED_KEY = ['segmentation', 'luma-feed'];
 
 export function useLumaFeed() {
   const addProfile = useSegmentationStore((state) => state.addProfile);
@@ -29,13 +28,4 @@ export function useLumaFeed() {
   }, [query.data, addProfile, saveOutcome]);
 
   return query;
-}
-
-export function useLumaReceived() {
-  const query = useQuery({
-    queryKey: LUMA_FEED_KEY,
-    queryFn: () => SegmentationService.lumaFeed(0),
-    enabled: false,
-  });
-  return query.data?.received ?? 0;
 }

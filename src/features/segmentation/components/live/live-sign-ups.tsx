@@ -3,9 +3,9 @@
 import { useState } from 'react';
 
 import { cx } from '@/core/cx';
+import { useLumaReceived } from '@/libs/segmentation';
 
 import { useLiveSignUps } from '../../hooks/use-live-sign-ups';
-import { useLumaReceived } from '../../hooks/use-luma-feed';
 import { useMessages } from '../../hooks/use-messages';
 
 const PILL =

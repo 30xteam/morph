@@ -1,4 +1,4 @@
-import { handleLumaWebhook } from '@/features/segmentation/server';
+import { handleLumaWebhook } from '@/features/luma/server';
 
 export async function POST(request: Request) {
   try {

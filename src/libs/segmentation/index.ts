@@ -50,3 +50,4 @@ export type {
 export { formatPercent, formatUsd, timeAgo } from './utils/format';
 export { needsPerson, profileStatus } from './utils/profile-status';
 export type { ProfileStatus } from './utils/profile-status';
+export { LUMA_FEED_KEY, useLumaReceived } from './hooks/use-luma-received';

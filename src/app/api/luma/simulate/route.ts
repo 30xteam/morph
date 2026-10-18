@@ -2,7 +2,7 @@ import {
   previewLumaWebhook,
   simulateLumaWebhook,
   simulateLumaRequestSchema,
-} from '@/features/segmentation/server';
+} from '@/features/luma/server';
 
 export async function GET(request: Request) {
   const parsed = simulateLumaRequestSchema.safeParse({
