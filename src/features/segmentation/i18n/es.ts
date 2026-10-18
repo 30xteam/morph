@@ -81,8 +81,15 @@ export const es: Messages = {
     deciding: (done, total) => `Decidiendo ${done} de ${total}…`,
     summary: (count, seconds, cost) => `${count} decididos en ${seconds} s · ${cost}`,
     failed: (count) => `Jev no pudo decidir ${count}. Vuelve a intentarlo.`,
-    liveOn: 'Pausar registros en vivo',
-    liveOff: 'Registros en vivo',
+    decidingBatch: (batch, batches) => `Jev está decidiendo · lote ${batch} de ${batches}`,
+    progress: (done, total, green, yellow) =>
+      `${done} de ${total} · ${green} verdes, ${yellow} amarillos hasta ahora`,
+    cancel: 'Cancelar',
+    cancelled: (done, total) =>
+      `Cancelado: ${done} de ${total} decididos, el resto sigue sin evaluar.`,
+    liveOn: 'En vivo',
+    liveOff: 'Iniciar registros en vivo',
+    livePause: 'Pausar registros en vivo',
     liveHint: (received) => `${received} registros de Luma recibidos · firmas verificadas`,
   },
   detail: {
@@ -174,6 +181,9 @@ export const es: Messages = {
     subtitle: (count) => `Medido en ${count} perfiles contra las etiquetas de los organizadores`,
     run: (count) => `Medir en ${count} perfiles`,
     running: 'Midiendo…',
+    runningCount: (count) => `Midiendo ${count} perfiles…`,
+    updating: 'Mostrando la medición anterior mientras llega la nueva.',
+    comparedPrevious: 'Comparado con la medición anterior.',
     runAgain: (count) => `Medir de nuevo en ${count} perfiles`,
     emptyTitle: 'Aún no hay mediciones',
     emptyBody: (count) =>

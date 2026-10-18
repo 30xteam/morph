@@ -78,8 +78,16 @@ export const en = {
     summary: (count: number, seconds: string, cost: string) =>
       `${count} decided in ${seconds} s · ${cost}`,
     failed: (count: number) => `Jev could not decide ${count}. Try again.`,
-    liveOn: 'Pause live sign-ups',
-    liveOff: 'Live sign-ups',
+    decidingBatch: (batch: number, batches: number) =>
+      `Jev is deciding · batch ${batch} of ${batches}`,
+    progress: (done: number, total: number, green: number, yellow: number) =>
+      `${done} of ${total} · ${green} green, ${yellow} yellow so far`,
+    cancel: 'Cancel',
+    cancelled: (done: number, total: number) =>
+      `Cancelled: ${done} of ${total} decided, the rest stay not evaluated.`,
+    liveOn: 'Live',
+    liveOff: 'Start live sign-ups',
+    livePause: 'Pause live sign-ups',
     liveHint: (received: number) => `${received} Luma sign-ups received · signatures verified`,
   },
   detail: {
@@ -171,6 +179,9 @@ export const en = {
     subtitle: (count: number) => `Measured on ${count} profiles against the organizers’ labels`,
     run: (count: number) => `Measure on ${count} profiles`,
     running: 'Measuring…',
+    runningCount: (count: number) => `Measuring ${count} profiles…`,
+    updating: 'Showing the previous measurement while the new one arrives.',
+    comparedPrevious: 'Compared with the previous measurement.',
     runAgain: (count: number) => `Measure again on ${count} profiles`,
     emptyTitle: 'Nothing measured yet',
     emptyBody: (count: number) =>

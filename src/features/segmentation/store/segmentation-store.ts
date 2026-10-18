@@ -16,18 +16,28 @@ export type ReviewTab = ReviewReason | 'all';
 
 export interface BatchRun {
   running: boolean;
+  cancelled: boolean;
   total: number;
   done: number;
   failed: number;
+  batch: number;
+  batches: number;
+  green: number;
+  yellow: number;
   elapsedMs: number;
   costUsd: number;
 }
 
 const IDLE_RUN: BatchRun = {
   running: false,
+  cancelled: false,
   total: 0,
   done: 0,
   failed: 0,
+  batch: 0,
+  batches: 0,
+  green: 0,
+  yellow: 0,
   elapsedMs: 0,
   costUsd: 0,
 };
@@ -43,6 +53,7 @@ interface SegmentationState {
   reviewSelectedId: string | null;
   run: BatchRun;
   evaluation: SegmentationEvaluation | null;
+  previousEvaluation: SegmentationEvaluation | null;
   hydrate: (profiles: Profile[]) => void;
   addProfile: (profile: Profile) => void;
   updateProfile: (profile: Profile) => void;
@@ -103,6 +114,7 @@ export const useSegmentationStore = create<SegmentationState>()(
       reviewSelectedId: null,
       run: IDLE_RUN,
       evaluation: null,
+      previousEvaluation: null,
       hydrate: (profiles) =>
         set((state) => (state.profiles.length ? state : { profiles, selectedId: profiles[0]?.id })),
       addProfile: (profile) =>
@@ -138,7 +150,8 @@ export const useSegmentationStore = create<SegmentationState>()(
       select: (selectedId) => set({ selectedId }),
       selectReview: (reviewSelectedId) => set({ reviewSelectedId }),
       setRun: (run) => set((state) => ({ run: { ...state.run, ...run } })),
-      setEvaluation: (evaluation) => set({ evaluation }),
+      setEvaluation: (evaluation) =>
+        set((state) => ({ evaluation, previousEvaluation: state.evaluation })),
     }),
     {
       name: 'segmentation-console',

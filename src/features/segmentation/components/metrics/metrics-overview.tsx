@@ -1,11 +1,13 @@
 'use client';
 
+import { cx } from '@/core/cx';
 import { Button } from '@/ui';
 
 import { SEGMENTATION_QUESTIONS } from '../../config/questions';
 import { useConsoleCounts } from '../../hooks/use-console-counts';
 import { EVALUATION_SIZE, useEvaluation } from '../../hooks/use-evaluation';
 import { useMessages } from '../../hooks/use-messages';
+import { evaluationDeltas } from '../../services/evaluation-delta';
 import { useSegmentationStore } from '../../store/segmentation-store';
 import { formatPercent, formatUsd } from '../../utils/format';
 import { PreferenceToggles } from '../preference-toggles';
@@ -19,8 +21,14 @@ const QUESTION_COUNT = Object.keys(SEGMENTATION_QUESTIONS).length;
 export function MetricsOverview() {
   const m = useMessages();
   const evaluation = useSegmentationStore((state) => state.evaluation);
+  const previous = useSegmentationStore((state) => state.previousEvaluation);
   const counts = useConsoleCounts();
   const { mutate, isPending, isError } = useEvaluation();
+  const deltas =
+    evaluation && previous && !isPending ? evaluationDeltas(evaluation, previous) : null;
+  let measureNote = '';
+  if (isPending) measureNote = m.metrics.updating;
+  else if (deltas && Object.values(deltas).some(Boolean)) measureNote = m.metrics.comparedPrevious;
   const error = isError ? (
     <p role="alert" className="text-body-sm text-danger">
       {m.metrics.failed}
@@ -53,8 +61,13 @@ export function MetricsOverview() {
       {evaluation ? (
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="secondary" disabled={isPending} onClick={() => mutate()}>
-            {isPending ? m.metrics.running : m.metrics.runAgain(EVALUATION_SIZE)}
+            {isPending
+              ? m.metrics.runningCount(EVALUATION_SIZE)
+              : m.metrics.runAgain(EVALUATION_SIZE)}
           </Button>
+          <p aria-live="polite" className="text-body-sm text-ink-muted">
+            {measureNote}
+          </p>
           {error}
         </div>
       ) : (
@@ -73,16 +86,31 @@ export function MetricsOverview() {
         </section>
       )}
       {evaluation ? (
-        <dl className="grid gap-3 tablet:grid-cols-2 wide:grid-cols-4">
+        <div aria-hidden="true" className="relative -my-2 h-0.5 overflow-hidden rounded-full">
+          {isPending ? (
+            <span className="absolute inset-y-0 left-0 w-2/5 bg-accent motion-safe:animate-indeterminate" />
+          ) : null}
+        </div>
+      ) : null}
+      {evaluation ? (
+        <dl
+          aria-busy={isPending}
+          className={cx(
+            'grid gap-3 transition-opacity duration-200 tablet:grid-cols-2 wide:grid-cols-4',
+            isPending && 'opacity-45',
+          )}
+        >
           <StatTile
             label={m.metrics.medianLatency}
             value={`${evaluation.medianLatencyMs} ms`}
             hint={m.metrics.questions(QUESTION_COUNT)}
+            delta={deltas?.latency}
           />
           <StatTile
             label={m.metrics.cost}
             value={`≈ ${formatUsd(evaluation.costPerThousandUsd)}`}
             hint={m.metrics.perThousand}
+            delta={deltas?.cost}
           />
           <StatTile
             label={m.metrics.accuracy}
@@ -91,6 +119,7 @@ export function MetricsOverview() {
               evaluation.baselineAccuracy,
               m.programs[evaluation.baselineProgram],
             )}
+            delta={deltas?.accuracy}
           />
           <StatTile
             label={m.metrics.profiles}
