@@ -68,7 +68,8 @@ export async function loadGraphLibraries(): Promise<GraphLibraries> {
             if (state.isHighlighted) return color('ink');
             return color(attributes.kind === 'recommendation' ? 'accent' : 'line');
           },
-          size: (_attributes, state) => (state.isHighlighted ? 2 : 1),
+          size: (attributes, state) =>
+            (attributes.kind === 'recommendation' ? 2.5 : 1) + (state.isHighlighted ? 1 : 0),
           opacity: (_attributes, state, graphState) =>
             graphState.hasHighlighted && !state.isHighlighted ? DIMMED_OPACITY : 1,
           depth: (_attributes, state) => (state.isHighlighted ? 'topEdges' : 'edges'),
