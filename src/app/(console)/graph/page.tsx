@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { ProfileGraph } from '@/features/segmentation';
+import { ProfileGraph } from '@/features/graph';
 
 export const metadata: Metadata = { title: 'Graph' };
 

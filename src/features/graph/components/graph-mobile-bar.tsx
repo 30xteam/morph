@@ -4,8 +4,8 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 import { Button } from '@/ui';
 
-import type { GraphView } from '../../hooks/use-graph-view';
-import { useMessages } from '../../hooks/use-messages';
+import type { GraphView } from '../hooks/use-graph-view';
+import { useMessages } from '../hooks/use-messages';
 import { GraphFilters } from './graph-filters';
 import { CloseIcon, FilterIcon } from './graph-icons';
 

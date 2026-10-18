@@ -1,6 +1,6 @@
 'use client';
 
-import { useGraphView } from '../../hooks/use-graph-view';
+import { useGraphView } from '../hooks/use-graph-view';
 import { GraphDetails } from './graph-details';
 import { GraphFiltersPanel } from './graph-filters-panel';
 import { GraphMobileBar } from './graph-mobile-bar';

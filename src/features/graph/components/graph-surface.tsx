@@ -5,12 +5,12 @@ import { useEffect, useEffectEvent, useState } from 'react';
 import { cx } from '@/core/cx';
 import { MarkLoader } from '@/ui';
 
-import { useGraphColors } from '../../hooks/use-graph-colors';
-import type { GraphJump } from '../../hooks/use-graph-view';
-import { useMessages } from '../../hooks/use-messages';
-import { useSigmaGraph } from '../../hooks/use-sigma-graph';
-import type { GraphColorBy } from '../../services/create-graph-renderer';
-import type { ProfileGraph } from '../../types/graph.types';
+import { useGraphColors } from '../hooks/use-graph-colors';
+import type { GraphJump } from '../hooks/use-graph-view';
+import { useMessages } from '../hooks/use-messages';
+import { useSigmaGraph } from '../hooks/use-sigma-graph';
+import type { GraphColorBy } from '../services/create-graph-renderer';
+import type { ProfileGraph } from '../types/graph.types';
 import { FitIcon, PauseIcon, PlayIcon } from './graph-icons';
 
 const CONTROL =

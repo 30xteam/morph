@@ -5,13 +5,13 @@ import { useMemo } from 'react';
 import { liveHref } from '@/libs/segmentation';
 import { Button, useProgressRouter } from '@/ui';
 
-import type { GraphView } from '../../hooks/use-graph-view';
-import { useMessages } from '../../hooks/use-messages';
-import { graphNeighborhood } from '../../services/build-profile-graph';
-import type { GraphNode } from '../../types/graph.types';
-import { PriorityBadge } from '../priority-badge';
+import type { GraphView } from '../hooks/use-graph-view';
+import { useMessages } from '../hooks/use-messages';
+import { graphNeighborhood } from '../services/build-profile-graph';
+import type { GraphNode } from '../types/graph.types';
 import { CloseIcon } from './graph-icons';
 import { GraphProgramSummary } from './graph-program-summary';
+import { PriorityBadge } from './priority-badge';
 
 export function GraphDetails({ view, selected }: { view: GraphView; selected: GraphNode }) {
   const m = useMessages();

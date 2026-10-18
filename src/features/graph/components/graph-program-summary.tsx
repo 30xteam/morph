@@ -3,8 +3,8 @@
 import { cx } from '@/core/cx';
 import { PRIORITY_LEVELS, type PriorityLevel } from '@/libs/segmentation';
 
-import { useMessages } from '../../hooks/use-messages';
-import type { ProgramSummary } from '../../services/graph-summary';
+import { useMessages } from '../hooks/use-messages';
+import type { ProgramSummary } from '../services/graph-summary';
 
 const BAR: Record<PriorityLevel, string> = {
   high: 'bg-green-fg',

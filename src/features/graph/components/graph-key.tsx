@@ -2,9 +2,9 @@
 
 import { cx } from '@/core/cx';
 
-import { useMessages } from '../../hooks/use-messages';
-import type { GraphColorBy } from '../../services/create-graph-renderer';
-import type { GraphNode } from '../../types/graph.types';
+import { useMessages } from '../hooks/use-messages';
+import type { GraphColorBy } from '../services/create-graph-renderer';
+import type { GraphNode } from '../types/graph.types';
 
 const PROGRAM_DOT: Record<string, string> = {
   'program:ai_sales': 'bg-accent',

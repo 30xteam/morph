@@ -2,8 +2,8 @@
 
 import { useId } from 'react';
 
-import { useMessages } from '../../hooks/use-messages';
-import type { GraphNode } from '../../types/graph.types';
+import { useMessages } from '../hooks/use-messages';
+import type { GraphNode } from '../types/graph.types';
 import { SearchIcon } from './graph-icons';
 
 interface GraphSearchProps {

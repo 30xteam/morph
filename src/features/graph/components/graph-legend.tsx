@@ -2,7 +2,7 @@
 
 import { cx } from '@/core/cx';
 
-import { useMessages } from '../../hooks/use-messages';
+import { useMessages } from '../hooks/use-messages';
 
 const PRIORITY_DOTS = [
   'size-3 bg-green-fg',

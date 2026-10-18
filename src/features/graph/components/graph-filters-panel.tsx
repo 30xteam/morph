@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 import { cx } from '@/core/cx';
 
-import type { GraphView } from '../../hooks/use-graph-view';
-import { useMessages } from '../../hooks/use-messages';
+import type { GraphView } from '../hooks/use-graph-view';
+import { useMessages } from '../hooks/use-messages';
 import { GraphFilters } from './graph-filters';
 import { PanelIcon } from './graph-icons';
 
